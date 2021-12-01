@@ -9,7 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 
 public class Hello extends Application {
-	
+	 
 	@Override
 	public void start(Stage primaryStage) {
 		try {
