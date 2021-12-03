@@ -9,12 +9,12 @@
    <children>
       <ImageView fitHeight="512.0" fitWidth="1150.0" layoutY="-14.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../assets/bgbg_auto_x2.jpg" />
+            <Image url="@../assets/heroless_bg.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="myOrc" fitHeight="61.0" fitWidth="56.0" layoutX="280.0" layoutY="169.0" pickOnBounds="true" preserveRatio="true" scaleX="1.1" scaleY="0.9">
+      <ImageView fx:id="myPrincess" fitHeight="61.0" fitWidth="56.0" layoutX="630.0" layoutY="175.0" pickOnBounds="true" preserveRatio="true" scaleX="1.1" scaleY="0.9">
          <image>
-            <Image url="@../assets/GreenOrc.png" />
+            <Image url="@../assets/princesss.png" />
          </image>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="180.0" layoutX="-8.0" layoutY="462.0" rotate="-1.5" stroke="TRANSPARENT" strokeType="INSIDE" width="1183.0" />
@@ -23,9 +23,9 @@
             <Image url="@../assets/load_button.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="myImage" fitHeight="60.0" fitWidth="100.0" layoutX="351.0" layoutY="169.0" pickOnBounds="true" preserveRatio="true" scaleX="1.1" scaleY="0.9">
+      <ImageView fx:id="myHero" fitHeight="60.0" fitWidth="100.0" layoutX="508.0" layoutY="175.0" pickOnBounds="true" preserveRatio="true" scaleX="1.1" scaleY="0.9">
          <image>
-            <Image url="@../assets/Hero.png" />
+            <Image url="@../assets/hero2.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="76.0" fitWidth="174.0" layoutX="496.0" layoutY="512.0" pickOnBounds="true" preserveRatio="true">
@@ -36,6 +36,11 @@
       <ImageView fitHeight="76.0" fitWidth="174.0" layoutX="845.0" layoutY="512.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/exit_button.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="myHeart" fitHeight="65.0" fitWidth="34.0" layoutX="574.0" layoutY="167.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/heart.png" />
          </image>
       </ImageView>
    </children>
