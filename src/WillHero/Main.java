@@ -27,9 +27,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
-<<<<<<< Updated upstream
-public class Main implements Initializable { 
-=======
+
 public class Main extends Application implements Initializable {
 	 
 	@Override
@@ -38,8 +36,10 @@ public class Main extends Application implements Initializable {
 			Parent root = FXMLLoader.load(getClass().getResource("/Main.fxml")); 
 			Scene scene = new Scene(root);
 			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+
 			//***ADD LATER***//Image icon = new Image("C:\\Users\\AKSHAT\\Desktop\\LocalAP\\assets\\hero2.png");
 			//***ADD LATER***//primaryStage.getIcons().add(icon);
+
 			primaryStage.setTitle("WILL HERO");
 			primaryStage.setScene(scene);
 			primaryStage.setResizable(false);
@@ -53,7 +53,6 @@ public class Main extends Application implements Initializable {
 		launch(args);
 	} 
 	
->>>>>>> Stashed changes
 	@FXML
 	private ImageView myHero; 
 	@FXML
@@ -79,24 +78,14 @@ public class Main extends Application implements Initializable {
 		  scale.setAutoReverse(true);
 		
 		  TranslateTransition translate1 = new TranslateTransition();
-<<<<<<< Updated upstream
-		  translate1.setNode(myOrc);
-		  translate1.setDuration(Duration.millis(600));
-=======
 		  translate1.setNode(myPrincess);
 		  translate1.setDuration(Duration.millis(750));
->>>>>>> Stashed changes
 		  translate1.setCycleCount(TranslateTransition.INDEFINITE);
-		  translate1.setByY(-75);
+		  translate1.setByY(-60);
 		  translate1.setAutoReverse(true);
 		  ScaleTransition scale2 = new ScaleTransition();
-<<<<<<< Updated upstream
-		  scale2.setNode(myOrc);
-		  scale2.setDuration(Duration.millis(600));
-=======
 		  scale2.setNode(myPrincess);
 		  scale2.setDuration(Duration.millis(750));
->>>>>>> Stashed changes
 		  scale2.setCycleCount(TranslateTransition.INDEFINITE);
 		  scale2.setInterpolator(Interpolator.LINEAR);
 		  scale2.setByX(-0.1);
