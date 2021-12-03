@@ -11,9 +11,14 @@ import javafx.event.ActionEvent;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -29,36 +34,68 @@ import javafx.util.Duration;
 
 
 public class Main extends Application implements Initializable {
-	 
-	@Override
-	public void start(Stage primaryStage) {
-		try {
-			Parent root = FXMLLoader.load(getClass().getResource("/Main.fxml")); 
-			Scene scene = new Scene(root);
-			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-
-			//***ADD LATER***//Image icon = new Image("C:\\Users\\AKSHAT\\Desktop\\LocalAP\\assets\\hero2.png");
-			//***ADD LATER***//primaryStage.getIcons().add(icon);
-
-			primaryStage.setTitle("WILL HERO");
-			primaryStage.setScene(scene);
-			primaryStage.setResizable(false);
-			primaryStage.show();
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-	}
 	
-	public static void main(String[] args) {
-		launch(args);
-	} 
 	
 	@FXML
 	private ImageView myHero; 
 	@FXML
 	private ImageView myPrincess; 
 	@FXML
-	private ImageView myHeart;
+	private ImageView myHeart;	
+	@FXML
+	private AnchorPane anchorPane;
+	
+	
+	@Override
+	public void start(Stage primaryStage) throws Exception {
+		try {
+			Parent root = FXMLLoader.load(getClass().getResource("/Main.fxml")); 
+			Scene scene = new Scene(root);
+			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			//Image icon = new Image("..\\assets\\hero2.png");
+			//primaryStage.getIcons().add(icon);
+			
+			primaryStage.setTitle("WILL HERO");
+			primaryStage.setScene(scene);
+			primaryStage.setResizable(false);
+			primaryStage.show();
+			primaryStage.setOnCloseRequest(event -> {
+				event.consume();
+				Alert alert = new Alert(AlertType.CONFIRMATION);
+				alert.setTitle("Exit");
+				alert.setHeaderText("You're about to Exit!");
+				if (alert.showAndWait().get() == ButtonType.OK){
+					primaryStage.close();
+				} 	
+			});
+		} catch(Exception e) {
+			throw e;
+		}
+	}
+	
+	public void logout(MouseEvent e){	
+		Alert alert = new Alert(AlertType.CONFIRMATION);
+		alert.setTitle("Exit");
+		alert.setHeaderText("You're about to Exit!");
+		//alert.setContentText("Do you want to save before exiting?");
+		Stage mystage = (Stage)anchorPane.getScene().getWindow();
+		if (alert.showAndWait().get() == ButtonType.OK){
+			mystage.close();
+		} 
+	}
+	
+	public void newGame(MouseEvent event) throws IOException {
+		  Parent root = FXMLLoader.load(getClass().getResource("/NewGame.fxml"));
+		  Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		  Scene scene = new Scene(root);
+		  stage.setScene(scene);
+		  stage.show();
+	}
+	
+	public static void main(String[] args) {
+		launch(args);
+	} 
+	
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
