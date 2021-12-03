@@ -27,7 +27,29 @@ import javafx.scene.image.ImageView;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
-public class Main implements Initializable { 
+public class Main extends Application implements Initializable {
+	 
+	@Override
+	public void start(Stage primaryStage) {
+		try {
+			Parent root = FXMLLoader.load(getClass().getResource("/Main.fxml")); 
+			Scene scene = new Scene(root);
+			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			Image icon = new Image("C:\\Users\\nakul\\Desktop\\AP Project\\assets\\hero2.png");
+			primaryStage.getIcons().add(icon);
+			primaryStage.setTitle("WILL HERO");
+			primaryStage.setScene(scene);
+			primaryStage.setResizable(false);
+			primaryStage.show();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void main(String[] args) {
+		launch(args);
+	} 
+	
 	@FXML
 	private ImageView myImage; 
 	@FXML
@@ -52,13 +74,13 @@ public class Main implements Initializable {
 		
 		  TranslateTransition translate1 = new TranslateTransition();
 		  translate1.setNode(myOrc);
-		  translate1.setDuration(Duration.millis(600));
+		  translate1.setDuration(Duration.millis(750));
 		  translate1.setCycleCount(TranslateTransition.INDEFINITE);
-		  translate1.setByY(-75);
+		  translate1.setByY(-60);
 		  translate1.setAutoReverse(true);
 		  ScaleTransition scale2 = new ScaleTransition();
 		  scale2.setNode(myOrc);
-		  scale2.setDuration(Duration.millis(600));
+		  scale2.setDuration(Duration.millis(750));
 		  scale2.setCycleCount(TranslateTransition.INDEFINITE);
 		  scale2.setInterpolator(Interpolator.LINEAR);
 		  scale2.setByX(-0.1);

@@ -3,22 +3,39 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 
 <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="1150.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WillHero.Main">
    <children>
-      <ImageView fitHeight="610.0" fitWidth="1150.0" layoutX="1.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="512.0" fitWidth="1150.0" layoutY="-14.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../Pictures/Screenshot%202021-12-02%20145318.png" />
+            <Image url="@../assets/bgbg_auto_x2.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="myImage" fitHeight="60.0" fitWidth="100.0" layoutX="231.0" layoutY="333.0" pickOnBounds="true" preserveRatio="true" scaleX="1.1" scaleY="0.9">
+      <ImageView fx:id="myOrc" fitHeight="61.0" fitWidth="56.0" layoutX="280.0" layoutY="169.0" pickOnBounds="true" preserveRatio="true" scaleX="1.1" scaleY="0.9">
+         <image>
+            <Image url="@../assets/GreenOrc.png" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="180.0" layoutX="-8.0" layoutY="462.0" rotate="-1.5" stroke="TRANSPARENT" strokeType="INSIDE" width="1183.0" />
+      <ImageView fitHeight="76.0" fitWidth="174.0" layoutX="153.0" layoutY="512.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/load_button.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="myImage" fitHeight="60.0" fitWidth="100.0" layoutX="351.0" layoutY="169.0" pickOnBounds="true" preserveRatio="true" scaleX="1.1" scaleY="0.9">
          <image>
             <Image url="@../assets/Hero.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="myOrc" fitHeight="61.0" fitWidth="56.0" layoutX="158.0" layoutY="333.0" pickOnBounds="true" preserveRatio="true" scaleX="1.1" scaleY="0.9">
+      <ImageView fitHeight="76.0" fitWidth="174.0" layoutX="496.0" layoutY="512.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../assets/GreenOrc.png" />
+            <Image url="@../assets/new_game_button.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="76.0" fitWidth="174.0" layoutX="845.0" layoutY="512.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/exit_button.png" />
          </image>
       </ImageView>
    </children>
