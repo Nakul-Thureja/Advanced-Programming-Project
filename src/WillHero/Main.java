@@ -47,7 +47,7 @@ public class Main extends Application implements Initializable {
 	
 	
 	@Override
-	public void start(Stage primaryStage) throws Exception {
+	public void start(Stage primaryStage){
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("/Main.fxml")); 
 			Scene scene = new Scene(root);
@@ -69,7 +69,7 @@ public class Main extends Application implements Initializable {
 				} 	
 			});
 		} catch(Exception e) {
-			throw e;
+			e.printStackTrace();
 		}
 	}
 	
