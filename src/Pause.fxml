@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="1150.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WillHero.PauseMenu">
+   <children>
+      <ImageView fitHeight="610.0" fitWidth="1150.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/empty_bg.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="resumeButton" fitHeight="61.0" fitWidth="292.0" layoutX="421.0" layoutY="90.0" onMouseClicked="#resumeHandler" onMouseEntered="#hover1" onMouseExited="#unhover1" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/resume_combo.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fx:id="restartButton" fitHeight="61.0" fitWidth="292.0" layoutX="421.0" layoutY="210.0" onMouseClicked="#restartHandler" onMouseEntered="#hover2" onMouseExited="#unhover2" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/restart_combo.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fx:id="saveButton" fitHeight="61.0" fitWidth="292.0" layoutX="421.0" layoutY="329.0" onMouseClicked="#saveHandler" onMouseEntered="#hover3" onMouseExited="#unhover3" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/save_combo.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fx:id="mainButton" fitHeight="61.0" fitWidth="292.0" layoutX="421.0" layoutY="449.0" onMouseClicked="#mainHandler" onMouseEntered="#hover4" onMouseExited="#unhover4" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/menu_combo.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+   </children>
+</AnchorPane>

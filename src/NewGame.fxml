@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="1150.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="1150.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WillHero.NewGame">
    <children>
       <ImageView fitHeight="610.0" fitWidth="1150.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -21,6 +21,14 @@
          <image>
             <Image url="@assets/hero2.png" />
          </image>
+      </ImageView>
+      <ImageView fx:id="pauseButton" fitHeight="83.0" fitWidth="72.0" layoutX="1054.0" layoutY="22.0" onMouseClicked="#pauseHandler" onMouseEntered="#hover" onMouseExited="#unhover" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/pause_button.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </ImageView>
    </children>
 </AnchorPane>
