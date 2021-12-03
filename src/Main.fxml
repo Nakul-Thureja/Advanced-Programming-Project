@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+
+<AnchorPane fx:id="anchorPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="1150.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WillHero.Main">
+   <children>
+      <ImageView fitHeight="512.0" fitWidth="1150.0" layoutY="-14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/heroless_bg.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="myPrincess" fitHeight="61.0" fitWidth="56.0" layoutX="611.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true" scaleX="1.1" scaleY="0.9">
+         <image>
+            <Image url="@assets/princesss.png" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="180.0" layoutX="-8.0" layoutY="462.0" rotate="-1.5" stroke="TRANSPARENT" strokeType="INSIDE" width="1183.0" />
+      <ImageView fx:id="loadButton" fitHeight="76.0" fitWidth="174.0" layoutX="165.0" layoutY="512.0" onMouseEntered="#hover3" onMouseExited="#unhover3" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/load_button.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fx:id="myHero" fitHeight="60.0" fitWidth="100.0" layoutX="524.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true" scaleX="1.1" scaleY="0.9">
+         <image>
+            <Image url="@assets/hero2.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="newButton" fitHeight="76.0" fitWidth="174.0" layoutX="521.0" layoutY="512.0" onMouseClicked="#newGame" onMouseEntered="#hover1" onMouseExited="#unhover1" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/new_game_button.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fx:id="exitButton" fitHeight="76.0" fitWidth="174.0" layoutX="855.0" layoutY="512.0" onMouseClicked="#logout" onMouseEntered="#hover2" onMouseExited="#unhover2" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/exit_button.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fx:id="myHeart" fitHeight="65.0" fitWidth="34.0" layoutX="574.0" layoutY="167.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/heart.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
