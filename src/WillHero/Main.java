@@ -1,6 +1,7 @@
 package WillHero;
 	
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.animation.Interpolator;
@@ -44,7 +45,12 @@ public class Main extends Application implements Initializable {
 	private ImageView myHeart;	
 	@FXML
 	private AnchorPane anchorPane;
-	
+	@FXML
+	private ImageView newButton;
+	@FXML
+	private ImageView exitButton;
+	@FXML
+	private ImageView loadButton;
 	
 	@Override
 	public void start(Stage primaryStage){
@@ -52,8 +58,8 @@ public class Main extends Application implements Initializable {
 			Parent root = FXMLLoader.load(getClass().getResource("/Main.fxml")); 
 			Scene scene = new Scene(root);
 			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			//Image icon = new Image("..\\assets\\hero2.png");
-			//primaryStage.getIcons().add(icon);
+			Image icon = new Image(getClass().getResource("/assets/hero2.png").toURI().toString());
+			primaryStage.getIcons().add(icon);
 			
 			primaryStage.setTitle("WILL HERO");
 			primaryStage.setScene(scene);
@@ -92,6 +98,34 @@ public class Main extends Application implements Initializable {
 		  stage.show();
 	}
 	
+	public void hover1(MouseEvent event) throws URISyntaxException {
+        	Image image = new Image(getClass().getResource("/assets/dark_new_gamebutton.png").toURI().toString());
+			newButton.setImage(image); 
+	}
+	
+	public void unhover1(MouseEvent event) throws URISyntaxException {
+		Image image = new Image(getClass().getResource("/assets/new_game_button.png").toURI().toString());
+		newButton.setImage(image);
+	}
+	
+	public void hover2(MouseEvent event) throws URISyntaxException {
+    	Image image = new Image(getClass().getResource("/assets/dark_exit_button.png").toURI().toString());
+		exitButton.setImage(image); 
+}
+
+	public void unhover2(MouseEvent event) throws URISyntaxException {
+	Image image = new Image(getClass().getResource("/assets/exit_button.png").toURI().toString());
+	exitButton.setImage(image);
+}
+	public void hover3(MouseEvent event) throws URISyntaxException {
+    	Image image = new Image(getClass().getResource("/assets/dark_load_button.png").toURI().toString());
+		loadButton.setImage(image); 
+}
+
+	public void unhover3(MouseEvent event) throws URISyntaxException {
+	Image image = new Image(getClass().getResource("/assets/load_button.png").toURI().toString());
+		loadButton.setImage(image);
+}
 	public static void main(String[] args) {
 		launch(args);
 	} 
