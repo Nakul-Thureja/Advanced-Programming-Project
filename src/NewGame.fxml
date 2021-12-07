@@ -9,7 +9,7 @@
    <children>
       <AnchorPane fx:id="gamePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="11500.0">
          <children>
-            <ImageView fitHeight="610.0" fitWidth="11500.0" pickOnBounds="true">
+            <ImageView fitHeight="610.0" fitWidth="11500.0" layoutY="-3.0" pickOnBounds="true">
                <image>
                   <Image url="@assets/empty_bg.png" />
                </image>
@@ -300,6 +300,16 @@
             <ImageView fx:id="coinDisplay" fitHeight="66.0" fitWidth="175.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/coin_banner.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="47.0" fitWidth="39.0" layoutX="2136.0" layoutY="255.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/princesss.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="90.0" fitWidth="106.0" layoutX="2103.0" layoutY="210.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/cage.png" />
                </image>
             </ImageView>
          </children>
