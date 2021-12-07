@@ -33,13 +33,25 @@ import javafx.fxml.Initializable;
 //import javafx.scene.transform.Rotate;
 //import javafx.util.Duration;
 
-public class NewGame {
+public class NewGame implements Initializable{
 	
 	@FXML
 	private ImageView pauseButton;
 	
+	@FXML
+	private ImageView myHero;
+	
+	@FXML
+	private AnchorPane myPane;
+	
+	@FXML
+	private AnchorPane gamePane;
+	
+	private TranslateTransition translate;
+	private ScaleTransition scale;	
+	
 	public void pauseHandler(MouseEvent event) throws IOException {
-		 Parent root = FXMLLoader.load(getClass().getResource("/Pause.fxml"));
+		  Parent root = FXMLLoader.load(getClass().getResource("/Pause.fxml"));
 		  Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		  Scene scene = new Scene(root);
 		  stage.setScene(scene);
@@ -56,6 +68,53 @@ public class NewGame {
 	pauseButton.setImage(image);
 }
 
-	
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		// TODO Auto-generated method stub
+		  translate = new TranslateTransition();
+		  translate.setNode(myHero);
+		  translate.setDuration(Duration.millis(750));
+		  translate.setCycleCount(TranslateTransition.INDEFINITE);
+		  translate.setByY(-60);
+		  translate.setAutoReverse(true);
+		  scale = new ScaleTransition();
+		  scale.setNode(myHero);
+		  scale.setDuration(Duration.millis(750));
+		  scale.setCycleCount(TranslateTransition.INDEFINITE);
+		  scale.setInterpolator(Interpolator.LINEAR);
+		  scale.setByX(-0.1);
+		  scale.setByY(0.1);
+		  scale.setAutoReverse(true);
+		  translate.play();
+		  scale.play();
+		  
+		  myHero.translateXProperty().addListener((obs, old, newValue) -> {
+		       
+
+	            int offset = newValue.intValue();
+
+	            if (offset > 100 && offset < 11500 - 100) {
+	                myPane.setLayoutX(-(offset - 100));
+	                pauseButton.setLayoutX(-(offset - 100+1054));
+	            }
+	        });
+		 
+		  
+	}
+
+	public void move(MouseEvent e) {
+          translate.pause();
+          scale.pause();
+          TranslateTransition translate1 = new TranslateTransition();
+		  translate1.setNode(myHero);
+		  translate1.setDuration(Duration.millis(750));
+		  translate1.setCycleCount(1);
+		  translate1.setByX(60);
+		  translate1.setAutoReverse(false);
+		  translate1.play();
+		  translate.play();
+		  scale.play();
+
+	}
 
 }

@@ -5,24 +5,38 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="1150.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WillHero.NewGame">
+<AnchorPane fx:id="myPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#move" prefHeight="610.0" prefWidth="1150.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WillHero.NewGame">
    <children>
-      <ImageView fitHeight="610.0" fitWidth="1150.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@assets/empty_bg.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="187.0" fitWidth="256.0" layoutX="82.0" layoutY="322.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@assets/platform_good.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="myHero" fitHeight="59.0" fitWidth="145.0" layoutX="195.0" layoutY="267.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@assets/hero2.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="pauseButton" fitHeight="83.0" fitWidth="72.0" layoutX="1054.0" layoutY="22.0" onMouseClicked="#pauseHandler" onMouseEntered="#hover" onMouseExited="#unhover" pickOnBounds="true" preserveRatio="true">
+      <AnchorPane fx:id="gamePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="11500.0">
+         <children>
+            <ImageView fitHeight="610.0" fitWidth="11500.0" pickOnBounds="true">
+               <image>
+                  <Image url="@assets/empty_bg.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="187.0" fitWidth="256.0" layoutX="130.0" layoutY="285.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/platform_good.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="myHero" fitHeight="59.0" fitWidth="145.0" layoutX="234.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/hero2.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="187.0" fitWidth="256.0" layoutX="451.0" layoutY="285.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/platform_good.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="187.0" fitWidth="256.0" layoutX="1243.0" layoutY="269.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/platform_good.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <ImageView fx:id="pauseButton" fitHeight="83.0" fitWidth="72.0" layoutX="1054.0" layoutY="20.0" onMouseClicked="#pauseHandler" onMouseEntered="#hover" onMouseExited="#unhover" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@assets/pause_button.png" />
          </image>
