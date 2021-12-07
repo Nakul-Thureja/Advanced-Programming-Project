@@ -14,9 +14,74 @@
                   <Image url="@assets/empty_bg.png" />
                </image>
             </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="1016.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/CLoud2.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="1319.0" layoutY="-21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/CLoud1.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="1240.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/CLoud1.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="1472.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/CLoud2.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="1681.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/CLoud2.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="2056.0" layoutY="136.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/CLoud1.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="2476.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/CLoud1.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="2396.0" layoutY="190.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/CLoud2.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="100.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/CLoud1.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="379.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/CLoud2.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="532.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/CLoud2.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="770.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/CLoud1.png" />
+               </image>
+            </ImageView>
             <ImageView fitHeight="187.0" fitWidth="256.0" layoutX="130.0" layoutY="285.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/platform_good.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="handWeapon" fitHeight="37.0" fitWidth="95.0" layoutX="153.0" layoutY="251.0" pickOnBounds="true" preserveRatio="true" rotate="6.3">
+               <image>
+                  <Image url="@assets/sword.png" />
                </image>
             </ImageView>
             <ImageView fx:id="myHero" fitHeight="59.0" fitWidth="145.0" layoutX="234.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true">
@@ -34,15 +99,210 @@
                   <Image url="@assets/platform_good.png" />
                </image>
             </ImageView>
+            <ImageView fx:id="pauseButton" fitHeight="66.0" fitWidth="59.0" layoutX="1067.0" layoutY="20.0" onMouseClicked="#pauseHandler" onMouseEntered="#hover" onMouseExited="#unhover" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/pause_button.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <ImageView fx:id="redORC" fitHeight="59.0" fitWidth="62.0" layoutX="503.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/redOrc.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="81.0" fitWidth="90.0" layoutX="520.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true" rotate="102.3">
+               <image>
+                  <Image url="@assets/hammer.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="greenORC" fitHeight="53.0" fitWidth="59.0" layoutX="940.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/GreenOrc.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="hammerSlot" fitHeight="106.0" fitWidth="106.0" layoutX="120.0" layoutY="496.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/locked_hammer.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="swordSlot" fitHeight="106.0" fitWidth="106.0" layoutX="14.0" layoutY="496.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/locked_sword.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="187.0" fitWidth="256.0" layoutX="791.0" layoutY="285.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/platform_good.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="59.0" fitWidth="95.0" layoutX="1340.0" layoutY="214.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/chest1.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="59.0" fitWidth="95.0" layoutX="825.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/weaponchest1.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="36.0" fitWidth="28.0" layoutX="372.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coin.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="36.0" fitWidth="28.0" layoutX="412.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coin.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="36.0" fitWidth="28.0" layoutX="451.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coin.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="36.0" fitWidth="28.0" layoutX="707.0" layoutY="215.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coin.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="36.0" fitWidth="28.0" layoutX="742.0" layoutY="215.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coin.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="36.0" fitWidth="28.0" layoutX="707.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coin.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="36.0" fitWidth="28.0" layoutX="742.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coin.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="36.0" fitWidth="28.0" layoutX="777.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coin.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="36.0" fitWidth="28.0" layoutX="809.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coin.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="36.0" fitWidth="28.0" layoutX="809.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coin.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="36.0" fitWidth="28.0" layoutX="777.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coin.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="36.0" fitWidth="28.0" layoutX="842.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coin.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="36.0" fitWidth="28.0" layoutX="879.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coin.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="36.0" fitWidth="28.0" layoutX="842.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coin.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="36.0" fitWidth="28.0" layoutX="879.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coin.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="36.0" fitWidth="28.0" layoutX="915.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coin.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="36.0" fitWidth="28.0" layoutX="915.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coin.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="36.0" fitWidth="28.0" layoutX="951.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coin.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="36.0" fitWidth="28.0" layoutX="988.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coin.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="36.0" fitWidth="28.0" layoutX="951.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coin.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="36.0" fitWidth="28.0" layoutX="988.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coin.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="36.0" fitWidth="28.0" layoutX="1024.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coin.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="36.0" fitWidth="28.0" layoutX="1024.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coin.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="36.0" fitWidth="28.0" layoutX="1061.0" layoutY="214.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coin.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="36.0" fitWidth="28.0" layoutX="1096.0" layoutY="214.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coin.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="36.0" fitWidth="28.0" layoutX="1061.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coin.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="36.0" fitWidth="28.0" layoutX="1096.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coin.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="187.0" fitWidth="256.0" layoutX="2028.0" layoutY="296.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/platform_good.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="207.0" fitWidth="186.0" layoutX="1857.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/BossOrc.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="81.0" fitWidth="404.0" layoutX="1639.0" layoutY="305.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/fallingplatform.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="coinDisplay" fitHeight="66.0" fitWidth="175.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coin_banner.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
-      <ImageView fx:id="pauseButton" fitHeight="83.0" fitWidth="72.0" layoutX="1054.0" layoutY="20.0" onMouseClicked="#pauseHandler" onMouseEntered="#hover" onMouseExited="#unhover" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@assets/pause_button.png" />
-         </image>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </ImageView>
    </children>
 </AnchorPane>
