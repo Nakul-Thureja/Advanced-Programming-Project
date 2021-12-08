@@ -33,7 +33,7 @@ import javafx.fxml.Initializable;
 //import javafx.scene.transform.Rotate;
 //import javafx.util.Duration;
 
-public class PauseMenu {
+public class PauseMenu implements Initializable {
 	
 	@FXML
 	private ImageView resumeButton;
@@ -43,6 +43,8 @@ public class PauseMenu {
 	private ImageView saveButton;
 	@FXML
 	private ImageView mainButton;
+	@FXML
+	private ImageView myORC;
 	
 	public void resumeHandler(MouseEvent event) {
 		
@@ -104,6 +106,27 @@ public class PauseMenu {
 	Image image = new Image(getClass().getResource("/assets/menu_combo.png").toURI().toString());
 		mainButton.setImage(image);
 }
+
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		// TODO Auto-generated method stub
+		TranslateTransition translate = new TranslateTransition();
+		  translate.setNode(myORC);
+		  translate.setDuration(Duration.millis(750));
+		  translate.setCycleCount(TranslateTransition.INDEFINITE);
+		  translate.setByY(-85);
+		  translate.setAutoReverse(true);
+		  ScaleTransition scale = new ScaleTransition();
+		  scale.setNode(myORC);
+		  scale.setDuration(Duration.millis(750));
+		  scale.setCycleCount(TranslateTransition.INDEFINITE);
+		  scale.setInterpolator(Interpolator.LINEAR);
+		  scale.setByX(-0.1);
+		  scale.setByY(0.1);
+		  scale.setAutoReverse(true);
+		  translate.play();
+		  scale.play();
+	}
 	
 	
 	

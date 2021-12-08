@@ -287,7 +287,7 @@
                   <Image url="@assets/platform_good.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="207.0" fitWidth="186.0" layoutX="1857.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="bossORC" fitHeight="207.0" fitWidth="186.0" layoutX="1857.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/BossOrc.png" />
                </image>
