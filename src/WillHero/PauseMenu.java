@@ -34,7 +34,7 @@ import javafx.fxml.Initializable;
 //import javafx.util.Duration;
 
 public class PauseMenu implements Initializable {
-	
+
 	@FXML
 	private ImageView resumeButton;
 	@FXML
@@ -45,90 +45,94 @@ public class PauseMenu implements Initializable {
 	private ImageView mainButton;
 	@FXML
 	private ImageView myORC;
-	
+
 	public void resumeHandler(MouseEvent event) {
-		
+
 	}
-	
+
 	public void restartHandler(MouseEvent event) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/NewGame.fxml"));
-		  Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-		  Scene scene = new Scene(root);
-		  stage.setScene(scene);
-		  stage.show();
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		Scene scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
 	}
-	
-	public void saveHandler(MouseEvent event) {
-		
+
+	public void saveHandler(MouseEvent event) throws IOException {
+		Parent root = FXMLLoader.load(getClass().getResource("/SaveGame.fxml"));
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		Scene scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
 	}
-	
+
 	public void mainHandler(MouseEvent event) throws IOException {
-		  Parent root = FXMLLoader.load(getClass().getResource("/Main.fxml"));
-		  Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-		  Scene scene = new Scene(root);
-		  stage.setScene(scene);
-		  stage.show();
+		Parent root = FXMLLoader.load(getClass().getResource("/Main.fxml"));
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		Scene scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
 	}
-	
+
 	public void hover1(MouseEvent event) throws URISyntaxException {
-    	Image image = new Image(getClass().getResource("/assets/dark_resume_combo.png").toURI().toString());
-		resumeButton.setImage(image); 
-}
+		Image image = new Image(getClass().getResource("/assets/dark_resume_combo.png").toURI().toString());
+		resumeButton.setImage(image);
+	}
 
 	public void unhover1(MouseEvent event) throws URISyntaxException {
-	Image image = new Image(getClass().getResource("/assets/resume_combo.png").toURI().toString());
-	resumeButton.setImage(image);
-}
+		Image image = new Image(getClass().getResource("/assets/resume_combo.png").toURI().toString());
+		resumeButton.setImage(image);
+	}
+
 	public void hover2(MouseEvent event) throws URISyntaxException {
-    	Image image = new Image(getClass().getResource("/assets/dark_restart_combo.png").toURI().toString());
-		restartButton.setImage(image); 
-}
+		Image image = new Image(getClass().getResource("/assets/dark_restart_combo.png").toURI().toString());
+		restartButton.setImage(image);
+	}
 
 	public void unhover2(MouseEvent event) throws URISyntaxException {
-	Image image = new Image(getClass().getResource("/assets/restart_combo.png").toURI().toString());
+		Image image = new Image(getClass().getResource("/assets/restart_combo.png").toURI().toString());
 		restartButton.setImage(image);
-}
+	}
+
 	public void hover3(MouseEvent event) throws URISyntaxException {
-    	Image image = new Image(getClass().getResource("/assets/dark_save_combo.png").toURI().toString());
-		saveButton.setImage(image); 
-}
+		Image image = new Image(getClass().getResource("/assets/dark_save_combo.png").toURI().toString());
+		saveButton.setImage(image);
+	}
 
 	public void unhover3(MouseEvent event) throws URISyntaxException {
-	Image image = new Image(getClass().getResource("/assets/save_combo.png").toURI().toString());
+		Image image = new Image(getClass().getResource("/assets/save_combo.png").toURI().toString());
 		saveButton.setImage(image);
-}
+	}
+
 	public void hover4(MouseEvent event) throws URISyntaxException {
-    	Image image = new Image(getClass().getResource("/assets/dark_menu_combo.png").toURI().toString());
-		mainButton.setImage(image); 
-}
+		Image image = new Image(getClass().getResource("/assets/dark_menu_combo.png").toURI().toString());
+		mainButton.setImage(image);
+	}
 
 	public void unhover4(MouseEvent event) throws URISyntaxException {
-	Image image = new Image(getClass().getResource("/assets/menu_combo.png").toURI().toString());
+		Image image = new Image(getClass().getResource("/assets/menu_combo.png").toURI().toString());
 		mainButton.setImage(image);
-}
+	}
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
 		TranslateTransition translate = new TranslateTransition();
-		  translate.setNode(myORC);
-		  translate.setDuration(Duration.millis(750));
-		  translate.setCycleCount(TranslateTransition.INDEFINITE);
-		  translate.setByY(-85);
-		  translate.setAutoReverse(true);
-		  ScaleTransition scale = new ScaleTransition();
-		  scale.setNode(myORC);
-		  scale.setDuration(Duration.millis(750));
-		  scale.setCycleCount(TranslateTransition.INDEFINITE);
-		  scale.setInterpolator(Interpolator.LINEAR);
-		  scale.setByX(-0.1);
-		  scale.setByY(0.1);
-		  scale.setAutoReverse(true);
-		  translate.play();
-		  scale.play();
+		translate.setNode(myORC);
+		translate.setDuration(Duration.millis(750));
+		translate.setCycleCount(TranslateTransition.INDEFINITE);
+		translate.setByY(-85);
+		translate.setAutoReverse(true);
+		ScaleTransition scale = new ScaleTransition();
+		scale.setNode(myORC);
+		scale.setDuration(Duration.millis(750));
+		scale.setCycleCount(TranslateTransition.INDEFINITE);
+		scale.setInterpolator(Interpolator.LINEAR);
+		scale.setByX(-0.1);
+		scale.setByY(0.1);
+		scale.setAutoReverse(true);
+		translate.play();
+		scale.play();
 	}
-	
-	
-	
 
 }

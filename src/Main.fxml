@@ -19,7 +19,7 @@
          </image>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="180.0" layoutX="-8.0" layoutY="462.0" rotate="-1.5" stroke="TRANSPARENT" strokeType="INSIDE" width="1183.0" />
-      <ImageView fx:id="loadButton" fitHeight="76.0" fitWidth="174.0" layoutX="165.0" layoutY="512.0" onMouseEntered="#hover3" onMouseExited="#unhover3" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="loadButton" fitHeight="76.0" fitWidth="174.0" layoutX="165.0" layoutY="512.0" onMouseClicked="#loadGame" onMouseEntered="#hover3" onMouseExited="#unhover3" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@assets/load_button.png" />
          </image>

@@ -79,6 +79,14 @@ public class Main extends Application implements Initializable {
 		}
 	}
 	
+	public void loadGame(MouseEvent e) throws IOException {
+		  Parent root = FXMLLoader.load(getClass().getResource("/LoadGame.fxml"));
+		  Stage stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+		  Scene scene = new Scene(root);
+		  stage.setScene(scene);
+		  stage.show();
+	}
+	
 	public void logout(MouseEvent e){	
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.setTitle("Exit");

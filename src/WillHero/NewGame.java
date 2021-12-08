@@ -63,10 +63,21 @@ public class NewGame implements Initializable {
 	private ImageView coinDisplay;
 	@FXML
 	private ImageView handWeapon;
+	@FXML
+	private ImageView handWeapon2;
+	@FXML
+	private ImageView clickable;
+	@FXML
+	private ImageView OrcWeapon;
+
 
 	private TranslateTransition translate;
 	private ScaleTransition scale;
 	private TranslateTransition wtranslate;
+	private TranslateTransition w2translate;
+	private TranslateTransition translate1 = new TranslateTransition();
+	private TranslateTransition wtranslate1 = new TranslateTransition();
+	private TranslateTransition w2translate1 = new TranslateTransition();
 
 	public void pauseHandler(MouseEvent event) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/Pause.fxml"));
@@ -86,9 +97,38 @@ public class NewGame implements Initializable {
 		pauseButton.setImage(image);
 	}
 
+	
+	public void swordSelect(MouseEvent e) throws URISyntaxException {
+		translate1.pause();
+		wtranslate1.pause();
+		w2translate1.pause();
+		Image image1 = new Image(getClass().getResource("/assets/unlocked_hammer.png").toURI().toString());
+		hammerSlot.setImage(image1);
+		Image image = new Image(getClass().getResource("/assets/selected_sword.png").toURI().toString());
+		swordSlot.setImage(image);
+		handWeapon2.setVisible(false);
+		handWeapon.setVisible(true);
+		
+			
+	}
+	
+	public void hammerSelect(MouseEvent e) throws URISyntaxException {
+		translate1.pause();
+		wtranslate1.pause();
+		w2translate1.pause();
+		Image image1 = new Image(getClass().getResource("/assets/unlocked_sword.png").toURI().toString());
+		swordSlot.setImage(image1);
+		Image image = new Image(getClass().getResource("/assets/selected_hammer.png").toURI().toString());
+		hammerSlot.setImage(image);
+		handWeapon.setVisible(false);
+		handWeapon2.setVisible(true);
+	}
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
+		handWeapon.setVisible(false);
+		handWeapon2.setVisible(false);
 		translate = new TranslateTransition();
 		translate.setNode(myHero);
 		translate.setDuration(Duration.millis(600));
@@ -109,6 +149,13 @@ public class NewGame implements Initializable {
 		wtranslate.setCycleCount(TranslateTransition.INDEFINITE);
 		wtranslate.setByY(-60);
 		wtranslate.setAutoReverse(true);
+		w2translate = new TranslateTransition();
+		w2translate.setNode(handWeapon2);
+		w2translate.setDuration(Duration.millis(600));
+		w2translate.setCycleCount(TranslateTransition.INDEFINITE);
+		w2translate.setByY(-60);
+		w2translate.setAutoReverse(true);
+		w2translate.play();
 		wtranslate.play();
 		translate.play();
 		scale.play();
@@ -119,18 +166,20 @@ public class NewGame implements Initializable {
 
 			if (offset > 100 && offset < 11500 - 100) {
 				myPane.setLayoutX(-(offset - 100));
+				clickable.setX(offset - 100);
 				pauseButton.setX(offset - 100);
 				swordSlot.setX(offset-100);
 				hammerSlot.setX(offset-100);
 				coinDisplay.setX(offset-100);
 			}
 		});
-		jumpOrcs(redORC,60);
-		jumpOrcs(greenORC,50);
-		jumpOrcs(bossORC,85);
+		auto_jump(redORC,60,true);
+		auto_jump(greenORC,50,true);
+		auto_jump(bossORC,85,true);
+		auto_jump(OrcWeapon,60,false);
 
 	}
-	public void jumpOrcs(ImageView Node,int height) {
+	public void auto_jump(ImageView Node,int height,boolean ifscale) {
 	
 		TranslateTransition translate = new TranslateTransition();
 		  translate.setNode(Node);
@@ -138,6 +187,7 @@ public class NewGame implements Initializable {
 		  translate.setCycleCount(TranslateTransition.INDEFINITE);
 		  translate.setByY(-height);
 		  translate.setAutoReverse(true);
+		  if(ifscale) {
 		  ScaleTransition scale = new ScaleTransition();
 		  scale.setNode(Node);
 		  scale.setDuration(Duration.millis(750));
@@ -146,27 +196,36 @@ public class NewGame implements Initializable {
 		  scale.setByX(-0.1);
 		  scale.setByY(0.1);
 		  scale.setAutoReverse(true);
-		  translate.play();
 		  scale.play();
-	
+		  }
+		  translate.play();
+
 	}
 	public void move(MouseEvent e) {
 		translate.pause();
 		scale.pause();
 		wtranslate.pause();
+		w2translate.pause();
 	
-		TranslateTransition translate1 = new TranslateTransition();
+		translate1 = new TranslateTransition();
 		translate1.setNode(myHero);
 		translate1.setDuration(Duration.millis(450));
 		translate1.setCycleCount(1);
 		translate1.setByX(300);
 		translate1.setAutoReverse(false);
-		TranslateTransition wtranslate1 = new TranslateTransition();
+		wtranslate1 = new TranslateTransition();
 		wtranslate1.setNode(handWeapon);
 		wtranslate1.setDuration(Duration.millis(450));
 		wtranslate1.setCycleCount(1);
 		wtranslate1.setByX(300);
 		wtranslate1.setAutoReverse(false);
+		w2translate1 = new TranslateTransition();
+		w2translate1.setNode(handWeapon2);
+		w2translate1.setDuration(Duration.millis(450));
+		w2translate1.setCycleCount(1);
+		w2translate1.setByX(300);
+		w2translate1.setAutoReverse(false);
+		w2translate1.play();
 		wtranslate1.play();
 		translate1.play();
 		translate1.setOnFinished(new EventHandler<ActionEvent>() {
@@ -176,6 +235,7 @@ public class NewGame implements Initializable {
 				translate.play();
 				scale.play();
 				wtranslate.play();
+				w2translate.play();
 			}
 		});
 		
