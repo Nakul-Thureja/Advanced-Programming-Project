@@ -100,7 +100,7 @@ public class Main extends Application implements Initializable {
 	}
 	
 	public void newGame(MouseEvent event) throws IOException {
-		  Parent root = FXMLLoader.load(getClass().getResource("/NewGame.fxml"));
+		  Parent root = FXMLLoader.load(getClass().getResource("/EnterName.fxml"));
 		  Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		  Scene scene = new Scene(root);
 		  stage.setScene(scene);
@@ -120,21 +120,21 @@ public class Main extends Application implements Initializable {
 	public void hover2(MouseEvent event) throws URISyntaxException {
     	Image image = new Image(getClass().getResource("/assets/dark_exit_button.png").toURI().toString());
 		exitButton.setImage(image); 
-}
+	}
 
 	public void unhover2(MouseEvent event) throws URISyntaxException {
 	Image image = new Image(getClass().getResource("/assets/exit_button.png").toURI().toString());
 	exitButton.setImage(image);
-}
+	}
 	public void hover3(MouseEvent event) throws URISyntaxException {
     	Image image = new Image(getClass().getResource("/assets/dark_load_button.png").toURI().toString());
 		loadButton.setImage(image); 
-}
+	}
 
 	public void unhover3(MouseEvent event) throws URISyntaxException {
 	Image image = new Image(getClass().getResource("/assets/load_button.png").toURI().toString());
 		loadButton.setImage(image);
-}
+	}
 	public static void main(String[] args) {
 		launch(args);
 	} 
