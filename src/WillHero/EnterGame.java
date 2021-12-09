@@ -57,23 +57,21 @@ public class EnterGame implements Initializable {
 		stage.show();
 	}
 	
-	public void jumpOrc(ImageView orc,int delay) {
+	public void jumpOrc(ImageView orc,int flag) {
 		
 		TranslateTransition translate = new TranslateTransition();
-		translate.setDelay(Duration.millis(delay));
 		translate.setNode(orc);
 		translate.setDuration(Duration.millis(750));
 		translate.setCycleCount(TranslateTransition.INDEFINITE);
-		translate.setByY(-60);
+		translate.setByY(-60 * flag);
 		translate.setAutoReverse(true);
 		ScaleTransition scale = new ScaleTransition();
-		scale.setDelay(Duration.millis(delay));
 		scale.setNode(orc);
 		scale.setDuration(Duration.millis(750));
 		scale.setCycleCount(TranslateTransition.INDEFINITE);
 		scale.setInterpolator(Interpolator.LINEAR);
-		scale.setByX(-0.1);
-		scale.setByY(0.1);
+		scale.setByX(-0.1 * flag);
+		scale.setByY(0.1* flag);
 		scale.setAutoReverse(true);
 		translate.play();
 		scale.play();
@@ -81,10 +79,10 @@ public class EnterGame implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-		jumpOrc(greenOrc1,0);
-		jumpOrc(greenOrc2,0);
-		jumpOrc(redOrc1,750);
-		jumpOrc(redOrc2,750);
+		jumpOrc(greenOrc1,1);
+		jumpOrc(greenOrc2,1);
+		jumpOrc(redOrc1,-1);
+		jumpOrc(redOrc2,-1);
 		
 		
 	}

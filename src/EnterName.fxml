@@ -48,7 +48,7 @@
             <Image url="@assets/Tree1.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="redOrc1" fitHeight="66.0" fitWidth="70.0" layoutX="679.0" layoutY="245.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="redOrc1" fitHeight="66.0" fitWidth="70.0" layoutX="679.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@assets/redOrc.png" />
          </image>
@@ -58,7 +58,7 @@
             <Image url="@assets/GreenOrc.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="redOrc2" fitHeight="66.0" fitWidth="70.0" layoutX="795.0" layoutY="245.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="redOrc2" fitHeight="66.0" fitWidth="70.0" layoutX="795.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@assets/redOrc.png" />
          </image>
