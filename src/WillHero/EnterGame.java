@@ -39,12 +39,12 @@ public class EnterGame implements Initializable {
 	private String name;
 	
 	public void hover(MouseEvent event) throws URISyntaxException {
-		Image image = new Image(getClass().getResource("/assets/dark_exit_button.png").toURI().toString());
+		Image image = new Image(getClass().getResource("/assets/dark_submit.png").toURI().toString());
 		submitButton.setImage(image);
 	}
 
 	public void unhover(MouseEvent event) throws URISyntaxException {
-		Image image = new Image(getClass().getResource("/assets/exit_button.png").toURI().toString());
+		Image image = new Image(getClass().getResource("/assets/submit.png").toURI().toString());
 		submitButton.setImage(image);
 	}
 	

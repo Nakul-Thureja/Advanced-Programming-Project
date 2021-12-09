@@ -35,7 +35,7 @@
       </TextField>
       <ImageView fx:id="submitButton" fitHeight="150.0" fitWidth="200.0" layoutX="57.0" layoutY="358.0" onMouseClicked="#startGame" onMouseEntered="#hover" onMouseExited="#unhover" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@assets/exit_button.png" />
+            <Image url="@assets/submit.png" />
          </image>
       </ImageView>
       <ImageView fx:id="myHeart1" fitHeight="99.0" fitWidth="77.0" layoutX="948.0" layoutY="210.0" pickOnBounds="true" preserveRatio="true">
