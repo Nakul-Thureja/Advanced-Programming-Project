@@ -42,6 +42,8 @@ public class SaveGameMenu implements Initializable {
 	@FXML
 	private ImageView myJumper;
 	@FXML
+	private ImageView myHeart;
+	@FXML
 	private ImageView slot1;
 	@FXML
 	private ImageView slot2;
@@ -125,8 +127,19 @@ public class SaveGameMenu implements Initializable {
 		scale.setByX(-0.1);
 		scale.setByY(0.1);
 		scale.setAutoReverse(true);
+		
+		ScaleTransition scale3 = new ScaleTransition();
+		scale3.setNode(myHeart);
+		scale3.setDuration(Duration.millis(750));
+		scale3.setCycleCount(ScaleTransition.INDEFINITE);
+		scale3.setInterpolator(Interpolator.LINEAR);
+		scale3.setByX(0.3);
+		scale3.setByY(0.3);
+		scale3.setAutoReverse(true);
+		  
 		translate.play();
 		scale.play();
+		scale3.play();
 	}
 
 }

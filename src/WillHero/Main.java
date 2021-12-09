@@ -20,6 +20,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 //import javafx.scene.layout.BorderPane;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -174,11 +175,11 @@ public class Main extends Application implements Initializable {
 		  
 		  ScaleTransition scale3 = new ScaleTransition();
 		  scale3.setNode(myHeart);
-		  scale3.setDuration(Duration.millis(800));
+		  scale3.setDuration(Duration.millis(750));
 		  scale3.setCycleCount(ScaleTransition.INDEFINITE);
 		  scale3.setInterpolator(Interpolator.LINEAR);
-		  scale3.setByX(-0.3);
-		  scale3.setByY(-0.3);
+		  scale3.setByX(0.2);
+		  scale3.setByY(0.2);
 		  scale3.setAutoReverse(true);
 		  
 		  

@@ -23,6 +23,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 //import javafx.scene.layout.BorderPane;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -69,7 +70,10 @@ public class NewGame implements Initializable {
 	private ImageView clickable;
 	@FXML
 	private ImageView OrcWeapon;
-
+	@FXML
+	private Text myScore;
+	
+	private int score;
 
 	private TranslateTransition translate;
 	private ScaleTransition scale;
@@ -159,7 +163,7 @@ public class NewGame implements Initializable {
 		wtranslate.play();
 		translate.play();
 		scale.play();
-
+		score = 0;
 		myHero.translateXProperty().addListener((obs, old, newValue) -> {
 
 			int offset = newValue.intValue();
@@ -171,6 +175,7 @@ public class NewGame implements Initializable {
 				swordSlot.setX(offset-100);
 				hammerSlot.setX(offset-100);
 				coinDisplay.setX(offset-100);
+				myScore.setX(offset-100);
 			}
 		});
 		auto_jump(redORC,60,true);
@@ -228,6 +233,7 @@ public class NewGame implements Initializable {
 		w2translate1.play();
 		wtranslate1.play();
 		translate1.play();
+		
 		translate1.setOnFinished(new EventHandler<ActionEvent>() {
 			
 			@Override
@@ -238,10 +244,12 @@ public class NewGame implements Initializable {
 				w2translate.play();
 			}
 		});
-		
+		score++;
+		myScore.setText(Integer.toString(score));
 		//new PauseTransition(Duration.millis(5000));
 		//translate.play();
 		//scale.play();
+
 	}
 
 }
