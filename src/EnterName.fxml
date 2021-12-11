@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -37,6 +38,9 @@
          <image>
             <Image url="@assets/submit.png" />
          </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </ImageView>
       <ImageView fx:id="myHeart1" fitHeight="99.0" fitWidth="77.0" layoutX="948.0" layoutY="210.0" pickOnBounds="true" preserveRatio="true">
          <image>

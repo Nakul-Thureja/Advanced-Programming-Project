@@ -17,6 +17,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -35,9 +37,9 @@ public class EnterGame implements Initializable {
 	private ImageView submitButton;
 	@FXML
 	private TextField textName;
-	
+
 	private String name;
-	
+
 	public void hover(MouseEvent event) throws URISyntaxException {
 		Image image = new Image(getClass().getResource("/assets/dark_submit.png").toURI().toString());
 		submitButton.setImage(image);
@@ -47,18 +49,18 @@ public class EnterGame implements Initializable {
 		Image image = new Image(getClass().getResource("/assets/submit.png").toURI().toString());
 		submitButton.setImage(image);
 	}
-	
+
 	public void startGame(MouseEvent event) throws IOException {
 		name = textName.getText();
 		Parent root = FXMLLoader.load(getClass().getResource("/NewGame.fxml"));
-		Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
 		stage.show();
 	}
-	
-	public void jumpOrc(ImageView orc,int flag) {
-		
+
+	public void jumpOrc(ImageView orc, int flag) {
+
 		TranslateTransition translate = new TranslateTransition();
 		translate.setNode(orc);
 		translate.setDuration(Duration.millis(750));
@@ -71,20 +73,20 @@ public class EnterGame implements Initializable {
 		scale.setCycleCount(TranslateTransition.INDEFINITE);
 		scale.setInterpolator(Interpolator.LINEAR);
 		scale.setByX(-0.1 * flag);
-		scale.setByY(0.1* flag);
+		scale.setByY(0.1 * flag);
 		scale.setAutoReverse(true);
 		translate.play();
 		scale.play();
 	}
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-		jumpOrc(greenOrc1,1);
-		jumpOrc(greenOrc2,1);
-		jumpOrc(redOrc1,-1);
-		jumpOrc(redOrc2,-1);
-		
-		
+		jumpOrc(greenOrc1, 1);
+		jumpOrc(greenOrc2, 1);
+		jumpOrc(redOrc1, -1);
+		jumpOrc(redOrc2, -1);
+
 	}
 
 }

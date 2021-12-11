@@ -17,6 +17,7 @@ import javafx.util.Duration;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 //import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
@@ -72,8 +73,10 @@ public class NewGame implements Initializable {
 	private ImageView OrcWeapon;
 	@FXML
 	private Text myScore;
+	@FXML
+	private Button defeatButton;
 	
-	private int score;
+	private Score score;
 
 	private TranslateTransition translate;
 	private ScaleTransition scale;
@@ -83,6 +86,14 @@ public class NewGame implements Initializable {
 	private TranslateTransition wtranslate1 = new TranslateTransition();
 	private TranslateTransition w2translate1 = new TranslateTransition();
 
+	public void heroDefeat(ActionEvent event) throws IOException {
+		Parent root = FXMLLoader.load(getClass().getResource("/HeroDies.fxml"));
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		Scene scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
+	}
+	
 	public void pauseHandler(MouseEvent event) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/Pause.fxml"));
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -163,7 +174,7 @@ public class NewGame implements Initializable {
 		wtranslate.play();
 		translate.play();
 		scale.play();
-		score = 0;
+		score = new Score(0,0,0);
 		myHero.translateXProperty().addListener((obs, old, newValue) -> {
 
 			int offset = newValue.intValue();
@@ -244,10 +255,10 @@ public class NewGame implements Initializable {
 				w2translate.play();
 			}
 		});
-		score++;
-		myScore.setText(Integer.toString(score));
+		score.scoreplus1();;
+		myScore.setText(Integer.toString(score.getScore()));
 		
-		if(score == 15) {
+		if(score.getScore() == 15) {
 			Parent root = FXMLLoader.load(getClass().getResource("/HeroWins.fxml"));
 			Stage stage = (Stage)((Node)e.getSource()).getScene().getWindow();
 			Scene scene = new Scene(root);
