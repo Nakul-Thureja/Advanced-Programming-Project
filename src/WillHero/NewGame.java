@@ -186,27 +186,27 @@ public class NewGame implements Initializable {
 	}
 	public void auto_jump(ImageView Node,int height,boolean ifscale) {
 	
-		TranslateTransition translate = new TranslateTransition();
+		  TranslateTransition translate = new TranslateTransition();
 		  translate.setNode(Node);
 		  translate.setDuration(Duration.millis(750));
 		  translate.setCycleCount(TranslateTransition.INDEFINITE);
 		  translate.setByY(-height);
 		  translate.setAutoReverse(true);
 		  if(ifscale) {
-		  ScaleTransition scale = new ScaleTransition();
-		  scale.setNode(Node);
-		  scale.setDuration(Duration.millis(750));
-		  scale.setCycleCount(TranslateTransition.INDEFINITE);
-		  scale.setInterpolator(Interpolator.LINEAR);
-		  scale.setByX(-0.1);
-		  scale.setByY(0.1);
-		  scale.setAutoReverse(true);
-		  scale.play();
+			  ScaleTransition scale = new ScaleTransition();
+			  scale.setNode(Node);
+			  scale.setDuration(Duration.millis(750));
+			  scale.setCycleCount(TranslateTransition.INDEFINITE);
+			  scale.setInterpolator(Interpolator.LINEAR);
+			  scale.setByX(-0.1);
+			  scale.setByY(0.1);
+			  scale.setAutoReverse(true);
+			  scale.play();
 		  }
 		  translate.play();
 
 	}
-	public void move(MouseEvent e) {
+	public void move(MouseEvent e) throws IOException {
 		translate.pause();
 		scale.pause();
 		wtranslate.pause();
@@ -246,6 +246,14 @@ public class NewGame implements Initializable {
 		});
 		score++;
 		myScore.setText(Integer.toString(score));
+		
+		if(score == 15) {
+			Parent root = FXMLLoader.load(getClass().getResource("/HeroWins.fxml"));
+			Stage stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+			Scene scene = new Scene(root);
+			stage.setScene(scene);
+			stage.show();
+		}
 		//new PauseTransition(Duration.millis(5000));
 		//translate.play();
 		//scale.play();
