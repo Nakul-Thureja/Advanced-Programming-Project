@@ -3,10 +3,15 @@ package WillHero;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.EventObject;
 import java.util.ResourceBundle;
+
+import javafx.animation.Animation;
 import javafx.animation.Interpolator;
+import javafx.animation.KeyFrame;
 import javafx.animation.PauseTransition;
 import javafx.animation.ScaleTransition;
+import javafx.animation.Timeline;
 import javafx.animation.TranslateTransition;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -40,6 +45,8 @@ import javafx.fxml.Initializable;
 
 public class NewGame implements Initializable {
 
+	private Hero hero;
+	private Timeline empty;
 	@FXML
 	private ImageView pauseButton;
 
@@ -144,7 +151,8 @@ public class NewGame implements Initializable {
 	private Text myScore;
 	@FXML
 	private Button defeatButton;
-	
+	@FXML
+	private ImageView deathpanel;
 	private Score score;
 	private TranslateTransition translate;
 	private ScaleTransition scale;
@@ -154,14 +162,16 @@ public class NewGame implements Initializable {
 	private TranslateTransition wtranslate1 = new TranslateTransition();
 	private TranslateTransition w2translate1 = new TranslateTransition();
 
-	public void heroDefeat(ActionEvent event) throws IOException {
+	public void heroDefeat() throws IOException {
+		empty.stop();
 		Parent root = FXMLLoader.load(getClass().getResource("/HeroDies.fxml"));
-		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		// Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+		Stage stage = (Stage) myPane.getScene().getWindow();
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
 		stage.show();
 	}
-	
+
 	public void pauseHandler(MouseEvent event) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/Pause.fxml"));
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -180,7 +190,6 @@ public class NewGame implements Initializable {
 		pauseButton.setImage(image);
 	}
 
-	
 	public void swordSelect(MouseEvent e) throws URISyntaxException {
 		translate1.pause();
 		wtranslate1.pause();
@@ -191,10 +200,9 @@ public class NewGame implements Initializable {
 		swordSlot.setImage(image);
 		handWeapon2.setVisible(false);
 		handWeapon.setVisible(true);
-		
-			
+
 	}
-	
+
 	public void hammerSelect(MouseEvent e) throws URISyntaxException {
 		translate1.pause();
 		wtranslate1.pause();
@@ -210,44 +218,59 @@ public class NewGame implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
+		empty = new Timeline();
+		empty.setCycleCount(Animation.INDEFINITE);
+		KeyFrame gravity_frame = new KeyFrame(Duration.millis(18), e -> {
+			if (hero.getDeath() == 1) {
+				try {
+					heroDefeat();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+		empty.getKeyFrames().add(gravity_frame);
+		empty.play();
 		handWeapon.setVisible(false);
 		handWeapon2.setVisible(false);
-		Hero hero = new Hero(0, 0, null, myHero);
-		Platform platform01 = new Platform(0,0,0,platform1);
-		Platform platform02 = new Platform(0,0,0,platform2);
-		Platform platform03 = new Platform(0,0,0,platform3);
-		Platform platform04 = new Platform(0,0,0,platform4);
-		Platform platform05 = new Platform(0,0,0,platform5);
-		Platform platform06 = new Platform(0,0,0,platform6);
-		Platform platform07 = new Platform(0,0,0,platform7);
-		Platform platform08 = new Platform(0,0,0,platform8);
-		Platform platform09 = new Platform(0,0,0,platform9);
-		Platform platform010 = new Platform(0,0,0,platform10);
-		Platform platform011 = new Platform(0,0,0,platform11);
-		Platform platform012 = new Platform(0,0,0,platform12);
-		Platform platform013 = new Platform(0,0,0,platform13);
-		Platform platform014 = new Platform(0,0,0,platform14);
-		Platform platform015 = new Platform(0,0,0,platform15);
-		Platform platform016 = new Platform(0,0,0,platform16);
-		Platform platform017 = new Platform(0,0,0,platform17);
-		Platform platform018 = new Platform(0,0,0,platform18);
-		Platform platform019 = new Platform(0,0,0,platform19);
-		Platform platform020 = new Platform(0,0,0,platform20);
-		Platform platform021 = new Platform(0,0,0,platform21);
-		Platform platform022 = new Platform(0,0,0,platform22);
-		Platform platform023 = new Platform(0,0,0,platform23);
-		Platform platform024 = new Platform(0,0,0,platform24);
-		Platform platform025 = new Platform(0,0,0,platform25);
-		Platform platform026 = new Platform(0,0,0,platform26);
-		Platform platform027 = new Platform(0,0,0,platform27);
-		Platform platform028 = new Platform(0,0,0,platform28);
-		Platform platform029 = new Platform(0,0,0,platform29);
-		Platform platform030 = new Platform(0,0,0,platform30);
-		Platform platform031 = new Platform(0,0,0,platform31);
-		Platform platform032 = new Platform(0,0,0,platform32);
-		Platform platform033 = new Platform(0,0,0,platform33);
-		Platform platform034 = new Platform(0,0,0,platform34);
-		Platform platform035 = new Platform(0,0,0,platform35);
+		hero = new Hero(0, 0, null, myHero);
+		Platform platform01 = new Platform(0, 0, 0, platform1);
+		Platform platform02 = new Platform(0, 0, 0, platform2);
+		Platform platform03 = new Platform(0, 0, 0, platform3);
+		Platform platform04 = new Platform(0, 0, 0, platform4);
+		Platform platform05 = new Platform(0, 0, 0, platform5);
+		Platform platform06 = new Platform(0, 0, 0, platform6);
+		Platform platform07 = new Platform(0, 0, 0, platform7);
+		Platform platform08 = new Platform(0, 0, 0, platform8);
+		Platform platform09 = new Platform(0, 0, 0, platform9);
+		Platform platform010 = new Platform(0, 0, 0, platform10);
+		Platform platform011 = new Platform(0, 0, 0, platform11);
+		Platform platform012 = new Platform(0, 0, 0, platform12);
+		Platform platform013 = new Platform(0, 0, 0, platform13);
+		Platform platform014 = new Platform(0, 0, 0, platform14);
+		Platform platform015 = new Platform(0, 0, 0, platform15);
+		Platform platform016 = new Platform(0, 0, 0, platform16);
+		Platform platform017 = new Platform(0, 0, 0, platform17);
+		Platform platform018 = new Platform(0, 0, 0, platform18);
+		Platform platform019 = new Platform(0, 0, 0, platform19);
+		Platform platform020 = new Platform(0, 0, 0, platform20);
+		Platform platform021 = new Platform(0, 0, 0, platform21);
+		Platform platform022 = new Platform(0, 0, 0, platform22);
+		Platform platform023 = new Platform(0, 0, 0, platform23);
+		Platform platform024 = new Platform(0, 0, 0, platform24);
+		Platform platform025 = new Platform(0, 0, 0, platform25);
+		Platform platform026 = new Platform(0, 0, 0, platform26);
+		Platform platform027 = new Platform(0, 0, 0, platform27);
+		Platform platform028 = new Platform(0, 0, 0, platform28);
+		Platform platform029 = new Platform(0, 0, 0, platform29);
+		Platform platform030 = new Platform(0, 0, 0, platform30);
+		Platform platform031 = new Platform(0, 0, 0, platform31);
+		Platform platform032 = new Platform(0, 0, 0, platform32);
+		Platform platform033 = new Platform(0, 0, 0, platform33);
+		Platform platform034 = new Platform(0, 0, 0, platform34);
+		Platform platform035 = new Platform(0, 0, 0, platform35);
+		hero.giveDeath(deathpanel);
 		hero.givePlatform(platform01);
 		hero.givePlatform(platform02);
 		hero.givePlatform(platform03);
@@ -312,9 +335,9 @@ public class NewGame implements Initializable {
 		w2translate.setAutoReverse(true);
 		w2translate.play();
 		wtranslate.play();
-		//translate.play();
-		//scale.play();
-		score = new Score(0,0,0,myScore);
+		// translate.play();
+		// scale.play();
+		score = new Score(0, 0, 0, myScore);
 		myHero.translateXProperty().addListener((obs, old, newValue) -> {
 
 			int offset = newValue.intValue();
@@ -323,10 +346,10 @@ public class NewGame implements Initializable {
 				myPane.setLayoutX(-(offset - 100));
 				clickable.setX(offset - 100);
 				pauseButton.setX(offset - 100);
-				swordSlot.setX(offset-100);
-				hammerSlot.setX(offset-100);
-				coinDisplay.setX(offset-100);
-				myScore.setX(offset-100);
+				swordSlot.setX(offset - 100);
+				hammerSlot.setX(offset - 100);
+				coinDisplay.setX(offset - 100);
+				myScore.setX(offset - 100);
 			}
 		});
 //		auto_jump(redORC,60,true);
@@ -335,69 +358,74 @@ public class NewGame implements Initializable {
 //		auto_jump(OrcWeapon,60,false);
 
 	}
-	public void auto_jump(ImageView Node,int height,boolean ifscale) {
-	
-		  TranslateTransition translate = new TranslateTransition();
-		  translate.setNode(Node);
-		  translate.setDuration(Duration.millis(750));
-		  translate.setCycleCount(TranslateTransition.INDEFINITE);
-		  translate.setByY(-height);
-		  translate.setAutoReverse(true);
-		  if(ifscale) {
-			  ScaleTransition scale = new ScaleTransition();
-			  scale.setNode(Node);
-			  scale.setDuration(Duration.millis(750));
-			  scale.setCycleCount(TranslateTransition.INDEFINITE);
-			  scale.setInterpolator(Interpolator.LINEAR);
-			  scale.setByX(-0.1);
-			  scale.setByY(0.1);
-			  scale.setAutoReverse(true);
-			  scale.play();
-		  }
-		  translate.play();
+
+	public void auto_jump(ImageView Node, int height, boolean ifscale) {
+
+		TranslateTransition translate = new TranslateTransition();
+		translate.setNode(Node);
+		translate.setDuration(Duration.millis(750));
+		translate.setCycleCount(TranslateTransition.INDEFINITE);
+		translate.setByY(-height);
+		translate.setAutoReverse(true);
+		if (ifscale) {
+			ScaleTransition scale = new ScaleTransition();
+			scale.setNode(Node);
+			scale.setDuration(Duration.millis(750));
+			scale.setCycleCount(TranslateTransition.INDEFINITE);
+			scale.setInterpolator(Interpolator.LINEAR);
+			scale.setByX(-0.1);
+			scale.setByY(0.1);
+			scale.setAutoReverse(true);
+			scale.play();
+		}
+		translate.play();
 
 	}
+
 	public void move(MouseEvent e) throws IOException {
-		//translate.pause();
-		//scale.pause();
-		wtranslate.pause();
-		w2translate.pause();
-	
-		translate1 = new TranslateTransition();
-		translate1.setNode(myHero);
-		translate1.setDuration(Duration.millis(450));
-		translate1.setCycleCount(1);
-		translate1.setByX(300);
-		translate1.setAutoReverse(false);
-		wtranslate1 = new TranslateTransition();
-		wtranslate1.setNode(handWeapon);
-		wtranslate1.setDuration(Duration.millis(450));
-		wtranslate1.setCycleCount(1);
-		wtranslate1.setByX(300);
-		wtranslate1.setAutoReverse(false);
-		w2translate1 = new TranslateTransition();
-		w2translate1.setNode(handWeapon2);
-		w2translate1.setDuration(Duration.millis(450));
-		w2translate1.setCycleCount(1);
-		w2translate1.setByX(300);
-		w2translate1.setAutoReverse(false);
-		w2translate1.play();
-		wtranslate1.play();
-		translate1.play();
+		hero.moveForward();
 		
-		translate1.setOnFinished(new EventHandler<ActionEvent>() {
-			
-			@Override
-			public void handle(ActionEvent arg0) {
-				//translate.play();
-				//scale.play();
-				wtranslate.play();
-				w2translate.play();
-			}
-		});
-		score.scoreplus1();;
+		// translate.pause();
+		// scale.pause();
+//		wtranslate.pause();
+//		w2translate.pause();
+//	
+//		translate1 = new TranslateTransition();
+//		translate1.setNode(myHero);
+//		translate1.setDuration(Duration.millis(450));
+//		translate1.setCycleCount(1);
+//		translate1.setByX(300);
+//		translate1.setAutoReverse(false);
+//		wtranslate1 = new TranslateTransition();
+//		wtranslate1.setNode(handWeapon);
+//		wtranslate1.setDuration(Duration.millis(450));
+//		wtranslate1.setCycleCount(1);
+//		wtranslate1.setByX(300);
+//		wtranslate1.setAutoReverse(false);
+//		w2translate1 = new TranslateTransition();
+//		w2translate1.setNode(handWeapon2);
+//		w2translate1.setDuration(Duration.millis(450));
+//		w2translate1.setCycleCount(1);
+//		w2translate1.setByX(300);
+//		w2translate1.setAutoReverse(false);
+//		w2translate1.play();
+//		wtranslate1.play();
+//		translate1.play();
+//		
+//		translate1.setOnFinished(new EventHandler<ActionEvent>() {
+//			
+//			@Override
+//			public void handle(ActionEvent arg0) {
+//				//translate.play();
+//				//scale.play();
+//				wtranslate.play();
+//				w2translate.play();
+//			}
+//		});
+		score.scoreplus1();
+		;
 		myScore.setText(Integer.toString(score.getScore()));
-		
+
 //		if(score.getScore() == 15) {
 //			Parent root = FXMLLoader.load(getClass().getResource("/HeroWins.fxml"));
 //			Stage stage = (Stage)((Node)e.getSource()).getScene().getWindow();
@@ -405,9 +433,9 @@ public class NewGame implements Initializable {
 //			stage.setScene(scene);
 //			stage.show();
 //		}
-		//new PauseTransition(Duration.millis(5000));
-		//translate.play();
-		//scale.play();
+		// new PauseTransition(Duration.millis(5000));
+		// translate.play();
+		// scale.play();
 
 	}
 
