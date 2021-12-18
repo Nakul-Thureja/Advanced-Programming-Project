@@ -398,13 +398,13 @@ public class NewGame implements Initializable {
 		score.scoreplus1();;
 		myScore.setText(Integer.toString(score.getScore()));
 		
-		if(score.getScore() == 15) {
-			Parent root = FXMLLoader.load(getClass().getResource("/HeroWins.fxml"));
-			Stage stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-			Scene scene = new Scene(root);
-			stage.setScene(scene);
-			stage.show();
-		}
+//		if(score.getScore() == 15) {
+//			Parent root = FXMLLoader.load(getClass().getResource("/HeroWins.fxml"));
+//			Stage stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+//			Scene scene = new Scene(root);
+//			stage.setScene(scene);
+//			stage.show();
+//		}
 		//new PauseTransition(Duration.millis(5000));
 		//translate.play();
 		//scale.play();
