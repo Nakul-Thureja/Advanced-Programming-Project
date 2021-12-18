@@ -1,11 +1,15 @@
 package WillHero;
 
-public class Score extends GameComponents{
+import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
+
+public class Score{
     private int score;
     private static int HighScore = 0;
+    private Text myText;
 
-    public Score(float x, float y,int score) {
-        super(x, y);
+    public Score(float x, float y,int score, Text _text) {
+    	this.myText = _text;
         this.score = score;
     }
     
@@ -17,11 +21,7 @@ public class Score extends GameComponents{
     	return this.score;
     }
 
-    @Override
-    public int collision(GameComponents collidingComp) {
-        return 0;
-    }
-    
+        
     @Override
     public String toString() {
     	return Integer.toString(score);

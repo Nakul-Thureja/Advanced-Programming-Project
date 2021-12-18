@@ -48,6 +48,16 @@ public class NewGame implements Initializable {
 
 	@FXML
 	private AnchorPane myPane;
+	@FXML
+	private ImageView platform1;
+	@FXML
+	private ImageView platform2;
+	@FXML
+	private ImageView platform3;
+	@FXML
+	private ImageView platform4;
+	@FXML
+	private ImageView platform5;
 
 	@FXML
 	private AnchorPane gamePane;
@@ -77,7 +87,6 @@ public class NewGame implements Initializable {
 	private Button defeatButton;
 	
 	private Score score;
-
 	private TranslateTransition translate;
 	private ScaleTransition scale;
 	private TranslateTransition wtranslate;
@@ -144,20 +153,34 @@ public class NewGame implements Initializable {
 		// TODO Auto-generated method stub
 		handWeapon.setVisible(false);
 		handWeapon2.setVisible(false);
-		translate = new TranslateTransition();
-		translate.setNode(myHero);
-		translate.setDuration(Duration.millis(600));
-		translate.setCycleCount(TranslateTransition.INDEFINITE);
-		translate.setByY(-60);
-		translate.setAutoReverse(true);
-		scale = new ScaleTransition();
-		scale.setNode(myHero);
-		scale.setDuration(Duration.millis(600));
-		scale.setCycleCount(TranslateTransition.INDEFINITE);
-		scale.setInterpolator(Interpolator.LINEAR);
-		scale.setByX(-0.1);
-		scale.setByY(0.1);
-		scale.setAutoReverse(true);
+		Hero hero = new Hero(0, 0, null, myHero);
+		Platform platform01 = new Platform(0, 0, 0, platform1);
+		Platform platform02 = new Platform(0,0,0,platform2);
+		Platform platform03 = new Platform(0,0,0,platform3);
+		Platform platform04 = new Platform(0,0,0,platform4);
+		Platform platform05 = new Platform(0,0,0,platform5);
+
+		hero.givePlatform(platform01);
+		hero.givePlatform(platform02);
+		hero.givePlatform(platform03);
+		hero.givePlatform(platform04);
+		hero.givePlatform(platform05);
+
+		hero.beginGravity();
+//		translate = new TranslateTransition();
+//		translate.setNode(myHero);
+//		translate.setDuration(Duration.millis(600));
+//		translate.setCycleCount(TranslateTransition.INDEFINITE);
+//		translate.setByY(-60);
+//		translate.setAutoReverse(true);
+//		scale = new ScaleTransition();
+//		scale.setNode(myHero);
+//		scale.setDuration(Duration.millis(600));
+//		scale.setCycleCount(TranslateTransition.INDEFINITE);
+//		scale.setInterpolator(Interpolator.LINEAR);
+//		scale.setByX(-0.1);
+//		scale.setByY(0.1);
+//		scale.setAutoReverse(true);
 		wtranslate = new TranslateTransition();
 		wtranslate.setNode(handWeapon);
 		wtranslate.setDuration(Duration.millis(600));
@@ -172,9 +195,9 @@ public class NewGame implements Initializable {
 		w2translate.setAutoReverse(true);
 		w2translate.play();
 		wtranslate.play();
-		translate.play();
-		scale.play();
-		score = new Score(0,0,0);
+		//translate.play();
+		//scale.play();
+		score = new Score(0,0,0,myScore);
 		myHero.translateXProperty().addListener((obs, old, newValue) -> {
 
 			int offset = newValue.intValue();
@@ -218,8 +241,8 @@ public class NewGame implements Initializable {
 
 	}
 	public void move(MouseEvent e) throws IOException {
-		translate.pause();
-		scale.pause();
+		//translate.pause();
+		//scale.pause();
 		wtranslate.pause();
 		w2translate.pause();
 	
@@ -249,8 +272,8 @@ public class NewGame implements Initializable {
 			
 			@Override
 			public void handle(ActionEvent arg0) {
-				translate.play();
-				scale.play();
+				//translate.play();
+				//scale.play();
 				wtranslate.play();
 				w2translate.play();
 			}

@@ -1,11 +1,13 @@
 package WillHero;
 
+import javafx.scene.image.ImageView;
+
 public class Weapon extends GameComponents{
     private int level;
     private int damage;
 
-    public Weapon(float x, float y) {
-        super(x, y);
+    public Weapon(float x, float y, ImageView _image) {
+        super(x, y,_image);
         this.damage = 0;
         this.level = 0;
     }

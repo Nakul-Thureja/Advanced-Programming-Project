@@ -77,7 +77,7 @@
                   <Image url="@assets/CLoud1.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="187.0" fitWidth="256.0" layoutX="130.0" layoutY="285.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="platform1" fitHeight="187.0" fitWidth="256.0" layoutX="130.0" layoutY="285.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/platform_good.png" />
                </image>
@@ -92,17 +92,17 @@
                   <Image url="@assets/hammer.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="myHero" fitHeight="59.0" fitWidth="145.0" layoutX="234.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="myHero" fitHeight="59.0" fitWidth="145.0" layoutX="234.0" layoutY="0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/hero2.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="187.0" fitWidth="256.0" layoutX="451.0" layoutY="285.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="platform2" fitHeight="187.0" fitWidth="256.0" layoutX="451.0" layoutY="285.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/platform_good.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="187.0" fitWidth="256.0" layoutX="1243.0" layoutY="269.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="platform4" fitHeight="187.0" fitWidth="256.0" layoutX="1243.0" layoutY="269.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/platform_good.png" />
                </image>
@@ -122,7 +122,7 @@
                   <Image url="@assets/GreenOrc.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="187.0" fitWidth="256.0" layoutX="791.0" layoutY="285.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="platform3" fitHeight="187.0" fitWidth="256.0" layoutX="791.0" layoutY="285.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/platform_good.png" />
                </image>
@@ -272,7 +272,7 @@
                   <Image url="@assets/coin.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="187.0" fitWidth="256.0" layoutX="2028.0" layoutY="296.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="platform5" fitHeight="187.0" fitWidth="256.0" layoutX="2028.0" layoutY="296.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/platform_good.png" />
                </image>
