@@ -40,8 +40,8 @@ public class Hero extends GameComponents{
     public int getDeath() {
     	return this.death;
     }
-    public void givePlatform(Platform _P) {
-    	this.allPlatform.add(_P);
+    public void givePlatform(ArrayList<Platform> _P) {
+    	this.allPlatform = _P;
     }
   
     public void setMyWeapon(Helmet myWeapon) {

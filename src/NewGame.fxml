@@ -51,6 +51,81 @@
                   <Image url="@assets/Islands11.png" />
                </image>
             </ImageView>
+            <ImageView fx:id="collider1" fitHeight="29.0" fitWidth="256.0" layoutX="126.0" layoutY="283.0" pickOnBounds="true">
+               <image>
+                  <Image url="@assets/collider.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="collider2" fitHeight="29.0" fitWidth="273.0" layoutX="382.0" layoutY="285.0" pickOnBounds="true">
+               <image>
+                  <Image url="@assets/collider.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="collider3" fitHeight="29.0" fitWidth="293.0" layoutX="763.0" layoutY="295.0" pickOnBounds="true">
+               <image>
+                  <Image url="@assets/collider.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="collider4" fitHeight="29.0" fitWidth="283.0" layoutX="1184.0" layoutY="261.0" pickOnBounds="true">
+               <image>
+                  <Image url="@assets/collider.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="collider5" fitHeight="29.0" fitWidth="182.0" layoutX="1579.0" layoutY="285.0" pickOnBounds="true">
+               <image>
+                  <Image url="@assets/collider.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="collider6" fitHeight="19.0" fitWidth="222.0" layoutX="1851.0" layoutY="269.0" pickOnBounds="true">
+               <image>
+                  <Image url="@assets/collider.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="collider7" fitHeight="29.0" fitWidth="273.0" layoutX="2157.0" layoutY="290.0" pickOnBounds="true">
+               <image>
+                  <Image url="@assets/collider.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="collider8" fitHeight="29.0" fitWidth="182.0" layoutX="2629.0" layoutY="324.0" pickOnBounds="true">
+               <image>
+                  <Image url="@assets/collider.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="collider9" fitHeight="29.0" fitWidth="293.0" layoutX="3138.0" layoutY="300.0" pickOnBounds="true">
+               <image>
+                  <Image url="@assets/collider.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="collider10" fitHeight="29.0" fitWidth="182.0" layoutX="3533.0" layoutY="339.0" pickOnBounds="true">
+               <image>
+                  <Image url="@assets/collider.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="collider11" fitHeight="19.0" fitWidth="293.0" layoutX="3783.0" layoutY="310.0" pickOnBounds="true">
+               <image>
+                  <Image url="@assets/collider.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="collider12" fitHeight="19.0" fitWidth="222.0" layoutX="4177.0" layoutY="369.0" pickOnBounds="true">
+               <image>
+                  <Image url="@assets/collider.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="collider13" fitHeight="19.0" fitWidth="222.0" layoutX="4510.0" layoutY="379.0" pickOnBounds="true">
+               <image>
+                  <Image url="@assets/collider.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="collider14" fitHeight="19.0" fitWidth="222.0" layoutX="4833.0" layoutY="310.0" pickOnBounds="true">
+               <image>
+                  <Image url="@assets/collider.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="collider15" fitHeight="19.0" fitWidth="222.0" layoutX="5186.0" layoutY="374.0" pickOnBounds="true">
+               <image>
+                  <Image url="@assets/collider.png" />
+               </image>
+            </ImageView>
             <ImageView fx:id="coinDisplay" fitHeight="66.0" fitWidth="175.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/coin_banner.png" />
@@ -106,12 +181,12 @@
                   <Image url="@assets/Islands8.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="platform10" fitHeight="145.0" fitWidth="182.0" layoutX="3452.0" layoutY="332.0" pickOnBounds="true">
+            <ImageView fx:id="platform10" fitHeight="145.0" fitWidth="182.0" layoutX="3533.0" layoutY="332.0" pickOnBounds="true">
                <image>
                   <Image url="@assets/Islands10.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="platform9" fitHeight="145.0" fitWidth="293.0" layoutX="3112.0" layoutY="296.0" pickOnBounds="true">
+            <ImageView fx:id="platform9" fitHeight="145.0" fitWidth="293.0" layoutX="3138.0" layoutY="296.0" pickOnBounds="true">
                <image>
                   <Image url="@assets/Islands1.png" />
                </image>
@@ -121,112 +196,37 @@
                   <Image url="@assets/Islands10.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="platform11" fitHeight="138.0" fitWidth="293.0" layoutX="3700.0" layoutY="301.0" pickOnBounds="true">
+            <ImageView fx:id="platform11" fitHeight="138.0" fitWidth="293.0" layoutX="3783.0" layoutY="306.0" pickOnBounds="true">
                <image>
                   <Image url="@assets/Islands4.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="90.0" fitWidth="47.0" layoutX="3332.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="90.0" fitWidth="47.0" layoutX="3350.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/Tree2.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="101.0" fitWidth="67.0" layoutX="3718.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="101.0" fitWidth="67.0" layoutX="3801.0" layoutY="221.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/Tree3.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="platform12" fitHeight="138.0" fitWidth="222.0" layoutX="4052.0" layoutY="336.0" pickOnBounds="true">
+            <ImageView fx:id="platform12" fitHeight="138.0" fitWidth="222.0" layoutX="4177.0" layoutY="367.0" pickOnBounds="true">
                <image>
                   <Image url="@assets/Islands7.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="platform13" fitHeight="138.0" fitWidth="222.0" layoutX="4331.0" layoutY="367.0" pickOnBounds="true">
+            <ImageView fx:id="platform13" fitHeight="138.0" fitWidth="222.0" layoutX="4510.0" layoutY="375.0" pickOnBounds="true">
                <image>
                   <Image url="@assets/Islands7.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="platform14" fitHeight="138.0" fitWidth="222.0" layoutX="4577.0" layoutY="350.0" pickOnBounds="true">
+            <ImageView fx:id="platform14" fitHeight="138.0" fitWidth="222.0" layoutX="4833.0" layoutY="309.0" pickOnBounds="true">
                <image>
                   <Image url="@assets/Islands7.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="platform15" fitHeight="138.0" fitWidth="222.0" layoutX="4853.0" layoutY="356.0" pickOnBounds="true">
-               <image>
-                  <Image url="@assets/Islands7.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="platform16" fitHeight="138.0" fitWidth="222.0" layoutX="5109.0" layoutY="367.0" pickOnBounds="true">
-               <image>
-                  <Image url="@assets/Islands7.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="platform17" fitHeight="138.0" fitWidth="222.0" layoutX="5381.0" layoutY="356.0" pickOnBounds="true">
-               <image>
-                  <Image url="@assets/Islands7.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="platform18" fitHeight="138.0" fitWidth="222.0" layoutX="5646.0" layoutY="367.0" pickOnBounds="true">
-               <image>
-                  <Image url="@assets/Islands7.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="platform19" fitHeight="138.0" fitWidth="222.0" layoutX="5920.0" layoutY="350.0" pickOnBounds="true">
-               <image>
-                  <Image url="@assets/Islands7.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="platform20" fitHeight="138.0" fitWidth="222.0" layoutX="6217.0" layoutY="356.0" pickOnBounds="true">
-               <image>
-                  <Image url="@assets/Islands7.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="platform21" fitHeight="138.0" fitWidth="222.0" layoutX="6510.0" layoutY="356.0" pickOnBounds="true">
-               <image>
-                  <Image url="@assets/Islands7.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="platform22" fitHeight="138.0" fitWidth="222.0" layoutX="6778.0" layoutY="336.0" pickOnBounds="true">
-               <image>
-                  <Image url="@assets/Islands7.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="platform23" fitHeight="138.0" fitWidth="222.0" layoutX="7046.0" layoutY="345.0" pickOnBounds="true">
-               <image>
-                  <Image url="@assets/Islands7.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="platform24" fitHeight="138.0" fitWidth="222.0" layoutX="7339.0" layoutY="350.0" pickOnBounds="true">
-               <image>
-                  <Image url="@assets/Islands7.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="platform25" fitHeight="138.0" fitWidth="222.0" layoutX="7739.0" layoutY="323.0" pickOnBounds="true">
-               <image>
-                  <Image url="@assets/Islands7.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="platform26" fitHeight="138.0" fitWidth="222.0" layoutX="8149.0" layoutY="345.0" pickOnBounds="true">
-               <image>
-                  <Image url="@assets/Islands7.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="platform27" fitHeight="138.0" fitWidth="222.0" layoutX="8544.0" layoutY="336.0" pickOnBounds="true">
-               <image>
-                  <Image url="@assets/Islands7.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="platform28" fitHeight="138.0" fitWidth="222.0" layoutX="8802.0" layoutY="336.0" pickOnBounds="true">
-               <image>
-                  <Image url="@assets/Islands7.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="platform29" fitHeight="138.0" fitWidth="222.0" layoutX="9134.0" layoutY="346.0" pickOnBounds="true">
-               <image>
-                  <Image url="@assets/Islands7.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="platform30" fitHeight="138.0" fitWidth="222.0" layoutX="9455.0" layoutY="336.0" pickOnBounds="true">
+            <ImageView fx:id="platform15" fitHeight="138.0" fitWidth="222.0" layoutX="5186.0" layoutY="372.0" pickOnBounds="true">
                <image>
                   <Image url="@assets/Islands7.png" />
                </image>
@@ -241,37 +241,12 @@
                   <Image url="@assets/CLoud1.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="platform31" fitHeight="138.0" fitWidth="222.0" layoutX="9739.0" layoutY="350.0" pickOnBounds="true">
-               <image>
-                  <Image url="@assets/Islands7.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="platform32" fitHeight="138.0" fitWidth="222.0" layoutX="10084.0" layoutY="322.0" pickOnBounds="true">
-               <image>
-                  <Image url="@assets/Islands7.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="platform33" fitHeight="138.0" fitWidth="222.0" layoutX="10422.0" layoutY="315.0" pickOnBounds="true">
-               <image>
-                  <Image url="@assets/Islands7.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="platform34" fitHeight="138.0" fitWidth="222.0" layoutX="10748.0" layoutY="345.0" pickOnBounds="true">
-               <image>
-                  <Image url="@assets/Islands7.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="platform35" fitHeight="138.0" fitWidth="222.0" layoutX="11076.0" layoutY="336.0" pickOnBounds="true">
-               <image>
-                  <Image url="@assets/Islands7.png" />
-               </image>
-            </ImageView>
              <ImageView fx:id="myHero" fitHeight="59.0" fitWidth="145.0" layoutX="234.0" layoutY="0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/hero2.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="clickable" fitHeight="610.0" fitWidth="1150.0" onMouseClicked="#move" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="clickable" fitHeight="610.0" fitWidth="1150.0" layoutX="1.0" layoutY="1.0" onMouseClicked="#move" opacity="0.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/clickable.png" />
                </image>
@@ -300,7 +275,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <ImageView fx:id="deathpanel" fitHeight="5.0" fitWidth="11500.0" layoutY="615" pickOnBounds="true" >
+            <ImageView fx:id="deathpanel" fitHeight="5.0" fitWidth="11500.0" layoutY="615" pickOnBounds="true">
                <image>
                   <Image url="@assets/deathpanel.png" />
                </image>

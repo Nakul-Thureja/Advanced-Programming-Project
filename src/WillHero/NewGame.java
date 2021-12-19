@@ -3,6 +3,7 @@ package WillHero;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.EventObject;
 import java.util.ResourceBundle;
 
@@ -56,76 +57,6 @@ public class NewGame implements Initializable {
 	@FXML
 	private AnchorPane myPane;
 	@FXML
-	private ImageView platform1;
-	@FXML
-	private ImageView platform2;
-	@FXML
-	private ImageView platform3;
-	@FXML
-	private ImageView platform4;
-	@FXML
-	private ImageView platform5;
-	@FXML
-	private ImageView platform6;
-	@FXML
-	private ImageView platform7;
-	@FXML
-	private ImageView platform8;
-	@FXML
-	private ImageView platform9;
-	@FXML
-	private ImageView platform10;
-	@FXML
-	private ImageView platform11;
-	@FXML
-	private ImageView platform12;
-	@FXML
-	private ImageView platform13;
-	@FXML
-	private ImageView platform14;
-	@FXML
-	private ImageView platform15;
-	@FXML
-	private ImageView platform16;
-	@FXML
-	private ImageView platform17;
-	@FXML
-	private ImageView platform18;
-	@FXML
-	private ImageView platform19;
-	@FXML
-	private ImageView platform20;
-	@FXML
-	private ImageView platform21;
-	@FXML
-	private ImageView platform22;
-	@FXML
-	private ImageView platform23;
-	@FXML
-	private ImageView platform24;
-	@FXML
-	private ImageView platform25;
-	@FXML
-	private ImageView platform26;
-	@FXML
-	private ImageView platform27;
-	@FXML
-	private ImageView platform28;
-	@FXML
-	private ImageView platform29;
-	@FXML
-	private ImageView platform30;
-	@FXML
-	private ImageView platform31;
-	@FXML
-	private ImageView platform32;
-	@FXML
-	private ImageView platform33;
-	@FXML
-	private ImageView platform34;
-	@FXML
-	private ImageView platform35;
-	@FXML
 	private AnchorPane gamePane;
 	@FXML
 	private ImageView hammerSlot;
@@ -153,6 +84,37 @@ public class NewGame implements Initializable {
 	private Button defeatButton;
 	@FXML
 	private ImageView deathpanel;
+	@FXML
+	private ImageView collider1;
+	@FXML
+	private ImageView collider2;
+	@FXML
+	private ImageView collider3;
+	@FXML
+	private ImageView collider4;
+	@FXML
+	private ImageView collider5;
+	@FXML
+	private ImageView collider6;
+	@FXML
+	private ImageView collider7;
+	@FXML
+	private ImageView collider8;
+	@FXML
+	private ImageView collider9;
+	@FXML
+	private ImageView collider10;
+	@FXML
+	private ImageView collider11;
+	@FXML
+	private ImageView collider12;
+	@FXML
+	private ImageView collider13;
+	@FXML
+	private ImageView collider14;
+	@FXML
+	private ImageView collider15;
+	
 	private Score score;
 	private TranslateTransition translate;
 	private ScaleTransition scale;
@@ -161,6 +123,9 @@ public class NewGame implements Initializable {
 	private TranslateTransition translate1 = new TranslateTransition();
 	private TranslateTransition wtranslate1 = new TranslateTransition();
 	private TranslateTransition w2translate1 = new TranslateTransition();
+	private ArrayList<Platform> platformList;
+	
+
 
 	public void heroDefeat() throws IOException {
 		empty.stop();
@@ -235,77 +200,97 @@ public class NewGame implements Initializable {
 		handWeapon.setVisible(false);
 		handWeapon2.setVisible(false);
 		hero = new Hero(0, 0, null, myHero);
-		Platform platform01 = new Platform(0, 0, 0, platform1);
-		Platform platform02 = new Platform(0, 0, 0, platform2);
-		Platform platform03 = new Platform(0, 0, 0, platform3);
-		Platform platform04 = new Platform(0, 0, 0, platform4);
-		Platform platform05 = new Platform(0, 0, 0, platform5);
-		Platform platform06 = new Platform(0, 0, 0, platform6);
-		Platform platform07 = new Platform(0, 0, 0, platform7);
-		Platform platform08 = new Platform(0, 0, 0, platform8);
-		Platform platform09 = new Platform(0, 0, 0, platform9);
-		Platform platform010 = new Platform(0, 0, 0, platform10);
-		Platform platform011 = new Platform(0, 0, 0, platform11);
-		Platform platform012 = new Platform(0, 0, 0, platform12);
-		Platform platform013 = new Platform(0, 0, 0, platform13);
-		Platform platform014 = new Platform(0, 0, 0, platform14);
-		Platform platform015 = new Platform(0, 0, 0, platform15);
-		Platform platform016 = new Platform(0, 0, 0, platform16);
-		Platform platform017 = new Platform(0, 0, 0, platform17);
-		Platform platform018 = new Platform(0, 0, 0, platform18);
-		Platform platform019 = new Platform(0, 0, 0, platform19);
-		Platform platform020 = new Platform(0, 0, 0, platform20);
-		Platform platform021 = new Platform(0, 0, 0, platform21);
-		Platform platform022 = new Platform(0, 0, 0, platform22);
-		Platform platform023 = new Platform(0, 0, 0, platform23);
-		Platform platform024 = new Platform(0, 0, 0, platform24);
-		Platform platform025 = new Platform(0, 0, 0, platform25);
-		Platform platform026 = new Platform(0, 0, 0, platform26);
-		Platform platform027 = new Platform(0, 0, 0, platform27);
-		Platform platform028 = new Platform(0, 0, 0, platform28);
-		Platform platform029 = new Platform(0, 0, 0, platform29);
-		Platform platform030 = new Platform(0, 0, 0, platform30);
-		Platform platform031 = new Platform(0, 0, 0, platform31);
-		Platform platform032 = new Platform(0, 0, 0, platform32);
-		Platform platform033 = new Platform(0, 0, 0, platform33);
-		Platform platform034 = new Platform(0, 0, 0, platform34);
-		Platform platform035 = new Platform(0, 0, 0, platform35);
+		platformList = new ArrayList<>();
+		Platform platform;
+		platform = new Platform(0,0,0,collider1);platformList.add(platform);
+		platform = new Platform(0,0,0,collider2);platformList.add(platform);
+		platform = new Platform(0,0,0,collider3);platformList.add(platform);
+		platform = new Platform(0,0,0,collider4);platformList.add(platform);
+		platform = new Platform(0,0,0,collider5);platformList.add(platform);
+		platform = new Platform(0,0,0,collider6);platformList.add(platform);
+		platform = new Platform(0,0,0,collider7);platformList.add(platform);
+		platform = new Platform(0,0,0,collider8);platformList.add(platform);
+		platform = new Platform(0,0,0,collider9);platformList.add(platform);
+		platform = new Platform(0,0,0,collider10);platformList.add(platform);
+		platform = new Platform(0,0,0,collider11);platformList.add(platform);
+		platform = new Platform(0,0,0,collider12);platformList.add(platform);
+		platform = new Platform(0,0,0,collider13);platformList.add(platform);
+		platform = new Platform(0,0,0,collider14);platformList.add(platform);
+		platform = new Platform(0,0,0,collider15);platformList.add(platform);
+		//platform.giveCollider(colliderList);
+		hero.givePlatform(platformList);
+//		Platform platform = new Platform(0, 0, 0, platform1);
+//		platformList.add(platform);
+//		/Platform platform02 = new Platform(0, 0, 0, platform2);
+//		Platform platform03 = new Platform(0, 0, 0, platform3);
+//		Platform platform04 = new Platform(0, 0, 0, platform4);
+//		Platform platform05 = new Platform(0, 0, 0, platform5);
+//		Platform platform06 = new Platform(0, 0, 0, platform6);
+//		Platform platform07 = new Platform(0, 0, 0, platform7);
+//		Platform platform08 = new Platform(0, 0, 0, platform8);
+//		Platform platform09 = new Platform(0, 0, 0, platform9);
+//		Platform platform010 = new Platform(0, 0, 0, platform10);
+//		Platform platform011 = new Platform(0, 0, 0, platform11);
+//		Platform platform012 = new Platform(0, 0, 0, platform12);
+//		Platform platform013 = new Platform(0, 0, 0, platform13);
+//		Platform platform014 = new Platform(0, 0, 0, platform14);
+//		Platform platform015 = new Platform(0, 0, 0, platform15);
+//		Platform platform016 = new Platform(0, 0, 0, platform16);
+//		Platform platform017 = new Platform(0, 0, 0, platform17);
+//		Platform platform018 = new Platform(0, 0, 0, platform18);
+//		Platform platform019 = new Platform(0, 0, 0, platform19);
+//		Platform platform020 = new Platform(0, 0, 0, platform20);
+//		Platform platform021 = new Platform(0, 0, 0, platform21);
+//		Platform platform022 = new Platform(0, 0, 0, platform22);
+//		Platform platform023 = new Platform(0, 0, 0, platform23);
+//		Platform platform024 = new Platform(0, 0, 0, platform24);
+//		Platform platform025 = new Platform(0, 0, 0, platform25);
+//		Platform platform026 = new Platform(0, 0, 0, platform26);
+//		Platform platform027 = new Platform(0, 0, 0, platform27);
+//		Platform platform028 = new Platform(0, 0, 0, platform28);
+//		Platform platform029 = new Platform(0, 0, 0, platform29);
+//		Platform platform030 = new Platform(0, 0, 0, platform30);
+//		Platform platform031 = new Platform(0, 0, 0, platform31);
+//		Platform platform032 = new Platform(0, 0, 0, platform32);
+//		Platform platform033 = new Platform(0, 0, 0, platform33);
+//		Platform platform034 = new Platform(0, 0, 0, platform34);
+//		Platform platform035 = new Platform(0, 0, 0, platform35);
 		hero.giveDeath(deathpanel);
-		hero.givePlatform(platform01);
-		hero.givePlatform(platform02);
-		hero.givePlatform(platform03);
-		hero.givePlatform(platform04);
-		hero.givePlatform(platform05);
-		hero.givePlatform(platform06);
-		hero.givePlatform(platform07);
-		hero.givePlatform(platform08);
-		hero.givePlatform(platform09);
-		hero.givePlatform(platform010);
-		hero.givePlatform(platform011);
-		hero.givePlatform(platform012);
-		hero.givePlatform(platform013);
-		hero.givePlatform(platform014);
-		hero.givePlatform(platform015);
-		hero.givePlatform(platform016);
-		hero.givePlatform(platform017);
-		hero.givePlatform(platform018);
-		hero.givePlatform(platform019);
-		hero.givePlatform(platform020);
-		hero.givePlatform(platform021);
-		hero.givePlatform(platform022);
-		hero.givePlatform(platform023);
-		hero.givePlatform(platform024);
-		hero.givePlatform(platform025);
-		hero.givePlatform(platform026);
-		hero.givePlatform(platform027);
-		hero.givePlatform(platform028);
-		hero.givePlatform(platform029);
-		hero.givePlatform(platform030);
-		hero.givePlatform(platform031);
-		hero.givePlatform(platform032);
-		hero.givePlatform(platform033);
-		hero.givePlatform(platform034);
-		hero.givePlatform(platform035);
+//		hero.givePlatform(platform01);
+//		hero.givePlatform(platform02);
+//		hero.givePlatform(platform03);
+//		hero.givePlatform(platform04);
+//		hero.givePlatform(platform05);
+//		hero.givePlatform(platform06);
+//		hero.givePlatform(platform07);
+//		hero.givePlatform(platform08);
+//		hero.givePlatform(platform09);
+//		hero.givePlatform(platform010);
+//		hero.givePlatform(platform011);
+//		hero.givePlatform(platform012);
+//		hero.givePlatform(platform013);
+//		hero.givePlatform(platform014);
+//		hero.givePlatform(platform015);
+//		hero.givePlatform(platform016);
+//		hero.givePlatform(platform017);
+//		hero.givePlatform(platform018);
+//		hero.givePlatform(platform019);
+//		hero.givePlatform(platform020);
+//		hero.givePlatform(platform021);
+//		hero.givePlatform(platform022);
+//		hero.givePlatform(platform023);
+//		hero.givePlatform(platform024);
+//		hero.givePlatform(platform025);
+//		hero.givePlatform(platform026);
+//		hero.givePlatform(platform027);
+//		hero.givePlatform(platform028);
+//		hero.givePlatform(platform029);
+//		hero.givePlatform(platform030);
+//		hero.givePlatform(platform031);
+//		hero.givePlatform(platform032);
+//		hero.givePlatform(platform033);
+//		hero.givePlatform(platform034);
+//		hero.givePlatform(platform035);
 		hero.beginGravity();
 //		translate = new TranslateTransition();
 //		translate.setNode(myHero);
