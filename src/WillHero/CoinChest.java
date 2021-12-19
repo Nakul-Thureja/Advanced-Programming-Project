@@ -2,12 +2,11 @@ package WillHero;
 
 import java.util.ArrayList;
 
-import javafx.scene.image.ImageView;
 
 public class CoinChest extends GameComponents implements Chest{
     private int coin_Value;
-    public CoinChest(float x, float y,int coin_Value, ImageView _image) {
-        super(x, y,_image);
+    public CoinChest(float x, float y,int coin_Value) {
+        super(x, y);
         this.coin_Value = coin_Value;
     }
 

@@ -1,11 +1,10 @@
 package WillHero;
 
-import javafx.scene.image.ImageView;
 
 public class Companion extends GameComponents{
 
-	public Companion(float x, float y, ImageView _image) {
-		super(x, y, _image);
+	public Companion(float x, float y) {
+        super(x, y);
 	}
 
 	@Override

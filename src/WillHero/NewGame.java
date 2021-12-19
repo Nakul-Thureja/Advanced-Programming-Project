@@ -124,6 +124,8 @@ public class NewGame implements Initializable {
 	private TranslateTransition wtranslate1 = new TranslateTransition();
 	private TranslateTransition w2translate1 = new TranslateTransition();
 	private ArrayList<Platform> platformList;
+	private ArrayList<ImageView> colliderList;
+
 	
 
 
@@ -199,26 +201,25 @@ public class NewGame implements Initializable {
 		empty.play();
 		handWeapon.setVisible(false);
 		handWeapon2.setVisible(false);
-		hero = new Hero(0, 0, null, myHero);
+		hero = new Hero(0, 0, null);
 		platformList = new ArrayList<>();
+		colliderList = new ArrayList<>();
+		colliderList.add(collider1);colliderList.add(collider2);colliderList.add(collider3);colliderList.add(collider4);colliderList.add(collider5);colliderList.add(collider6);
+		colliderList.add(collider7);colliderList.add(collider8);colliderList.add(collider9);colliderList.add(collider10);colliderList.add(collider11);colliderList.add(collider12);
+		colliderList.add(collider13);colliderList.add(collider14);colliderList.add(collider15);
 		Platform platform;
-		platform = new Platform(0,0,0,collider1);platformList.add(platform);
-		platform = new Platform(0,0,0,collider2);platformList.add(platform);
-		platform = new Platform(0,0,0,collider3);platformList.add(platform);
-		platform = new Platform(0,0,0,collider4);platformList.add(platform);
-		platform = new Platform(0,0,0,collider5);platformList.add(platform);
-		platform = new Platform(0,0,0,collider6);platformList.add(platform);
-		platform = new Platform(0,0,0,collider7);platformList.add(platform);
-		platform = new Platform(0,0,0,collider8);platformList.add(platform);
-		platform = new Platform(0,0,0,collider9);platformList.add(platform);
-		platform = new Platform(0,0,0,collider10);platformList.add(platform);
-		platform = new Platform(0,0,0,collider11);platformList.add(platform);
-		platform = new Platform(0,0,0,collider12);platformList.add(platform);
-		platform = new Platform(0,0,0,collider13);platformList.add(platform);
-		platform = new Platform(0,0,0,collider14);platformList.add(platform);
-		platform = new Platform(0,0,0,collider15);platformList.add(platform);
+		platform = new Platform(0,0,0);platformList.add(platform);platform = new Platform(0,0,0);platformList.add(platform);
+		platform = new Platform(0,0,0);platformList.add(platform);platform = new Platform(0,0,0);platformList.add(platform);
+		platform = new Platform(0,0,0);platformList.add(platform);platform = new Platform(0,0,0);platformList.add(platform);
+		platform = new Platform(0,0,0);platformList.add(platform);platform = new Platform(0,0,0);platformList.add(platform);
+		platform = new Platform(0,0,0);platformList.add(platform);platform = new Platform(0,0,0);platformList.add(platform);
+		platform = new Platform(0,0,0);platformList.add(platform);platform = new Platform(0,0,0);platformList.add(platform);
+		platform = new Platform(0,0,0);platformList.add(platform);platform = new Platform(0,0,0);platformList.add(platform);
+		platform = new Platform(0,0,0);platformList.add(platform);
 		//platform.giveCollider(colliderList);
 		hero.givePlatform(platformList);
+		hero.beginGravity(colliderList,myHero,deathpanel);
+
 //		Platform platform = new Platform(0, 0, 0, platform1);
 //		platformList.add(platform);
 //		/Platform platform02 = new Platform(0, 0, 0, platform2);
@@ -255,7 +256,6 @@ public class NewGame implements Initializable {
 //		Platform platform033 = new Platform(0, 0, 0, platform33);
 //		Platform platform034 = new Platform(0, 0, 0, platform34);
 //		Platform platform035 = new Platform(0, 0, 0, platform35);
-		hero.giveDeath(deathpanel);
 //		hero.givePlatform(platform01);
 //		hero.givePlatform(platform02);
 //		hero.givePlatform(platform03);
@@ -291,7 +291,6 @@ public class NewGame implements Initializable {
 //		hero.givePlatform(platform033);
 //		hero.givePlatform(platform034);
 //		hero.givePlatform(platform035);
-		hero.beginGravity();
 //		translate = new TranslateTransition();
 //		translate.setNode(myHero);
 //		translate.setDuration(Duration.millis(600));
@@ -368,7 +367,7 @@ public class NewGame implements Initializable {
 	}
 
 	public void move(MouseEvent e) throws IOException {
-		hero.moveForward();
+		hero.moveForward(myHero);
 		
 		// translate.pause();
 		// scale.pause();
