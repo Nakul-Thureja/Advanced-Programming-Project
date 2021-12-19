@@ -52,7 +52,7 @@ public class Hero extends GameComponents{
     }
     
     public void moveForward() {
-    	gravity.pause();
+    	//gravity.pause();
     	translate.pause();
     	this.getImage().setScaleX(1.05);
     	this.getImage().setScaleY(0.9);
