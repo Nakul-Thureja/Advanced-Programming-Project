@@ -1,6 +1,6 @@
 package WillHero;
 
-import javafx.scene.image.ImageView;
+
 
 public class Weapon extends GameComponents{
     private int level;

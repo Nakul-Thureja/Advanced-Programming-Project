@@ -114,7 +114,7 @@ public class NewGame implements Initializable {
 	private ImageView collider14;
 	@FXML
 	private ImageView collider15;
-	
+	private Game currGame;
 	private Score score;
 	private TranslateTransition translate;
 	private ScaleTransition scale;
@@ -127,7 +127,22 @@ public class NewGame implements Initializable {
 	private ArrayList<ImageView> colliderList;
 
 	
+	public void initGame(){
+		Weapon Sword = new Weapon(0,0);
+		Weapon Hammer = new Weapon(0,0);
+		ArrayList<Weapon> Weapons = new ArrayList<>();
+		Weapons.add(Sword);
+		Weapons.add(Hammer);
+		currGame.setMyWeapons(Weapons);
+		Helmet helmet = new Helmet(0,0,Weapons);
+		currGame.setHelmet(helmet);
+		Hero hero = new Hero(0, 0, helmet);
+		currGame.setHero(hero);
+		Score score = new Score(0,0,0);
+		currGame.setMyScore(score);
 
+
+	}
 
 	public void heroDefeat() throws IOException {
 		empty.stop();
