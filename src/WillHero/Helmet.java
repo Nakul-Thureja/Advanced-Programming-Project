@@ -2,6 +2,8 @@ package WillHero;
 
 import java.util.ArrayList;
 
+import javafx.scene.image.ImageView;
+
 public class Helmet extends GameComponents{
     private ArrayList<Weapon> myWeapons;
 
@@ -11,7 +13,7 @@ public class Helmet extends GameComponents{
     }
 
     @Override
-    public int collision(GameComponents collidingComp) {
+    public int collision(ImageView collidingComp) {
         return 0;
     }
 }

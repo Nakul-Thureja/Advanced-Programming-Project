@@ -26,6 +26,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 //import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -114,6 +115,13 @@ public class NewGame implements Initializable {
 	private ImageView collider14;
 	@FXML
 	private ImageView collider15;
+	@FXML
+	private Text playerName;
+	@FXML
+	private ImageView beginButton;
+	@FXML
+	private Text coinCounter;
+	
 	private Game currGame;
 	private Score score;
 	private TranslateTransition translate;
@@ -125,9 +133,13 @@ public class NewGame implements Initializable {
 	private TranslateTransition w2translate1 = new TranslateTransition();
 	private ArrayList<Platform> platformList;
 	private ArrayList<ImageView> colliderList;
-
 	
-	public void initGame(){
+	
+	public void initGame(MouseEvent event){
+		beginButton.setVisible(false);
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		currGame = (Game) stage.getUserData();
+		playerName.setText(currGame.getMyPlayer().getName());
 		Weapon Sword = new Weapon(0,0);
 		Weapon Hammer = new Weapon(0,0);
 		ArrayList<Weapon> Weapons = new ArrayList<>();
@@ -149,6 +161,7 @@ public class NewGame implements Initializable {
 		Parent root = FXMLLoader.load(getClass().getResource("/HeroDies.fxml"));
 		// Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
 		Stage stage = (Stage) myPane.getScene().getWindow();
+		stage.setUserData(currGame);
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
 		stage.show();
@@ -200,6 +213,7 @@ public class NewGame implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
+		score = new Score(0, 0, 0);
 		empty = new Timeline();
 		empty.setCycleCount(Animation.INDEFINITE);
 		KeyFrame gravity_frame = new KeyFrame(Duration.millis(18), e -> {
@@ -336,7 +350,6 @@ public class NewGame implements Initializable {
 		wtranslate.play();
 		// translate.play();
 		// scale.play();
-		score = new Score(0, 0, 0, myScore);
 		myHero.translateXProperty().addListener((obs, old, newValue) -> {
 
 			int offset = newValue.intValue();
@@ -349,6 +362,8 @@ public class NewGame implements Initializable {
 				hammerSlot.setX(offset - 100);
 				coinDisplay.setX(offset - 100);
 				myScore.setX(offset - 100);
+				playerName.setX(offset-100);
+				coinCounter.setX(offset-100);
 			}
 		});
 //		auto_jump(redORC,60,true);
@@ -421,9 +436,9 @@ public class NewGame implements Initializable {
 //				w2translate.play();
 //			}
 //		});
-		score.scoreplus1();
+		currGame.getMyScore().scoreplus1();
 		;
-		myScore.setText(Integer.toString(score.getScore()));
+		myScore.setText(Integer.toString(currGame.getMyScore().getScore()));
 
 //		if(score.getScore() == 15) {
 //			Parent root = FXMLLoader.load(getClass().getResource("/HeroWins.fxml"));

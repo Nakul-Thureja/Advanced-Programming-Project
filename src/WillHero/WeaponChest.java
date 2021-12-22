@@ -16,7 +16,7 @@ public class WeaponChest extends GameComponents implements Chest{
     }
 
     @Override
-    public int collision(GameComponents collidingComp) {
+    public int collision(ImageView collidingComp) {
         return 0;
     }
 }

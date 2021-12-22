@@ -1,5 +1,6 @@
 package WillHero;
 
+import javafx.scene.image.ImageView;
 
 public class GreenOrc extends Orc{
 
@@ -8,7 +9,7 @@ public class GreenOrc extends Orc{
     }
 
     @Override
-    public int collision(GameComponents collidingComp) {
+    public int collision(ImageView collidingComp) {
         return 0;
     }
 }

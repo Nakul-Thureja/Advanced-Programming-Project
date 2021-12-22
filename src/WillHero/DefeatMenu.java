@@ -34,9 +34,8 @@ import javafx.fxml.Initializable;
 //import javafx.scene.transform.Rotate;
 //import javafx.util.Duration;
 
-public class DefeatMenu {
+public class DefeatMenu{
 
-	
 	@FXML
 	private ImageView restartButton;
 	@FXML
@@ -49,6 +48,14 @@ public class DefeatMenu {
 	private Text myScore;
 	@FXML
 	private AnchorPane anchorPane;
+	@FXML
+	private ImageView beginner;
+	@FXML
+	private Text coinCounter;
+	@FXML
+	private Text playerName;
+
+	private Game currGame;
 
 	public void spendCoin() throws IOException {
 		Alert alert = new Alert(AlertType.CONFIRMATION);
@@ -57,17 +64,17 @@ public class DefeatMenu {
 		alert.getButtonTypes().clear();
 		alert.getButtonTypes().add(ButtonType.YES);
 		alert.getButtonTypes().add(ButtonType.NO);
-		//alert.setContentText("Do you want to save before exiting?");
-		Stage mystage = (Stage)anchorPane.getScene().getWindow();
-		if (alert.showAndWait().get() == ButtonType.YES){
+		// alert.setContentText("Do you want to save before exiting?");
+		Stage mystage = (Stage) anchorPane.getScene().getWindow();
+		if (alert.showAndWait().get() == ButtonType.YES) {
 			Parent root = FXMLLoader.load(getClass().getResource("/NewGame.fxml"));
 			Stage stage = mystage;
 			Scene scene = new Scene(root);
 			stage.setScene(scene);
-			stage.show();			
-		} 
+			stage.show();
+		}
 	}
-	
+
 	public void restartHandler(MouseEvent event) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/NewGame.fxml"));
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -84,7 +91,6 @@ public class DefeatMenu {
 		stage.show();
 	}
 
-
 	public void hover1(MouseEvent event) throws URISyntaxException {
 		Image image = new Image(getClass().getResource("/assets/dark_restart_combo.png").toURI().toString());
 		restartButton.setImage(image);
@@ -95,7 +101,6 @@ public class DefeatMenu {
 		restartButton.setImage(image);
 	}
 
-	
 	public void hover2(MouseEvent event) throws URISyntaxException {
 		Image image = new Image(getClass().getResource("/assets/dark_menu_combo.png").toURI().toString());
 		mainButton.setImage(image);
@@ -105,7 +110,7 @@ public class DefeatMenu {
 		Image image = new Image(getClass().getResource("/assets/menu_combo.png").toURI().toString());
 		mainButton.setImage(image);
 	}
-	
+
 	public void hover3(MouseEvent event) throws URISyntaxException {
 		Image image = new Image(getClass().getResource("/assets/dark_coin_button.png").toURI().toString());
 		coinButton.setImage(image);
@@ -115,6 +120,16 @@ public class DefeatMenu {
 		Image image = new Image(getClass().getResource("/assets/coin_button.png").toURI().toString());
 		coinButton.setImage(image);
 	}
-
+	
+	public void init_defeat(MouseEvent event) {
+		beginner.setVisible(false);
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		currGame = (Game) stage.getUserData();
+		myScore.setText(Integer.toString(currGame.getMyScore().getScore()));
+		coinCounter.setText(Integer.toString(currGame.getCoins()));
+		playerName.setText(currGame.getMyPlayer().getName());
+		
+	}
+	
 
 }

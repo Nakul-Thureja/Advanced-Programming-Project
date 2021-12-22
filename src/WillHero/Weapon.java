@@ -1,6 +1,6 @@
 package WillHero;
 
-
+import javafx.scene.image.ImageView;
 
 public class Weapon extends GameComponents{
     private int level;
@@ -29,7 +29,7 @@ public class Weapon extends GameComponents{
     }
 
     @Override
-    public int collision(GameComponents collidingComp) {
+    public int collision(ImageView collidingComp) {
         return 0;
     }
 }

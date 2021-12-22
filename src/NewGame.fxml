@@ -131,6 +131,16 @@
                   <Image url="@assets/coin_banner.png" />
                </image>
             </ImageView>
+            <Text fx:id="coinCounter" fill="WHITE" layoutX="60.0" layoutY="74.8" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+               <font>
+                  <Font name="Impact" size="36.0" />
+               </font>
+            </Text>
+            <Text fx:id="playerName" fill="WHITE" layoutX="10.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="?">
+               <font>
+                  <Font name="Impact" size="24.0" />
+               </font>
+            </Text>
             <Text fx:id="myScore" fill="WHITE" layoutX="550.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                <font>
                   <Font name="Impact" size="48.0" />
@@ -280,6 +290,11 @@
                   <Image url="@assets/deathpanel.png" />
                </image>
            </ImageView>
+            <ImageView fx:id="beginButton" fitHeight="615.0" fitWidth="1150.0" onMouseClicked="#initGame" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/beginner.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>

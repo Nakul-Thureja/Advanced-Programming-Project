@@ -74,7 +74,7 @@ public class HeroWins implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		score = new Score(0,0,15,myScore);
+		score = new Score(0,0,15);
 		myScore.setText(Integer.toString(score.getScore()));		
 	}
 	

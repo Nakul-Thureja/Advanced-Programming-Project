@@ -1,11 +1,12 @@
 package WillHero;
 
+import javafx.scene.image.ImageView;
 
 public abstract class GameComponents {
 	private int visibilty;
 	private Position position;
 	
-	public abstract int collision(GameComponents collidingComp);
+	public abstract int collision(ImageView collidingComp);
 	
 	public GameComponents(float x,float y) {
 		this.setPosition(new Position(x,y));
