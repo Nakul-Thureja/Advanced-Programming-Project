@@ -1,6 +1,8 @@
 package WillHero;
 
-public class Position {
+import java.io.Serializable;
+
+public class Position implements Serializable{
 	private float x,y;
 	public Position(float x,float y){
 		this.setX(x);

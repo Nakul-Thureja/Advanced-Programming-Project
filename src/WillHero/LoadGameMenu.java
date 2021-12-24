@@ -60,7 +60,7 @@ public class LoadGameMenu {
 	public static void deserialize() throws IOException, ClassNotFoundException {
 		ObjectInputStream in = null;
 		try {
-			in = new ObjectInputStream (new FileInputStream("out.txt"));
+			in = new ObjectInputStream (new FileInputStream("savedgames.txt"));
 			Game currGame = (Game) in.readObject();
 			System.out.println(currGame.getMyPlayer().getName());
 		}finally {

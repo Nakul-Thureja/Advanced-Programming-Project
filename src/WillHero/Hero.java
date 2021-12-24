@@ -21,9 +21,6 @@ public class Hero extends GameComponents implements Serializable{
     private static int forward_Move = 60;
     private boolean onPlatform;
     private ArrayList<Platform> allPlatform;
-    private Timeline gravity;
-    private TranslateTransition translate;
-    private ScaleTransition scale;
     private int dead;
     
     public Hero(float x, float y,Helmet myHelmet) {
@@ -33,8 +30,6 @@ public class Hero extends GameComponents implements Serializable{
         this.myHelmet = myHelmet;
         this.onPlatform = false;
         allPlatform = new ArrayList<>();
-        this.translate = new TranslateTransition();
-        this.scale = new ScaleTransition();
     }
     
     public int getDeath() {
@@ -52,8 +47,8 @@ public class Hero extends GameComponents implements Serializable{
     }
     
     public void moveForward(ImageView image) {
-    	gravity.pause();
-    	translate.pause();
+    	//gravity.pause();
+    	//translate.pause();
     	image.setScaleX(1.05);
     	image.setScaleY(0.9);
     	//scale.pause();
@@ -65,27 +60,27 @@ public class Hero extends GameComponents implements Serializable{
 //		scale.setByX(0.3);
 //		scale.setByY(-0.3);
 		//scale.setAutoReverse(true);
-    	translate = new TranslateTransition();
+    	TranslateTransition translate = new TranslateTransition();
 		translate.setNode(image);
 		translate.setDuration(Duration.millis(210));
 		translate.setCycleCount(1);
 		translate.setByX(150);
 		translate.play();
 		//scale.play();
-		translate.setOnFinished(new EventHandler<ActionEvent>() {
-			
-			@Override
-			public void handle(ActionEvent arg0) {
-				gravity.play();
-			}
-		});
+//		translate.setOnFinished(new EventHandler<ActionEvent>() {
+//			
+//			@Override
+//			public void handle(ActionEvent arg0) {
+//				gravity.play();
+//			}
+//		});
     }
-    public void letsJump(ImageView image) {
+    public void letsJump(ImageView image, Timeline gravity) {
     	gravity.pause();
     	this.onPlatform = false;
 //    	this.getImage().setScaleX(1.05);
 //    	this.getImage().setScaleY(0.9);
-    	translate = new TranslateTransition();
+    	TranslateTransition translate = new TranslateTransition();
 		translate.setNode(image);
 		translate.setDuration(Duration.millis(450));
 		translate.setCycleCount(1);
@@ -103,7 +98,7 @@ public class Hero extends GameComponents implements Serializable{
     }
  
     public void beginGravity(ArrayList<ImageView> collider,ImageView image, ImageView death) {
-    	gravity = new Timeline();
+    	Timeline gravity = new Timeline();
     	gravity.setCycleCount(Animation.INDEFINITE);
     	KeyFrame gravity_frame = new KeyFrame(Duration.millis(18), e->{
     		for(int i=0;i<allPlatform.size();i++) {
@@ -120,7 +115,7 @@ public class Hero extends GameComponents implements Serializable{
     		image.setLayoutY(image.getLayoutY()+4);
     		}
     		else {
-    			letsJump(image);
+    			letsJump(image,gravity);
     		}
     	});
     gravity.getKeyFrames().add(gravity_frame);

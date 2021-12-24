@@ -56,12 +56,9 @@ public class SaveGameMenu implements Initializable {
 
 	public static void serialize(Game currGame) throws IOException {
 		ObjectOutputStream out = null;
-		try {
-			out = new ObjectOutputStream (new FileOutputStream("/database/savedgames.txt"));
-			out.writeObject(currGame);
-		} finally {
-			out.close();
-		}
+		out = new ObjectOutputStream (new FileOutputStream("savedgames.txt"));
+		out.writeObject(currGame);
+		out.close();
 	} 
 	
 	public void goBack(MouseEvent e) throws IOException {
