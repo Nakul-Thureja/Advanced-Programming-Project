@@ -6,7 +6,7 @@ import javafx.scene.image.ImageView;
 public class Helmet extends GameComponents{
     private ArrayList<Weapon> myWeapons;
 
-    public Helmet(float x, float y, ArrayList<Weapon> WeaponList) {
+    public Helmet(double x,double y, ArrayList<Weapon> WeaponList) {
         super(x, y);
         this.myWeapons = new ArrayList<>(WeaponList);
     }

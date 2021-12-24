@@ -134,6 +134,9 @@ public class NewGame implements Initializable {
 	private ArrayList<Platform> platformList;
 	private ArrayList<ImageView> colliderList;
 	
+	public void loadGame(Game game) {
+		
+	}
 	
 	public void initGame(MouseEvent event){
 		beginButton.setVisible(false);
@@ -148,9 +151,9 @@ public class NewGame implements Initializable {
 		currGame.setMyWeapons(Weapons);
 		Helmet helmet = new Helmet(0,0,Weapons);
 		currGame.setHelmet(helmet);
-		Hero hero = new Hero(0, 0, helmet);
+		Hero hero = new Hero(myHero.getX(), myHero.getY(), helmet);
 		currGame.setHero(hero);
-		Score score = new Score(0,0,0);
+		Score score = new Score(myScore.getX(),myScore.getY(),0);
 		currGame.setMyScore(score);
 	}
 
@@ -166,7 +169,7 @@ public class NewGame implements Initializable {
 	}
 
 	public void pauseHandler(MouseEvent event) throws IOException {
-		
+		empty.stop();
 		Parent root = FXMLLoader.load(getClass().getResource("/Pause.fxml"));
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		stage.setUserData(currGame);
@@ -221,7 +224,6 @@ public class NewGame implements Initializable {
 				try {
 					heroDefeat();
 				} catch (IOException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 			}

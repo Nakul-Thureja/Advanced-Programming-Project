@@ -10,7 +10,7 @@ public abstract class GameComponents implements Serializable{
 	
 	public abstract int collision(ImageView collidingComp);
 	
-	public GameComponents(float x,float y) {
+	public GameComponents(double x,double y) {
 		this.setPosition(new Position(x,y));
 		this.visibilty = 1;
 	}
@@ -32,19 +32,19 @@ public abstract class GameComponents implements Serializable{
 		this.position = position;
 	}
 
-	public void setPositionX(float x) {
+	public void setPositionX(double x) {
 		position.setX(x);
 	}
 	
-	public float getPositionX() {
+	public double getPositionX() {
 		return position.getX();
 	}
 
-	public void setPositionY(float y) {
+	public void setPositionY(double y) {
 		position.setY(y);
 	}
 
-	public float getPositionY() {
+	public double getPositionY() {
 		return position.getY();
 	}
 }

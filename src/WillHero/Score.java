@@ -6,7 +6,7 @@ public class Score implements Serializable{
     private int score;
     private static int HighScore = 0;
 
-    public Score(float x, float y,int score) {
+    public Score(double x,double y,int score) {
         this.score = score;
     }
     

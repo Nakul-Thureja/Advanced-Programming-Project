@@ -8,7 +8,7 @@ public class Platform extends GameComponents{
     private int size;
     //private ArrayList<ImageView> colliders;
     
-    public Platform(float x, float y,int size) {
+    public Platform(double x,double y,int size) {
         super(x, y);
         this.size = size;
     }

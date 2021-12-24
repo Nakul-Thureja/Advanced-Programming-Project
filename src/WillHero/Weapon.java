@@ -6,7 +6,7 @@ public class Weapon extends GameComponents{
     private int level;
     private int damage;
 
-    public Weapon(float x, float y) {
+    public Weapon(double x,double y) {
         super(x, y);
         this.damage = 0;
         this.level = 0;

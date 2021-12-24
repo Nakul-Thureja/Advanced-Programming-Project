@@ -4,7 +4,7 @@ import javafx.scene.image.ImageView;
 
 public class Companion extends GameComponents{
 
-	public Companion(float x, float y) {
+	public Companion(double x,double y) {
         super(x, y);
 	}
 

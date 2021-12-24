@@ -23,7 +23,7 @@ public class Hero extends GameComponents implements Serializable{
     private ArrayList<Platform> allPlatform;
     private int dead;
     
-    public Hero(float x, float y,Helmet myHelmet) {
+    public Hero(double x,double y,Helmet myHelmet) {
         super(x, y);
         this.dead = 0 ;
         this.myWeapon = null;
@@ -66,6 +66,9 @@ public class Hero extends GameComponents implements Serializable{
 		translate.setCycleCount(1);
 		translate.setByX(150);
 		translate.play();
+
+		this.setPositionX(image.getX());
+		this.setPositionY(image.getY());
 		//scale.play();
 //		translate.setOnFinished(new EventHandler<ActionEvent>() {
 //			
@@ -87,14 +90,13 @@ public class Hero extends GameComponents implements Serializable{
 		translate.setByY(-100);
 		translate.play();
 		translate.setOnFinished(new EventHandler<ActionEvent>() {
-			
 			@Override
 			public void handle(ActionEvent arg0) {
 			gravity.play();
 			}
 		});
-		
-    
+		this.setPositionX(image.getX());
+		this.setPositionY(image.getY());
     }
  
     public void beginGravity(ArrayList<ImageView> collider,ImageView image, ImageView death) {
@@ -118,14 +120,11 @@ public class Hero extends GameComponents implements Serializable{
     			letsJump(image,gravity);
     		}
     	});
-    gravity.getKeyFrames().add(gravity_frame);
-    gravity.play();
+	    gravity.getKeyFrames().add(gravity_frame);
+	    gravity.play();
     }
+  
     
-    
-    
-   
-
     @Override
     public int collision(ImageView collidingComp) {
         return 0;

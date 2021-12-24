@@ -36,6 +36,7 @@ public class Game implements Serializable{
 		this.myComponents = null;
 	}
 
+	
 	// add clone
 	public int getCoins() {
 		return this.numCoins;

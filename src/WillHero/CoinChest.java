@@ -7,7 +7,7 @@ import javafx.scene.image.ImageView;
 
 public class CoinChest extends GameComponents implements Chest{
     private int coin_Value;
-    public CoinChest(float x, float y,int coin_Value) {
+    public CoinChest(double x,double y,int coin_Value) {
         super(x, y);
         this.coin_Value = coin_Value;
     }
