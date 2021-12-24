@@ -135,4 +135,6 @@ public class Hero extends GameComponents implements Serializable{
     public int collision(ImageView collidingComp) {
         return 0;
     }
+
+	
 }

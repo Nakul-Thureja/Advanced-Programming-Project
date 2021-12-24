@@ -1,6 +1,8 @@
 package WillHero;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -52,9 +54,22 @@ public class SaveGameMenu implements Initializable {
 	@FXML
 	private ImageView slot4;
 
+	public static void serialize(Game currGame) throws IOException {
+		ObjectOutputStream out = null;
+		try {
+			out = new ObjectOutputStream (new FileOutputStream("/database/savedgames.txt"));
+			out.writeObject(currGame);
+		} finally {
+			out.close();
+		}
+	} 
+	
 	public void goBack(MouseEvent e) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/Pause.fxml"));
 		Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+		Game currGame = (Game) stage.getUserData();
+		serialize(currGame);
+		System.out.println(currGame.getMyPlayer().getName());
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
 		stage.show();

@@ -1,7 +1,6 @@
 package WillHero;
 
 import java.util.ArrayList;
-
 import javafx.scene.image.ImageView;
 
 public class Helmet extends GameComponents{

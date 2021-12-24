@@ -1,6 +1,8 @@
 package WillHero;
 
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -55,7 +57,20 @@ public class LoadGameMenu {
 	@FXML
 	private ImageView slot4;
 
-	public void goHome(MouseEvent e) throws IOException {
+	public static void deserialize() throws IOException, ClassNotFoundException {
+		ObjectInputStream in = null;
+		try {
+			in = new ObjectInputStream (new FileInputStream("out.txt"));
+			Game currGame = (Game) in.readObject();
+			System.out.println(currGame.getMyPlayer().getName());
+		}finally {
+			in.close();
+		}
+	}
+	
+	
+	public void goHome(MouseEvent e) throws IOException, ClassNotFoundException {
+		deserialize();
 		Parent root = FXMLLoader.load(getClass().getResource("/Main.fxml"));
 		Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
 		Scene scene = new Scene(root);

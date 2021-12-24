@@ -1,10 +1,11 @@
 package WillHero;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import javafx.scene.image.ImageView;
 
-public class Game {
+public class Game implements Serializable{
 	private Player myPlayer;
 	private Hero myHero;
 	private ArrayList<Platform> myPlatforms;

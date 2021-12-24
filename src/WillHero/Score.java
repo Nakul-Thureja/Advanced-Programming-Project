@@ -1,6 +1,8 @@
 package WillHero;
 
-public class Score{
+import java.io.Serializable;
+
+public class Score implements Serializable{
     private int score;
     private static int HighScore = 0;
 

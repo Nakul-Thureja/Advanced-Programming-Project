@@ -61,6 +61,8 @@ public class PauseMenu implements Initializable {
 	public void saveHandler(MouseEvent event) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/SaveGame.fxml"));
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		Game currGame = (Game) stage.getUserData();
+		stage.setUserData(currGame);
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
 		stage.show();

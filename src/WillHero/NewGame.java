@@ -152,8 +152,6 @@ public class NewGame implements Initializable {
 		currGame.setHero(hero);
 		Score score = new Score(0,0,0);
 		currGame.setMyScore(score);
-
-
 	}
 
 	public void heroDefeat() throws IOException {
@@ -168,8 +166,10 @@ public class NewGame implements Initializable {
 	}
 
 	public void pauseHandler(MouseEvent event) throws IOException {
+		
 		Parent root = FXMLLoader.load(getClass().getResource("/Pause.fxml"));
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		stage.setUserData(currGame);
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
 		stage.show();

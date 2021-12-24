@@ -1,8 +1,10 @@
 package WillHero;
 
+import java.io.Serializable;
+
 import javafx.scene.image.ImageView;
 
-public abstract class GameComponents {
+public abstract class GameComponents implements Serializable{
 	private int visibilty;
 	private Position position;
 	
