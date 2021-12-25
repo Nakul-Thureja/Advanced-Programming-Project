@@ -66,19 +66,33 @@ public class Game implements Serializable{
 		return this.myPlayer;
 	}
 
-	public Score getMyScore() {
-		return this.myScore;
-	}
-
 	public void master_collider(ImageView caller) {
 		for (int i = 0; i < this.myComponents.size(); i++) {
 			myComponents.get(i).collision(caller);
 		}
-
 	}
 
 	@Override
 	public String toString() {
 		return "Game{}";
+	}
+
+
+	public double getmyHeroX() {
+		return this.myHero.getPositionX();
+	}
+	
+	public double getmyHeroY() {
+		return this.myHero.getPositionY();
+	}
+
+
+	public void scoreplus1() {
+		this.myScore.scoreplus1();		
+	}
+
+
+	public int getScore() {
+		return this.myScore.getScore();
 	}
 }

@@ -122,7 +122,7 @@ public class NewGame implements Initializable {
 	@FXML
 	private Text coinCounter;
 	
-	private Game currGame;
+	private static Game currGame;
 	private Score score;
 	private TranslateTransition translate;
 	private ScaleTransition scale;
@@ -133,15 +133,27 @@ public class NewGame implements Initializable {
 	private TranslateTransition w2translate1 = new TranslateTransition();
 	private ArrayList<Platform> platformList;
 	private ArrayList<ImageView> colliderList;
+	private GameSlots gameSlot;
 	
-	public void loadGame(Game game) {
-		
+	public static void setCurrGame(Game game) {
+		currGame = game;
+		return;
 	}
 	
-	public void initGame(MouseEvent event){
+	public void loadGame(MouseEvent e) {
+		if(currGame==null) {
+			Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+			Game game = (Game) stage.getUserData();
+			initGame(game);
+		}
+		myHero.setX(currGame.getmyHeroX());
+		myHero.setY(currGame.getmyHeroY());
+		myScore.setText(Integer.toString(currGame.getScore()));
+	}
+	
+	public void initGame(Game game){
 		beginButton.setVisible(false);
-		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		currGame = (Game) stage.getUserData();
+		currGame = game;
 		playerName.setText(currGame.getMyPlayer().getName());
 		Weapon Sword = new Weapon(0,0);
 		Weapon Hammer = new Weapon(0,0);
@@ -438,9 +450,8 @@ public class NewGame implements Initializable {
 //				w2translate.play();
 //			}
 //		});
-		currGame.getMyScore().scoreplus1();
-		;
-		myScore.setText(Integer.toString(currGame.getMyScore().getScore()));
+		currGame.scoreplus1();
+		myScore.setText(Integer.toString(currGame.getScore()));
 
 //		if(score.getScore() == 15) {
 //			Parent root = FXMLLoader.load(getClass().getResource("/HeroWins.fxml"));

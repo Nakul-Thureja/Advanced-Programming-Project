@@ -27,7 +27,7 @@
             <Image url="@assets/Patform.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="slot1" fitHeight="150.0" fitWidth="200.0" layoutX="232.0" layoutY="170.0" onMouseEntered="#hover1" onMouseExited="#unhover1" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="slot1" fitHeight="150.0" fitWidth="200.0" layoutX="232.0" layoutY="170.0" onMouseClicked="#click1" onMouseEntered="#hover1" onMouseExited="#unhover1" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@assets/saveslot1.png" />
          </image>
@@ -35,7 +35,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <ImageView fx:id="slot2" fitHeight="150.0" fitWidth="200.0" layoutX="232.0" layoutY="270.0" onMouseEntered="#hover2" onMouseExited="#unhover2" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="slot2" fitHeight="150.0" fitWidth="200.0" layoutX="232.0" layoutY="270.0" onMouseClicked="#click2" onMouseEntered="#hover2" onMouseExited="#unhover2" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@assets/saveslot2.png" />
          </image>
@@ -43,7 +43,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <ImageView fx:id="slot3" fitHeight="150.0" fitWidth="200.0" layoutX="232.0" layoutY="370.0" onMouseEntered="#hover3" onMouseExited="#unhover3" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="slot3" fitHeight="150.0" fitWidth="200.0" layoutX="232.0" layoutY="370.0" onMouseClicked="#click3" onMouseEntered="#hover3" onMouseExited="#unhover3" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@assets/saveslot3.png" />
          </image>
@@ -51,7 +51,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <ImageView fx:id="slot4" fitHeight="150.0" fitWidth="200.0" layoutX="232.0" layoutY="470.0" onMouseEntered="#hover4" onMouseExited="#unhover4" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="slot4" fitHeight="150.0" fitWidth="200.0" layoutX="232.0" layoutY="470.0" onMouseClicked="#click4" onMouseEntered="#hover4" onMouseExited="#unhover4" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@assets/saveslot4.png" />
          </image>

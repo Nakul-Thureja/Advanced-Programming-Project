@@ -100,11 +100,16 @@ public class Main extends Application implements Initializable {
 	}
 	
 	public void newGame(MouseEvent event) throws IOException {
-		  Parent root = FXMLLoader.load(getClass().getResource("/EnterName.fxml"));
-		  Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-		  Scene scene = new Scene(root);
-		  stage.setScene(scene);
-		  stage.show();
+		try {
+			LoadGameMenu.deserialize();
+		} catch (ClassNotFoundException | IOException e) {
+			e.printStackTrace();
+		}  
+		Parent root = FXMLLoader.load(getClass().getResource("/EnterName.fxml"));
+		Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		Scene scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
 	}
 	
 	public void hover1(MouseEvent event) throws URISyntaxException {

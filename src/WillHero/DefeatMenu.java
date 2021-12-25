@@ -125,7 +125,7 @@ public class DefeatMenu{
 		beginner.setVisible(false);
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		currGame = (Game) stage.getUserData();
-		myScore.setText(Integer.toString(currGame.getMyScore().getScore()));
+		myScore.setText(Integer.toString(currGame.getScore()));
 		coinCounter.setText(Integer.toString(currGame.getCoins()));
 		playerName.setText(currGame.getMyPlayer().getName());
 		

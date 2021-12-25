@@ -47,7 +47,7 @@ public class PauseMenu implements Initializable {
 	private ImageView myORC;
 
 	public void resumeHandler(MouseEvent event) {
-
+		
 	}
 
 	public void restartHandler(MouseEvent event) throws IOException {

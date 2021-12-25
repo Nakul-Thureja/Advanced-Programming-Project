@@ -1,5 +1,6 @@
 package WillHero;
 
+import java.io.EOFException;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -56,28 +57,31 @@ public class LoadGameMenu {
 	private ImageView slot3;
 	@FXML
 	private ImageView slot4;
-
+	private static GameSlots Slot; 
+	
 	public static void deserialize() throws IOException, ClassNotFoundException {
 		ObjectInputStream in = null;
 		try {
 			in = new ObjectInputStream (new FileInputStream("savedgames.txt"));
-			Game currGame = (Game) in.readObject();
-			System.out.println(currGame.getMyPlayer().getName());
-		}finally {
-			in.close();
+			Slot = (GameSlots) in.readObject();
+			GameSlots.setInstance(Slot);
+		}catch(EOFException e) {
+			return;
+		}
+		finally {
+			if(in!=null) {
+				in.close();
+			}
 		}
 	}
 	
-	
 	public void goHome(MouseEvent e) throws IOException, ClassNotFoundException {
-		deserialize();
 		Parent root = FXMLLoader.load(getClass().getResource("/Main.fxml"));
 		Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
 		stage.show();
 	}
-	
 	
 	public void newGame(MouseEvent event) throws IOException {
 		  Parent root = FXMLLoader.load(getClass().getResource("/NewGame.fxml"));
@@ -86,6 +90,7 @@ public class LoadGameMenu {
 		  stage.setScene(scene);
 		  stage.show();
 	}
+
 	public void scale(MouseEvent e) throws IOException {
 		 ScaleTransition scale = new ScaleTransition();
 		  scale.setNode(saveCoin);
@@ -108,8 +113,8 @@ public class LoadGameMenu {
 					}
 				}
 			});
-		  
 	}
+	
 	public void translate(MouseEvent e) throws IOException {
 		saveCoin.setVisible(true);
 		TranslateTransition translate = new TranslateTransition();
@@ -132,25 +137,84 @@ public class LoadGameMenu {
 		});
 	}
 	
-	public void slot1_click(MouseEvent e) throws IOException {
-		translate(e);
-		//newGame(e);
-		
+	public void slot1_click(MouseEvent e) throws IOException, ClassNotFoundException {
+		deserialize();
+		Slot = GameSlots.getInstance();
+		if(Slot.getSlot1() == null) {
+			Alert alert1 = new Alert(AlertType.INFORMATION);
+			alert1.setTitle("Game Loader");
+			alert1.setHeaderText("No Game is saved in Slot1");
+			if (alert1.showAndWait().get() == ButtonType.OK){
+				return;
+			}
+		}
+		NewGame.setCurrGame(Slot.getSlot1());
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Game Loader");
+		alert.setHeaderText("Game Loaded Successfully");
+		if (alert.showAndWait().get() == ButtonType.OK){
+			translate(e);
+		}		
 	}
-	public void slot2_click(MouseEvent e) throws IOException {
-		translate(e);
-		//newGame(e);
 
+	public void slot2_click(MouseEvent e) throws IOException, ClassNotFoundException {
+		deserialize();
+		Slot = GameSlots.getInstance();
+		if(Slot.getSlot2() == null) {
+			Alert alert1 = new Alert(AlertType.INFORMATION);
+			alert1.setTitle("Game Loader");
+			alert1.setHeaderText("No Game is saved in Slot2");
+			if (alert1.showAndWait().get() == ButtonType.OK){
+				return;
+			}
+		}
+		NewGame.setCurrGame(Slot.getSlot2());
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Game Loader");
+		alert.setHeaderText("Game Loaded Successfully");
+		if (alert.showAndWait().get() == ButtonType.OK){
+			translate(e);
+		}
 	}
-	public void slot3_click(MouseEvent e) throws IOException {
-		translate(e);
-		//newGame(e);
 
+	public void slot3_click(MouseEvent e) throws IOException, ClassNotFoundException {
+		deserialize();
+		Slot = GameSlots.getInstance();
+		if(Slot.getSlot3() == null) {
+			Alert alert1 = new Alert(AlertType.INFORMATION);
+			alert1.setTitle("Game Loader");
+			alert1.setHeaderText("No Game is saved in Slot3");
+			if (alert1.showAndWait().get() == ButtonType.OK){
+				return;
+			}
+		}
+		NewGame.setCurrGame(Slot.getSlot3());
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Game Loader");
+		alert.setHeaderText("Game Loaded Successfully");
+		if (alert.showAndWait().get() == ButtonType.OK){
+			translate(e);
+		}
 	}
-	public void slot4_click(MouseEvent e) throws IOException {
-		translate(e);
-		//newGame(e);
 
+	public void slot4_click(MouseEvent e) throws IOException, ClassNotFoundException {
+		deserialize();
+		Slot = GameSlots.getInstance();
+		if(Slot.getSlot4() == null) {
+			Alert alert1 = new Alert(AlertType.INFORMATION);
+			alert1.setTitle("Game Loader");
+			alert1.setHeaderText("No Game is saved in Slot4");
+			if (alert1.showAndWait().get() == ButtonType.OK){
+				return;
+			}
+		}
+		NewGame.setCurrGame(Slot.getSlot4());
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Game Loader");
+		alert.setHeaderText("Game Loaded Successfully");
+		if (alert.showAndWait().get() == ButtonType.OK){
+			translate(e);
+		}
 	}
 	
 

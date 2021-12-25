@@ -54,19 +54,23 @@ public class SaveGameMenu implements Initializable {
 	@FXML
 	private ImageView slot4;
 
-	public static void serialize(Game currGame) throws IOException {
+	private static GameSlots Slot = GameSlots.getInstance();
+	
+	public static void serialize() throws IOException {
 		ObjectOutputStream out = null;
-		out = new ObjectOutputStream (new FileOutputStream("savedgames.txt"));
-		out.writeObject(currGame);
-		out.close();
+		try {
+			out = new ObjectOutputStream (new FileOutputStream("savedgames.txt"));
+			out.writeObject(Slot);
+		}finally {
+			if(out != null) {
+				out.close();
+			}
+		}
 	} 
 	
 	public void goBack(MouseEvent e) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/Pause.fxml"));
 		Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-		Game currGame = (Game) stage.getUserData();
-		serialize(currGame);
-		System.out.println(currGame.getMyPlayer().getName());
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
 		stage.show();
@@ -121,7 +125,111 @@ public class SaveGameMenu implements Initializable {
 		Image image = new Image(getClass().getResource("/assets/saveslot4.png").toURI().toString());
 		slot4.setImage(image);
 	}
-
+	
+	public void click1(MouseEvent event) {
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		Game game = (Game) stage.getUserData();
+		if(Slot.getSlot1() != null) {
+			Alert alert = new Alert(AlertType.CONFIRMATION);
+			alert.setTitle("OverWrite");
+			alert.setHeaderText("You are about to over write on the game saved in slot1");
+			if (alert.showAndWait().get() != ButtonType.OK){
+				return;
+			}
+		}
+		Slot.setSlot1(game);
+		try {
+			serialize();
+		} catch (IOException e) {
+			e.printStackTrace();
+			return;
+		}
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Game Saved");
+		alert.setHeaderText("Game Saved Successfully");
+		if (alert.showAndWait().get() == ButtonType.OK){
+			return;
+		}
+	}
+	
+	public void click2(MouseEvent event) {
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		Game game = (Game) stage.getUserData();
+		if(Slot.getSlot2() != null) {
+			Alert alert = new Alert(AlertType.CONFIRMATION);
+			alert.setTitle("OverWrite");
+			alert.setHeaderText("You are about to over write on the game saved in slot1");
+			if (alert.showAndWait().get() != ButtonType.OK){
+				return;
+			}
+		}
+		Slot.setSlot2(game);
+		try {
+			serialize();
+		} catch (IOException e) {
+			e.printStackTrace();
+			return;
+		}
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Game Saved");
+		alert.setHeaderText("Game Saved Successfully");
+		if (alert.showAndWait().get() == ButtonType.OK){
+			return;
+		}
+	}
+	
+	public void click3(MouseEvent event) {
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		Game game = (Game) stage.getUserData();
+		if(Slot.getSlot3() != null) {
+			Alert alert = new Alert(AlertType.CONFIRMATION);
+			alert.setTitle("OverWrite");
+			alert.setHeaderText("You are about to over write on the game saved in slot1");
+			if (alert.showAndWait().get() != ButtonType.OK){
+				return;
+			}
+		}
+		Slot.setSlot3(game);
+		try {
+			serialize();
+		} catch (IOException e) {
+			e.printStackTrace();
+			return;
+		}
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Game Saved");
+		alert.setHeaderText("Game Saved Successfully");
+		if (alert.showAndWait().get() == ButtonType.OK){
+			return;
+		}	
+	}
+	
+	public void click4(MouseEvent event) {
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		Game game = (Game) stage.getUserData();
+		if(Slot.getSlot4() != null) {
+			Alert alert = new Alert(AlertType.CONFIRMATION);
+			alert.setTitle("OverWrite");
+			alert.setHeaderText("You are about to over write on the game saved in slot1");
+			if (alert.showAndWait().get() != ButtonType.OK){
+				return;
+			}
+		}
+		Slot.setSlot4(game);
+		try {
+			serialize();
+		} catch (IOException e) {
+			e.printStackTrace();
+			return;
+		}
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Game Saved");
+		alert.setHeaderText("Game Saved Successfully");
+		if (alert.showAndWait().get() == ButtonType.OK){
+			return;
+		}
+	}
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub

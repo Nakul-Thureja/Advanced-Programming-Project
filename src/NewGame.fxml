@@ -290,7 +290,7 @@
                   <Image url="@assets/deathpanel.png" />
                </image>
            </ImageView>
-            <ImageView fx:id="beginButton" fitHeight="615.0" fitWidth="1150.0" onMouseClicked="#initGame" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="beginButton" fitHeight="615.0" fitWidth="1150.0" onMouseClicked="#loadGame" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/beginner.png" />
                </image>
