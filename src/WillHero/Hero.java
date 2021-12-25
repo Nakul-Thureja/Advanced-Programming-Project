@@ -66,9 +66,17 @@ public class Hero extends GameComponents implements Serializable{
 		translate.setCycleCount(1);
 		translate.setByX(150);
 		translate.play();
-
-		this.setPositionX(image.getX());
-		this.setPositionY(image.getY());
+//		Hero myHero = this;
+//		translate.setOnFinished(new EventHandler<ActionEvent>() {
+//			@Override
+//			public void handle(ActionEvent arg0) {
+//				myHero.setPositionX(image.getLayoutX());
+//				myHero.setPositionY(image.getLayoutY());	
+//				System.out.println(image.getLayoutX()+" "+ image.getLayoutY());
+//			}
+//		});
+		
+		
 		//scale.play();
 //		translate.setOnFinished(new EventHandler<ActionEvent>() {
 //			
@@ -89,15 +97,17 @@ public class Hero extends GameComponents implements Serializable{
 		translate.setCycleCount(1);
 		translate.setByY(-100);
 		translate.play();
+		Hero myHero = this;
 		translate.setOnFinished(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent arg0) {
-			gravity.play();
+				myHero.setPositionX(image.getLayoutX());
+				myHero.setPositionY(image.getLayoutY());	
+				System.out.println(image.getLayoutX()+" "+ image.getLayoutY());
+				gravity.play();
 			}
 		});
-		this.setPositionX(image.getX());
-		this.setPositionY(image.getY());
-    }
+	}
  
     public void beginGravity(ArrayList<ImageView> collider,ImageView image, ImageView death) {
     	Timeline gravity = new Timeline();

@@ -146,10 +146,12 @@ public class NewGame implements Initializable {
 			Game game = (Game) stage.getUserData();
 			initGame(game);
 		}
-		myHero.setX(currGame.getmyHeroX());
-		myHero.setY(currGame.getmyHeroY());
-		myScore.setText(Integer.toString(currGame.getScore()));
-	}
+		else {
+			myHero.setLayoutX(currGame.getmyHeroX());
+			myHero.setLayoutY(currGame.getmyHeroY());
+			myScore.setText(Integer.toString(currGame.getScore()));
+		}
+	}	
 	
 	public void initGame(Game game){
 		beginButton.setVisible(false);
@@ -163,9 +165,9 @@ public class NewGame implements Initializable {
 		currGame.setMyWeapons(Weapons);
 		Helmet helmet = new Helmet(0,0,Weapons);
 		currGame.setHelmet(helmet);
-		Hero hero = new Hero(myHero.getX(), myHero.getY(), helmet);
+		Hero hero = new Hero(myHero.getLayoutX(), myHero.getLayoutY(), helmet);
 		currGame.setHero(hero);
-		Score score = new Score(myScore.getX(),myScore.getY(),0);
+		Score score = new Score(myScore.getLayoutX(),myScore.getLayoutY(),0);
 		currGame.setMyScore(score);
 	}
 
