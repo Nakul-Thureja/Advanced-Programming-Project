@@ -19,8 +19,16 @@ public class Game implements Serializable{
 	private ArrayList<Chest> myChests;
 	private Score myScore;
 	private ArrayList<GameComponents> myComponents;
+	private boolean loadflag;
+	private ArrayList<Position> misc;
+	
+		
+	public ArrayList<Position> getmisc() {
+		return this.misc;
+	}
 
 	public Game(String playerName) {
+		this.misc = new ArrayList<Position>();
 		this.numCoins = 0;
 		this.myPlayer = new Player(playerName);
 		this.myHero = null;
@@ -34,9 +42,15 @@ public class Game implements Serializable{
 		this.myChests = null;
 		this.myScore = null;
 		this.myComponents = null;
+		this.loadflag = false;
 	}
-
 	
+	public boolean isLoad() {
+		return this.loadflag;
+	}
+	public void setFlag(boolean _flag) {
+		loadflag = _flag;
+	}
 	// add clone
 	public int getCoins() {
 		return this.numCoins;

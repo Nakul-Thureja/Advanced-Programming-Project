@@ -83,15 +83,16 @@ public class LoadGameMenu {
 		stage.show();
 	}
 	
-	public void newGame(MouseEvent event) throws IOException {
+	public void newGame(MouseEvent event,Game game) throws IOException {
 		  Parent root = FXMLLoader.load(getClass().getResource("/NewGame.fxml"));
 		  Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		  stage.setUserData(game);
 		  Scene scene = new Scene(root);
 		  stage.setScene(scene);
 		  stage.show();
 	}
 
-	public void scale(MouseEvent e) throws IOException {
+	public void scale(MouseEvent e, int i) throws IOException {
 		 ScaleTransition scale = new ScaleTransition();
 		  scale.setNode(saveCoin);
 		  scale.setDelay(Duration.millis(300));
@@ -106,7 +107,11 @@ public class LoadGameMenu {
 				@Override
 				public void handle(ActionEvent arg0) {				
 					try {
-						newGame(e);
+						if(i == 1) {newGame(e,Slot.getSlot1());}
+						if(i == 2) {newGame(e,Slot.getSlot2());}
+						if(i == 3) {newGame(e,Slot.getSlot3());}
+						if(i == 4) {newGame(e,Slot.getSlot4());}
+
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -115,7 +120,8 @@ public class LoadGameMenu {
 			});
 	}
 	
-	public void translate(MouseEvent e) throws IOException {
+	public void translate(MouseEvent e, int i) throws IOException {
+		
 		saveCoin.setVisible(true);
 		TranslateTransition translate = new TranslateTransition();
 		translate.setNode(saveCoin);
@@ -128,7 +134,7 @@ public class LoadGameMenu {
 			@Override
 			public void handle(ActionEvent arg0) {				
 				try {
-					scale(e);
+					scale(e, i);
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -144,17 +150,17 @@ public class LoadGameMenu {
 			Alert alert1 = new Alert(AlertType.INFORMATION);
 			alert1.setTitle("Game Loader");
 			alert1.setHeaderText("No Game is saved in Slot1");
-			if (alert1.showAndWait().get() == ButtonType.OK){
-				return;
-			}
+			alert1.showAndWait();
+			return;
 		}
-		NewGame.setCurrGame(Slot.getSlot1());
+		//NewGame.setCurrGame(Slot.getSlot1());
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("Game Loader");
 		alert.setHeaderText("Game Loaded Successfully");
-		if (alert.showAndWait().get() == ButtonType.OK){
-			translate(e);
-		}		
+		alert.showAndWait();
+		timeLineClose.stop();
+		chestOPEN();
+		translate(e,1);
 	}
 
 	public void slot2_click(MouseEvent e) throws IOException, ClassNotFoundException {
@@ -164,17 +170,17 @@ public class LoadGameMenu {
 			Alert alert1 = new Alert(AlertType.INFORMATION);
 			alert1.setTitle("Game Loader");
 			alert1.setHeaderText("No Game is saved in Slot2");
-			if (alert1.showAndWait().get() == ButtonType.OK){
-				return;
-			}
+			alert1.showAndWait();
+			return;
 		}
-		NewGame.setCurrGame(Slot.getSlot2());
+		//NewGame.setCurrGame(Slot.getSlot2());
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("Game Loader");
 		alert.setHeaderText("Game Loaded Successfully");
-		if (alert.showAndWait().get() == ButtonType.OK){
-			translate(e);
-		}
+		alert.showAndWait();
+		timeLineClose.stop();
+		chestOPEN();
+		translate(e,2);
 	}
 
 	public void slot3_click(MouseEvent e) throws IOException, ClassNotFoundException {
@@ -184,17 +190,15 @@ public class LoadGameMenu {
 			Alert alert1 = new Alert(AlertType.INFORMATION);
 			alert1.setTitle("Game Loader");
 			alert1.setHeaderText("No Game is saved in Slot3");
-			if (alert1.showAndWait().get() == ButtonType.OK){
-				return;
-			}
+			alert1.showAndWait();
+			return;
 		}
-		NewGame.setCurrGame(Slot.getSlot3());
+		//NewGame.setCurrGame(Slot.getSlot3());
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("Game Loader");
 		alert.setHeaderText("Game Loaded Successfully");
-		if (alert.showAndWait().get() == ButtonType.OK){
-			translate(e);
-		}
+		alert.showAndWait();
+		translate(e,3);
 	}
 
 	public void slot4_click(MouseEvent e) throws IOException, ClassNotFoundException {
@@ -204,17 +208,15 @@ public class LoadGameMenu {
 			Alert alert1 = new Alert(AlertType.INFORMATION);
 			alert1.setTitle("Game Loader");
 			alert1.setHeaderText("No Game is saved in Slot4");
-			if (alert1.showAndWait().get() == ButtonType.OK){
-				return;
-			}
+			alert1.showAndWait();
+			return;
 		}
-		NewGame.setCurrGame(Slot.getSlot4());
+		//NewGame.setCurrGame(Slot.getSlot4());
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("Game Loader");
 		alert.setHeaderText("Game Loaded Successfully");
-		if (alert.showAndWait().get() == ButtonType.OK){
-			translate(e);
-		}
+		alert.showAndWait();
+		translate(e,4);
 	}
 	
 

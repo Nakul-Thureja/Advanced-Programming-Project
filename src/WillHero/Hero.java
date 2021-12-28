@@ -22,6 +22,8 @@ public class Hero extends GameComponents implements Serializable{
     private boolean onPlatform;
     private ArrayList<Platform> allPlatform;
     private int dead;
+    private transient TranslateTransition translate;
+    private transient Timeline gravity;
     
     public Hero(double x,double y,Helmet myHelmet) {
         super(x, y);
@@ -30,6 +32,7 @@ public class Hero extends GameComponents implements Serializable{
         this.myHelmet = myHelmet;
         this.onPlatform = false;
         allPlatform = new ArrayList<>();
+        translate = new TranslateTransition();
     }
     
     public int getDeath() {
@@ -47,8 +50,8 @@ public class Hero extends GameComponents implements Serializable{
     }
     
     public void moveForward(ImageView image) {
-    	//gravity.pause();
-    	//translate.pause();
+        	gravity.pause();
+    	translate.pause();
     	image.setScaleX(1.05);
     	image.setScaleY(0.9);
     	//scale.pause();
@@ -60,19 +63,24 @@ public class Hero extends GameComponents implements Serializable{
 //		scale.setByX(0.3);
 //		scale.setByY(-0.3);
 		//scale.setAutoReverse(true);
-    	TranslateTransition translate = new TranslateTransition();
+    	translate = new TranslateTransition();
 		translate.setNode(image);
 		translate.setDuration(Duration.millis(210));
 		translate.setCycleCount(1);
 		translate.setByX(150);
 		translate.play();
-//		Hero myHero = this;
-//		translate.setOnFinished(new EventHandler<ActionEvent>() {
-//			@Override
-//			public void handle(ActionEvent arg0) {
+		translate.setOnFinished(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent arg0) {
+				
+				gravity.play();
+				}
+		});
+		this.setPositionX(image.getX());
+		this.setPositionY(image.getY());
+    }
 //				myHero.setPositionX(image.getLayoutX());
 //				myHero.setPositionY(image.getLayoutY());	
-//				System.out.println(image.getLayoutX()+" "+ image.getLayoutY());
 //			}
 //		});
 		
@@ -85,32 +93,29 @@ public class Hero extends GameComponents implements Serializable{
 //				gravity.play();
 //			}
 //		});
-    }
+    
     public void letsJump(ImageView image, Timeline gravity) {
     	gravity.pause();
     	this.onPlatform = false;
 //    	this.getImage().setScaleX(1.05);
 //    	this.getImage().setScaleY(0.9);
-    	TranslateTransition translate = new TranslateTransition();
+    	translate = new TranslateTransition();
 		translate.setNode(image);
 		translate.setDuration(Duration.millis(450));
 		translate.setCycleCount(1);
 		translate.setByY(-100);
 		translate.play();
-		Hero myHero = this;
 		translate.setOnFinished(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent arg0) {
-				myHero.setPositionX(image.getLayoutX());
-				myHero.setPositionY(image.getLayoutY());	
-				System.out.println(image.getLayoutX()+" "+ image.getLayoutY());
+				//System.out.println(image.getLayoutX()+" "+ image.getLayoutY());
 				gravity.play();
 			}
 		});
 	}
  
     public void beginGravity(ArrayList<ImageView> collider,ImageView image, ImageView death) {
-    	Timeline gravity = new Timeline();
+    	gravity = new Timeline();
     	gravity.setCycleCount(Animation.INDEFINITE);
     	KeyFrame gravity_frame = new KeyFrame(Duration.millis(18), e->{
     		for(int i=0;i<allPlatform.size();i++) {

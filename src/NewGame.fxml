@@ -221,6 +221,11 @@
                   <Image url="@assets/Tree3.png" />
                </image>
             </ImageView>
+             <ImageView fx:id="myHero" fitHeight="59.0" fitWidth="145.0" pickOnBounds="true" preserveRatio="true" x="234.0">
+               <image>
+                  <Image url="@assets/hero2.png" />
+               </image>
+            </ImageView>
             <ImageView fx:id="platform12" fitHeight="138.0" fitWidth="222.0" layoutX="4177.0" layoutY="367.0" pickOnBounds="true">
                <image>
                   <Image url="@assets/Islands7.png" />
@@ -249,11 +254,6 @@
             <ImageView fitHeight="80.0" fitWidth="194.0" layoutX="2743.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/CLoud1.png" />
-               </image>
-            </ImageView>
-             <ImageView fx:id="myHero" fitHeight="59.0" fitWidth="145.0" layoutX="234.0" layoutY="0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@assets/hero2.png" />
                </image>
             </ImageView>
             <ImageView fx:id="clickable" fitHeight="610.0" fitWidth="1150.0" layoutX="1.0" layoutY="1.0" onMouseClicked="#move" opacity="0.0" pickOnBounds="true" preserveRatio="true">
@@ -290,7 +290,7 @@
                   <Image url="@assets/deathpanel.png" />
                </image>
            </ImageView>
-            <ImageView fx:id="beginButton" fitHeight="615.0" fitWidth="1150.0" onMouseClicked="#loadGame" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="beginButton" fitHeight="615.0" fitWidth="1150.0" onMouseClicked="#letsBegin" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/beginner.png" />
                </image>
