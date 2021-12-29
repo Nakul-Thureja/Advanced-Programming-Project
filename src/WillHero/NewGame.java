@@ -121,6 +121,8 @@ public class NewGame implements Initializable {
 	private ImageView beginButton;
 	@FXML
 	private Text coinCounter;
+	@FXML
+	private AnchorPane heroPane;
 	
 	private Game currGame;
 	private Score score;
@@ -158,17 +160,18 @@ public class NewGame implements Initializable {
 			pauseButton.setX(misc.get(2).getX());
 			swordSlot.setX(misc.get(3).getX());
 			hammerSlot.setX(misc.get(4).getX());
+			System.out.println(misc.get(4).getX());
 			coinDisplay.setX(misc.get(5).getX());
 			myScore.setX(misc.get(6).getX());
 			playerName.setX(misc.get(7).getX());
 			coinCounter.setX(misc.get(8).getX());
 			playerName.setText(currGame.getMyPlayer().getName());
-			System.out.println(currGame.getmyHeroX());
+			System.out.println(misc.get(9).getX());
 			//<<PROBLEM>>
 			//------------------
 			//--------------
 			//---------------
-			myHero.setLayoutX(currGame.getmyHeroX());
+			myHero.setX(misc.get(9).getX());
 			//---------------
 			//---------------
 			//----------------
@@ -190,7 +193,7 @@ public class NewGame implements Initializable {
 		currGame.setMyWeapons(Weapons);
 		Helmet helmet = new Helmet(0,0,Weapons);
 		currGame.setHelmet(helmet);
-		Hero hero = new Hero(0.0, 0.0, helmet);
+		Hero hero = new Hero(234.0, 0.0, helmet);
 		currGame.setHero(hero);
 		Score score = new Score(myScore.getLayoutX(),myScore.getLayoutY(),0);
 		currGame.setMyScore(score);
@@ -272,7 +275,7 @@ public class NewGame implements Initializable {
 		empty.play();
 		handWeapon.setVisible(false);
 		handWeapon2.setVisible(false);
-		hero = new Hero(0, 0, null);
+		hero = new Hero(234, 0, null);
 		platformList = new ArrayList<>();
 		colliderList = new ArrayList<>();
 		colliderList.add(collider1);colliderList.add(collider2);colliderList.add(collider3);colliderList.add(collider4);colliderList.add(collider5);colliderList.add(collider6);
@@ -306,8 +309,9 @@ public class NewGame implements Initializable {
 		myHero.translateXProperty().addListener((obs, old, newValue) -> {
 
 			int offset = newValue.intValue();
+			//System.out.println(offset);
 
-			if (offset > 100 && offset < 11500 - 100) {
+			if (offset > 100 ){//&& //offset < 11500 - 100) {
 				currGame.getmisc().clear();
 				myPane.setLayoutX(-(offset - 100));
 				currGame.getmisc().add(new Position(myPane.getLayoutX(),myPane.getLayoutY()));
@@ -327,7 +331,8 @@ public class NewGame implements Initializable {
 				currGame.getmisc().add(new Position(playerName.getX(),playerName.getLayoutY()));
 				coinCounter.setX(offset-100);
 				currGame.getmisc().add(new Position(coinCounter.getX(),coinCounter.getLayoutY()));
-
+				heroPane.setLayoutX(offset-100);
+				currGame.getmisc().add(new Position(heroPane.getLayoutX(),heroPane.getLayoutY()));
 			}
 		});
 
