@@ -76,6 +76,9 @@ public class Game implements Serializable{
 		this.myPlayer = myPlayer;
 	}
 
+	public Hero getMyHero() {
+		return this.myHero;
+	}
 	public Player getMyPlayer() {
 		return this.myPlayer;
 	}

@@ -147,31 +147,111 @@ public class NewGame implements Initializable {
 			currGame = (Game) stage.getUserData();
 			if(currGame.isLoad()) {
 				loadGame();
+
 		}
 			else {
 				initGame();
 			}
+			score = new Score(0, 0, 0);
+			empty = new Timeline();
+			empty.setCycleCount(Animation.INDEFINITE);
+			KeyFrame gravity_frame = new KeyFrame(Duration.millis(18), e1 -> {
+				if (currGame.getMyHero().getDeath() == 1) {
+					try {
+						heroDefeat();
+					} catch (IOException e2) {
+						e2.printStackTrace();
+					}
+				}
+			});
+			empty.getKeyFrames().add(gravity_frame);
+			empty.play();
+			handWeapon.setVisible(false);
+			handWeapon2.setVisible(false);
+			
+			platformList = new ArrayList<>();
+			colliderList = new ArrayList<>();
+			colliderList.add(collider1);colliderList.add(collider2);colliderList.add(collider3);colliderList.add(collider4);colliderList.add(collider5);colliderList.add(collider6);
+			colliderList.add(collider7);colliderList.add(collider8);colliderList.add(collider9);colliderList.add(collider10);colliderList.add(collider11);colliderList.add(collider12);
+			colliderList.add(collider13);colliderList.add(collider14);colliderList.add(collider15);
+			Platform platform;
+			platform = new Platform(0,0,0);platformList.add(platform);platform = new Platform(0,0,0);platformList.add(platform);
+			platform = new Platform(0,0,0);platformList.add(platform);platform = new Platform(0,0,0);platformList.add(platform);
+			platform = new Platform(0,0,0);platformList.add(platform);platform = new Platform(0,0,0);platformList.add(platform);
+			platform = new Platform(0,0,0);platformList.add(platform);platform = new Platform(0,0,0);platformList.add(platform);
+			platform = new Platform(0,0,0);platformList.add(platform);platform = new Platform(0,0,0);platformList.add(platform);
+			platform = new Platform(0,0,0);platformList.add(platform);platform = new Platform(0,0,0);platformList.add(platform);
+			platform = new Platform(0,0,0);platformList.add(platform);platform = new Platform(0,0,0);platformList.add(platform);
+			platform = new Platform(0,0,0);platformList.add(platform);
+			currGame.getMyHero().givePlatform(platformList);
+			currGame.getMyHero().beginGravity(colliderList,myHero,deathpanel);
+			wtranslate = new TranslateTransition();
+			wtranslate.setNode(handWeapon);
+			wtranslate.setDuration(Duration.millis(600));
+			wtranslate.setCycleCount(TranslateTransition.INDEFINITE);
+			wtranslate.setByY(-60);
+			wtranslate.setAutoReverse(true);
+			w2translate = new TranslateTransition();
+			w2translate.setNode(handWeapon2);
+			w2translate.setDuration(Duration.millis(600));
+			w2translate.setCycleCount(TranslateTransition.INDEFINITE);
+			w2translate.setByY(-60);
+			w2translate.setAutoReverse(true);
+			w2translate.play();
+			wtranslate.play();
+			myHero.translateXProperty().addListener((obs, old, newValue) -> {
+
+				int offset = newValue.intValue();
+				//System.out.println(myHero.getTranslateX());
+
+				if (offset > 100 ){//&& //offset < 11500 - 100) {
+					currGame.getmisc().clear();
+					myPane.setLayoutX(-(offset - 100));
+					currGame.getmisc().add(new Position(myPane.getLayoutX(),myPane.getLayoutY()));
+					clickable.setX(offset - 100);
+					currGame.getmisc().add(new Position(clickable.getX(),clickable.getLayoutY()));
+					pauseButton.setX(offset - 100);
+					currGame.getmisc().add(new Position(pauseButton.getX(),pauseButton.getLayoutY()));
+					swordSlot.setX(offset - 100);
+					currGame.getmisc().add(new Position(swordSlot.getX(),swordSlot.getLayoutY()));
+					hammerSlot.setX(offset - 100);
+					currGame.getmisc().add(new Position(hammerSlot.getX(),hammerSlot.getLayoutY()));
+					coinDisplay.setX(offset - 100);
+					currGame.getmisc().add(new Position(coinDisplay.getX(),coinDisplay.getLayoutY()));
+					myScore.setX(offset - 100);
+					currGame.getmisc().add(new Position(myScore.getX(),myScore.getLayoutY()));
+					playerName.setX(offset-100);
+					currGame.getmisc().add(new Position(playerName.getX(),playerName.getLayoutY()));
+					coinCounter.setX(offset-100);
+					currGame.getmisc().add(new Position(coinCounter.getX(),coinCounter.getLayoutY()));
+					heroPane.setLayoutX(offset-100);
+					currGame.getmisc().add(new Position(heroPane.getLayoutX(),heroPane.getLayoutY()));
+				}
+			});
+
 	}
 	
 	public void loadGame() {
 			ArrayList<Position> misc = currGame.getmisc();
+			
 			myPane.setLayoutX(misc.get(0).getX());
 			clickable.setX(misc.get(1).getX());
 			pauseButton.setX(misc.get(2).getX());
 			swordSlot.setX(misc.get(3).getX());
 			hammerSlot.setX(misc.get(4).getX());
-			System.out.println(misc.get(4).getX());
+		//	System.out.println(misc.get(4).getX());
 			coinDisplay.setX(misc.get(5).getX());
 			myScore.setX(misc.get(6).getX());
 			playerName.setX(misc.get(7).getX());
 			coinCounter.setX(misc.get(8).getX());
 			playerName.setText(currGame.getMyPlayer().getName());
-			System.out.println(misc.get(9).getX());
+			//System.out.println(misc.get(9).getX());
 			//<<PROBLEM>>
 			//------------------
 			//--------------
 			//---------------
-			myHero.setX(misc.get(9).getX());
+			myHero.setTranslateX(misc.get(9).getX());
+			//myHero.setX(misc.get(9).getX());
 			//---------------
 			//---------------
 			//----------------
@@ -259,82 +339,83 @@ public class NewGame implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-		score = new Score(0, 0, 0);
-		empty = new Timeline();
-		empty.setCycleCount(Animation.INDEFINITE);
-		KeyFrame gravity_frame = new KeyFrame(Duration.millis(18), e -> {
-			if (hero.getDeath() == 1) {
-				try {
-					heroDefeat();
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				}
-			}
-		});
-		empty.getKeyFrames().add(gravity_frame);
-		empty.play();
-		handWeapon.setVisible(false);
-		handWeapon2.setVisible(false);
-		hero = new Hero(234, 0, null);
-		platformList = new ArrayList<>();
-		colliderList = new ArrayList<>();
-		colliderList.add(collider1);colliderList.add(collider2);colliderList.add(collider3);colliderList.add(collider4);colliderList.add(collider5);colliderList.add(collider6);
-		colliderList.add(collider7);colliderList.add(collider8);colliderList.add(collider9);colliderList.add(collider10);colliderList.add(collider11);colliderList.add(collider12);
-		colliderList.add(collider13);colliderList.add(collider14);colliderList.add(collider15);
-		Platform platform;
-		platform = new Platform(0,0,0);platformList.add(platform);platform = new Platform(0,0,0);platformList.add(platform);
-		platform = new Platform(0,0,0);platformList.add(platform);platform = new Platform(0,0,0);platformList.add(platform);
-		platform = new Platform(0,0,0);platformList.add(platform);platform = new Platform(0,0,0);platformList.add(platform);
-		platform = new Platform(0,0,0);platformList.add(platform);platform = new Platform(0,0,0);platformList.add(platform);
-		platform = new Platform(0,0,0);platformList.add(platform);platform = new Platform(0,0,0);platformList.add(platform);
-		platform = new Platform(0,0,0);platformList.add(platform);platform = new Platform(0,0,0);platformList.add(platform);
-		platform = new Platform(0,0,0);platformList.add(platform);platform = new Platform(0,0,0);platformList.add(platform);
-		platform = new Platform(0,0,0);platformList.add(platform);
-		hero.givePlatform(platformList);
-		hero.beginGravity(colliderList,myHero,deathpanel);
-		wtranslate = new TranslateTransition();
-		wtranslate.setNode(handWeapon);
-		wtranslate.setDuration(Duration.millis(600));
-		wtranslate.setCycleCount(TranslateTransition.INDEFINITE);
-		wtranslate.setByY(-60);
-		wtranslate.setAutoReverse(true);
-		w2translate = new TranslateTransition();
-		w2translate.setNode(handWeapon2);
-		w2translate.setDuration(Duration.millis(600));
-		w2translate.setCycleCount(TranslateTransition.INDEFINITE);
-		w2translate.setByY(-60);
-		w2translate.setAutoReverse(true);
-		w2translate.play();
-		wtranslate.play();
-		myHero.translateXProperty().addListener((obs, old, newValue) -> {
-
-			int offset = newValue.intValue();
-			//System.out.println(offset);
-
-			if (offset > 100 ){//&& //offset < 11500 - 100) {
-				currGame.getmisc().clear();
-				myPane.setLayoutX(-(offset - 100));
-				currGame.getmisc().add(new Position(myPane.getLayoutX(),myPane.getLayoutY()));
-				clickable.setX(offset - 100);
-				currGame.getmisc().add(new Position(clickable.getX(),clickable.getLayoutY()));
-				pauseButton.setX(offset - 100);
-				currGame.getmisc().add(new Position(pauseButton.getX(),pauseButton.getLayoutY()));
-				swordSlot.setX(offset - 100);
-				currGame.getmisc().add(new Position(swordSlot.getX(),swordSlot.getLayoutY()));
-				hammerSlot.setX(offset - 100);
-				currGame.getmisc().add(new Position(hammerSlot.getX(),hammerSlot.getLayoutY()));
-				coinDisplay.setX(offset - 100);
-				currGame.getmisc().add(new Position(coinDisplay.getX(),coinDisplay.getLayoutY()));
-				myScore.setX(offset - 100);
-				currGame.getmisc().add(new Position(myScore.getX(),myScore.getLayoutY()));
-				playerName.setX(offset-100);
-				currGame.getmisc().add(new Position(playerName.getX(),playerName.getLayoutY()));
-				coinCounter.setX(offset-100);
-				currGame.getmisc().add(new Position(coinCounter.getX(),coinCounter.getLayoutY()));
-				heroPane.setLayoutX(offset-100);
-				currGame.getmisc().add(new Position(heroPane.getLayoutX(),heroPane.getLayoutY()));
-			}
-		});
+		//while(flag == true) ;
+//		score = new Score(0, 0, 0);
+//		empty = new Timeline();
+//		empty.setCycleCount(Animation.INDEFINITE);
+//		KeyFrame gravity_frame = new KeyFrame(Duration.millis(18), e -> {
+//			if (currGame.getMyHero().getDeath() == 1) {
+//				try {
+//					heroDefeat();
+//				} catch (IOException e1) {
+//					e1.printStackTrace();
+//				}
+//			}
+//		});
+//		empty.getKeyFrames().add(gravity_frame);
+//		empty.play();
+//		handWeapon.setVisible(false);
+//		handWeapon2.setVisible(false);
+//		
+//		platformList = new ArrayList<>();
+//		colliderList = new ArrayList<>();
+//		colliderList.add(collider1);colliderList.add(collider2);colliderList.add(collider3);colliderList.add(collider4);colliderList.add(collider5);colliderList.add(collider6);
+//		colliderList.add(collider7);colliderList.add(collider8);colliderList.add(collider9);colliderList.add(collider10);colliderList.add(collider11);colliderList.add(collider12);
+//		colliderList.add(collider13);colliderList.add(collider14);colliderList.add(collider15);
+//		Platform platform;
+//		platform = new Platform(0,0,0);platformList.add(platform);platform = new Platform(0,0,0);platformList.add(platform);
+//		platform = new Platform(0,0,0);platformList.add(platform);platform = new Platform(0,0,0);platformList.add(platform);
+//		platform = new Platform(0,0,0);platformList.add(platform);platform = new Platform(0,0,0);platformList.add(platform);
+//		platform = new Platform(0,0,0);platformList.add(platform);platform = new Platform(0,0,0);platformList.add(platform);
+//		platform = new Platform(0,0,0);platformList.add(platform);platform = new Platform(0,0,0);platformList.add(platform);
+//		platform = new Platform(0,0,0);platformList.add(platform);platform = new Platform(0,0,0);platformList.add(platform);
+//		platform = new Platform(0,0,0);platformList.add(platform);platform = new Platform(0,0,0);platformList.add(platform);
+//		platform = new Platform(0,0,0);platformList.add(platform);
+//		currGame.getMyHero().givePlatform(platformList);
+//		currGame.getMyHero().beginGravity(colliderList,myHero,deathpanel);
+//		wtranslate = new TranslateTransition();
+//		wtranslate.setNode(handWeapon);
+//		wtranslate.setDuration(Duration.millis(600));
+//		wtranslate.setCycleCount(TranslateTransition.INDEFINITE);
+//		wtranslate.setByY(-60);
+//		wtranslate.setAutoReverse(true);
+//		w2translate = new TranslateTransition();
+//		w2translate.setNode(handWeapon2);
+//		w2translate.setDuration(Duration.millis(600));
+//		w2translate.setCycleCount(TranslateTransition.INDEFINITE);
+//		w2translate.setByY(-60);
+//		w2translate.setAutoReverse(true);
+//		w2translate.play();
+//		wtranslate.play();
+//		myHero.translateXProperty().addListener((obs, old, newValue) -> {
+//
+//			int offset = newValue.intValue();
+//			System.out.println(offset);
+//
+//			if (offset > 100 ){//&& //offset < 11500 - 100) {
+//				currGame.getmisc().clear();
+//				myPane.setLayoutX(-(offset - 100));
+//				currGame.getmisc().add(new Position(myPane.getLayoutX(),myPane.getLayoutY()));
+//				clickable.setX(offset - 100);
+//				currGame.getmisc().add(new Position(clickable.getX(),clickable.getLayoutY()));
+//				pauseButton.setX(offset - 100);
+//				currGame.getmisc().add(new Position(pauseButton.getX(),pauseButton.getLayoutY()));
+//				swordSlot.setX(offset - 100);
+//				currGame.getmisc().add(new Position(swordSlot.getX(),swordSlot.getLayoutY()));
+//				hammerSlot.setX(offset - 100);
+//				currGame.getmisc().add(new Position(hammerSlot.getX(),hammerSlot.getLayoutY()));
+//				coinDisplay.setX(offset - 100);
+//				currGame.getmisc().add(new Position(coinDisplay.getX(),coinDisplay.getLayoutY()));
+//				myScore.setX(offset - 100);
+//				currGame.getmisc().add(new Position(myScore.getX(),myScore.getLayoutY()));
+//				playerName.setX(offset-100);
+//				currGame.getmisc().add(new Position(playerName.getX(),playerName.getLayoutY()));
+//				coinCounter.setX(offset-100);
+//				currGame.getmisc().add(new Position(coinCounter.getX(),coinCounter.getLayoutY()));
+//				heroPane.setLayoutX(offset-100);
+//				currGame.getmisc().add(new Position(heroPane.getLayoutX(),heroPane.getLayoutY()));
+//			}
+//		});
 
 	}
 
@@ -362,7 +443,7 @@ public class NewGame implements Initializable {
 	}
 
 	public void move(MouseEvent e) throws IOException {
-		hero.moveForward(myHero);
+		currGame.getMyHero().moveForward(myHero);
 		//System.out.println(myHero.getLayoutX());
 		currGame.scoreplus1();
 		myScore.setText(Integer.toString(currGame.getScore()));
