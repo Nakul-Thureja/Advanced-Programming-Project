@@ -78,7 +78,7 @@ public class Hero extends GameComponents implements Serializable{
 				gravity.play();
 				}
 		});
-		this.setPositionX(this.getPositionX()+150);
+		this.setPositionX(image.getTranslateX());
 		//System.out.println(this.getPositionX());
 		this.setPositionY(image.getY());
     }
