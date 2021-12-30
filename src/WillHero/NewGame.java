@@ -250,7 +250,7 @@ public class NewGame implements Initializable {
 			//------------------
 			//--------------
 			//---------------
-			myHero.setTranslateX(currGame.getmyHeroX()+150);
+			myHero.setTranslateX(currGame.getmyHeroX()+75);
 			//myHero.setX(misc.get(9).getX());
 			//---------------
 			//---------------

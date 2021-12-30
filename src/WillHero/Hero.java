@@ -50,7 +50,7 @@ public class Hero extends GameComponents implements Serializable{
     }
     
     public void moveForward(ImageView image) {
-        //gravity.pause();
+        gravity.pause();
     	//translate.pause();
     	image.setScaleX(1.05);
     	image.setScaleY(0.9);
@@ -68,7 +68,7 @@ public class Hero extends GameComponents implements Serializable{
 		translate.setNode(image);
 		translate.setDuration(Duration.millis(210));
 		translate.setCycleCount(1);
-		translate.setByX(150);
+		translate.setByX(75);
 		//translate.setByX(150);
 		translate.play();
 		translate.setOnFinished(new EventHandler<ActionEvent>() {
