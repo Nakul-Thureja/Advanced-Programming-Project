@@ -46,13 +46,23 @@ public class PauseMenu implements Initializable {
 	@FXML
 	private ImageView myORC;
 
-	public void resumeHandler(MouseEvent event) {
-		
+	public void resumeHandler(MouseEvent event) throws IOException {
+		Parent root = FXMLLoader.load(getClass().getResource("/NewGame.fxml"));
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		Game currGame = (Game) stage.getUserData();
+		currGame.setFlag(true);
+		stage.setUserData(currGame);
+		Scene scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
 	}
 
 	public void restartHandler(MouseEvent event) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/NewGame.fxml"));
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		Game currGame = (Game) stage.getUserData();
+		currGame.setFlag(false);
+		stage.setUserData(currGame);
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
 		stage.show();

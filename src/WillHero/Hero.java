@@ -24,6 +24,7 @@ public class Hero extends GameComponents implements Serializable{
     private int dead;
     private transient TranslateTransition translate;
     private transient Timeline gravity;
+    private transient TranslateTransition translatefwd;
     
     public Hero(double x,double y,Helmet myHelmet) {
         super(x, y);
@@ -33,6 +34,14 @@ public class Hero extends GameComponents implements Serializable{
         this.onPlatform = false;
         allPlatform = new ArrayList<>();
         translate = new TranslateTransition();
+        translatefwd = new TranslateTransition();
+        gravity = new Timeline();
+       
+    }
+    public void stopALL() {
+    	gravity.stop();
+    	translate.stop();
+    	translatefwd.stop();
     }
     
     public int getDeath() {
@@ -50,8 +59,9 @@ public class Hero extends GameComponents implements Serializable{
     }
     
     public void moveForward(ImageView image) {
-        gravity.pause();
-    	//translate.pause();
+    	gravity.pause();
+    	translate.pause();
+    	//if(translatefwd.)
     	image.setScaleX(1.05);
     	image.setScaleY(0.9);
     	//scale.pause();
@@ -63,15 +73,16 @@ public class Hero extends GameComponents implements Serializable{
 //		scale.setByX(0.3);
 //		scale.setByY(-0.3);
 		//scale.setAutoReverse(true);
-    	//System.out.println(image.getX());
-    	translate = new TranslateTransition();
-		translate.setNode(image);
-		translate.setDuration(Duration.millis(210));
-		translate.setCycleCount(1);
-		translate.setByX(75);
+  // System.out.println(image.getTranslateX());
+    	translatefwd = new TranslateTransition();
+ 		translatefwd.setDuration(Duration.millis(150));
+ 		translatefwd.setCycleCount(1);
+ 		translatefwd.setByX(95);
+    	translatefwd.setNode(image);
+
 		//translate.setByX(150);
-		translate.play();
-		translate.setOnFinished(new EventHandler<ActionEvent>() {
+		translatefwd.play();
+		translatefwd.setOnFinished(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent arg0) {
 				
@@ -118,6 +129,7 @@ public class Hero extends GameComponents implements Serializable{
 	}
  
     public void beginGravity(ArrayList<ImageView> collider,ImageView image, ImageView death) {
+		//System.out.println("Askhat");
     	gravity = new Timeline();
     	gravity.setCycleCount(Animation.INDEFINITE);
     	KeyFrame gravity_frame = new KeyFrame(Duration.millis(18), e->{

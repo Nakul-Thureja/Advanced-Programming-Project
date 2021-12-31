@@ -11,10 +11,10 @@
    <children>
       <AnchorPane fx:id="gamePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="11500.0">
          <children>
-            <AnchorPane fx:id="heroPane" layoutX="234.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="39.0" prefWidth="29.0" />
+            <AnchorPane fx:id="heroPane" layoutX="234.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="37.0" />
             <ImageView fitHeight="615.0" fitWidth="11500.0" pickOnBounds="true">
                <image>
-                  <Image url="@assets/empty_bg.png" />
+                  <Image url="@assets/bg_draft1.png" />
                </image>
             </ImageView>
             <ImageView fx:id="platform1" fitHeight="187.0" fitWidth="256.0" layoutX="129.0" layoutY="283.0" pickOnBounds="true" preserveRatio="true">
@@ -222,7 +222,7 @@
                   <Image url="@assets/Tree3.png" />
                </image>
             </ImageView>
-             <ImageView fx:id="myHero" fitHeight="39.0" fitWidth="145.0" layoutX="234.0" pickOnBounds="true" preserveRatio="true">
+             <ImageView fx:id="myHero" fitHeight="45.0" fitWidth="145.0" layoutX="234.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/hero2.png" />
                </image>

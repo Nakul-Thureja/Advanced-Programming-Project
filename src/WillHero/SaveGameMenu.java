@@ -37,6 +37,7 @@ import javafx.scene.Parent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+
 public class SaveGameMenu implements Initializable {
 
 	@FXML
@@ -55,33 +56,34 @@ public class SaveGameMenu implements Initializable {
 	private ImageView slot4;
 
 	private static GameSlots Slot = GameSlots.getInstance();
-	
+
 	public static void serialize() throws IOException {
 		ObjectOutputStream out = null;
 		try {
-			out = new ObjectOutputStream (new FileOutputStream("savedgames.txt"));
+			out = new ObjectOutputStream(new FileOutputStream("savedgames.txt"));
 			out.writeObject(Slot);
-		}finally {
-			if(out != null) {
+		} finally {
+			if (out != null) {
 				out.close();
 			}
 		}
-	} 
-	
+	}
+
 	public void goBack(MouseEvent e) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/Pause.fxml"));
 		Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+		Game currGame = (Game) stage.getUserData();
+		stage.setUserData(currGame);
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
 		stage.show();
 	}
 
-	
-
 	public void hover1(MouseEvent event) throws URISyntaxException {
 		Image image = new Image(getClass().getResource("/assets/dark_saveslot1.png").toURI().toString());
 		slot1.setImage(image);
 	}
+
 	public void hover(MouseEvent event) throws URISyntaxException {
 		Image image = new Image(getClass().getResource("/assets/dark_back_button.png").toURI().toString());
 		backButton.setImage(image);
@@ -91,6 +93,7 @@ public class SaveGameMenu implements Initializable {
 		Image image = new Image(getClass().getResource("/assets/back_button.png").toURI().toString());
 		backButton.setImage(image);
 	}
+
 	public void unhover1(MouseEvent event) throws URISyntaxException {
 		Image image = new Image(getClass().getResource("/assets/saveslot1.png").toURI().toString());
 		slot1.setImage(image);
@@ -115,7 +118,7 @@ public class SaveGameMenu implements Initializable {
 		Image image = new Image(getClass().getResource("/assets/saveslot3.png").toURI().toString());
 		slot3.setImage(image);
 	}
-	
+
 	public void hover4(MouseEvent event) throws URISyntaxException {
 		Image image = new Image(getClass().getResource("/assets/dark_saveslot4.png").toURI().toString());
 		slot4.setImage(image);
@@ -125,15 +128,15 @@ public class SaveGameMenu implements Initializable {
 		Image image = new Image(getClass().getResource("/assets/saveslot4.png").toURI().toString());
 		slot4.setImage(image);
 	}
-	
+
 	public void click1(MouseEvent event) {
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		Game game = (Game) stage.getUserData();
-		if(Slot.getSlot1() != null) {
+		if (Slot.getSlot1() != null) {
 			Alert alert = new Alert(AlertType.CONFIRMATION);
 			alert.setTitle("OverWrite");
 			alert.setHeaderText("You are about to over write on the game saved in slot1");
-			if (alert.showAndWait().get() != ButtonType.OK){
+			if (alert.showAndWait().get() != ButtonType.OK) {
 				return;
 			}
 		}
@@ -147,19 +150,19 @@ public class SaveGameMenu implements Initializable {
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("Game Saved");
 		alert.setHeaderText("Game Saved Successfully");
-		if (alert.showAndWait().get() == ButtonType.OK){
+		if (alert.showAndWait().get() == ButtonType.OK) {
 			return;
 		}
 	}
-	
+
 	public void click2(MouseEvent event) {
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		Game game = (Game) stage.getUserData();
-		if(Slot.getSlot2() != null) {
+		if (Slot.getSlot2() != null) {
 			Alert alert = new Alert(AlertType.CONFIRMATION);
 			alert.setTitle("OverWrite");
 			alert.setHeaderText("You are about to over write on the game saved in slot1");
-			if (alert.showAndWait().get() != ButtonType.OK){
+			if (alert.showAndWait().get() != ButtonType.OK) {
 				return;
 			}
 		}
@@ -173,19 +176,19 @@ public class SaveGameMenu implements Initializable {
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("Game Saved");
 		alert.setHeaderText("Game Saved Successfully");
-		if (alert.showAndWait().get() == ButtonType.OK){
+		if (alert.showAndWait().get() == ButtonType.OK) {
 			return;
 		}
 	}
-	
+
 	public void click3(MouseEvent event) {
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		Game game = (Game) stage.getUserData();
-		if(Slot.getSlot3() != null) {
+		if (Slot.getSlot3() != null) {
 			Alert alert = new Alert(AlertType.CONFIRMATION);
 			alert.setTitle("OverWrite");
 			alert.setHeaderText("You are about to over write on the game saved in slot1");
-			if (alert.showAndWait().get() != ButtonType.OK){
+			if (alert.showAndWait().get() != ButtonType.OK) {
 				return;
 			}
 		}
@@ -199,19 +202,19 @@ public class SaveGameMenu implements Initializable {
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("Game Saved");
 		alert.setHeaderText("Game Saved Successfully");
-		if (alert.showAndWait().get() == ButtonType.OK){
+		if (alert.showAndWait().get() == ButtonType.OK) {
 			return;
-		}	
+		}
 	}
-	
+
 	public void click4(MouseEvent event) {
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		Game game = (Game) stage.getUserData();
-		if(Slot.getSlot4() != null) {
+		if (Slot.getSlot4() != null) {
 			Alert alert = new Alert(AlertType.CONFIRMATION);
 			alert.setTitle("OverWrite");
 			alert.setHeaderText("You are about to over write on the game saved in slot1");
-			if (alert.showAndWait().get() != ButtonType.OK){
+			if (alert.showAndWait().get() != ButtonType.OK) {
 				return;
 			}
 		}
@@ -225,11 +228,11 @@ public class SaveGameMenu implements Initializable {
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("Game Saved");
 		alert.setHeaderText("Game Saved Successfully");
-		if (alert.showAndWait().get() == ButtonType.OK){
+		if (alert.showAndWait().get() == ButtonType.OK) {
 			return;
 		}
 	}
-	
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
@@ -247,7 +250,7 @@ public class SaveGameMenu implements Initializable {
 		scale.setByX(-0.1);
 		scale.setByY(0.1);
 		scale.setAutoReverse(true);
-		
+
 		ScaleTransition scale3 = new ScaleTransition();
 		scale3.setNode(myHeart);
 		scale3.setDuration(Duration.millis(750));
@@ -256,7 +259,7 @@ public class SaveGameMenu implements Initializable {
 		scale3.setByX(0.3);
 		scale3.setByY(0.3);
 		scale3.setAutoReverse(true);
-		  
+
 		translate.play();
 		scale.play();
 		scale3.play();
