@@ -332,6 +332,150 @@
                   <Image url="@assets/coin_banner.png" />
                </image>
             </ImageView>
+            <ImageView fx:id="greenOrc1" fitHeight="44.0" fitWidth="36.0" layoutX="1410.0" layoutY="203.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/GreenOrc.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="greenCollider1" fitHeight="1.0" fitWidth="1.0" layoutX="1439.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="greenOrc2" fitHeight="44.0" fitWidth="36.0" layoutX="2505.0" layoutY="222.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/GreenOrc.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="greenCollider2" fitHeight="1.0" fitWidth="32.0" layoutX="2507.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="redOrc1" fitHeight="66.0" fitWidth="65.0" layoutX="1638.0" layoutY="251.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/redOrc.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="redCollider1" fitHeight="1.0" fitWidth="65.0" layoutX="1639.0" layoutY="316.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="redOrc2" fitHeight="66.0" fitWidth="65.0" layoutX="1802.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/redOrc.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="redCollider2" fitHeight="1.0" fitWidth="65.0" layoutX="1803.0" layoutY="315.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="redOrc3" fitHeight="66.0" fitWidth="65.0" layoutX="2004.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/redOrc.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="redCollider3" fitHeight="1.0" fitWidth="65.0" layoutX="2005.0" layoutY="315.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="greenOrc3" fitHeight="44.0" fitWidth="36.0" layoutX="2801.0" layoutY="221.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/GreenOrc.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="greenCollider3" fitHeight="1.0" fitWidth="32.0" layoutX="2803.0" layoutY="259.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="greenOrc4" fitHeight="44.0" fitWidth="36.0" layoutX="2904.0" layoutY="220.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/GreenOrc.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="greenCollider4" fitHeight="1.0" fitWidth="32.0" layoutX="2906.0" layoutY="258.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="redOrc4" fitHeight="66.0" fitWidth="65.0" layoutX="3045.0" layoutY="194.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/redOrc.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="redCollider4" fitHeight="1.0" fitWidth="65.0" layoutX="3046.0" layoutY="259.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="greenOrc5" fitHeight="44.0" fitWidth="36.0" layoutX="3230.0" layoutY="220.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/GreenOrc.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="greenCollider5" fitHeight="1.0" fitWidth="32.0" layoutX="3232.0" layoutY="258.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="greenOrc6" fitHeight="44.0" fitWidth="36.0" layoutX="3529.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/GreenOrc.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="greenCollider6" fitHeight="1.0" fitWidth="32.0" layoutX="3531.0" layoutY="298.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="redOrc5" fitHeight="66.0" fitWidth="65.0" layoutX="4134.0" layoutY="274.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/redOrc.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="redCollider5" fitHeight="1.0" fitWidth="65.0" layoutX="4135.0" layoutY="339.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="greenOrc7" fitHeight="44.0" fitWidth="36.0" layoutX="4877.0" layoutY="264.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/GreenOrc.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="greenCollider7" fitHeight="1.0" fitWidth="32.0" layoutX="4879.0" layoutY="302.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="greenOrc8" fitHeight="44.0" fitWidth="36.0" layoutX="4944.0" layoutY="265.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/GreenOrc.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="greenCollider8" fitHeight="1.0" fitWidth="32.0" layoutX="4946.0" layoutY="303.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="greenOrc9" fitHeight="47.0" fitWidth="38.0" layoutX="5222.0" layoutY="266.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/Orc3.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="greenCollider9" fitHeight="1.0" fitWidth="33.0" layoutX="5225.0" layoutY="303.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="redOrc6" fitHeight="66.0" fitWidth="65.0" layoutX="5923.0" layoutY="282.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/redOrc.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="redCollider6" fitHeight="9.0" fitWidth="63.0" layoutX="5924.0" layoutY="346.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="greenOrc10" fitHeight="44.0" fitWidth="36.0" layoutX="7148.0" layoutY="319.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/GreenOrc.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="greenCollider10" fitHeight="1.0" fitWidth="32.0" layoutX="7150.0" layoutY="357.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="greenOrc11" fitHeight="44.0" fitWidth="36.0" layoutX="8336.0" layoutY="288.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/GreenOrc.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="greenCollider11" fitHeight="1.0" fitWidth="32.0" layoutX="8338.0" layoutY="326.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="greenOrc12" fitHeight="44.0" fitWidth="36.0" layoutX="8851.0" layoutY="274.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/GreenOrc.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="greenCollider12" fitHeight="1.0" fitWidth="32.0" layoutX="8853.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="redOrc7" fitHeight="66.0" fitWidth="65.0" layoutX="8558.0" layoutY="248.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/redOrc.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="redCollider7" fitHeight="9.0" fitWidth="63.0" layoutX="8559.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="greenOrc13" fitHeight="44.0" fitWidth="36.0" layoutX="7015.0" layoutY="320.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/GreenOrc.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="greenCollider13" fitHeight="1.0" fitWidth="32.0" layoutX="7017.0" layoutY="358.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="greenOrc14" fitHeight="44.0" fitWidth="36.0" layoutX="8915.0" layoutY="273.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/GreenOrc.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="greenCollider14" fitHeight="1.0" fitWidth="32.0" layoutX="8917.0" layoutY="311.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="redOrc8" fitHeight="66.0" fitWidth="65.0" layoutX="9063.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/redOrc.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="redCollider8" fitHeight="9.0" fitWidth="63.0" layoutX="9064.0" layoutY="310.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="greenOrc15" fitHeight="44.0" fitWidth="36.0" layoutX="9251.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/GreenOrc.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="greenCollider15" fitHeight="1.0" fitWidth="32.0" layoutX="9253.0" layoutY="308.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="bossOrc" fitHeight="133.0" fitWidth="125.0" layoutX="10375.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/BossOrc.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="bossCollider" fitHeight="1.0" fitWidth="86.0" layoutX="10382.0" layoutY="297.0" pickOnBounds="true" preserveRatio="true" />
             <Text fx:id="coinCounter" fill="WHITE" layoutX="60.0" layoutY="74.8" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                <font>
                   <Font name="Impact" size="36.0" />
@@ -391,12 +535,6 @@
                   <Image url="@assets/beginner.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="greenOrc1" fitHeight="44.0" fitWidth="47.0" layoutX="1358.0" layoutY="198.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@assets/GreenOrc.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="greenCollider1" fitHeight="1.0" fitWidth="42.0" layoutX="1357.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </AnchorPane>
    </children>

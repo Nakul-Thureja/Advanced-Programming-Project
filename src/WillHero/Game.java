@@ -183,6 +183,10 @@ public class Game implements Serializable {
 		return myredOrcs;
 	}
 	
+	public boolean getHeroStat() {
+		return this.myHero.status();
+	}
+	
 	
 	public void setMyredOrcs(ArrayList<RedOrc> myredOrcs) {
 		this.myredOrcs = myredOrcs;
@@ -202,6 +206,9 @@ public class Game implements Serializable {
 
 	public void stopALL() {
 		this.myHero.stopALL();
+		for(int i = 0 ;i< this.mygreenOrcs.size();i++) {
+			this.mygreenOrcs.get(0).stopALL();
+		}
 	}
 
 	public void moveHeroForward(ImageView myHero2) {
@@ -230,9 +237,11 @@ public class Game implements Serializable {
 		return this.myHero.getForwardValue();
 	}
 
-	public void setGorcMap(ArrayList<ImageView> Nodes) {
+	public void setGorcMap(ArrayList<ImageView> Nodes, ArrayList<ImageView> Node2) {
 		for (int i = 0; i < 1; i++) {
+			Nodes.get(i).setVisible(this.getMygreenOrcs().get(i).getVisibilty());
 			this.getMygreenOrcs().get(i).setImage(Nodes.get(i));
+			this.getMygreenOrcs().get(i).setCollider(Node2.get(i));
 			GreenOrcMap.put(this.getMygreenOrcs().get(i), Nodes.get(i));
 		}
 	}

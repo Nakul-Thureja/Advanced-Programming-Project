@@ -23,6 +23,8 @@ public class Hero extends GameComponents implements Serializable {
 	private transient TranslateTransition translatefwd;
 	private transient ImageView hero;
 	private int currcoins;
+	private boolean attacking;
+	private boolean isDead;
 
 	public Hero(double x, double y, Helmet myHelmet) {
 		super(x, y);
@@ -33,6 +35,8 @@ public class Hero extends GameComponents implements Serializable {
 		translate = new TranslateTransition();
 		translatefwd = new TranslateTransition();
 		gravity = new Timeline();
+		attacking= false;
+		isDead = false;
 
 	}
 
@@ -49,8 +53,11 @@ public class Hero extends GameComponents implements Serializable {
 	public void setFall(boolean boo) {
 		this.onPlatform = boo;
 	}
-
+	public boolean status() {
+		return this.isDead;
+	}
 	public void moveForward(ImageView image) {
+		attacking = true;
 		gravity.pause();
 		translate.pause();
 		image.setScaleX(1.05);
@@ -64,6 +71,7 @@ public class Hero extends GameComponents implements Serializable {
 		translatefwd.setOnFinished(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent arg0) {
+				attacking = false;
 				gravity.play();
 			}
 		});
@@ -112,13 +120,24 @@ public class Hero extends GameComponents implements Serializable {
 			}
 		}
 		else if (component.getClass() == Collider.class) {
-			
+			if(this.checkCollision(image, hero)) {
+				this.isDead = true;
+			}
 		}
 		else if (component.getClass() == RedOrc.class) {
 			
 		}
 		else if (component.getClass() == GreenOrc.class) {
-			
+			if(this.checkCollision(image, hero) && attacking) {
+				component.setVisibilty(false);
+				translate.pause();
+				TranslateTransition translate2 = new TranslateTransition();
+				translate2.setNode(image);
+				translate2.setDuration(Duration.millis(200));
+				translate2.setCycleCount(1);
+				translate2.setByX(110);
+				translate2.play();
+			}
 		}
 		else if (component.getClass() == CoinChest.class) {
 			

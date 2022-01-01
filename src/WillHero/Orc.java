@@ -18,10 +18,14 @@ public abstract class Orc extends GameComponents{
 	private int jump_Value;
 	private boolean onPlatform;
 	private transient TranslateTransition translate;
+	private transient TranslateTransition translate2;
+
 	private transient Timeline gravity;
 	private transient Timeline collision;
-	private transient TranslateTransition translatefwd;
+	//private transient TranslateTransition translatefwd;
 	private transient ImageView Orc;
+	private transient ImageView mycollider;
+
 	
 	public Orc(double x,double y,int health,int coin_Value,int push_Value,int jump_Value) {
 		super(x,y);
@@ -31,7 +35,12 @@ public abstract class Orc extends GameComponents{
 		this.jump_Value = jump_Value;
 		this.onPlatform = false;
 	}
-	
+	public void stopALL() {
+		gravity.stop();
+		translate.stop();
+		translate2.stop();
+		//translatefwd.stop();
+	}
 	public int getCoinValue() {
 		return this.coin_Value;
 	}
@@ -51,23 +60,30 @@ public abstract class Orc extends GameComponents{
 			map.forEach((key, value) -> gravityLoop(key, value));
 			if (this.onPlatform == false) {
 				Orc.setLayoutY(Orc.getLayoutY() + 4);
+				mycollider.setLayoutY(mycollider.getLayoutY() + 4);
 			} else {
-				letsJump(Orc, gravity);
+				letsJump(Orc, gravity,mycollider);
 			}
 		});
 		gravity.getKeyFrames().add(gravity_frame);
 		gravity.play();
 	}
 	
-	public void letsJump(ImageView image, Timeline gravity) {
+	public void letsJump(ImageView image, Timeline gravity,ImageView collide) {
 		gravity.pause();
 		this.onPlatform = false;
 		translate = new TranslateTransition();
 		translate.setNode(image);
-		translate.setDuration(Duration.millis(450));
+		translate.setDuration(Duration.millis(500));
 		translate.setCycleCount(1);
 		translate.setByY(-this.jump_Value);
 		translate.play();
+		translate2 = new TranslateTransition();
+		translate2.setNode(collide);
+		translate2.setDuration(Duration.millis(500));
+		translate2.setCycleCount(1);
+		translate2.setByY(-this.jump_Value);
+		translate2.play();
 		translate.setOnFinished(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent arg0) {
@@ -86,5 +102,9 @@ public abstract class Orc extends GameComponents{
 	}
 	public void setImage(ImageView imageView) {
 		this.Orc = imageView;
+	}
+	
+	public void setCollider(ImageView coll) {
+		this.mycollider = coll;
 	}
 }

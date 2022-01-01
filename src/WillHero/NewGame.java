@@ -290,18 +290,24 @@ public class NewGame {
 		CoinsImageView.add(coin14);
 		CoinsImageView.add(coin15);
 		currGame.setCoinMap(CoinsImageView);
-		currGame.setGorcMap(GreenOrcsImageView);
+		currGame.setGorcMap(GreenOrcsImageView,OrcCollidersImageView);
 		currGame.setColliderMap(OrcCollidersImageView);
 		currGame.setPlatformMap(CollidersImageView);
 		empty = new Timeline();
 		empty.setCycleCount(Animation.INDEFINITE);
 		KeyFrame empty_frame = new KeyFrame(Duration.millis(18), e1 -> {
 			coinCounter.setText(Integer.toString(currGame.getcurrCoins()));
-			if (myHero.getBoundsInParent().intersects(deathpanel.getBoundsInParent())) {
+			if (myHero.getBoundsInParent().intersects(deathpanel.getBoundsInParent()) || currGame.getHeroStat()) {
 				try {
 					heroDefeat();
 				} catch (IOException e2) {
 					e2.printStackTrace();
+				}
+			}
+			
+			for(int i= 0;i<GreenOrcsImageView.size();i++) {
+				if (GreenOrcsImageView.get(i).getBoundsInParent().intersects(deathpanel.getBoundsInParent())) {
+					GreenOrcsImageView.get(i).setVisible(false);
 				}
 			}
 		});
