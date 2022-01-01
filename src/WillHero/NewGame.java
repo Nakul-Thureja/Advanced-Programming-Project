@@ -5,6 +5,7 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.EventObject;
+import java.util.HashMap;
 import java.util.ResourceBundle;
 
 import javafx.animation.Animation;
@@ -116,6 +117,97 @@ public class NewGame implements Initializable {
 	@FXML
 	private ImageView collider15;
 	@FXML
+	private ImageView collider16;
+	@FXML
+	private ImageView collider17;
+	@FXML
+	private ImageView collider18;
+	@FXML
+	private ImageView collider19;
+	@FXML
+	private ImageView collider20;
+	@FXML
+	private ImageView collider21;
+	@FXML
+	private ImageView collider22;
+	@FXML
+	private ImageView collider23;
+	@FXML
+	private ImageView collider24;
+	@FXML
+	private ImageView collider25;
+	@FXML
+	private ImageView collider26;
+	@FXML
+	private ImageView collider27;
+	@FXML
+	private ImageView collider28;
+	@FXML
+	private ImageView collider29;
+	@FXML
+	private ImageView collider30;
+	@FXML
+	private ImageView collider31;
+	@FXML
+	private ImageView collider32;
+	@FXML
+	private ImageView collider33;
+	@FXML
+	private ImageView collider34;
+	@FXML
+	private ImageView collider35;
+	@FXML
+	private ImageView collider36;
+	@FXML
+	private ImageView collider37;
+	@FXML
+	private ImageView collider38;
+	@FXML
+	private ImageView collider39;
+	@FXML
+	private ImageView collider40;
+	@FXML
+	private ImageView collider41;
+	@FXML
+	private ImageView collider42;
+	@FXML
+	private ImageView collider43;
+	@FXML
+	private ImageView collider44;
+	@FXML
+	private ImageView collider45;
+	@FXML
+	private ImageView coin1;
+	@FXML
+	private ImageView coin2;
+	@FXML
+	private ImageView coin3;
+	@FXML
+	private ImageView coin4;
+	@FXML
+	private ImageView coin5;
+	@FXML
+	private ImageView coin6;
+	@FXML
+	private ImageView coin7;
+	@FXML
+	private ImageView coin8;
+	@FXML
+	private ImageView coin9;
+	@FXML
+	private ImageView coin10;
+	@FXML
+	private ImageView coin11;
+	@FXML
+	private ImageView coin12;
+	@FXML
+	private ImageView coin13;
+	@FXML
+	private ImageView coin14;
+	@FXML
+	private ImageView coin15;
+	
+	@FXML
 	private Text playerName;
 	@FXML
 	private ImageView beginButton;
@@ -133,9 +225,10 @@ public class NewGame implements Initializable {
 	private TranslateTransition translate1 = new TranslateTransition();
 	private TranslateTransition wtranslate1 = new TranslateTransition();
 	private TranslateTransition w2translate1 = new TranslateTransition();
-	private ArrayList<Platform> platformList;
-	private ArrayList<ImageView> colliderList;
+//	private ArrayList<Platform> platformList;
+//	private ArrayList<ImageView> colliderList;
 	private GameSlots gameSlot;
+	private HashMap<GameComponents, HashMap<GameComponents,ImageView>> CollisionMap;
 
 //	public static void setCurrGame(Game game) {
 //		currGame = game;
@@ -151,11 +244,16 @@ public class NewGame implements Initializable {
 		} else {
 			initGame();
 		}
+		currGame.getMyHero().setImage(myHero);
+		CollisionMap = new HashMap<>();
+		HashMap<GameComponents,ImageView> ImageMap = new HashMap<>();
+		
+		//CollisionMap.put(new Hero(0, 0, null), null);
 		score = new Score(0, 0, 0);
 		empty = new Timeline();
 		empty.setCycleCount(Animation.INDEFINITE);
-		KeyFrame gravity_frame = new KeyFrame(Duration.millis(18), e1 -> {
-			if (currGame.getMyHero().getDeath() == 1) {
+		KeyFrame empty_frame = new KeyFrame(Duration.millis(18), e1 -> {
+			if (myHero.getBoundsInParent().intersects(deathpanel.getBoundsInParent())) {
 				try {
 					heroDefeat();
 				} catch (IOException e2) {
@@ -163,61 +261,186 @@ public class NewGame implements Initializable {
 				}
 			}
 		});
-		empty.getKeyFrames().add(gravity_frame);
+		empty.getKeyFrames().add(empty_frame);
 		empty.play();
 		handWeapon.setVisible(false);
 		handWeapon2.setVisible(false);
+		Platform platform = new Platform(0,0,0);
+		Platform platform2 = new Platform(0,0,0);
+		Platform platform3= new Platform(0,0,0);
+		Platform platform4 = new Platform(0,0,0);
+		Platform platform5 = new Platform(0,0,0);
+		Platform platform6 = new Platform(0,0,0);
+		Platform platform7 = new Platform(0,0,0);
+		Platform platform8 = new Platform(0,0,0);
+		Platform platform9 = new Platform(0,0,0);
+		Platform platform10 = new Platform(0,0,0);
+		Platform platform11= new Platform(0,0,0);
+		Platform platform12 = new Platform(0,0,0);
+		Platform platform13 = new Platform(0,0,0);
+		Platform platform14= new Platform(0,0,0);
+		Platform platform15= new Platform(0,0,0);
+		Platform platform16 = new Platform(0,0,0);
+		Platform platform17= new Platform(0,0,0);
+		Platform platform18= new Platform(0,0,0);
+		Platform platform19 = new Platform(0,0,0);
+		Platform platform20 = new Platform(0,0,0);
+		Platform platform21 = new Platform(0,0,0);
+		Platform platform22 = new Platform(0,0,0);
+		Platform platform23 = new Platform(0,0,0);
+		Platform platform24 = new Platform(0,0,0);
+		Platform platform25 = new Platform(0,0,0);
+		Platform platform26= new Platform(0,0,0);
+		Platform platform27 = new Platform(0,0,0);
+		Platform platform28 = new Platform(0,0,0);
+		Platform platform29= new Platform(0,0,0);
+		Platform platform30= new Platform(0,0,0);
+		Platform platform31 = new Platform(0,0,0);
+		Platform platform32 = new Platform(0,0,0);
+		Platform platform33= new Platform(0,0,0);
+		Platform platform34 = new Platform(0,0,0);
+		Platform platform35 = new Platform(0,0,0);
+		Platform platform36 = new Platform(0,0,0);
+		Platform platform37 = new Platform(0,0,0);
+		Platform platform38 = new Platform(0,0,0);
+		Platform platform39 = new Platform(0,0,0);
+		Platform platform40 = new Platform(0,0,0);
+		Platform platform41= new Platform(0,0,0);
+		Platform platform42 = new Platform(0,0,0);
+		Platform platform43 = new Platform(0,0,0);
+		Platform platform44= new Platform(0,0,0);
+		Platform platform45= new Platform(0,0,0);
+		Coin gcoin1 = new Coin(0, 0);
+		Coin gcoin2 = new Coin(0, 0);
+		Coin gcoin3 = new Coin(0, 0);
+		Coin gcoin4 = new Coin(0, 0);
+		Coin gcoin5 = new Coin(0, 0);
+		Coin gcoin6 = new Coin(0, 0);
+		Coin gcoin7 = new Coin(0, 0);
+		Coin gcoin8 = new Coin(0, 0);
+		Coin gcoin9 = new Coin(0, 0);
+		Coin gcoin10 = new Coin(0, 0);
+		Coin gcoin11 = new Coin(0, 0);
+		Coin gcoin12 = new Coin(0, 0);
+		Coin gcoin13 = new Coin(0, 0);
+		Coin gcoin14 = new Coin(0, 0);
+		Coin gcoin15 = new Coin(0, 0);
+	//	platformList = new ArrayList<>();
+	//	colliderList = new ArrayList<>();
+		ImageMap.put(platform, collider1);
+		ImageMap.put(platform2, collider2);
+		ImageMap.put(platform3, collider3);
+		ImageMap.put(platform4, collider4);
+		ImageMap.put(platform5, collider5);
+		ImageMap.put(platform6, collider6);
+		ImageMap.put(platform7, collider7);
+		ImageMap.put(platform8, collider8);
+		ImageMap.put(platform9, collider9);
+		ImageMap.put(platform10, collider10);
+		ImageMap.put(platform11, collider11);
+		ImageMap.put(platform12, collider12);
+		ImageMap.put(platform13, collider13);
+		ImageMap.put(platform14, collider14);
+		ImageMap.put(platform15, collider15);
+		ImageMap.put(platform16, collider16);
+		ImageMap.put(platform17, collider17);
+		ImageMap.put(platform18, collider18);
+		ImageMap.put(platform19, collider19);
+		ImageMap.put(platform20, collider20);
+		ImageMap.put(platform21, collider21);
+		ImageMap.put(platform22, collider22);
+		ImageMap.put(platform23, collider23);
+		ImageMap.put(platform24, collider24);
+		ImageMap.put(platform25, collider25);
+		ImageMap.put(platform26, collider26);
+		ImageMap.put(platform27, collider27);
+		ImageMap.put(platform28, collider28);
+		ImageMap.put(platform29, collider29);
+		ImageMap.put(platform30, collider30);
+		ImageMap.put(platform31, collider31);
+		ImageMap.put(platform32, collider32);
+		ImageMap.put(platform33, collider33);
+		ImageMap.put(platform34, collider34);
+		ImageMap.put(platform35, collider35);
+		ImageMap.put(platform36, collider36);
+		ImageMap.put(platform37, collider37);
+		ImageMap.put(platform38, collider38);
+		ImageMap.put(platform39, collider39);
+		ImageMap.put(platform40, collider40);
+		ImageMap.put(platform41, collider41);
+		ImageMap.put(platform42, collider42);
+		ImageMap.put(platform43, collider43);
+		ImageMap.put(platform44, collider44);
+		ImageMap.put(platform45, collider45);
+		ImageMap.put(gcoin1, coin1);
+		ImageMap.put(gcoin2, coin2);
+		ImageMap.put(gcoin3, coin3);
 
-		platformList = new ArrayList<>();
-		colliderList = new ArrayList<>();
-		colliderList.add(collider1);
-		colliderList.add(collider2);
-		colliderList.add(collider3);
-		colliderList.add(collider4);
-		colliderList.add(collider5);
-		colliderList.add(collider6);
-		colliderList.add(collider7);
-		colliderList.add(collider8);
-		colliderList.add(collider9);
-		colliderList.add(collider10);
-		colliderList.add(collider11);
-		colliderList.add(collider12);
-		colliderList.add(collider13);
-		colliderList.add(collider14);
-		colliderList.add(collider15);
-		Platform platform;
-		platform = new Platform(0, 0, 0);
-		platformList.add(platform);
-		platform = new Platform(0, 0, 0);
-		platformList.add(platform);
-		platform = new Platform(0, 0, 0);
-		platformList.add(platform);
-		platform = new Platform(0, 0, 0);
-		platformList.add(platform);
-		platform = new Platform(0, 0, 0);
-		platformList.add(platform);
-		platform = new Platform(0, 0, 0);
-		platformList.add(platform);
-		platform = new Platform(0, 0, 0);
-		platformList.add(platform);
-		platform = new Platform(0, 0, 0);
-		platformList.add(platform);
-		platform = new Platform(0, 0, 0);
-		platformList.add(platform);
-		platform = new Platform(0, 0, 0);
-		platformList.add(platform);
-		platform = new Platform(0, 0, 0);
-		platformList.add(platform);
-		platform = new Platform(0, 0, 0);
-		platformList.add(platform);
-		platform = new Platform(0, 0, 0);
-		platformList.add(platform);
-		platform = new Platform(0, 0, 0);
-		platformList.add(platform);
-		platform = new Platform(0, 0, 0);
-		platformList.add(platform);
-		currGame.getMyHero().givePlatform(platformList);
-		currGame.getMyHero().beginGravity(colliderList, myHero, deathpanel);
+		ImageMap.put(gcoin4, coin4);
+		ImageMap.put(gcoin5, coin5);
+		ImageMap.put(gcoin6, coin6);
+		ImageMap.put(gcoin7, coin7);
+		ImageMap.put(gcoin8, coin8);
+		ImageMap.put(gcoin9, coin9);
+		ImageMap.put(gcoin10, coin10);
+		ImageMap.put(gcoin11, coin11);
+		ImageMap.put(gcoin12, coin12);
+		ImageMap.put(gcoin13, coin13);
+		ImageMap.put(gcoin14, coin14);
+		ImageMap.put(gcoin15, coin15);
+
+
+//		colliderList.add(collider1);
+//		colliderList.add(collider2);
+//		colliderList.add(collider3);
+//		colliderList.add(collider4);
+//		colliderList.add(collider5);
+//		colliderList.add(collider6);
+//		colliderList.add(collider7);
+//		colliderList.add(collider8);
+//		colliderList.add(collider9);
+//		colliderList.add(collider10);
+//		colliderList.add(collider11);
+//		colliderList.add(collider12);
+//		colliderList.add(collider13);
+//		colliderList.add(collider14);
+//		colliderList.add(collider15);
+		//Platform platform;
+//		platform = new Platform(0, 0, 0);
+//		platformList.add(platform);
+//		platform = new Platform(0, 0, 0);
+//		platformList.add(platform);
+//		platform = new Platform(0, 0, 0);
+//		platformList.add(platform);
+//		platform = new Platform(0, 0, 0);
+//		platformList.add(platform);
+//		platform = new Platform(0, 0, 0);
+//		platformList.add(platform);
+//		platform = new Platform(0, 0, 0);
+//		platformList.add(platform);
+//		platform = new Platform(0, 0, 0);
+//		platformList.add(platform);
+//		platform = new Platform(0, 0, 0);
+//		platformList.add(platform);
+//		platform = new Platform(0, 0, 0);
+//		platformList.add(platform);
+//		platform = new Platform(0, 0, 0);
+//		platformList.add(platform);
+//		platform = new Platform(0, 0, 0);
+//		platformList.add(platform);
+//		platform = new Platform(0, 0, 0);
+//		platformList.add(platform);
+//		platform = new Platform(0, 0, 0);
+//		platformList.add(platform);
+//		platform = new Platform(0, 0, 0);
+//		platformList.add(platform);
+//		platform = new Platform(0, 0, 0);
+//		platformList.add(platform);
+		//currGame.getMyHero().givePlatform(platformList);
+		CollisionMap.put(new Hero(0,0,null),ImageMap);
+		System.out.println(ImageMap.size());
+		currGame.beginGame(CollisionMap);
+		//currGame.getMyHero().beginGravity(myHero, deathpanel);
 //			wtranslate = new TranslateTransition();
 //			wtranslate.setNode(handWeapon);
 //			wtranslate.setDuration(Duration.millis(600));
@@ -283,7 +506,7 @@ public class NewGame implements Initializable {
 		// ------------------
 		// --------------
 		// ---------------
-		myHero.setTranslateX(currGame.getmyHeroX() + 95);
+		myHero.setTranslateX(currGame.getmyHeroX() + 92);
 		// myHero.setX(misc.get(9).getX());
 		// ---------------
 		// ---------------

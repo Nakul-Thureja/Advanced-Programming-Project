@@ -2,6 +2,7 @@ package WillHero;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javafx.scene.image.ImageView;
 
@@ -55,7 +56,9 @@ public class Game implements Serializable{
 	public int getCoins() {
 		return this.numCoins;
 	}
-
+	public void setCoins(int num) {
+		this.numCoins +=num;
+	}
 	public void setHelmet(Helmet helmet) {
 		this.myHelmet = helmet;
 	}
@@ -112,4 +115,15 @@ public class Game implements Serializable{
 	public int getScore() {
 		return this.myScore.getScore();
 	}
-}
+	
+	private void callInit(GameComponents comp, HashMap<GameComponents, ImageView> map) {
+		if(comp.getClass() == myHero.getClass()) {
+			myHero.beginGravity(map);
+		}
+	}
+	
+	public void beginGame(HashMap<GameComponents, HashMap<GameComponents, ImageView>> map) {
+		 map.forEach((key, value)-> callInit(key,value));
+		    }
+	}
+

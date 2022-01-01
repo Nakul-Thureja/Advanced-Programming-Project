@@ -5,22 +5,22 @@ import java.io.Serializable;
 import javafx.scene.image.ImageView;
 
 public abstract class GameComponents implements Serializable{
-	private int visibilty;
+	private boolean visibilty;
 	private Position position;
 	
 	public abstract int collision(ImageView collidingComp);
 	
 	public GameComponents(double x,double y) {
 		this.setPosition(new Position(x,y));
-		this.visibilty = 1;
+		this.visibilty = true;
 	}
 		
-	public int getVisibilty() {
+	public boolean getVisibilty() {
 		return visibilty;
 	}
 
-	public void setVisibilty(int visibilty) {
-		this.visibilty = visibilty;
+	public void setVisibilty(boolean _visibilty) {
+		this.visibilty = _visibilty;
 	}
 
 

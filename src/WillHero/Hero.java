@@ -2,6 +2,7 @@ package WillHero;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javafx.animation.Animation;
 import javafx.animation.Interpolator;
@@ -20,19 +21,18 @@ public class Hero extends GameComponents implements Serializable{
     private static int jumping_Height = 60;
     private static int forward_Move = 60;
     private boolean onPlatform;
-    private ArrayList<Platform> allPlatform;
-    private int dead;
+  //  private ArrayList<Platform> allPlatform;
     private transient TranslateTransition translate;
     private transient Timeline gravity;
     private transient TranslateTransition translatefwd;
+    private transient ImageView hero;
     
     public Hero(double x,double y,Helmet myHelmet) {
         super(x, y);
-        this.dead = 0 ;
         this.myWeapon = null;
         this.myHelmet = myHelmet;
         this.onPlatform = false;
-        allPlatform = new ArrayList<>();
+       // allPlatform = new ArrayList<>();
         translate = new TranslateTransition();
         translatefwd = new TranslateTransition();
         gravity = new Timeline();
@@ -44,12 +44,10 @@ public class Hero extends GameComponents implements Serializable{
     	translatefwd.stop();
     }
     
-    public int getDeath() {
-    	return this.dead;
-    }
-    public void givePlatform(ArrayList<Platform> _P) {
-    	this.allPlatform = _P;
-    }
+   
+//    public void givePlatform(ArrayList<Platform> _P) {
+//    	this.allPlatform = _P;
+//    }
   
     public void setMyWeapon(Helmet myWeapon) {
         this.myWeapon = myWeapon;
@@ -77,7 +75,7 @@ public class Hero extends GameComponents implements Serializable{
     	translatefwd = new TranslateTransition();
  		translatefwd.setDuration(Duration.millis(150));
  		translatefwd.setCycleCount(1);
- 		translatefwd.setByX(95);
+ 		translatefwd.setByX(92);
     	translatefwd.setNode(image);
 
 		//translate.setByX(150);
@@ -127,27 +125,41 @@ public class Hero extends GameComponents implements Serializable{
 			}
 		});
 	}
+    public void setImage(ImageView image) {
+    	this.hero = image;
+    }
+    
+    public void gravityLoop(GameComponents component,ImageView image) {
+			hero.setScaleX(1);
+			hero.setScaleY(1);
+			Platform dummy = new Platform(0, 0,0);
+			Coin dummycoin = new Coin(0, 0);
+			if (component.getClass() == dummy.getClass()){
+				if(this.onPlatform == false) {
+				this.onPlatform = dummy.checkCollision(image,hero);
+			}}
+				else if(component.getClass() == dummycoin.getClass()) {
+					if(dummycoin.checkCollision(image,hero)) {
+						image.setVisible(false);
+						
+					}
+					
+				}
+			}
+    
  
-    public void beginGravity(ArrayList<ImageView> collider,ImageView image, ImageView death) {
+    public void beginGravity(HashMap<GameComponents, ImageView> map) {
 		//System.out.println("Askhat");
     	gravity = new Timeline();
     	gravity.setCycleCount(Animation.INDEFINITE);
     	KeyFrame gravity_frame = new KeyFrame(Duration.millis(18), e->{
-    		for(int i=0;i<allPlatform.size();i++) {
-    			image.setScaleX(1);
-    			image.setScaleY(1);
-    			if(this.onPlatform == false) {
-    			this.onPlatform = allPlatform.get(i).checkCollision(collider.get(i),image);
-    			}
-    			if(image.getBoundsInParent().intersects(death.getBoundsInParent())) {
-    				this.dead = 1;
-    			}
-    		}
+   		map.forEach((key, value)-> gravityLoop(key,value));
+    		
     		if(this.onPlatform == false) {
-    		image.setLayoutY(image.getLayoutY()+4);
+    		hero.setLayoutY(hero.getLayoutY()+4);
     		}
     		else {
-    			letsJump(image,gravity);
+    			letsJump(hero,gravity);
     		}
     	});
 	    gravity.getKeyFrames().add(gravity_frame);

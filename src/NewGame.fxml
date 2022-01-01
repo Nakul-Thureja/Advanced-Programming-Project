@@ -17,11 +17,6 @@
                   <Image url="@assets/bg_draft1.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="platform1" fitHeight="187.0" fitWidth="256.0" layoutX="129.0" layoutY="283.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@assets/Islands3.png" />
-               </image>
-            </ImageView>
             <ImageView fx:id="handWeapon" fitHeight="37.0" fitWidth="95.0" layoutX="153.0" layoutY="251.0" pickOnBounds="true" preserveRatio="true" rotate="6.3">
                <image>
                   <Image url="@assets/sword.png" />
@@ -32,99 +27,304 @@
                   <Image url="@assets/hammer.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="platform3" fitHeight="173.0" fitWidth="293.0" layoutX="763.0" layoutY="291.0" pickOnBounds="true">
-               <image>
-                  <Image url="@assets/Islands6.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="platform4" fitHeight="209.0" fitWidth="283.0" layoutX="1184.0" layoutY="261.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@assets/Islands3.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="platform2" fitHeight="129.0" fitWidth="273.0" layoutX="383.0" layoutY="285.0" pickOnBounds="true">
-               <image>
-                  <Image url="@assets/Islands2.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="platform5" fitHeight="173.0" fitWidth="182.0" layoutX="1579.0" layoutY="283.0" pickOnBounds="true">
-               <image>
-                  <Image url="@assets/Islands11.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="collider1" fitHeight="1.0" fitWidth="256.0" layoutX="126.0" layoutY="283.0" pickOnBounds="true">
+            <ImageView fx:id="collider1" fitHeight="20.0" fitWidth="213.0" layoutX="140.0" layoutY="314.0" pickOnBounds="true">
                <image>
                   <Image url="@assets/collider.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="collider2" fitHeight="1.0" fitWidth="273.0" layoutX="382.0" layoutY="285.0" pickOnBounds="true">
+            <ImageView fx:id="collider2" fitHeight="20.0" fitWidth="167.0" layoutX="367.0" layoutY="314.0" pickOnBounds="true">
                <image>
                   <Image url="@assets/collider.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="collider3" fitHeight="1.0" fitWidth="293.0" layoutX="763.0" layoutY="295.0" pickOnBounds="true">
+            <ImageView fx:id="collider3" fitHeight="20.0" fitWidth="92.0" layoutX="629.0" layoutY="360.0" pickOnBounds="true">
                <image>
                   <Image url="@assets/collider.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="collider4" fitHeight="1.0" fitWidth="283.0" layoutX="1184.0" layoutY="261.0" pickOnBounds="true">
+            <ImageView fx:id="collider4" fitHeight="20.0" fitWidth="139.0" layoutX="799.0" layoutY="328.0" pickOnBounds="true">
                <image>
                   <Image url="@assets/collider.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="collider5" fitHeight="1.0" fitWidth="182.0" layoutX="1579.0" layoutY="285.0" pickOnBounds="true">
+            <ImageView fx:id="collider5" fitHeight="20.0" fitWidth="183.0" layoutX="1027.0" layoutY="296.0" pickOnBounds="true">
                <image>
                   <Image url="@assets/collider.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="collider6" fitHeight="1.0" fitWidth="222.0" layoutX="1851.0" layoutY="269.0" pickOnBounds="true">
+            <ImageView fx:id="collider6" fitHeight="20.0" fitWidth="167.0" layoutX="1268.0" layoutY="242.0" pickOnBounds="true">
                <image>
                   <Image url="@assets/collider.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="collider7" fitHeight="1.0" fitWidth="273.0" layoutX="2157.0" layoutY="290.0" pickOnBounds="true">
+            <ImageView fx:id="collider7" fitHeight="20.0" fitWidth="92.0" layoutX="1579.0" layoutY="316.0" pickOnBounds="true">
                <image>
                   <Image url="@assets/collider.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="collider8" fitHeight="1.0" fitWidth="182.0" layoutX="2629.0" layoutY="324.0" pickOnBounds="true">
+            <ImageView fx:id="collider8" fitHeight="20.0" fitWidth="242.0" layoutX="1683.0" layoutY="316.0" pickOnBounds="true">
                <image>
                   <Image url="@assets/collider.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="collider9" fitHeight="1.0" fitWidth="293.0" layoutX="3138.0" layoutY="300.0" pickOnBounds="true">
+            <ImageView fx:id="collider9" fitHeight="20.0" fitWidth="193.0" layoutX="1940.0" layoutY="316.0" pickOnBounds="true">
                <image>
                   <Image url="@assets/collider.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="collider10" fitHeight="1.0" fitWidth="182.0" layoutX="3533.0" layoutY="339.0" pickOnBounds="true">
+            <ImageView fx:id="collider10" fitHeight="20.0" fitWidth="92.0" layoutX="2264.0" layoutY="280.0" pickOnBounds="true">
                <image>
                   <Image url="@assets/collider.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="collider11" fitHeight="1.0" fitWidth="293.0" layoutX="3783.0" layoutY="310.0" pickOnBounds="true">
+            <ImageView fx:id="collider11" fitHeight="20.0" fitWidth="183.0" layoutX="2442.0" layoutY="263.0" pickOnBounds="true">
                <image>
                   <Image url="@assets/collider.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="collider12" fitHeight="1.0" fitWidth="222.0" layoutX="4177.0" layoutY="369.0" pickOnBounds="true">
+            <ImageView fx:id="collider12" fitHeight="20.0" fitWidth="139.0" layoutX="2732.0" layoutY="260.0" pickOnBounds="true">
                <image>
                   <Image url="@assets/collider.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="collider13" fitHeight="1.0" fitWidth="222.0" layoutX="4510.0" layoutY="379.0" pickOnBounds="true">
+            <ImageView fx:id="collider13" fitHeight="20.0" fitWidth="207.0" layoutX="2881.0" layoutY="260.0" pickOnBounds="true">
                <image>
                   <Image url="@assets/collider.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="collider14" fitHeight="1.0" fitWidth="222.0" layoutX="4833.0" layoutY="310.0" pickOnBounds="true">
+            <ImageView fx:id="collider14" fitHeight="20.0" fitWidth="213.0" layoutX="3097.0" layoutY="259.0" pickOnBounds="true">
                <image>
                   <Image url="@assets/collider.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="collider15" fitHeight="1.0" fitWidth="222.0" layoutX="5186.0" layoutY="374.0" pickOnBounds="true">
+            <ImageView fx:id="collider15" fitHeight="20.0" fitWidth="193.0" layoutX="3450.0" layoutY="298.0" pickOnBounds="true">
                <image>
                   <Image url="@assets/collider.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="collider16" fitHeight="14.0" fitWidth="92.0" layoutX="3718.0" layoutY="300.0" pickOnBounds="true">
+               <image>
+                  <Image url="@assets/collider.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="collider17" fitHeight="20.0" fitWidth="167.0" layoutX="3870.0" layoutY="340.0" pickOnBounds="true">
+               <image>
+                  <Image url="@assets/collider.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="collider18" fitHeight="14.0" fitWidth="183.0" layoutX="4075.0" layoutY="340.0" pickOnBounds="true">
+               <image>
+                  <Image url="@assets/collider.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="collider19" fitHeight="20.0" fitWidth="167.0" layoutX="4314.0" layoutY="330.0" pickOnBounds="true">
+               <image>
+                  <Image url="@assets/collider.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="collider20" fitHeight="20.0" fitWidth="167.0" layoutX="4528.0" layoutY="308.0" pickOnBounds="true">
+               <image>
+                  <Image url="@assets/collider.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="collider21" fitHeight="20.0" fitWidth="242.0" layoutX="4792.0" layoutY="304.0" pickOnBounds="true">
+               <image>
+                  <Image url="@assets/collider.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="collider22" fitHeight="20.0" fitWidth="98.0" layoutX="5061.0" layoutY="304.0" pickOnBounds="true">
+               <image>
+                  <Image url="@assets/collider.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="collider23" fitHeight="20.0" fitWidth="98.0" layoutX="5192.0" layoutY="304.0" pickOnBounds="true">
+               <image>
+                  <Image url="@assets/collider.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="collider24" fitHeight="20.0" fitWidth="98.0" layoutX="5324.0" layoutY="304.0" pickOnBounds="true">
+               <image>
+                  <Image url="@assets/collider.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="collider25" fitHeight="20.0" fitWidth="256.0" layoutX="5466.0" layoutY="302.0" pickOnBounds="true">
+               <image>
+                  <Image url="@assets/collider.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="collider26" fitHeight="14.0" fitWidth="183.0" layoutX="5864.0" layoutY="346.0" pickOnBounds="true">
+               <image>
+                  <Image url="@assets/collider.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="collider27" fitHeight="14.0" fitWidth="199.0" layoutX="6542.0" layoutY="347.0" pickOnBounds="true">
+               <image>
+                  <Image url="@assets/collider.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="collider28" fitHeight="14.0" fitWidth="92.0" layoutX="6798.0" layoutY="333.0" pickOnBounds="true">
+               <image>
+                  <Image url="@assets/collider.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="collider29" fitHeight="14.0" fitWidth="213.0" layoutX="6971.0" layoutY="359.0" pickOnBounds="true">
+               <image>
+                  <Image url="@assets/collider.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="collider30" fitHeight="14.0" fitWidth="86.0" layoutX="7288.0" layoutY="333.0" pickOnBounds="true">
+               <image>
+                  <Image url="@assets/collider.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="collider31" fitHeight="14.0" fitWidth="86.0" layoutX="7411.0" layoutY="303.0" pickOnBounds="true">
+               <image>
+                  <Image url="@assets/collider.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="collider32" fitHeight="14.0" fitWidth="86.0" layoutX="7527.0" layoutY="262.0" pickOnBounds="true">
+               <image>
+                  <Image url="@assets/collider.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="collider33" fitHeight="14.0" fitWidth="86.0" layoutX="7653.0" layoutY="301.0" pickOnBounds="true">
+               <image>
+                  <Image url="@assets/collider.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="collider34" fitHeight="14.0" fitWidth="86.0" layoutX="7773.0" layoutY="336.0" pickOnBounds="true">
+               <image>
+                  <Image url="@assets/collider.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="collider35" fitHeight="20.0" fitWidth="256.0" layoutX="8203.0" layoutY="328.0" pickOnBounds="true">
+               <image>
+                  <Image url="@assets/collider.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="collider36" fitHeight="20.0" fitWidth="175.0" layoutX="8519.0" layoutY="312.0" pickOnBounds="true">
+               <image>
+                  <Image url="@assets/collider.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="collider37" fitHeight="20.0" fitWidth="167.0" layoutX="8821.0" layoutY="312.0" pickOnBounds="true">
+               <image>
+                  <Image url="@assets/collider.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="collider38" fitHeight="20.0" fitWidth="207.0" layoutX="9003.0" layoutY="309.0" pickOnBounds="true">
+               <image>
+                  <Image url="@assets/collider.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="collider39" fitHeight="20.0" fitWidth="167.0" layoutX="9228.0" layoutY="308.0" pickOnBounds="true">
+               <image>
+                  <Image url="@assets/collider.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="collider40" fitHeight="20.0" fitWidth="92.0" layoutX="9456.0" layoutY="298.0" pickOnBounds="true">
+               <image>
+                  <Image url="@assets/collider.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="collider41" fitHeight="14.0" fitWidth="193.0" layoutX="9606.0" layoutY="301.0" pickOnBounds="true">
+               <image>
+                  <Image url="@assets/collider.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="collider42" fitHeight="20.0" fitWidth="183.0" layoutX="10344.0" layoutY="297.0" pickOnBounds="true">
+               <image>
+                  <Image url="@assets/collider.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="collider43" fitHeight="14.0" fitWidth="167.0" layoutX="10599.0" layoutY="313.0" pickOnBounds="true">
+               <image>
+                  <Image url="@assets/collider.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="collider44" fitHeight="20.0" fitWidth="242.0" layoutX="10821.0" layoutY="307.0" pickOnBounds="true">
+               <image>
+                  <Image url="@assets/collider.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="collider45" fitHeight="20.0" fitWidth="139.0" layoutX="11084.0" layoutY="307.0" pickOnBounds="true">
+               <image>
+                  <Image url="@assets/collider.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="coin1" fitHeight="29.0" fitWidth="26.0" layoutX="1599.0" layoutY="259.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coingif.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="coin2" fitHeight="29.0" fitWidth="26.0" layoutX="1633.0" layoutY="259.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coingif.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="coin3" fitHeight="29.0" fitWidth="26.0" layoutX="1669.0" layoutY="259.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coingif.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="coin4" fitHeight="29.0" fitWidth="26.0" layoutX="1705.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coingif.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="coin5" fitHeight="29.0" fitWidth="26.0" layoutX="1739.0" layoutY="259.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coingif.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="coin6" fitHeight="29.0" fitWidth="26.0" layoutX="1773.0" layoutY="259.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coingif.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="coin7" fitHeight="29.0" fitWidth="26.0" layoutX="1809.0" layoutY="259.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coingif.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="coin8" fitHeight="29.0" fitWidth="26.0" layoutX="1845.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coingif.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="coin9" fitHeight="29.0" fitWidth="26.0" layoutX="1879.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coingif.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="coin10" fitHeight="29.0" fitWidth="26.0" layoutX="1913.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coingif.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="coin11" fitHeight="29.0" fitWidth="26.0" layoutX="1949.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coingif.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="coin12" fitHeight="29.0" fitWidth="26.0" layoutX="1985.0" layoutY="261.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coingif.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="coin13" fitHeight="29.0" fitWidth="26.0" layoutX="2019.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coingif.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="coin14" fitHeight="29.0" fitWidth="26.0" layoutX="2053.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coingif.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="coin15" fitHeight="29.0" fitWidth="26.0" layoutX="2089.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coingif.gif" />
                </image>
             </ImageView>
             <ImageView fx:id="coinDisplay" fitHeight="66.0" fitWidth="175.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
@@ -147,114 +347,9 @@
                   <Font name="Impact" size="48.0" />
                </font>
             </Text>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="310.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@assets/CLoud1.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="696.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@assets/CLoud1.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="81.0" fitWidth="58.0" layoutX="534.0" layoutY="210.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@assets/Tree3.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="101.0" fitWidth="84.0" layoutX="594.0" layoutY="186.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@assets/Tree4.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="81.0" fitWidth="58.0" layoutX="1379.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@assets/Tree4.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="platform6" fitHeight="173.0" fitWidth="222.0" layoutX="1851.0" layoutY="263.0" pickOnBounds="true">
-               <image>
-                  <Image url="@assets/Islands5.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="1246.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@assets/CLoud1.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="80.0" fitWidth="194.0" layoutX="1738.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@assets/CLoud1.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="platform7" fitHeight="201.0" fitWidth="273.0" layoutX="2157.0" layoutY="283.0" pickOnBounds="true">
-               <image>
-                  <Image url="@assets/Islands8.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="platform10" fitHeight="145.0" fitWidth="182.0" layoutX="3533.0" layoutY="332.0" pickOnBounds="true">
-               <image>
-                  <Image url="@assets/Islands10.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="platform9" fitHeight="145.0" fitWidth="293.0" layoutX="3138.0" layoutY="296.0" pickOnBounds="true">
-               <image>
-                  <Image url="@assets/Islands1.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="platform8" fitHeight="145.0" fitWidth="182.0" layoutX="2629.0" layoutY="319.0" pickOnBounds="true">
-               <image>
-                  <Image url="@assets/Islands10.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="platform11" fitHeight="138.0" fitWidth="293.0" layoutX="3783.0" layoutY="306.0" pickOnBounds="true">
-               <image>
-                  <Image url="@assets/Islands4.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="90.0" fitWidth="47.0" layoutX="3350.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@assets/Tree2.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="101.0" fitWidth="67.0" layoutX="3801.0" layoutY="221.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@assets/Tree3.png" />
-               </image>
-            </ImageView>
              <ImageView fx:id="myHero" fitHeight="45.0" fitWidth="145.0" layoutX="234.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/hero2.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="platform12" fitHeight="138.0" fitWidth="222.0" layoutX="4177.0" layoutY="367.0" pickOnBounds="true">
-               <image>
-                  <Image url="@assets/Islands7.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="platform13" fitHeight="138.0" fitWidth="222.0" layoutX="4510.0" layoutY="375.0" pickOnBounds="true">
-               <image>
-                  <Image url="@assets/Islands7.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="platform14" fitHeight="138.0" fitWidth="222.0" layoutX="4833.0" layoutY="309.0" pickOnBounds="true">
-               <image>
-                  <Image url="@assets/Islands7.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="platform15" fitHeight="138.0" fitWidth="222.0" layoutX="5186.0" layoutY="372.0" pickOnBounds="true">
-               <image>
-                  <Image url="@assets/Islands7.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="80.0" fitWidth="194.0" layoutX="2246.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@assets/CLoud1.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="80.0" fitWidth="194.0" layoutX="2743.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@assets/CLoud1.png" />
                </image>
             </ImageView>
             <ImageView fx:id="clickable" fitHeight="610.0" fitWidth="1150.0" layoutX="1.0" layoutY="1.0" onMouseClicked="#move" opacity="0.0" pickOnBounds="true" preserveRatio="true">
