@@ -1,7 +1,6 @@
 package WillHero;
 
 import java.io.Serializable;
-
 import javafx.scene.image.ImageView;
 
 public abstract class GameComponents implements Serializable{
@@ -46,5 +45,14 @@ public abstract class GameComponents implements Serializable{
 
 	public double getPositionY() {
 		return position.getY();
+	}
+	
+	public boolean checkCollision(ImageView platform, ImageView image) {
+    	if (platform.getBoundsInParent().intersects(image.getBoundsInParent())){
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
 	}
 }
