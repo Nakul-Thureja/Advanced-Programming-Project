@@ -26,12 +26,13 @@ public class Hero extends GameComponents implements Serializable{
     private transient Timeline gravity;
     private transient TranslateTransition translatefwd;
     private transient ImageView hero;
-    
+    private int currcoins;
     public Hero(double x,double y,Helmet myHelmet) {
         super(x, y);
         this.myWeapon = null;
         this.myHelmet = myHelmet;
         this.onPlatform = false;
+        this.currcoins = 0;
        // allPlatform = new ArrayList<>();
         translate = new TranslateTransition();
         translatefwd = new TranslateTransition();
@@ -140,8 +141,10 @@ public class Hero extends GameComponents implements Serializable{
 			}}
 				else if(component.getClass() == dummycoin.getClass()) {
 					if(dummycoin.checkCollision(image,hero)) {
+						if(component.getVisibilty())
+							this.currcoins++;	
+						component.setVisibilty(false);
 						image.setVisible(false);
-						
 					}
 					
 				}
@@ -166,11 +169,12 @@ public class Hero extends GameComponents implements Serializable{
 	    gravity.play();
     }
   
-    
+    public int getcurrCoins() {
+    	return this.currcoins;
+    }
     @Override
     public int collision(ImageView collidingComp) {
         return 0;
     }
 
-	
 }

@@ -253,6 +253,7 @@ public class NewGame implements Initializable {
 		empty = new Timeline();
 		empty.setCycleCount(Animation.INDEFINITE);
 		KeyFrame empty_frame = new KeyFrame(Duration.millis(18), e1 -> {
+			coinCounter.setText(Integer.toString(currGame.getMyHero().getcurrCoins()));
 			if (myHero.getBoundsInParent().intersects(deathpanel.getBoundsInParent())) {
 				try {
 					heroDefeat();
@@ -459,7 +460,7 @@ public class NewGame implements Initializable {
 
 			int offset = newValue.intValue();
 			// System.out.println(myHero.getTranslateX());
-
+			
 			if (offset > 100) {// && //offset < 11500 - 100) {
 				currGame.getmisc().clear();
 				myPane.setLayoutX(-(offset - 100));
@@ -704,7 +705,6 @@ public class NewGame implements Initializable {
 		// System.out.println(myHero.getLayoutX());
 		currGame.scoreplus1();
 		myScore.setText(Integer.toString(currGame.getScore()));
-
 	}
 
 }

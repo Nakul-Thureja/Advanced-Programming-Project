@@ -11,7 +11,7 @@ public class Game implements Serializable{
 	private Hero myHero;
 	private ArrayList<Platform> myPlatforms;
 	private ArrayList<Coin> myCoins;
-	private int numCoins;
+	private int totalCoins;
 	private ArrayList<Orc> myOrcs;
 	private Companion myCompanion;
 	private BossOrc myBossOrc;
@@ -30,7 +30,7 @@ public class Game implements Serializable{
 
 	public Game(String playerName) {
 		this.misc = new ArrayList<Position>();
-		this.numCoins = 0;
+		this.totalCoins = 0;
 		this.myPlayer = new Player(playerName);
 		this.myHero = null;
 		this.myPlatforms = null;
@@ -54,10 +54,10 @@ public class Game implements Serializable{
 	}
 	// add clone
 	public int getCoins() {
-		return this.numCoins;
+		return this.totalCoins;
 	}
 	public void setCoins(int num) {
-		this.numCoins +=num;
+		this.totalCoins += num;
 	}
 	public void setHelmet(Helmet helmet) {
 		this.myHelmet = helmet;
