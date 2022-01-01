@@ -24,7 +24,7 @@ import javafx.scene.Parent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 
-public class NewGame{
+public class NewGame {
 
 	private Timeline empty;
 	@FXML
@@ -172,7 +172,7 @@ public class NewGame{
 	@FXML
 	private ImageView coin14;
 	@FXML
-	private ImageView coin15;	
+	private ImageView coin15;
 	@FXML
 	private Text playerName;
 	@FXML
@@ -197,11 +197,9 @@ public class NewGame{
 	private ArrayList<ImageView> GreenOrcsImageView;
 	private ArrayList<ImageView> WeaponChestImageView;
 	private ArrayList<ImageView> CoinChestImageView;
-	
-	
-	private GameSlots gameSlot;
-	private HashMap<GameComponents, HashMap<GameComponents,ImageView>> CollisionMap;
 
+	private GameSlots gameSlot;
+	private HashMap<GameComponents, HashMap<GameComponents, ImageView>> CollisionMap;
 
 	public void letsBegin(MouseEvent e) {
 		Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
@@ -214,14 +212,14 @@ public class NewGame{
 			initGame();
 		}
 		currGame.setHeroImage(myHero);
-		CollisionMap = new HashMap<>();		
+
 		CollidersImageView = new ArrayList<>();
-		CoinsImageView = new ArrayList<>();	
+		CoinsImageView = new ArrayList<>();
 		RedOrcsImageView = new ArrayList<>();
-		GreenOrcsImageView = new ArrayList<>();	
+		GreenOrcsImageView = new ArrayList<>();
 		WeaponChestImageView = new ArrayList<>();
-		CoinChestImageView = new ArrayList<>();	
-		
+		CoinChestImageView = new ArrayList<>();
+
 		CollidersImageView.add(collider1);
 		CollidersImageView.add(collider2);
 		CollidersImageView.add(collider3);
@@ -267,7 +265,7 @@ public class NewGame{
 		CollidersImageView.add(collider43);
 		CollidersImageView.add(collider44);
 		CollidersImageView.add(collider45);
-		
+
 		CoinsImageView.add(coin1);
 		CoinsImageView.add(coin2);
 		CoinsImageView.add(coin3);
@@ -283,8 +281,7 @@ public class NewGame{
 		CoinsImageView.add(coin13);
 		CoinsImageView.add(coin14);
 		CoinsImageView.add(coin15);
-		
-		
+
 		empty = new Timeline();
 		empty.setCycleCount(Animation.INDEFINITE);
 		KeyFrame empty_frame = new KeyFrame(Duration.millis(18), e1 -> {
@@ -297,13 +294,12 @@ public class NewGame{
 				}
 			}
 		});
-		
 		empty.getKeyFrames().add(empty_frame);
 		empty.play();
-		
+
 		handWeapon.setVisible(false);
 		handWeapon2.setVisible(false);
-		
+
 		currGame.setCoinMap(CoinsImageView);
 		currGame.setPlatformMap(CollidersImageView);
 		currGame.beginGame();
@@ -348,15 +344,15 @@ public class NewGame{
 		playerName.setX(misc.get(7).getX());
 		coinCounter.setX(misc.get(8).getX());
 		playerName.setText(currGame.getPlayerName());
-		myHero.setTranslateX(currGame.getmyHeroX() + 92);
+		myHero.setTranslateX(currGame.getmyHeroX() + currGame.getForwardMove());
 		myScore.setText(Integer.toString(currGame.getScore()));
 		beginButton.setVisible(false);
 	}
 
-	public void initGame() {		
+	public void initGame() {
 		beginButton.setVisible(false);
 		playerName.setText(currGame.getPlayerName());
-		GameFactory factory = new GameFactory(); 
+		GameFactory factory = new GameFactory();
 		currGame.setFlag(true);
 		Weapon Sword = new Weapon(0, 0);
 		Weapon Hammer = new Weapon(0, 0);
@@ -371,22 +367,22 @@ public class NewGame{
 		Score score = new Score(myScore.getLayoutX(), myScore.getLayoutY(), 0);
 		currGame.setMyScore(score);
 		ArrayList<Coin> myCoins = new ArrayList<>();
-		for(int i=0;i<50;i++) {
+		for (int i = 0; i < 50; i++) {
 			myCoins.add((Coin) factory.createComponent("coin"));
 		}
 		currGame.setMyCoins(myCoins);
 		ArrayList<GreenOrc> mygorcs = new ArrayList<>();
-		for(int i=0;i<20;i++) {
+		for (int i = 0; i < 20; i++) {
 			mygorcs.add((GreenOrc) factory.createComponent("greenorc"));
 		}
 		currGame.setMygreenOrcs(mygorcs);
 		ArrayList<RedOrc> myrorcs = new ArrayList<>();
-		for(int i=0;i<10;i++) {
+		for (int i = 0; i < 10; i++) {
 			myrorcs.add((RedOrc) factory.createComponent("redorc"));
 		}
 		currGame.setMyredOrcs(myrorcs);
 		ArrayList<Platform> myplatforms = new ArrayList<>();
-		for(int i=0;i<45;i++) {
+		for (int i = 0; i < 45; i++) {
 			myplatforms.add((Platform) factory.createComponent("platform"));
 		}
 		currGame.setMyPlatforms(myplatforms);

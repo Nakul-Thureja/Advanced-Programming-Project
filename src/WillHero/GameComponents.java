@@ -3,17 +3,17 @@ package WillHero;
 import java.io.Serializable;
 import javafx.scene.image.ImageView;
 
-public abstract class GameComponents implements Serializable{
+public abstract class GameComponents implements Serializable {
 	private boolean visibilty;
 	private Position position;
-	
+
 	public abstract int collision(ImageView collidingComp);
-	
-	public GameComponents(double x,double y) {
-		this.setPosition(new Position(x,y));
+
+	public GameComponents(double x, double y) {
+		this.setPosition(new Position(x, y));
 		this.visibilty = true;
 	}
-		
+
 	public boolean getVisibilty() {
 		return visibilty;
 	}
@@ -21,7 +21,6 @@ public abstract class GameComponents implements Serializable{
 	public void setVisibilty(boolean _visibilty) {
 		this.visibilty = _visibilty;
 	}
-
 
 	public Position getPosition() {
 		return position;
@@ -34,7 +33,7 @@ public abstract class GameComponents implements Serializable{
 	public void setPositionX(double x) {
 		position.setX(x);
 	}
-	
+
 	public double getPositionX() {
 		return position.getX();
 	}
@@ -46,13 +45,12 @@ public abstract class GameComponents implements Serializable{
 	public double getPositionY() {
 		return position.getY();
 	}
-	
-	public boolean checkCollision(ImageView platform, ImageView image) {
-    	if (platform.getBoundsInParent().intersects(image.getBoundsInParent())){
-    		return true;
-    	}
-    	else {
-    		return false;
-    	}
+
+	public boolean checkCollision(ImageView image1, ImageView image2) {
+		if (image1.getBoundsInParent().intersects(image2.getBoundsInParent())) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 }
