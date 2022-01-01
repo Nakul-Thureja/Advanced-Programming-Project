@@ -111,6 +111,21 @@ public class Hero extends GameComponents implements Serializable {
 				image.setVisible(false);
 			}
 		}
+		else if (component.getClass() == Collider.class) {
+			
+		}
+		else if (component.getClass() == RedOrc.class) {
+			
+		}
+		else if (component.getClass() == GreenOrc.class) {
+			
+		}
+		else if (component.getClass() == CoinChest.class) {
+			
+		}
+		else if (component.getClass() == WeaponChest.class) {
+			
+		}
 	}
 
 	public void beginGravity(HashMap<GameComponents, ImageView> map) {

@@ -202,7 +202,7 @@ public class NewGame {
 	private ArrayList<ImageView> GreenOrcsImageView;
 	private ArrayList<ImageView> WeaponChestImageView;
 	private ArrayList<ImageView> CoinChestImageView;
-	private ArrayList<ImageView> GreenCollidersImageView;
+	private ArrayList<ImageView> OrcCollidersImageView;
 	private GameSlots gameSlot;
 	private HashMap<GameComponents, HashMap<GameComponents, ImageView>> CollisionMap;
 
@@ -224,10 +224,10 @@ public class NewGame {
 		GreenOrcsImageView = new ArrayList<>();
 		WeaponChestImageView = new ArrayList<>();
 		CoinChestImageView = new ArrayList<>();
-		GreenCollidersImageView = new ArrayList<>();
+		OrcCollidersImageView = new ArrayList<>();
 		
 		GreenOrcsImageView.add(greenOrc1);
-		GreenCollidersImageView.add(greenCollider1);
+		OrcCollidersImageView.add(greenCollider1);
 		CollidersImageView.add(collider1);
 		CollidersImageView.add(collider2);
 		CollidersImageView.add(collider3);
@@ -289,7 +289,10 @@ public class NewGame {
 		CoinsImageView.add(coin13);
 		CoinsImageView.add(coin14);
 		CoinsImageView.add(coin15);
-
+		currGame.setCoinMap(CoinsImageView);
+		currGame.setGorcMap(GreenOrcsImageView);
+		currGame.setColliderMap(OrcCollidersImageView);
+		currGame.setPlatformMap(CollidersImageView);
 		empty = new Timeline();
 		empty.setCycleCount(Animation.INDEFINITE);
 		KeyFrame empty_frame = new KeyFrame(Duration.millis(18), e1 -> {
@@ -308,10 +311,7 @@ public class NewGame {
 		handWeapon.setVisible(false);
 		handWeapon2.setVisible(false);
 
-		currGame.setCoinMap(CoinsImageView);
-		currGame.setGorcMap(GreenOrcsImageView);
-		currGame.setGcolliderMap(GreenCollidersImageView);
-		currGame.setPlatformMap(CollidersImageView);
+		
 		currGame.beginGame();
 		myHero.translateXProperty().addListener((obs, old, newValue) -> {
 			int offset = newValue.intValue();
@@ -382,7 +382,7 @@ public class NewGame {
 		}
 		currGame.setMyCoins(myCoins);
 		ArrayList<GreenOrc> mygorcs = new ArrayList<>();
-		for (int i = 0; i < 20; i++) {
+		for (int i = 0; i < 15; i++) {
 			mygorcs.add((GreenOrc) factory.createComponent("greenorc"));
 		}
 		currGame.setMygreenOrcs(mygorcs);
@@ -396,6 +396,12 @@ public class NewGame {
 			myplatforms.add((Platform) factory.createComponent("platform"));
 		}
 		currGame.setMyPlatforms(myplatforms);
+		ArrayList<Collider> mycollider = new ArrayList<>();
+		for (int i = 0; i < 26; i++) {
+			mycollider.add((Collider) factory.createComponent("collider"));
+		}
+		currGame.setMyColliders(mycollider);
+	
 	}
 
 	public void heroDefeat() throws IOException {

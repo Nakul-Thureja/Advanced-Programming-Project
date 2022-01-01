@@ -12,4 +12,12 @@ public class GreenOrc extends Orc{
     public int collision(ImageView collidingComp) {
         return 0;
     }
+
+	@Override
+	public void collideLoop(GameComponents key, ImageView value) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
 }

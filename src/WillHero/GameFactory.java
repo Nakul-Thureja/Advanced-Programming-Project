@@ -33,6 +33,9 @@ public class GameFactory {
 		else if(need.equals("weaponchest")) {
 			return new WeaponChest(0, 0, null);
 		}
+		else if(need.equals("collider")) {
+			return new Collider(0, 0);
+		}
 		return null;
 	}
 }

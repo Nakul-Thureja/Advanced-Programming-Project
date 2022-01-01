@@ -14,7 +14,7 @@ public class Game implements Serializable {
 	private int totalCoins;
 	private ArrayList<RedOrc> myredOrcs;
 	private ArrayList<GreenOrc> mygreenOrcs;
-
+	private ArrayList<Collider> myColliders;
 	private Companion myCompanion;
 	private BossOrc myBossOrc;
 	private Helmet myHelmet;
@@ -27,7 +27,7 @@ public class Game implements Serializable {
 	private transient HashMap<GameComponents, HashMap<GameComponents, ImageView>> CollisionMap;
 	private transient HashMap<GameComponents, ImageView> PlatformMap;
 	private transient HashMap<GameComponents, ImageView> GreenOrcMap;
-	private transient HashMap<GameComponents, ImageView> GreenColliderMap;
+	private transient HashMap<GameComponents, ImageView> CollidersMap;
 	private transient HashMap<GameComponents, ImageView> RedOrcMap;
 	private transient HashMap<GameComponents, ImageView> WeaponMap;
 	private transient HashMap<GameComponents, ImageView> CoinMap;
@@ -52,6 +52,7 @@ public class Game implements Serializable {
 		this.myChests = null;
 		this.myScore = null;
 		this.myComponents = null;
+		this.myColliders = null;
 		this.loadflag = false;
 		this.CollisionMap = null;
 		this.CoinMap = null;
@@ -59,7 +60,7 @@ public class Game implements Serializable {
 		this.WeaponMap = null;
 		this.RedOrcMap = null;
 		this.GreenOrcMap = null;
-		this.GreenColliderMap = null;
+		this.CollidersMap = null;
 	}
 
 	public void initMap() {
@@ -69,7 +70,7 @@ public class Game implements Serializable {
 		this.WeaponMap = new HashMap<>();
 		this.RedOrcMap = new HashMap<>();
 		this.GreenOrcMap = new HashMap<>();
-		this.GreenColliderMap = new HashMap<>();
+		this.CollidersMap = new HashMap<>();
 	}
 
 	public boolean isLoad() {
@@ -134,8 +135,11 @@ public class Game implements Serializable {
 	}
 
 	private void callInit(GameComponents comp, HashMap<GameComponents, ImageView> map) {
-		if (comp.getClass() == myHero.getClass()) {
-			myHero.beginGravity(map);
+		if (comp.getClass() == this.myHero.getClass()) {
+			this.myHero.beginGravity(map);
+		}
+		if (comp.getClass() == GreenOrc.class) {
+			mygreenOrcs.get(0).beginGravity(map);	
 		}
 	}
 
@@ -143,7 +147,15 @@ public class Game implements Serializable {
 		HashMap<GameComponents, ImageView> HeroMap = new HashMap<>();
 		HeroMap.putAll(PlatformMap);
 		HeroMap.putAll(CoinMap);
+		HeroMap.putAll(GreenOrcMap);
+		HeroMap.putAll(RedOrcMap);
+		HeroMap.putAll(CollidersMap);
 		CollisionMap.put(this.myHero, HeroMap);
+		HashMap<GameComponents, ImageView> GorcMap = new HashMap<>();
+		GorcMap.putAll(PlatformMap);
+		CollisionMap.put(this.mygreenOrcs.get(0), GorcMap);
+		
+			
 	}
 
 	public void beginGame() {
@@ -170,7 +182,8 @@ public class Game implements Serializable {
 	private ArrayList<RedOrc> getMyredOrcs() {
 		return myredOrcs;
 	}
-
+	
+	
 	public void setMyredOrcs(ArrayList<RedOrc> myredOrcs) {
 		this.myredOrcs = myredOrcs;
 	}
@@ -219,15 +232,27 @@ public class Game implements Serializable {
 
 	public void setGorcMap(ArrayList<ImageView> Nodes) {
 		for (int i = 0; i < 1; i++) {
-			//Nodes.get(i).setVisible(this.getMyCoins().get(i).getVisibilty());
-			GreenOrcMap.put(this.getMyCoins().get(i), Nodes.get(i));
+			this.getMygreenOrcs().get(i).setImage(Nodes.get(i));
+			GreenOrcMap.put(this.getMygreenOrcs().get(i), Nodes.get(i));
 		}
 	}
-
-	public void setGcolliderMap(ArrayList<ImageView> Nodes) {
-		for (int i = 0; i < 1; i++) {
-			//Nodes.get(i).setVisible(this.getMyCoins().get(i).getVisibilty());
-			GreenColliderMap.put(this.getMyCoins().get(i), Nodes.get(i));
+	public void setRorcMap(ArrayList<ImageView> Nodes) {
+		for (int i = 0; i < 10; i++) {
+			RedOrcMap.put(this.getMyCoins().get(i), Nodes.get(i));
 		}
+	}
+	public void setColliderMap(ArrayList<ImageView> Nodes) {
+		for (int i = 0; i < 1; i++) {
+			CollidersMap.put(this.getMyColliders().get(i), Nodes.get(i));
+		}
+	}
+	
+	
+	private ArrayList<Collider> getMyColliders() {
+		return this.myColliders;
+	}
+
+	public void setMyColliders(ArrayList<Collider> myColliders) {
+		this.myColliders = myColliders;
 	}
 }
