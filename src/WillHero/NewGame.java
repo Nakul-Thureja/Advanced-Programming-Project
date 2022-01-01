@@ -185,8 +185,101 @@ public class NewGame {
 	@FXML
 	private ImageView greenOrc1;
 	@FXML
+	private ImageView greenOrc2;
+	@FXML
+	private ImageView greenOrc3;
+	@FXML
+	private ImageView greenOrc4;
+	@FXML
+	private ImageView greenOrc5;
+	@FXML
+	private ImageView greenOrc6;
+	@FXML
+	private ImageView greenOrc7;
+	@FXML
+	private ImageView greenOrc8;
+	@FXML
+	private ImageView greenOrc9;
+	@FXML
+	private ImageView greenOrc10;
+	@FXML
+	private ImageView greenOrc11;
+	@FXML
+	private ImageView greenOrc12;
+	@FXML
+	private ImageView greenOrc13;
+	@FXML
+	private ImageView greenOrc14;
+	@FXML
+	private ImageView greenOrc15;
+	@FXML
 	private ImageView greenCollider1;
-
+	@FXML
+	private ImageView greenCollider2;
+	@FXML
+	private ImageView greenCollider3;
+	@FXML
+	private ImageView greenCollider4;
+	@FXML
+	private ImageView greenCollider5;
+	@FXML
+	private ImageView greenCollider6;
+	@FXML
+	private ImageView greenCollider7;
+	@FXML
+	private ImageView greenCollider8;
+	@FXML
+	private ImageView greenCollider9;
+	@FXML
+	private ImageView greenCollider10;
+	@FXML
+	private ImageView greenCollider11;
+	@FXML
+	private ImageView greenCollider12;
+	@FXML
+	private ImageView greenCollider13;
+	@FXML
+	private ImageView greenCollider14;
+	@FXML
+	private ImageView greenCollider15;
+	@FXML
+	private ImageView redOrc1;
+	@FXML
+	private ImageView redOrc2;
+	@FXML
+	private ImageView redOrc3;
+	@FXML
+	private ImageView redOrc4;
+	@FXML
+	private ImageView redOrc5;
+	@FXML
+	private ImageView redOrc6;
+	@FXML
+	private ImageView redOrc7;
+	@FXML
+	private ImageView redOrc8;
+	@FXML
+	private ImageView redCollider1;
+	@FXML
+	private ImageView redCollider2;
+	@FXML
+	private ImageView redCollider3;
+	@FXML
+	private ImageView redCollider4;
+	@FXML
+	private ImageView redCollider5;
+	@FXML
+	private ImageView redCollider6;
+	@FXML
+	private ImageView redCollider7;
+	@FXML
+	private ImageView redCollider8;
+	@FXML
+	private ImageView bossOrc;
+	@FXML
+	private ImageView bossCollider;
+	
+	
 	private Game currGame;
 	private Score score;
 	private TranslateTransition translate;
@@ -227,7 +320,55 @@ public class NewGame {
 		OrcCollidersImageView = new ArrayList<>();
 		
 		GreenOrcsImageView.add(greenOrc1);
+		GreenOrcsImageView.add(greenOrc2);
+		GreenOrcsImageView.add(greenOrc3);
+		GreenOrcsImageView.add(greenOrc4);
+		GreenOrcsImageView.add(greenOrc5);
+		GreenOrcsImageView.add(greenOrc6);
+		GreenOrcsImageView.add(greenOrc7);
+		GreenOrcsImageView.add(greenOrc8);
+		GreenOrcsImageView.add(greenOrc9);
+		GreenOrcsImageView.add(greenOrc10);
+		GreenOrcsImageView.add(greenOrc11);
+		GreenOrcsImageView.add(greenOrc12);
+		GreenOrcsImageView.add(greenOrc13);
+		GreenOrcsImageView.add(greenOrc14);
+		GreenOrcsImageView.add(greenOrc15);
+
+		RedOrcsImageView.add(redOrc1);
+		RedOrcsImageView.add(redOrc2);
+		RedOrcsImageView.add(redOrc3);
+		RedOrcsImageView.add(redOrc4);
+		RedOrcsImageView.add(redOrc5);
+		RedOrcsImageView.add(redOrc6);
+		RedOrcsImageView.add(redOrc7);
+		RedOrcsImageView.add(redOrc8);
+		
 		OrcCollidersImageView.add(greenCollider1);
+		OrcCollidersImageView.add(greenCollider2);
+		OrcCollidersImageView.add(greenCollider3);
+		OrcCollidersImageView.add(greenCollider4);
+		OrcCollidersImageView.add(greenCollider5);
+		OrcCollidersImageView.add(greenCollider6);
+		OrcCollidersImageView.add(greenCollider7);
+		OrcCollidersImageView.add(greenCollider8);
+		OrcCollidersImageView.add(greenCollider9);
+		OrcCollidersImageView.add(greenCollider10);
+		OrcCollidersImageView.add(greenCollider11);
+		OrcCollidersImageView.add(greenCollider12);
+		OrcCollidersImageView.add(greenCollider13);
+		OrcCollidersImageView.add(greenCollider14);
+		OrcCollidersImageView.add(greenCollider15);
+		OrcCollidersImageView.add(redCollider1);
+		OrcCollidersImageView.add(redCollider2);
+		OrcCollidersImageView.add(redCollider3);
+		OrcCollidersImageView.add(redCollider4);
+		OrcCollidersImageView.add(redCollider5);
+		OrcCollidersImageView.add(redCollider6);
+		OrcCollidersImageView.add(redCollider7);
+		OrcCollidersImageView.add(redCollider8);
+
+			
 		CollidersImageView.add(collider1);
 		CollidersImageView.add(collider2);
 		CollidersImageView.add(collider3);
@@ -289,10 +430,13 @@ public class NewGame {
 		CoinsImageView.add(coin13);
 		CoinsImageView.add(coin14);
 		CoinsImageView.add(coin15);
+		
 		currGame.setCoinMap(CoinsImageView);
 		currGame.setGorcMap(GreenOrcsImageView,OrcCollidersImageView);
+		
 		currGame.setColliderMap(OrcCollidersImageView);
 		currGame.setPlatformMap(CollidersImageView);
+		
 		empty = new Timeline();
 		empty.setCycleCount(Animation.INDEFINITE);
 		KeyFrame empty_frame = new KeyFrame(Duration.millis(18), e1 -> {

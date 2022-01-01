@@ -238,7 +238,7 @@ public class Game implements Serializable {
 	}
 
 	public void setGorcMap(ArrayList<ImageView> Nodes, ArrayList<ImageView> Node2) {
-		for (int i = 0; i < 1; i++) {
+		for (int i = 0; i < 15; i++) {
 			Nodes.get(i).setVisible(this.getMygreenOrcs().get(i).getVisibilty());
 			this.getMygreenOrcs().get(i).setImage(Nodes.get(i));
 			this.getMygreenOrcs().get(i).setCollider(Node2.get(i));
