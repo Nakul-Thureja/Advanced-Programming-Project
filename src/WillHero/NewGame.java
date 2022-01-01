@@ -18,6 +18,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -181,6 +182,10 @@ public class NewGame {
 	private Text coinCounter;
 	@FXML
 	private AnchorPane heroPane;
+	@FXML
+	private ImageView greenOrc1;
+	@FXML
+	private ImageView greenCollider1;
 
 	private Game currGame;
 	private Score score;
@@ -197,7 +202,7 @@ public class NewGame {
 	private ArrayList<ImageView> GreenOrcsImageView;
 	private ArrayList<ImageView> WeaponChestImageView;
 	private ArrayList<ImageView> CoinChestImageView;
-
+	private ArrayList<ImageView> GreenCollidersImageView;
 	private GameSlots gameSlot;
 	private HashMap<GameComponents, HashMap<GameComponents, ImageView>> CollisionMap;
 
@@ -219,7 +224,10 @@ public class NewGame {
 		GreenOrcsImageView = new ArrayList<>();
 		WeaponChestImageView = new ArrayList<>();
 		CoinChestImageView = new ArrayList<>();
-
+		GreenCollidersImageView = new ArrayList<>();
+		
+		GreenOrcsImageView.add(greenOrc1);
+		GreenCollidersImageView.add(greenCollider1);
 		CollidersImageView.add(collider1);
 		CollidersImageView.add(collider2);
 		CollidersImageView.add(collider3);
@@ -301,6 +309,8 @@ public class NewGame {
 		handWeapon2.setVisible(false);
 
 		currGame.setCoinMap(CoinsImageView);
+		currGame.setGorcMap(GreenOrcsImageView);
+		currGame.setGcolliderMap(GreenCollidersImageView);
 		currGame.setPlatformMap(CollidersImageView);
 		currGame.beginGame();
 		myHero.translateXProperty().addListener((obs, old, newValue) -> {

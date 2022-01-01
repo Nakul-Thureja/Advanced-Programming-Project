@@ -27,6 +27,7 @@ public class Game implements Serializable {
 	private transient HashMap<GameComponents, HashMap<GameComponents, ImageView>> CollisionMap;
 	private transient HashMap<GameComponents, ImageView> PlatformMap;
 	private transient HashMap<GameComponents, ImageView> GreenOrcMap;
+	private transient HashMap<GameComponents, ImageView> GreenColliderMap;
 	private transient HashMap<GameComponents, ImageView> RedOrcMap;
 	private transient HashMap<GameComponents, ImageView> WeaponMap;
 	private transient HashMap<GameComponents, ImageView> CoinMap;
@@ -58,6 +59,7 @@ public class Game implements Serializable {
 		this.WeaponMap = null;
 		this.RedOrcMap = null;
 		this.GreenOrcMap = null;
+		this.GreenColliderMap = null;
 	}
 
 	public void initMap() {
@@ -67,6 +69,7 @@ public class Game implements Serializable {
 		this.WeaponMap = new HashMap<>();
 		this.RedOrcMap = new HashMap<>();
 		this.GreenOrcMap = new HashMap<>();
+		this.GreenColliderMap = new HashMap<>();
 	}
 
 	public boolean isLoad() {
@@ -212,5 +215,19 @@ public class Game implements Serializable {
 	public double getForwardMove() {
 
 		return this.myHero.getForwardValue();
+	}
+
+	public void setGorcMap(ArrayList<ImageView> Nodes) {
+		for (int i = 0; i < 1; i++) {
+			//Nodes.get(i).setVisible(this.getMyCoins().get(i).getVisibilty());
+			GreenOrcMap.put(this.getMyCoins().get(i), Nodes.get(i));
+		}
+	}
+
+	public void setGcolliderMap(ArrayList<ImageView> Nodes) {
+		for (int i = 0; i < 1; i++) {
+			//Nodes.get(i).setVisible(this.getMyCoins().get(i).getVisibilty());
+			GreenColliderMap.put(this.getMyCoins().get(i), Nodes.get(i));
+		}
 	}
 }
