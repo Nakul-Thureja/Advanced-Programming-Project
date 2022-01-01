@@ -441,6 +441,7 @@ public class NewGame {
 		empty.setCycleCount(Animation.INDEFINITE);
 		KeyFrame empty_frame = new KeyFrame(Duration.millis(18), e1 -> {
 			coinCounter.setText(Integer.toString(currGame.getcurrCoins()));
+			currGame.setCoins(currGame.getcurrCoins());
 			if (myHero.getBoundsInParent().intersects(deathpanel.getBoundsInParent()) || currGame.getHeroStat()) {
 				try {
 					heroDefeat();

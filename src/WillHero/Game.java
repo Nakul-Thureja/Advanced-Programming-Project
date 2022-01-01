@@ -84,9 +84,18 @@ public class Game implements Serializable {
 	public int getCoins() {
 		return this.totalCoins;
 	}
-
+	public boolean deduceCoins() {
+		if(totalCoins>=5) {
+			totalCoins -= 5;
+			myHero.setcurrCoins(totalCoins) ;
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 	public void setCoins(int num) {
-		this.totalCoins += num;
+		this.totalCoins = num;
 	}
 
 	public void setHelmet(Helmet helmet) {
@@ -139,7 +148,9 @@ public class Game implements Serializable {
 			this.myHero.beginGravity(map);
 		}
 		if (comp.getClass() == GreenOrc.class) {
-			mygreenOrcs.get(0).beginGravity(map);	
+			for(int i = 0 ;i< this.mygreenOrcs.size();i++) {
+				mygreenOrcs.get(i).beginGravity(map);	
+			}
 		}
 	}
 
@@ -153,9 +164,7 @@ public class Game implements Serializable {
 		CollisionMap.put(this.myHero, HeroMap);
 		HashMap<GameComponents, ImageView> GorcMap = new HashMap<>();
 		GorcMap.putAll(PlatformMap);
-		CollisionMap.put(this.mygreenOrcs.get(0), GorcMap);
-		
-			
+		CollisionMap.put(this.mygreenOrcs.get(0), GorcMap);	
 	}
 
 	public void beginGame() {
@@ -167,6 +176,9 @@ public class Game implements Serializable {
 		return myPlatforms;
 	}
 
+	public void reviveHero() {
+		this.myHero.revive();
+	}
 	public void setMyPlatforms(ArrayList<Platform> myPlatforms) {
 		this.myPlatforms = myPlatforms;
 	}
@@ -207,7 +219,7 @@ public class Game implements Serializable {
 	public void stopALL() {
 		this.myHero.stopALL();
 		for(int i = 0 ;i< this.mygreenOrcs.size();i++) {
-			this.mygreenOrcs.get(0).stopALL();
+			this.mygreenOrcs.get(i).stopALL();
 		}
 	}
 
@@ -251,7 +263,7 @@ public class Game implements Serializable {
 		}
 	}
 	public void setColliderMap(ArrayList<ImageView> Nodes) {
-		for (int i = 0; i < 1; i++) {
+		for (int i = 0; i < 23; i++) {
 			CollidersMap.put(this.getMyColliders().get(i), Nodes.get(i));
 		}
 	}

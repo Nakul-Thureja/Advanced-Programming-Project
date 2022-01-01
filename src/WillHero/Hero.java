@@ -56,6 +56,9 @@ public class Hero extends GameComponents implements Serializable {
 	public boolean status() {
 		return this.isDead;
 	}
+	public void revive() {
+		this.isDead = false;
+	}
 	public void moveForward(ImageView image) {
 		attacking = true;
 		gravity.pause();
@@ -129,11 +132,12 @@ public class Hero extends GameComponents implements Serializable {
 		}
 		else if (component.getClass() == GreenOrc.class) {
 			if(this.checkCollision(image, hero) && attacking) {
-				component.setVisibilty(false);
-				translate.pause();
+				//component.setVisibilty(false);
+				gravity.play();
+				translatefwd.pause();
 				TranslateTransition translate2 = new TranslateTransition();
 				translate2.setNode(image);
-				translate2.setDuration(Duration.millis(200));
+				translate2.setDuration(Duration.millis(100));
 				translate2.setCycleCount(1);
 				translate2.setByX(110);
 				translate2.play();
@@ -148,6 +152,8 @@ public class Hero extends GameComponents implements Serializable {
 	}
 
 	public void beginGravity(HashMap<GameComponents, ImageView> map) {
+		translatefwd = new TranslateTransition();
+		translate = new TranslateTransition();
 		collision = new Timeline();
 		collision.setCycleCount(Animation.INDEFINITE);
 		KeyFrame collision_frame = new KeyFrame(Duration.millis(18), e -> {
@@ -170,6 +176,9 @@ public class Hero extends GameComponents implements Serializable {
 		gravity.play();
 	}
 
+	public void setcurrCoins(int total) {
+		this.currcoins = total;
+	}
 	public int getcurrCoins() {
 		return this.currcoins;
 	}

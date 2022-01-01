@@ -40,7 +40,7 @@ public class DefeatMenu {
 
 	private Game currGame;
 
-	public void spendCoin() throws IOException {
+	public void spendCoin(MouseEvent e) throws IOException {
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.setTitle("Continue To Play ?");
 		alert.setHeaderText("You're about to spend 5 coins");
@@ -52,15 +52,34 @@ public class DefeatMenu {
 		if (alert.showAndWait().get() == ButtonType.YES) {
 			Parent root = FXMLLoader.load(getClass().getResource("/NewGame.fxml"));
 			Stage stage = mystage;
+			Game currGame = (Game) stage.getUserData();
+			currGame.setFlag(true);
+			if(currGame.deduceCoins()) {
+			currGame.stopALL();
+			currGame.reviveHero();
+			stage.setUserData(currGame);
 			Scene scene = new Scene(root);
 			stage.setScene(scene);
 			stage.show();
+			}
+			else {
+				Alert alert2 = new Alert(AlertType.WARNING);
+				alert2.setContentText("Don't have enough Coins :(");
+				alert2.setHeaderText(null);
+				alert2.setTitle(null);
+				alert2.showAndWait();
+			}
+				
+			}
 		}
-	}
+	
 
 	public void restartHandler(MouseEvent event) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/NewGame.fxml"));
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		Game currGame = (Game) stage.getUserData();
+		currGame.setFlag(false);
+		stage.setUserData(currGame);
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
 		stage.show();
