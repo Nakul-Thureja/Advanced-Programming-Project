@@ -60,6 +60,7 @@ public abstract class Orc extends GameComponents{
 		Orc.translateXProperty().addListener((obs,old,newValue) -> {
 			int offset = newValue.intValue();
 			//mycollider.setTranslateX(offset);
+			//this.colliderX = offset;
 			this.setPositionX(offset);
 		});
 		Orc.translateYProperty().addListener((obs,old,newValue) -> {
@@ -130,5 +131,11 @@ public abstract class Orc extends GameComponents{
 	
 	public ImageView getCollider() {
 		return this.mycollider;
+	}
+	
+	public void moved() {
+		this.translate.pause();
+		this.translate2.pause();
+		this.gravity.play();
 	}
 }

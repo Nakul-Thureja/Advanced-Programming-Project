@@ -639,12 +639,12 @@ public class NewGame {
 		for(int i = 0;i<currGame.getMygreenOrcs().size();i++) {
 			
 			GreenOrcsImageView.get(i).setTranslateX(currGame.getMygreenOrcs().get(i).getPositionX());
-			CollidersImageView.get(i).setTranslateX(currGame.getMygreenOrcs().get(i).getColliderX());
+			OrcCollidersImageView.get(i).setTranslateX(currGame.getMygreenOrcs().get(i).getColliderX());
 		}
 		for(int i = 0;i<currGame.getMyredOrcs().size();i++) {
 			
 			RedOrcsImageView.get(i).setTranslateX(currGame.getMyredOrcs().get(i).getPositionX());
-			CollidersImageView.get(i+15).setTranslateX(currGame.getMyredOrcs().get(i).getColliderX());
+			OrcCollidersImageView.get(i+15).setTranslateX(currGame.getMyredOrcs().get(i).getColliderX());
 		}
 		myScore.setText(Integer.toString(currGame.getScore()));
 		beginButton.setVisible(false);
