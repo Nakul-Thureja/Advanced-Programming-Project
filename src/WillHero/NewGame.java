@@ -1,5 +1,4 @@
 package WillHero;
-
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
@@ -468,7 +467,7 @@ public class NewGame {
 			OrcCollidersImageView.add(redCollider6);
 			OrcCollidersImageView.add(redCollider7);
 			OrcCollidersImageView.add(redCollider8);
-
+			OrcCollidersImageView.add(bossCollider);
 				
 			CollidersImageView.add(collider1);
 			CollidersImageView.add(collider2);
@@ -623,6 +622,7 @@ public class NewGame {
 		currGame.setCoinChestMap(CoinChestImageView,openCoinChestImageView);
 		currGame.setWeaponChestMap(WeaponChestImageView,openWeaponChestImageView);
 		currGame.setWeaponMap(WeaponImageView);
+		currGame.setBoss(bossOrc,bossCollider);
 		currGame.giveWeaponstoHero();
 		empty = new Timeline();
 		empty.setCycleCount(Animation.INDEFINITE);
@@ -654,8 +654,12 @@ public class NewGame {
 		});
 		empty.getKeyFrames().add(empty_frame);
 		empty.play();
-		
-		
+		TranslateTransition translatefwd = new TranslateTransition();
+		translatefwd.setDuration(Duration.millis(150));
+		translatefwd.setCycleCount(1);
+		translatefwd.setByX(10000);
+		translatefwd.setNode(myHero);
+		translatefwd.play();
 		currGame.beginGame();
 		myHero.translateXProperty().addListener((obs, old, newValue) -> {
 			int offset = newValue.intValue();
@@ -727,7 +731,8 @@ public class NewGame {
 		currGame.setMyWeapons(Weapons);
 		Helmet helmet = new Helmet(0, 0, Weapons);
 		currGame.setHelmet(helmet);
-		Hero hero = new Hero(234.0, 0.0, helmet);
+		//comment
+		Hero hero = new Hero(10000.0, 0.0, helmet);
 		currGame.setHero(hero);
 		Score score = new Score(myScore.getLayoutX(), myScore.getLayoutY(), 0);
 		currGame.setMyScore(score);
@@ -766,7 +771,8 @@ public class NewGame {
 			myweaponChest.add((WeaponChest) factory.createComponent("weaponchest"));
 		}
 		currGame.setMyWeaponChests(myweaponChest);
-	
+		BossOrc boss = (BossOrc) factory.createComponent("bossorc");
+		currGame.setBossOrc(boss);
 	}
 
 	public void heroDefeat() throws IOException {

@@ -240,6 +240,30 @@ public class Hero extends GameComponents implements Serializable {
 					translate3.play();
 				}
 			}
+		} else if (component.getClass() == BossOrc.class) {
+			if (this.checkCollision(image, hero) ){//&& (Sword.getAttacking() || Hammer.getAttacking())) {
+				// component.setVisibilty(false);
+				this.onPlatform = true;
+				if (attacking) {
+					gravity.play();
+					translatefwd.pause();
+					w1translatefwd.pause();
+					w2translatefwd.pause();
+
+					TranslateTransition translate2 = new TranslateTransition();
+					translate2.setNode(image);
+					translate2.setDuration(Duration.millis(100));
+					translate2.setCycleCount(1);
+					translate2.setByX(80);
+					TranslateTransition translate3 = new TranslateTransition();
+					translate3.setNode(((BossOrc) component).getCollider());
+					translate3.setDuration(Duration.millis(100));
+					translate3.setCycleCount(1);
+					translate3.setByX(80);
+					translate2.play();
+					translate3.play();
+				}
+			}
 		} else if (component.getClass() == Collider.class) {
 			if (this.checkCollision(image, hero)) { //&& image.getTranslateY()>= hero.getTranslateY()) {
 				this.isDead = true;

@@ -33,7 +33,8 @@ public class Game implements Serializable {
 	private transient HashMap<GameComponents, ImageView> CoinMap;
 	private transient HashMap<GameComponents, ImageView> WeaponChestMap;
 	private transient HashMap<GameComponents, ImageView> CoinChestMap;
-
+	private transient HashMap<GameComponents, ImageView> BossOrcMap;
+	
 	public ArrayList<Position> getmisc() {
 		return this.misc;
 	}
@@ -86,7 +87,7 @@ public class Game implements Serializable {
 		this.GreenOrcMap = null;
 		this.CollidersMap = null;
 		this.ended = false;
-		
+		this.BossOrcMap = null;
 	}
 	public void end() {
 		this.ended = true;
@@ -108,6 +109,7 @@ public class Game implements Serializable {
 		this.CollidersMap = new HashMap<>();
 		this.WeaponChestMap = new HashMap<>();
 		this.CoinChestMap = new HashMap<>();
+		this.BossOrcMap = new HashMap<>();
 	}
 
 	
@@ -196,6 +198,9 @@ public class Game implements Serializable {
 				myWeapons.get(i).beginGravity(map);
 			}
 		}
+		else if (comp.getClass() == BossOrc.class) {
+			this.myBossOrc.beginGravity(map);
+		}
 	}
 
 	public void addColliders() {
@@ -207,17 +212,22 @@ public class Game implements Serializable {
 		HeroMap.putAll(CollidersMap);
 		HeroMap.putAll(CoinChestMap);
 		HeroMap.putAll(WeaponChestMap);
-
+		HeroMap.putAll(BossOrcMap);
 		CollisionMap.put(this.myHero, HeroMap);
 		HashMap<GameComponents, ImageView> GorcMap = new HashMap<>();
 		GorcMap.putAll(PlatformMap);
 		CollisionMap.put(this.mygreenOrcs.get(0), GorcMap);	
 		HashMap<GameComponents, ImageView> RorcMap = new HashMap<>();
 		RorcMap.putAll(PlatformMap);
-		CollisionMap.put(this.myredOrcs.get(0), RorcMap);	
-		WeaponMap.putAll(RedOrcMap);
-		WeaponMap.putAll(GreenOrcMap);
-		CollisionMap.put(this.myWeapons.get(0),WeaponMap);
+		CollisionMap.put(this.myredOrcs.get(0), RorcMap);
+		HashMap<GameComponents, ImageView> WMap = new HashMap<>();
+		WMap.putAll(RedOrcMap);
+		WMap.putAll(GreenOrcMap);
+		CollisionMap.put(this.myWeapons.get(0),WMap);
+		HashMap<GameComponents, ImageView> BossMap = new HashMap<>();
+		BossMap.putAll(PlatformMap);
+		CollisionMap.put(this.myBossOrc,BossMap);
+		
 	}
 	
 	public void giveWeaponstoHero() {
@@ -382,6 +392,18 @@ public class Game implements Serializable {
 
 	public void setMyColliders(ArrayList<Collider> myColliders) {
 		this.myColliders = myColliders;
+	}
+
+	public void setBoss(ImageView bossOrc, ImageView bossCollider) {
+		// TODO Auto-generated method stub
+		this.myBossOrc.setImage(bossOrc);
+		this.myBossOrc.setCollider(bossCollider);
+		BossOrcMap.put(this.myBossOrc, bossOrc);
+	}
+
+	public void setBossOrc(BossOrc boss) {
+		// TODO Auto-generated method stub
+		this.myBossOrc = boss;
 	}
 
 //	public int canBuy(int i,int coins) {
