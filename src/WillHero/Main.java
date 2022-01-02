@@ -102,6 +102,7 @@ public class Main extends Application implements Initializable {
 	public void newGame(MouseEvent event) throws IOException {
 		try {
 			LoadGameMenu.deserialize();
+			//Game.addInstances(GameSlots.getInstance());
 		} catch (ClassNotFoundException | IOException e) {
 			e.printStackTrace();
 		}  

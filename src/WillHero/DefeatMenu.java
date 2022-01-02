@@ -52,12 +52,13 @@ public class DefeatMenu {
 		if (alert.showAndWait().get() == ButtonType.YES) {
 			Parent root = FXMLLoader.load(getClass().getResource("/NewGame.fxml"));
 			Stage stage = mystage;
-			Game currGame = (Game) stage.getUserData();
+			Gamer currGamer = (Gamer) stage.getUserData();
+			currGame = currGamer.getcurrGame();
 			currGame.setFlag(true);
-			if(currGame.deduceCoins()) {
+			if(currGamer.deduceCoins()) {
 			currGame.stopALL();
 			currGame.reviveHero();
-			stage.setUserData(currGame);
+			stage.setUserData(currGamer);
 			Scene scene = new Scene(root);
 			stage.setScene(scene);
 			stage.show();
@@ -77,9 +78,10 @@ public class DefeatMenu {
 	public void restartHandler(MouseEvent event) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/NewGame.fxml"));
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		Game currGame = (Game) stage.getUserData();
+		Gamer currGamer = (Gamer) stage.getUserData();
+		Game currGame = currGamer.getcurrGame();
 		currGame.setFlag(false);
-		stage.setUserData(currGame);
+		stage.setUserData(currGamer);
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
 		stage.show();
@@ -126,10 +128,11 @@ public class DefeatMenu {
 	public void init_defeat(MouseEvent event) {
 		beginner.setVisible(false);
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		currGame = (Game) stage.getUserData();
+		Gamer currGamer = (Gamer) stage.getUserData();
+		Game currGame = currGamer.getcurrGame();
 		myScore.setText(Integer.toString(currGame.getScore()));
-		coinCounter.setText(Integer.toString(currGame.getCoins()));
-		playerName.setText(currGame.getPlayerName());
+		coinCounter.setText(Integer.toString(currGamer.getCoins()));
+		playerName.setText(currGamer.getPlayerName());
 
 	}
 }

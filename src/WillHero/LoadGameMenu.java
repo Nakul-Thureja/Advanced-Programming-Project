@@ -83,10 +83,10 @@ public class LoadGameMenu {
 		stage.show();
 	}
 	
-	public void newGame(MouseEvent event,Game game) throws IOException {
+	public void newGame(MouseEvent event,Gamer gamer) throws IOException {
 		  Parent root = FXMLLoader.load(getClass().getResource("/NewGame.fxml"));
 		  Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-		  stage.setUserData(game);
+		  stage.setUserData(gamer);
 		  Scene scene = new Scene(root);
 		  stage.setScene(scene);
 		  stage.show();
@@ -107,10 +107,23 @@ public class LoadGameMenu {
 				@Override
 				public void handle(ActionEvent arg0) {				
 					try {
-						if(i == 1) {newGame(e,Slot.getSlot1());}
-						if(i == 2) {newGame(e,Slot.getSlot2());}
-						if(i == 3) {newGame(e,Slot.getSlot3());}
-						if(i == 4) {newGame(e,Slot.getSlot4());}
+						if(i == 1) {
+							Slot.getSlot1().loadcurrGame(0);
+							newGame(e,Slot.getSlot1());
+						}
+						if(i == 2) {
+							Slot.getSlot2().loadcurrGame(1);
+							newGame(e,Slot.getSlot2());
+						}
+						if(i == 3) {
+							Slot.getSlot3().loadcurrGame(2);
+							newGame(e,Slot.getSlot3());
+						}
+						if(i == 4) {
+							Slot.getSlot4().loadcurrGame(3);
+							newGame(e,Slot.getSlot4());
+						}
+						
 
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
@@ -329,5 +342,6 @@ public class LoadGameMenu {
 		timeLineClose.setCycleCount(1);
 		timeLineClose.play();
 	}
+
 
 }

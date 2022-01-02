@@ -279,7 +279,7 @@ public class NewGame {
 	@FXML
 	private ImageView bossCollider;
 	
-	
+	private Gamer currGamer;
 	private Game currGame;
 	private Score score;
 	private TranslateTransition translate;
@@ -301,7 +301,8 @@ public class NewGame {
 
 	public void letsBegin(MouseEvent e) {
 		Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-		currGame = (Game) stage.getUserData();
+		currGamer = (Gamer) stage.getUserData();
+		currGame = currGamer.getcurrGame();
 		currGame.initMap();
 		if (currGame.isLoad()) {
 			loadGame();
@@ -441,9 +442,10 @@ public class NewGame {
 		empty.setCycleCount(Animation.INDEFINITE);
 		KeyFrame empty_frame = new KeyFrame(Duration.millis(18), e1 -> {
 			coinCounter.setText(Integer.toString(currGame.getcurrCoins()));
-			currGame.setCoins(currGame.getcurrCoins());
+			
 			if (myHero.getBoundsInParent().intersects(deathpanel.getBoundsInParent()) || currGame.getHeroStat()) {
 				try {
+					currGamer.setCoins(currGame.getcurrCoins());
 					heroDefeat();
 				} catch (IOException e2) {
 					e2.printStackTrace();
@@ -453,6 +455,12 @@ public class NewGame {
 			for(int i= 0;i<GreenOrcsImageView.size();i++) {
 				if (GreenOrcsImageView.get(i).getBoundsInParent().intersects(deathpanel.getBoundsInParent())) {
 					GreenOrcsImageView.get(i).setVisible(false);
+				}
+			}
+			
+			for(int i= 0;i<RedOrcsImageView.size();i++) {
+				if (RedOrcsImageView.get(i).getBoundsInParent().intersects(deathpanel.getBoundsInParent())) {
+					RedOrcsImageView.get(i).setVisible(false);
 				}
 			}
 		});
@@ -504,7 +512,7 @@ public class NewGame {
 		myScore.setX(misc.get(6).getX());
 		playerName.setX(misc.get(7).getX());
 		coinCounter.setX(misc.get(8).getX());
-		playerName.setText(currGame.getPlayerName());
+		playerName.setText(currGamer.getPlayerName());
 		myHero.setTranslateX(currGame.getmyHeroX() + currGame.getForwardMove());
 		myScore.setText(Integer.toString(currGame.getScore()));
 		beginButton.setVisible(false);
@@ -513,7 +521,7 @@ public class NewGame {
 
 	public void initGame() {
 		beginButton.setVisible(false);
-		playerName.setText(currGame.getPlayerName());
+		playerName.setText(currGamer.getPlayerName());
 		GameFactory factory = new GameFactory();
 		currGame.setFlag(true);
 		Weapon Sword = new Weapon(0, 0);
@@ -561,7 +569,7 @@ public class NewGame {
 		currGame.setFlag(false);
 		Parent root = FXMLLoader.load(getClass().getResource("/HeroDies.fxml"));
 		Stage stage = (Stage) myPane.getScene().getWindow();
-		stage.setUserData(currGame);
+		stage.setUserData(currGamer);
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
 		stage.show();
@@ -572,7 +580,7 @@ public class NewGame {
 		currGame.stopALL();
 		Parent root = FXMLLoader.load(getClass().getResource("/Pause.fxml"));
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		stage.setUserData(currGame);
+		stage.setUserData(currGamer);
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
 		stage.show();

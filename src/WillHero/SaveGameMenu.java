@@ -72,7 +72,8 @@ public class SaveGameMenu implements Initializable {
 	public void goBack(MouseEvent e) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/Pause.fxml"));
 		Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-		Game currGame = (Game) stage.getUserData();
+		Gamer currGamer = (Gamer) stage.getUserData();
+		Game currGame = currGamer.getcurrGame();		
 		stage.setUserData(currGame);
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
@@ -131,7 +132,7 @@ public class SaveGameMenu implements Initializable {
 
 	public void click1(MouseEvent event) {
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		Game game = (Game) stage.getUserData();
+		Gamer gamer = (Gamer) stage.getUserData();
 		if (Slot.getSlot1() != null) {
 			Alert alert = new Alert(AlertType.CONFIRMATION);
 			alert.setTitle("OverWrite");
@@ -140,7 +141,8 @@ public class SaveGameMenu implements Initializable {
 				return;
 			}
 		}
-		Slot.setSlot1(game);
+		gamer.savecurrGames(0);
+		Slot.setSlot1(gamer);
 		try {
 			serialize();
 		} catch (IOException e) {
@@ -157,7 +159,7 @@ public class SaveGameMenu implements Initializable {
 
 	public void click2(MouseEvent event) {
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		Game game = (Game) stage.getUserData();
+		Gamer gamer = (Gamer) stage.getUserData();
 		if (Slot.getSlot2() != null) {
 			Alert alert = new Alert(AlertType.CONFIRMATION);
 			alert.setTitle("OverWrite");
@@ -166,7 +168,8 @@ public class SaveGameMenu implements Initializable {
 				return;
 			}
 		}
-		Slot.setSlot2(game);
+		gamer.savecurrGames(1);
+		Slot.setSlot2(gamer);
 		try {
 			serialize();
 		} catch (IOException e) {
@@ -183,7 +186,7 @@ public class SaveGameMenu implements Initializable {
 
 	public void click3(MouseEvent event) {
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		Game game = (Game) stage.getUserData();
+		Gamer gamer = (Gamer) stage.getUserData();
 		if (Slot.getSlot3() != null) {
 			Alert alert = new Alert(AlertType.CONFIRMATION);
 			alert.setTitle("OverWrite");
@@ -192,7 +195,8 @@ public class SaveGameMenu implements Initializable {
 				return;
 			}
 		}
-		Slot.setSlot3(game);
+		gamer.savecurrGames(2);
+		Slot.setSlot1(gamer);
 		try {
 			serialize();
 		} catch (IOException e) {
@@ -209,7 +213,7 @@ public class SaveGameMenu implements Initializable {
 
 	public void click4(MouseEvent event) {
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		Game game = (Game) stage.getUserData();
+		Gamer gamer = (Gamer) stage.getUserData();
 		if (Slot.getSlot4() != null) {
 			Alert alert = new Alert(AlertType.CONFIRMATION);
 			alert.setTitle("OverWrite");
@@ -218,7 +222,8 @@ public class SaveGameMenu implements Initializable {
 				return;
 			}
 		}
-		Slot.setSlot4(game);
+		gamer.savecurrGames(3);
+		Slot.setSlot4(gamer);
 		try {
 			serialize();
 		} catch (IOException e) {

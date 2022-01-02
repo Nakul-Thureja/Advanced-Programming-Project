@@ -49,9 +49,10 @@ public class PauseMenu implements Initializable {
 	public void resumeHandler(MouseEvent event) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/NewGame.fxml"));
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		Game currGame = (Game) stage.getUserData();
+		Gamer currGamer = (Gamer) stage.getUserData();
+		Game currGame = currGamer.getcurrGame();
 		currGame.setFlag(true);
-		stage.setUserData(currGame);
+		stage.setUserData(currGamer);
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
 		stage.show();
@@ -60,9 +61,10 @@ public class PauseMenu implements Initializable {
 	public void restartHandler(MouseEvent event) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/NewGame.fxml"));
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		Game currGame = (Game) stage.getUserData();
+		Gamer currGamer = (Gamer) stage.getUserData();
+		Game currGame = currGamer.getcurrGame();
 		currGame.setFlag(false);
-		stage.setUserData(currGame);
+		stage.setUserData(currGamer);
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
 		stage.show();
@@ -71,8 +73,9 @@ public class PauseMenu implements Initializable {
 	public void saveHandler(MouseEvent event) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/SaveGame.fxml"));
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		Game currGame = (Game) stage.getUserData();
-		stage.setUserData(currGame);
+		Gamer currGamer = (Gamer) stage.getUserData();
+		Game currGame = currGamer.getcurrGame();		
+		stage.setUserData(currGamer);
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
 		stage.show();

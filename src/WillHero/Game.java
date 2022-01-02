@@ -7,11 +7,9 @@ import java.util.HashMap;
 import javafx.scene.image.ImageView;
 
 public class Game implements Serializable {
-	private Player myPlayer;
 	private Hero myHero;
 	private ArrayList<Platform> myPlatforms;
 	private ArrayList<Coin> myCoins;
-	private int totalCoins;
 	private ArrayList<RedOrc> myredOrcs;
 	private ArrayList<GreenOrc> mygreenOrcs;
 	private ArrayList<Collider> myColliders;
@@ -36,10 +34,30 @@ public class Game implements Serializable {
 		return this.misc;
 	}
 
-	public Game(String playerName) {
+//	public static void addInstances(GameSlots slots) {
+//		
+//		if(slots.getSlot1()!=null) {
+//			Game game = slots.getSlot1();
+//			playerCoins = game.playerCoins;
+//		}
+//		if(slots.getSlot2()!=null) {
+//			Game game = slots.getSlot2();
+//			instances.put(game.getPlayerName(), game);
+//		}
+//		if(slots.getSlot3()!=null) {
+//			Game game = slots.getSlot3();
+//			instances.put(game.getPlayerName(), game);
+//		}
+//		if(slots.getSlot4()!=null) {
+//			Game game = slots.getSlot4();
+//			instances.put(game.getPlayerName(), game);
+//		}
+//	}
+	
+	
+	
+	public Game() {
 		this.misc = new ArrayList<Position>();
-		this.totalCoins = 0;
-		this.myPlayer = new Player(playerName);
 		this.myHero = null;
 		this.myPlatforms = null;
 		this.myCoins = null;
@@ -61,6 +79,7 @@ public class Game implements Serializable {
 		this.RedOrcMap = null;
 		this.GreenOrcMap = null;
 		this.CollidersMap = null;
+
 	}
 
 	public void initMap() {
@@ -81,22 +100,23 @@ public class Game implements Serializable {
 		loadflag = _flag;
 	}
 
-	public int getCoins() {
-		return this.totalCoins;
-	}
-	public boolean deduceCoins() {
-		if(totalCoins>=5) {
-			totalCoins -= 5;
-			myHero.setcurrCoins(totalCoins) ;
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
-	public void setCoins(int num) {
-		this.totalCoins = num;
-	}
+//	public int getCoins() {
+//		return this.totalCoins;
+//	}
+//	public boolean deduceCoins() {
+//		if(totalCoins>=5) {
+//			totalCoins -= 5;
+//			myHero.setcurrCoins(totalCoins) ;
+//			return true;
+//		}
+//		else {
+//			return false;
+//		}
+//	}
+//	public void setCoins(int num) {
+//		this.totalCoins += num;
+//		playerCoins.put(getPlayerName(), num);
+//	}
 
 	public void setHelmet(Helmet helmet) {
 		this.myHelmet = helmet;
@@ -114,9 +134,7 @@ public class Game implements Serializable {
 		this.myScore = score;
 	}
 
-	public void setMyPlayer(Player myPlayer) {
-		this.myPlayer = myPlayer;
-	}
+
 
 	public void setHeroImage(ImageView node) {
 		this.myHero.setImage(node);
@@ -238,10 +256,7 @@ public class Game implements Serializable {
 		this.myHero.moveForward(myHero2);
 	}
 
-	public String getPlayerName() {
-		return this.myPlayer.getName();
-	}
-
+	
 	public void setPlatformMap(ArrayList<ImageView> Nodes) {
 		for (int i = 0; i < 45; i++) {
 			PlatformMap.put(this.getMyPlatforms().get(i), Nodes.get(i));
@@ -290,4 +305,23 @@ public class Game implements Serializable {
 	public void setMyColliders(ArrayList<Collider> myColliders) {
 		this.myColliders = myColliders;
 	}
+
+//	public int canBuy(int i,int coins) {
+//		if(!this.helmets[i]) {
+//			return 1;
+//		}
+//		else if	(this.totalCoins >= coins) {
+//			return 2;
+//		}
+//		return 0;
+//	}
+//
+//	public void addHelmet(int i) {
+//		try {
+//			this.helmets[i] = true;
+//		}
+//		catch(ArrayIndexOutOfBoundsException e) {
+//			
+//		}
+//	}
 }
