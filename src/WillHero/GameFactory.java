@@ -10,10 +10,10 @@ public class GameFactory {
 			return new Coin(0,0);
 		}
 		else if(need.equals("redorc")) {
-			return new RedOrc(0, 0, 0, 0, 0, 0);
+			return new RedOrc(0, 0, 0, 0, 0, 80);
 		}
 		else if(need.equals("greenorc")) {
-			return new GreenOrc(0, 0, 0, 0, 0,110);
+			return new GreenOrc(0, 0, 0, 0, 0,100);
 		}
 		else if(need.equals("bossorc")) {
 			return new BossOrc(0, 0, 0, 0, 0, 0);

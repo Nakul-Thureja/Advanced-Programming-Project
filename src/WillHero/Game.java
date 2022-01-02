@@ -147,9 +147,14 @@ public class Game implements Serializable {
 		if (comp.getClass() == this.myHero.getClass()) {
 			this.myHero.beginGravity(map);
 		}
-		if (comp.getClass() == GreenOrc.class) {
+		else if (comp.getClass() == GreenOrc.class) {
 			for(int i = 0 ;i< this.mygreenOrcs.size();i++) {
 				mygreenOrcs.get(i).beginGravity(map);	
+			}
+		}
+		else if (comp.getClass() == RedOrc.class) {
+			for(int i = 0 ;i< this.myredOrcs.size();i++) {
+				myredOrcs.get(i).beginGravity(map);	
 			}
 		}
 	}
@@ -165,6 +170,9 @@ public class Game implements Serializable {
 		HashMap<GameComponents, ImageView> GorcMap = new HashMap<>();
 		GorcMap.putAll(PlatformMap);
 		CollisionMap.put(this.mygreenOrcs.get(0), GorcMap);	
+		HashMap<GameComponents, ImageView> RorcMap = new HashMap<>();
+		RorcMap.putAll(PlatformMap);
+		CollisionMap.put(this.myredOrcs.get(0), RorcMap);	
 	}
 
 	public void beginGame() {
@@ -250,16 +258,19 @@ public class Game implements Serializable {
 	}
 
 	public void setGorcMap(ArrayList<ImageView> Nodes, ArrayList<ImageView> Node2) {
-		for (int i = 0; i < 15; i++) {
+		for (int i = 0; i < this.getMygreenOrcs().size(); i++) {
 			Nodes.get(i).setVisible(this.getMygreenOrcs().get(i).getVisibilty());
 			this.getMygreenOrcs().get(i).setImage(Nodes.get(i));
 			this.getMygreenOrcs().get(i).setCollider(Node2.get(i));
 			GreenOrcMap.put(this.getMygreenOrcs().get(i), Nodes.get(i));
 		}
 	}
-	public void setRorcMap(ArrayList<ImageView> Nodes) {
-		for (int i = 0; i < 10; i++) {
-			RedOrcMap.put(this.getMyCoins().get(i), Nodes.get(i));
+	public void setRorcMap(ArrayList<ImageView> Nodes, ArrayList<ImageView> Node2) {
+		for (int i = 0; i < this.getMyredOrcs().size(); i++) {
+			Nodes.get(i).setVisible(this.getMyredOrcs().get(i).getVisibilty());
+			this.getMyredOrcs().get(i).setImage(Nodes.get(i));
+			this.getMyredOrcs().get(i).setCollider(Node2.get(i + 15));
+			RedOrcMap.put(this.getMyredOrcs().get(i), Nodes.get(i));
 		}
 	}
 	public void setColliderMap(ArrayList<ImageView> Nodes) {

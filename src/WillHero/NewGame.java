@@ -433,7 +433,7 @@ public class NewGame {
 		
 		currGame.setCoinMap(CoinsImageView);
 		currGame.setGorcMap(GreenOrcsImageView,OrcCollidersImageView);
-		
+		currGame.setRorcMap(RedOrcsImageView, OrcCollidersImageView);
 		currGame.setColliderMap(OrcCollidersImageView);
 		currGame.setPlatformMap(CollidersImageView);
 		
@@ -528,7 +528,7 @@ public class NewGame {
 		Score score = new Score(myScore.getLayoutX(), myScore.getLayoutY(), 0);
 		currGame.setMyScore(score);
 		ArrayList<Coin> myCoins = new ArrayList<>();
-		for (int i = 0; i < 50; i++) {
+		for (int i = 0; i < 15; i++) {
 			myCoins.add((Coin) factory.createComponent("coin"));
 		}
 		currGame.setMyCoins(myCoins);
@@ -538,7 +538,7 @@ public class NewGame {
 		}
 		currGame.setMygreenOrcs(mygorcs);
 		ArrayList<RedOrc> myrorcs = new ArrayList<>();
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < 8; i++) {
 			myrorcs.add((RedOrc) factory.createComponent("redorc"));
 		}
 		currGame.setMyredOrcs(myrorcs);
@@ -548,7 +548,7 @@ public class NewGame {
 		}
 		currGame.setMyPlatforms(myplatforms);
 		ArrayList<Collider> mycollider = new ArrayList<>();
-		for (int i = 0; i < 26; i++) {
+		for (int i = 0; i < 23; i++) {
 			mycollider.add((Collider) factory.createComponent("collider"));
 		}
 		currGame.setMyColliders(mycollider);
