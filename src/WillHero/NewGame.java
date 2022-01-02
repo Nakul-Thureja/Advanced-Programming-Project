@@ -399,6 +399,8 @@ public class NewGame {
 	private static  ArrayList<ImageView> openWeaponChestImageView;
 	private static  ArrayList<ImageView> openCoinChestImageView;
 	private static  ArrayList<ImageView> OrcCollidersImageView;
+	private static  ArrayList<ImageView> WeaponImageView;
+	
 	private static  GameSlots gameSlot;
 	private static  HashMap<GameComponents, HashMap<GameComponents, ImageView>> CollisionMap;
 
@@ -413,7 +415,10 @@ public class NewGame {
 			openWeaponChestImageView = new ArrayList<>();
 			openCoinChestImageView = new ArrayList<>();
 			OrcCollidersImageView = new ArrayList<>();
+			WeaponImageView = new ArrayList<>();
 			
+			WeaponImageView.add(handWeapon);
+			WeaponImageView.add(handWeapon2);
 			
 			GreenOrcsImageView.add(greenOrc1);
 			GreenOrcsImageView.add(greenOrc2);
@@ -609,7 +614,7 @@ public class NewGame {
 		}
 		currGame.setHeroImage(myHero);
 		currGame.reviveHero();
-	
+		currGame.giveWeaponImage(handWeapon, handWeapon2);
 		currGame.setCoinMap(CoinsImageView);
 		currGame.setGorcMap(GreenOrcsImageView,OrcCollidersImageView);
 		currGame.setRorcMap(RedOrcsImageView, OrcCollidersImageView);
@@ -617,7 +622,8 @@ public class NewGame {
 		currGame.setPlatformMap(CollidersImageView);
 		currGame.setCoinChestMap(CoinChestImageView,openCoinChestImageView);
 		currGame.setWeaponChestMap(WeaponChestImageView,openWeaponChestImageView);
-		
+		currGame.setWeaponMap(WeaponImageView);
+		currGame.giveWeaponstoHero();
 		empty = new Timeline();
 		empty.setCycleCount(Animation.INDEFINITE);
 		KeyFrame empty_frame = new KeyFrame(Duration.millis(18), e1 -> {
@@ -648,10 +654,7 @@ public class NewGame {
 		});
 		empty.getKeyFrames().add(empty_frame);
 		empty.play();
-
-		handWeapon.setVisible(false);
-		handWeapon2.setVisible(false);
-
+		
 		
 		currGame.beginGame();
 		myHero.translateXProperty().addListener((obs, old, newValue) -> {

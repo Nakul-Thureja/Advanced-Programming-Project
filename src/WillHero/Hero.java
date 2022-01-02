@@ -17,23 +17,43 @@ public class Hero extends GameComponents implements Serializable {
 	private static int jumping_Height = 100;
 	private static int forward_Move = 93;
 	private boolean onPlatform;
+	private boolean hasSword;
+	private boolean hasHammer;
 	private transient TranslateTransition translate;
+	private transient TranslateTransition w1translate;
+	private transient TranslateTransition w2translate;
+
 	private transient Timeline gravity;
 	private transient Timeline collision;
 	private transient TranslateTransition translatefwd;
+	private transient TranslateTransition w1translatefwd;
+	private transient TranslateTransition w2translatefwd;
+	private Weapon Sword;
+	private Weapon Hammer;
 	private transient ImageView hero;
+	private transient ImageView weaponsword;
+	private transient ImageView weaponhammer;
 	private int currcoins;
 	private boolean attacking;
 	private boolean isDead;
+	
 
 	public Hero(double x, double y, Helmet myHelmet) {
 		super(x, y);
 		this.myWeapon = null;
+		this.Sword = null;
+		this.Hammer = null;
 		this.myHelmet = myHelmet;
 		this.onPlatform = false;
 		this.currcoins = 0;
 		this.translate = new TranslateTransition();
 		this.translatefwd = new TranslateTransition();
+		this.w1translate = new TranslateTransition();
+		this.w1translatefwd = new TranslateTransition();
+		this.w2translate = new TranslateTransition();
+		this.w2translatefwd = new TranslateTransition();
+		this.hasSword = false;
+		this.hasHammer = false;
 		this.gravity = new Timeline();
 		this.attacking = false;
 		this.isDead = false;
@@ -43,6 +63,8 @@ public class Hero extends GameComponents implements Serializable {
 		gravity.stop();
 		translate.stop();
 		translatefwd.stop();
+		w1translate.stop();
+		w2translatefwd.stop();
 	}
 
 	public void setMyWeapon(Helmet myWeapon) {
@@ -65,6 +87,9 @@ public class Hero extends GameComponents implements Serializable {
 		attacking = true;
 		gravity.pause();
 		translate.pause();
+		w1translate.pause();
+		w2translate.pause();
+
 		image.setScaleX(1.05);
 		image.setScaleY(0.9);
 		translatefwd = new TranslateTransition();
@@ -72,7 +97,20 @@ public class Hero extends GameComponents implements Serializable {
 		translatefwd.setCycleCount(1);
 		translatefwd.setByX(forward_Move);
 		translatefwd.setNode(image);
+		w1translatefwd = new TranslateTransition();
+		w1translatefwd.setDuration(Duration.millis(150));
+		w1translatefwd.setCycleCount(1);
+		w1translatefwd.setByX(forward_Move);
+		w1translatefwd.setNode(weaponsword);
+		w2translatefwd = new TranslateTransition();
+		w2translatefwd.setDuration(Duration.millis(150));
+		w2translatefwd.setCycleCount(1);
+		w2translatefwd.setByX(forward_Move);
+		w2translatefwd.setNode(weaponhammer);
 		translatefwd.play();
+		w2translatefwd.play();
+		w1translatefwd.play();
+
 		translatefwd.setOnFinished(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent arg0) {
@@ -92,7 +130,23 @@ public class Hero extends GameComponents implements Serializable {
 		translate.setDuration(Duration.millis(450));
 		translate.setCycleCount(1);
 		translate.setByY(-jumping_Height);
+		
+		w1translate = new TranslateTransition();
+		w1translate.setNode(weaponsword);
+		w1translate.setDuration(Duration.millis(450));
+		w1translate.setCycleCount(1);
+		w1translate.setByY(-jumping_Height);
+		
+		w2translate = new TranslateTransition();
+		w2translate.setNode(weaponhammer);
+		w2translate.setDuration(Duration.millis(450));
+		w2translate.setCycleCount(1);
+		w2translate.setByY(-jumping_Height);
+		
 		translate.play();
+		w1translate.play();
+		w2translate.play();
+
 		translate.setOnFinished(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent arg0) {
@@ -104,6 +158,13 @@ public class Hero extends GameComponents implements Serializable {
 	public void setImage(ImageView image) {
 		this.hero = image;
 	}
+	
+	public void heroAnimate() {
+		gravity.play();
+		translatefwd.pause();
+		w1translatefwd.pause();
+		w2translatefwd.pause();
+	}
 
 	public void gravityLoop(GameComponents component, ImageView image) {
 		hero.setScaleX(1);
@@ -114,7 +175,14 @@ public class Hero extends GameComponents implements Serializable {
 			}
 		}
 	}
-
+	public void giveWeapons(Weapon weapon1, Weapon weapon2) {
+		this.Sword = weapon1;
+		this.Hammer = weapon2;
+	}
+	public void giveWeaponImages(ImageView weapon1, ImageView weapon2) {
+		weaponhammer = weapon2;
+		weaponsword = weapon1;
+	}
 	public void collideLoop(GameComponents component, ImageView image) {
 		if (component.getClass() == Coin.class) {
 			if (this.checkCollision(image, hero)) {
@@ -124,12 +192,15 @@ public class Hero extends GameComponents implements Serializable {
 				image.setVisible(false);
 			}
 		} else if (component.getClass() == GreenOrc.class) {
-			if (this.checkCollision(image, hero)) {
+			if (this.checkCollision(image, hero)){//&& (Sword.getAttacking() || Hammer.getAttacking())) {
 				// component.setVisibilty(false);
 				this.onPlatform = true;
 				if (attacking) {
 					gravity.play();
 					translatefwd.pause();
+					w1translatefwd.pause();
+					w2translatefwd.pause();
+
 					TranslateTransition translate2 = new TranslateTransition();
 					translate2.setNode(image);
 					translate2.setDuration(Duration.millis(100));
@@ -146,12 +217,15 @@ public class Hero extends GameComponents implements Serializable {
 				}
 			}
 		} else if (component.getClass() == RedOrc.class) {
-			if (this.checkCollision(image, hero)) {
+			if (this.checkCollision(image, hero) ){//&& (Sword.getAttacking() || Hammer.getAttacking())) {
 				// component.setVisibilty(false);
 				this.onPlatform = true;
 				if (attacking) {
 					gravity.play();
 					translatefwd.pause();
+					w1translatefwd.pause();
+					w2translatefwd.pause();
+
 					TranslateTransition translate2 = new TranslateTransition();
 					translate2.setNode(image);
 					translate2.setDuration(Duration.millis(100));
@@ -167,7 +241,7 @@ public class Hero extends GameComponents implements Serializable {
 				}
 			}
 		} else if (component.getClass() == Collider.class) {
-			if (this.checkCollision(image, hero)) {
+			if (this.checkCollision(image, hero)) { //&& image.getTranslateY()>= hero.getTranslateY()) {
 				this.isDead = true;
 			}
 		}
@@ -190,12 +264,18 @@ public class Hero extends GameComponents implements Serializable {
 	}
 
 	public void beginGravity(HashMap<GameComponents, ImageView> map) {
-		Thread thread = new Thread(() -> {
+		//Thread thread = new Thread(() -> {
+			
 			translatefwd = new TranslateTransition();
+			w1translatefwd = new TranslateTransition();
+			w2translatefwd = new TranslateTransition();
+
 			translate = new TranslateTransition();
+			w1translate = new TranslateTransition();
+			w2translate = new TranslateTransition();
 			collision = new Timeline();
 			collision.setCycleCount(Animation.INDEFINITE);
-			KeyFrame collision_frame = new KeyFrame(Duration.millis(72), e -> {
+			KeyFrame collision_frame = new KeyFrame(Duration.millis(100), e -> {
 				map.forEach((key, value) -> collideLoop(key, value));
 			});
 			collision.getKeyFrames().add(collision_frame);
@@ -205,16 +285,22 @@ public class Hero extends GameComponents implements Serializable {
 			gravity.setCycleCount(Animation.INDEFINITE);
 			KeyFrame gravity_frame = new KeyFrame(Duration.millis(18), e -> {
 				map.forEach((key, value) -> gravityLoop(key, value));
+				if(Sword.getAttacking() || Hammer.getAttacking()) {
+					heroAnimate();
+				}
 				if (this.onPlatform == false) {
 					hero.setLayoutY(hero.getLayoutY() + 4);
+					weaponsword.setLayoutY(hero.getLayoutY() + 4);
+					weaponhammer.setLayoutY(hero.getLayoutY() + 4);
+
 				} else {
 					letsJump(hero, gravity);
 				}
 			});
 			gravity.getKeyFrames().add(gravity_frame);
 			gravity.play();
-		});
-		thread.start();
+	//	});
+		//thread.start();
 	}
 
 	public void setcurrCoins(int total) {

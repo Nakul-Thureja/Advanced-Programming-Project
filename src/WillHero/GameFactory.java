@@ -13,7 +13,7 @@ public class GameFactory {
 			return new RedOrc(0, 0, 0, 0, 0, 250);
 		}
 		else if(need.equals("greenorc")) {
-			return new GreenOrc(0, 0, 0, 0, 0,100);
+			return new GreenOrc(0, 0, 0, 0, 0,200);
 		}
 		else if(need.equals("bossorc")) {
 			return new BossOrc(0, 0, 0, 0, 0, 0);

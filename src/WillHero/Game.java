@@ -86,6 +86,7 @@ public class Game implements Serializable {
 		this.GreenOrcMap = null;
 		this.CollidersMap = null;
 		this.ended = false;
+		
 	}
 	public void end() {
 		this.ended = true;
@@ -140,6 +141,10 @@ public class Game implements Serializable {
 	public void setMyWeapons(ArrayList<Weapon> Weapons) {
 		this.myWeapons = new ArrayList<>(Weapons);
 	}
+	
+	public ArrayList<Weapon> getMyWeapons(){
+		return this.myWeapons;
+	}
 
 	public void setMyScore(Score score) {
 		this.myScore = score;
@@ -186,6 +191,11 @@ public class Game implements Serializable {
 				myredOrcs.get(i).beginGravity(map);	
 			}
 		}
+		else if(comp.getClass() == Weapon.class) {
+			for(int i = 0;i<this.myWeapons.size();i++) {
+				myWeapons.get(i).beginGravity(map);
+			}
+		}
 	}
 
 	public void addColliders() {
@@ -205,12 +215,20 @@ public class Game implements Serializable {
 		HashMap<GameComponents, ImageView> RorcMap = new HashMap<>();
 		RorcMap.putAll(PlatformMap);
 		CollisionMap.put(this.myredOrcs.get(0), RorcMap);	
+		WeaponMap.putAll(RedOrcMap);
+		WeaponMap.putAll(GreenOrcMap);
+		CollisionMap.put(this.myWeapons.get(0),WeaponMap);
+	}
+	
+	public void giveWeaponstoHero() {
+		this.myHero.giveWeapons(getMyWeapons().get(0), getMyWeapons().get(1));
 	}
 
 	public void beginGame() {
 		this.addColliders();
 		CollisionMap.forEach((key, value) -> callInit(key, value));
 	}
+	
 
 	private ArrayList<Platform> getMyPlatforms() {
 		return myPlatforms;
@@ -267,7 +285,8 @@ public class Game implements Serializable {
 	public void setMygreenOrcs(ArrayList<GreenOrc> mygreenOrcs) {
 		this.mygreenOrcs = mygreenOrcs;
 	}
-
+	
+	
 	public int getcurrCoins() {
 		return this.myHero.getcurrCoins();
 	}
@@ -337,6 +356,13 @@ public class Game implements Serializable {
 			WeaponChestMap.put(this.getMyWeaponChests().get(i), Nodes.get(i));
 		}
 	}
+	
+	public void setWeaponMap(ArrayList<ImageView> Nodes) {
+		for (int i = 0; i < this.getMyWeapons().size(); i++) {
+			Nodes.get(i).setVisible(this.getMyWeapons().get(i).getVisibilty());
+			WeaponMap.put(this.getMyWeapons().get(i), Nodes.get(i));
+		}
+	}
 	public void setColliderMap(ArrayList<ImageView> Nodes) {
 		for (int i = 0; i < 23; i++) {
 			CollidersMap.put(this.getMyColliders().get(i), Nodes.get(i));
@@ -344,7 +370,11 @@ public class Game implements Serializable {
 	}
 	
 	
-	
+	public void giveWeaponImage(ImageView w1, ImageView w2) {
+		this.myHero.giveWeaponImages(w1,w2);
+		this.myWeapons.get(0).setWeaponforWeapon(w1);
+		this.myWeapons.get(1).setWeaponforWeapon(w2);
+	}
 	
 	private ArrayList<Collider> getMyColliders() {
 		return this.myColliders;

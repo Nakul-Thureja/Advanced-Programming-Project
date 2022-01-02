@@ -58,7 +58,7 @@ public abstract class Orc extends GameComponents {
 	}
 
 	public void beginGravity(HashMap<GameComponents, ImageView> map) {
-		Thread thread = new Thread(() -> {
+		//Thread thread = new Thread(() -> {
 			mycollider.translateXProperty().addListener((obs, old, newValue) -> {
 
 				int offset = newValue.intValue();
@@ -96,8 +96,8 @@ public abstract class Orc extends GameComponents {
 			});
 			gravity.getKeyFrames().add(gravity_frame);
 			gravity.play();
-		});
-		thread.start();
+		//});
+	//	thread.start();
 	}
 
 	public void letsJump(ImageView image, Timeline gravity, ImageView collide) {
