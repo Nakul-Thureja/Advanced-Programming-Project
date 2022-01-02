@@ -25,7 +25,7 @@ public class Hero extends GameComponents implements Serializable {
 	private int currcoins;
 	private boolean attacking;
 	private boolean isDead;
-	
+
 	public Hero(double x, double y, Helmet myHelmet) {
 		super(x, y);
 		this.myWeapon = null;
@@ -35,7 +35,7 @@ public class Hero extends GameComponents implements Serializable {
 		this.translate = new TranslateTransition();
 		this.translatefwd = new TranslateTransition();
 		this.gravity = new Timeline();
-		this.attacking= false;
+		this.attacking = false;
 		this.isDead = false;
 	}
 
@@ -52,12 +52,15 @@ public class Hero extends GameComponents implements Serializable {
 	public void setFall(boolean boo) {
 		this.onPlatform = boo;
 	}
+
 	public boolean status() {
 		return this.isDead;
 	}
+
 	public void revive() {
 		this.isDead = false;
 	}
+
 	public void moveForward(ImageView image) {
 		attacking = true;
 		gravity.pause();
@@ -120,68 +123,64 @@ public class Hero extends GameComponents implements Serializable {
 				component.setVisibilty(false);
 				image.setVisible(false);
 			}
-		}
-		else if (component.getClass() == GreenOrc.class) {
-			if(this.checkCollision(image, hero)) {
-				//component.setVisibilty(false);
+		} else if (component.getClass() == GreenOrc.class) {
+			if (this.checkCollision(image, hero)) {
+				// component.setVisibilty(false);
 				this.onPlatform = true;
-				if(attacking) {
-				gravity.play();
-				translatefwd.pause();
-				TranslateTransition translate2 = new TranslateTransition();
-				translate2.setNode(image);
-				translate2.setDuration(Duration.millis(100));
-				translate2.setCycleCount(1);
-				translate2.setByX(100);
-				TranslateTransition translate3 = new TranslateTransition();
-				translate3.setNode(((GreenOrc)component).getCollider());
-				translate3.setDuration(Duration.millis(100));
-				translate3.setCycleCount(1);
-				translate3.setByX(100);
-				translate2.play();
-				translate3.play();
+				if (attacking) {
+					gravity.play();
+					translatefwd.pause();
+					TranslateTransition translate2 = new TranslateTransition();
+					translate2.setNode(image);
+					translate2.setDuration(Duration.millis(100));
+					translate2.setCycleCount(1);
+					translate2.setByX(100);
+					TranslateTransition translate3 = new TranslateTransition();
+					translate3.setNode(((GreenOrc) component).getCollider());
+					translate3.setDuration(Duration.millis(100));
+					translate3.setCycleCount(1);
+					translate3.setByX(100);
+					translate2.play();
+					translate3.play();
 
 				}
 			}
-		}
-		else if (component.getClass() == RedOrc.class) {
-			if(this.checkCollision(image, hero)) {
-				//component.setVisibilty(false);
+		} else if (component.getClass() == RedOrc.class) {
+			if (this.checkCollision(image, hero)) {
+				// component.setVisibilty(false);
 				this.onPlatform = true;
-				if(attacking) {
-				gravity.play();
-				translatefwd.pause();
-				TranslateTransition translate2 = new TranslateTransition();
-				translate2.setNode(image);
-				translate2.setDuration(Duration.millis(100));
-				translate2.setCycleCount(1);
-				translate2.setByX(80);
-				TranslateTransition translate3 = new TranslateTransition();
-				translate3.setNode(((RedOrc)component).getCollider());
-				translate3.setDuration(Duration.millis(100));
-				translate3.setCycleCount(1);
-				translate3.setByX(80);
-				translate2.play();
-				translate3.play();
+				if (attacking) {
+					gravity.play();
+					translatefwd.pause();
+					TranslateTransition translate2 = new TranslateTransition();
+					translate2.setNode(image);
+					translate2.setDuration(Duration.millis(100));
+					translate2.setCycleCount(1);
+					translate2.setByX(80);
+					TranslateTransition translate3 = new TranslateTransition();
+					translate3.setNode(((RedOrc) component).getCollider());
+					translate3.setDuration(Duration.millis(100));
+					translate3.setCycleCount(1);
+					translate3.setByX(80);
+					translate2.play();
+					translate3.play();
+				}
 			}
-			}
-		}
-		else if (component.getClass() == Collider.class) {
-			if(this.checkCollision(image, hero)) {
+		} else if (component.getClass() == Collider.class) {
+			if (this.checkCollision(image, hero)) {
 				this.isDead = true;
 			}
 		}
-		
+
 		else if (component.getClass() == CoinChest.class) {
-			if(this.checkCollision(image, hero) && !((CoinChest) component).isOpened()){
+			if (this.checkCollision(image, hero) && !((CoinChest) component).isOpened()) {
 				((CoinChest) component).Reward();
 				image.setVisible(false);
 				((CoinChest) component).getOpened().setVisible(true);
 				this.currcoins += 20;
 			}
-		}
-		else if (component.getClass() == WeaponChest.class) {
-			if(this.checkCollision(image, hero) && !((WeaponChest) component).isOpened()) {
+		} else if (component.getClass() == WeaponChest.class) {
+			if (this.checkCollision(image, hero) && !((WeaponChest) component).isOpened()) {
 				((WeaponChest) component).Reward();
 				image.setVisible(false);
 				((WeaponChest) component).getOpened().setVisible(true);
@@ -191,33 +190,37 @@ public class Hero extends GameComponents implements Serializable {
 	}
 
 	public void beginGravity(HashMap<GameComponents, ImageView> map) {
-		translatefwd = new TranslateTransition();
-		translate = new TranslateTransition();
-		collision = new Timeline();
-		collision.setCycleCount(Animation.INDEFINITE);
-		KeyFrame collision_frame = new KeyFrame(Duration.millis(18), e -> {
-			map.forEach((key, value) -> collideLoop(key, value));
-		});
-		collision.getKeyFrames().add(collision_frame);
-		collision.play();
+		Thread thread = new Thread(() -> {
+			translatefwd = new TranslateTransition();
+			translate = new TranslateTransition();
+			collision = new Timeline();
+			collision.setCycleCount(Animation.INDEFINITE);
+			KeyFrame collision_frame = new KeyFrame(Duration.millis(18), e -> {
+				map.forEach((key, value) -> collideLoop(key, value));
+			});
+			collision.getKeyFrames().add(collision_frame);
+			collision.play();
 
-		gravity = new Timeline();
-		gravity.setCycleCount(Animation.INDEFINITE);
-		KeyFrame gravity_frame = new KeyFrame(Duration.millis(18), e -> {
-			map.forEach((key, value) -> gravityLoop(key, value));
-			if (this.onPlatform == false) {
-				hero.setLayoutY(hero.getLayoutY() + 4);
-			} else {
-				letsJump(hero, gravity);
-			}
+			gravity = new Timeline();
+			gravity.setCycleCount(Animation.INDEFINITE);
+			KeyFrame gravity_frame = new KeyFrame(Duration.millis(18), e -> {
+				map.forEach((key, value) -> gravityLoop(key, value));
+				if (this.onPlatform == false) {
+					hero.setLayoutY(hero.getLayoutY() + 4);
+				} else {
+					letsJump(hero, gravity);
+				}
+			});
+			gravity.getKeyFrames().add(gravity_frame);
+			gravity.play();
 		});
-		gravity.getKeyFrames().add(gravity_frame);
-		gravity.play();
+		thread.start();
 	}
 
 	public void setcurrCoins(int total) {
 		this.currcoins = total;
 	}
+
 	public int getcurrCoins() {
 		return this.currcoins;
 	}

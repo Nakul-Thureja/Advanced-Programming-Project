@@ -174,6 +174,13 @@ public class LoadGameMenu {
 			alert1.showAndWait();
 			return;
 		}
+		if(Slot.getSlot1().getcurrGame().isEnded()) {
+			Alert alert1 = new Alert(AlertType.INFORMATION);
+			alert1.setTitle("Game Loader");
+			alert1.setHeaderText("This Game Was Played and Lost");
+			alert1.showAndWait();
+			return;
+		}
 		//NewGame.setCurrGame(Slot.getSlot1());
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("Game Loader");
@@ -191,6 +198,13 @@ public class LoadGameMenu {
 			Alert alert1 = new Alert(AlertType.INFORMATION);
 			alert1.setTitle("Game Loader");
 			alert1.setHeaderText("No Game is saved in Slot2");
+			alert1.showAndWait();
+			return;
+		}
+		if(Slot.getSlot2().getcurrGame().isEnded()) {
+			Alert alert1 = new Alert(AlertType.INFORMATION);
+			alert1.setTitle("Game Loader");
+			alert1.setHeaderText("This Game Was Played and Lost");
 			alert1.showAndWait();
 			return;
 		}
@@ -214,6 +228,13 @@ public class LoadGameMenu {
 			alert1.showAndWait();
 			return;
 		}
+		if(Slot.getSlot3().getcurrGame().isEnded()) {
+			Alert alert1 = new Alert(AlertType.INFORMATION);
+			alert1.setTitle("Game Loader");
+			alert1.setHeaderText("This Game Was Played and Lost");
+			alert1.showAndWait();
+			return;
+		}
 		//NewGame.setCurrGame(Slot.getSlot3());
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("Game Loader");
@@ -229,6 +250,13 @@ public class LoadGameMenu {
 			Alert alert1 = new Alert(AlertType.INFORMATION);
 			alert1.setTitle("Game Loader");
 			alert1.setHeaderText("No Game is saved in Slot4");
+			alert1.showAndWait();
+			return;
+		}
+		if(Slot.getSlot4().getcurrGame().isEnded()) {
+			Alert alert1 = new Alert(AlertType.INFORMATION);
+			alert1.setTitle("Game Loader");
+			alert1.setHeaderText("This Game Was Played and Lost");
 			alert1.showAndWait();
 			return;
 		}

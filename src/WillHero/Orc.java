@@ -12,7 +12,7 @@ import javafx.event.EventHandler;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
-public abstract class Orc extends GameComponents{
+public abstract class Orc extends GameComponents {
 	private int health;
 	private int coin_Value;
 	private int push_Value;
@@ -24,13 +24,12 @@ public abstract class Orc extends GameComponents{
 
 	private transient Timeline gravity;
 	private transient Timeline collision;
-	//private transient TranslateTransition translatefwd;
+	// private transient TranslateTransition translatefwd;
 	private transient ImageView Orc;
 	private transient ImageView mycollider;
 
-	
-	public Orc(double x,double y,int health,int coin_Value,int push_Value,int jump_Value) {
-		super(x,y);
+	public Orc(double x, double y, int health, int coin_Value, int push_Value, int jump_Value) {
+		super(x, y);
 		this.health = health;
 		this.coin_Value = coin_Value;
 		this.push_Value = push_Value;
@@ -38,59 +37,66 @@ public abstract class Orc extends GameComponents{
 		this.onPlatform = false;
 		this.colliderX = 0;
 	}
+
 	public void stopALL() {
 		gravity.stop();
 		translate.stop();
 		translate2.stop();
-		//translatefwd.stop();
+		// translatefwd.stop();
 	}
+
 	public int getCoinValue() {
 		return this.coin_Value;
 	}
+
 	public double getColliderX() {
 		return this.colliderX;
 	}
-	public void beginGravity(HashMap<GameComponents, ImageView> map) {
-		mycollider.translateXProperty().addListener((obs,old,newValue) -> {
-			
-			int offset = newValue.intValue();
-			//mycollider.setTranslateX(offset);
-			this.colliderX = offset;
-		});
-		Orc.translateXProperty().addListener((obs,old,newValue) -> {
-			int offset = newValue.intValue();
-			//mycollider.setTranslateX(offset);
-			//this.colliderX = offset;
-			this.setPositionX(offset);
-		});
-		Orc.translateYProperty().addListener((obs,old,newValue) -> {
-			int offset = newValue.intValue();
-			this.setPositionY(offset);
-		});
-		collision = new Timeline();
-		collision.setCycleCount(Animation.INDEFINITE);
-		KeyFrame collision_frame = new KeyFrame(Duration.millis(18), e -> {
-			map.forEach((key, value) -> collideLoop(key, value));
-		});
-		collision.getKeyFrames().add(collision_frame);
-		collision.play();
 
-		gravity = new Timeline();
-		gravity.setCycleCount(Animation.INDEFINITE);
-		KeyFrame gravity_frame = new KeyFrame(Duration.millis(18), e -> {
-			map.forEach((key, value) -> gravityLoop(key, value));
-			if (this.onPlatform == false) {
-				Orc.setLayoutY(Orc.getLayoutY() + 4);
-				mycollider.setLayoutY(mycollider.getLayoutY() + 4);
-			} else {
-				letsJump(Orc, gravity,mycollider);
-			}
+	public void beginGravity(HashMap<GameComponents, ImageView> map) {
+		Thread thread = new Thread(() -> {
+			mycollider.translateXProperty().addListener((obs, old, newValue) -> {
+
+				int offset = newValue.intValue();
+				// mycollider.setTranslateX(offset);
+				this.colliderX = offset;
+			});
+			Orc.translateXProperty().addListener((obs, old, newValue) -> {
+				int offset = newValue.intValue();
+				// mycollider.setTranslateX(offset);
+				// this.colliderX = offset;
+				this.setPositionX(offset);
+			});
+			Orc.translateYProperty().addListener((obs, old, newValue) -> {
+				int offset = newValue.intValue();
+				this.setPositionY(offset);
+			});
+			collision = new Timeline();
+			collision.setCycleCount(Animation.INDEFINITE);
+			KeyFrame collision_frame = new KeyFrame(Duration.millis(18), e -> {
+				map.forEach((key, value) -> collideLoop(key, value));
+			});
+			collision.getKeyFrames().add(collision_frame);
+			collision.play();
+
+			gravity = new Timeline();
+			gravity.setCycleCount(Animation.INDEFINITE);
+			KeyFrame gravity_frame = new KeyFrame(Duration.millis(18), e -> {
+				map.forEach((key, value) -> gravityLoop(key, value));
+				if (this.onPlatform == false) {
+					Orc.setLayoutY(Orc.getLayoutY() + 4);
+					mycollider.setLayoutY(mycollider.getLayoutY() + 4);
+				} else {
+					letsJump(Orc, gravity, mycollider);
+				}
+			});
+			gravity.getKeyFrames().add(gravity_frame);
+			gravity.play();
 		});
-		gravity.getKeyFrames().add(gravity_frame);
-		gravity.play();
+		thread.start();
 	}
-	
-	public void letsJump(ImageView image, Timeline gravity,ImageView collide) {
+
+	public void letsJump(ImageView image, Timeline gravity, ImageView collide) {
 		gravity.pause();
 		this.onPlatform = false;
 		translate = new TranslateTransition();
@@ -112,8 +118,9 @@ public abstract class Orc extends GameComponents{
 			}
 		});
 	}
-	
+
 	public abstract void collideLoop(GameComponents key, ImageView value);
+
 	public void gravityLoop(GameComponents component, ImageView image) {
 		if (component.getClass() == Platform.class) {
 			if (this.onPlatform == false) {
@@ -121,17 +128,17 @@ public abstract class Orc extends GameComponents{
 			}
 		}
 	}
+
 	public void setImage(ImageView imageView) {
 		this.Orc = imageView;
 	}
-	
+
 	public void setCollider(ImageView coll) {
 		this.mycollider = coll;
 	}
-	
+
 	public ImageView getCollider() {
 		return this.mycollider;
 	}
-	
-	
+
 }

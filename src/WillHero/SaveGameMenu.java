@@ -163,7 +163,7 @@ public class SaveGameMenu implements Initializable {
 		if (Slot.getSlot2() != null) {
 			Alert alert = new Alert(AlertType.CONFIRMATION);
 			alert.setTitle("OverWrite");
-			alert.setHeaderText("You are about to over write on the game saved in slot1");
+			alert.setHeaderText("You are about to over write on the game saved in slot2");
 			if (alert.showAndWait().get() != ButtonType.OK) {
 				return;
 			}
@@ -190,7 +190,7 @@ public class SaveGameMenu implements Initializable {
 		if (Slot.getSlot3() != null) {
 			Alert alert = new Alert(AlertType.CONFIRMATION);
 			alert.setTitle("OverWrite");
-			alert.setHeaderText("You are about to over write on the game saved in slot1");
+			alert.setHeaderText("You are about to over write on the game saved in slot3");
 			if (alert.showAndWait().get() != ButtonType.OK) {
 				return;
 			}
@@ -217,7 +217,7 @@ public class SaveGameMenu implements Initializable {
 		if (Slot.getSlot4() != null) {
 			Alert alert = new Alert(AlertType.CONFIRMATION);
 			alert.setTitle("OverWrite");
-			alert.setHeaderText("You are about to over write on the game saved in slot1");
+			alert.setHeaderText("You are about to over write on the game saved in slot4");
 			if (alert.showAndWait().get() != ButtonType.OK) {
 				return;
 			}

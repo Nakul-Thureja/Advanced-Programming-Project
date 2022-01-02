@@ -340,6 +340,8 @@ public class Game implements Serializable {
 	}
 	
 	
+	
+	
 	private ArrayList<Collider> getMyColliders() {
 		return this.myColliders;
 	}

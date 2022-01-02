@@ -252,7 +252,7 @@
                   <Image url="@assets/collider.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="openweaponchest1" fitHeight="75.0" fitWidth="92.0" layoutX="2264.0" layoutY="225.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <ImageView fx:id="openweaponChest1" fitHeight="75.0" fitWidth="92.0" layoutX="2264.0" layoutY="225.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@assets/weaponchest2.png" />
                </image>
@@ -262,7 +262,7 @@
                   <Image url="@assets/weaponchest1.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="openweaponchest2" fitHeight="75.0" fitWidth="92.0" layoutX="3565.0" layoutY="242.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <ImageView fx:id="openweaponChest2" fitHeight="75.0" fitWidth="92.0" layoutX="3565.0" layoutY="242.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@assets/weaponchest2.png" />
                </image>
@@ -272,7 +272,7 @@
                   <Image url="@assets/weaponchest1.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="openweaponchest3" fitHeight="75.0" fitWidth="92.0" layoutX="4351.0" layoutY="276.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <ImageView fx:id="openweaponChest3" fitHeight="75.0" fitWidth="92.0" layoutX="4351.0" layoutY="276.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@assets/weaponchest2.png" />
                </image>
@@ -597,7 +597,7 @@
                   <Image url="@assets/GreenOrc.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="greenCollider1" fitHeight="10.0" fitWidth="8.0" layoutX="1332.0" layoutY="237.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="greenCollider1" fitHeight="20.0" fitWidth="10.0" layoutX="1332.0" layoutY="237.0" pickOnBounds="true">
                <image>
                   <Image url="@assets/hammer.png" />
                </image></ImageView>
