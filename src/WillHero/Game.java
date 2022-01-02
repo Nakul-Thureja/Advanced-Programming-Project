@@ -215,7 +215,7 @@ public class Game implements Serializable {
 		this.myCoins = myCoins;
 	}
 
-	private ArrayList<RedOrc> getMyredOrcs() {
+	public ArrayList<RedOrc> getMyredOrcs() {
 		return myredOrcs;
 	}
 	
@@ -228,7 +228,7 @@ public class Game implements Serializable {
 		this.myredOrcs = myredOrcs;
 	}
 
-	private ArrayList<GreenOrc> getMygreenOrcs() {
+	public ArrayList<GreenOrc> getMygreenOrcs() {
 		return mygreenOrcs;
 	}
 

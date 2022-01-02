@@ -56,6 +56,13 @@ public class Main extends Application implements Initializable {
 	@Override
 	public void start(Stage primaryStage){
 		try {
+			GamersDatabase.deserialize();
+			LoadGameMenu.deserialize();
+			//Game.addInstances(GameSlots.getInstance());
+		} catch (ClassNotFoundException | IOException e) {
+			e.printStackTrace();
+		}  
+		try {
 			Parent root = FXMLLoader.load(getClass().getResource("/Main.fxml")); 
 			Scene scene = new Scene(root);
 			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
@@ -112,13 +119,7 @@ public class Main extends Application implements Initializable {
 	}
 	
 	public void newGame(MouseEvent event) throws IOException {
-		try {
-			GamersDatabase.deserialize();
-			LoadGameMenu.deserialize();
-			//Game.addInstances(GameSlots.getInstance());
-		} catch (ClassNotFoundException | IOException e) {
-			e.printStackTrace();
-		}  
+		
 		Parent root = FXMLLoader.load(getClass().getResource("/EnterName.fxml"));
 		Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		Scene scene = new Scene(root);

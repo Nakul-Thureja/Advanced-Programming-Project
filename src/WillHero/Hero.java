@@ -15,7 +15,7 @@ public class Hero extends GameComponents implements Serializable {
 	private Helmet myHelmet;
 	private Helmet myWeapon;
 	private static int jumping_Height = 100;
-	private static int forward_Move = 85;
+	private static int forward_Move = 93;
 	private boolean onPlatform;
 	private transient TranslateTransition translate;
 	private transient Timeline gravity;
@@ -134,6 +134,12 @@ public class Hero extends GameComponents implements Serializable {
 				translate2.setCycleCount(1);
 				translate2.setByX(100);
 				translate2.play();
+				TranslateTransition translate3 = new TranslateTransition();
+				translate3.setNode(((GreenOrc)component).getCollider());
+				translate3.setDuration(Duration.millis(100));
+				translate3.setCycleCount(1);
+				translate3.setByX(100);
+				translate3.play();
 				}
 			}
 		}
@@ -150,6 +156,12 @@ public class Hero extends GameComponents implements Serializable {
 				translate2.setCycleCount(1);
 				translate2.setByX(80);
 				translate2.play();
+				TranslateTransition translate3 = new TranslateTransition();
+				translate3.setNode(((RedOrc)component).getCollider());
+				translate3.setDuration(Duration.millis(100));
+				translate3.setCycleCount(1);
+				translate3.setByX(100);
+				translate3.play();
 			}
 			}
 		}

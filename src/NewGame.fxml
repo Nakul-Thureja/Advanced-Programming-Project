@@ -332,150 +332,150 @@
                   <Image url="@assets/coin_banner.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="greenOrc1" fitHeight="44.0" fitWidth="36.0" layoutX="1410.0" layoutY="203.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="greenOrc1" fitHeight="44.0" fitWidth="36.0" layoutX="1343.0" layoutY="203.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/GreenOrc.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="greenCollider1" fitHeight="1.0" fitWidth="1.0" layoutX="1444.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="greenCollider1" fitHeight="1.0" fitWidth="8.0" layoutX="1366.0" layoutY="238.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="greenOrc2" fitHeight="44.0" fitWidth="36.0" layoutX="2505.0" layoutY="222.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/GreenOrc.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="greenCollider2" fitHeight="1.0" fitWidth="1.0" layoutX="2538.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="greenCollider2" fitHeight="1.0" fitWidth="8.0" layoutX="2528.0" layoutY="259.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="redOrc1" fitHeight="66.0" fitWidth="65.0" layoutX="1638.0" layoutY="251.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/redOrc.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="redCollider1" fitHeight="1.0" fitWidth="10.0" layoutX="1664.0" layoutY="311.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="redCollider1" fitHeight="1.0" fitWidth="16.0" layoutX="1664.0" layoutY="305.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="redOrc2" fitHeight="66.0" fitWidth="65.0" layoutX="1802.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/redOrc.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="redCollider2" fitHeight="1.0" fitWidth="10.0" layoutX="1842.0" layoutY="308.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="redCollider2" fitHeight="1.0" fitWidth="16.0" layoutX="1830.0" layoutY="305.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="redOrc3" fitHeight="66.0" fitWidth="65.0" layoutX="2004.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/redOrc.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="redCollider3" fitHeight="1.0" fitWidth="10.0" layoutX="2047.0" layoutY="309.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="redCollider3" fitHeight="1.0" fitWidth="16.0" layoutX="2033.0" layoutY="305.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="greenOrc3" fitHeight="44.0" fitWidth="36.0" layoutX="2801.0" layoutY="221.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/GreenOrc.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="greenCollider3" fitHeight="1.0" fitWidth="32.0" layoutX="2803.0" layoutY="259.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="greenCollider3" fitHeight="1.0" fitWidth="8.0" layoutX="2824.0" layoutY="259.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="greenOrc4" fitHeight="44.0" fitWidth="36.0" layoutX="2904.0" layoutY="220.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/GreenOrc.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="greenCollider4" fitHeight="1.0" fitWidth="32.0" layoutX="2906.0" layoutY="258.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="greenCollider4" fitHeight="1.0" fitWidth="8.0" layoutX="2927.0" layoutY="259.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="redOrc4" fitHeight="66.0" fitWidth="65.0" layoutX="3045.0" layoutY="194.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/redOrc.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="redCollider4" fitHeight="1.0" fitWidth="65.0" layoutX="3046.0" layoutY="259.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="redCollider4" fitHeight="1.0" fitWidth="16.0" layoutX="3071.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="greenOrc5" fitHeight="44.0" fitWidth="36.0" layoutX="3230.0" layoutY="220.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/GreenOrc.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="greenCollider5" fitHeight="1.0" fitWidth="32.0" layoutX="3232.0" layoutY="258.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="greenCollider5" fitHeight="1.0" fitWidth="8.0" layoutX="3253.0" layoutY="258.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="greenOrc6" fitHeight="44.0" fitWidth="36.0" layoutX="3529.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/GreenOrc.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="greenCollider6" fitHeight="1.0" fitWidth="32.0" layoutX="3531.0" layoutY="298.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="greenCollider6" fitHeight="1.0" fitWidth="8.0" layoutX="3552.0" layoutY="298.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="redOrc5" fitHeight="66.0" fitWidth="65.0" layoutX="4134.0" layoutY="274.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/redOrc.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="redCollider5" fitHeight="1.0" fitWidth="65.0" layoutX="4135.0" layoutY="339.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="redCollider5" fitHeight="1.0" fitWidth="16.0" layoutX="4160.0" layoutY="330.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="greenOrc7" fitHeight="44.0" fitWidth="36.0" layoutX="4877.0" layoutY="264.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/GreenOrc.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="greenCollider7" fitHeight="1.0" fitWidth="32.0" layoutX="4879.0" layoutY="302.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="greenCollider7" fitHeight="1.0" fitWidth="8.0" layoutX="4900.0" layoutY="301.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="greenOrc8" fitHeight="44.0" fitWidth="36.0" layoutX="4944.0" layoutY="265.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/GreenOrc.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="greenCollider8" fitHeight="1.0" fitWidth="32.0" layoutX="4946.0" layoutY="303.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="greenCollider8" fitHeight="1.0" fitWidth="8.0" layoutX="4967.0" layoutY="303.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="greenOrc9" fitHeight="47.0" fitWidth="38.0" layoutX="5222.0" layoutY="266.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/Orc3.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="greenCollider9" fitHeight="1.0" fitWidth="33.0" layoutX="5225.0" layoutY="303.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="greenCollider9" fitHeight="1.0" fitWidth="8.0" layoutX="5246.0" layoutY="303.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="redOrc6" fitHeight="66.0" fitWidth="65.0" layoutX="5923.0" layoutY="282.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/redOrc.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="redCollider6" fitHeight="9.0" fitWidth="63.0" layoutX="5924.0" layoutY="346.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="redCollider6" fitHeight="1.0" fitWidth="16.0" layoutX="5949.0" layoutY="337.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="greenOrc10" fitHeight="44.0" fitWidth="36.0" layoutX="7148.0" layoutY="319.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/GreenOrc.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="greenCollider10" fitHeight="1.0" fitWidth="32.0" layoutX="7150.0" layoutY="357.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="greenCollider10" fitHeight="1.0" fitWidth="8.0" layoutX="7171.0" layoutY="357.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="greenOrc11" fitHeight="44.0" fitWidth="36.0" layoutX="8336.0" layoutY="288.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/GreenOrc.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="greenCollider11" fitHeight="1.0" fitWidth="32.0" layoutX="8338.0" layoutY="326.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="greenCollider11" fitHeight="1.0" fitWidth="8.0" layoutX="8359.0" layoutY="326.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="greenOrc12" fitHeight="44.0" fitWidth="36.0" layoutX="8851.0" layoutY="274.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/GreenOrc.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="greenCollider12" fitHeight="1.0" fitWidth="32.0" layoutX="8853.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="greenCollider12" fitHeight="1.0" fitWidth="8.0" layoutX="8874.0" layoutY="311.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="redOrc7" fitHeight="66.0" fitWidth="65.0" layoutX="8558.0" layoutY="248.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/redOrc.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="redCollider7" fitHeight="9.0" fitWidth="63.0" layoutX="8559.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="redCollider7" fitHeight="1.0" fitWidth="16.0" layoutX="8584.0" layoutY="303.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="greenOrc13" fitHeight="44.0" fitWidth="36.0" layoutX="7015.0" layoutY="320.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/GreenOrc.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="greenCollider13" fitHeight="1.0" fitWidth="32.0" layoutX="7017.0" layoutY="358.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="greenCollider13" fitHeight="1.0" fitWidth="8.0" layoutX="7038.0" layoutY="357.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="greenOrc14" fitHeight="44.0" fitWidth="36.0" layoutX="8915.0" layoutY="273.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/GreenOrc.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="greenCollider14" fitHeight="1.0" fitWidth="32.0" layoutX="8917.0" layoutY="311.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="greenCollider14" fitHeight="1.0" fitWidth="8.0" layoutX="8938.0" layoutY="311.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="redOrc8" fitHeight="66.0" fitWidth="65.0" layoutX="9063.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/redOrc.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="redCollider8" fitHeight="9.0" fitWidth="63.0" layoutX="9064.0" layoutY="310.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="redCollider8" fitHeight="1.0" fitWidth="16.0" layoutX="9089.0" layoutY="301.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="greenOrc15" fitHeight="44.0" fitWidth="36.0" layoutX="9251.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/GreenOrc.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="greenCollider15" fitHeight="1.0" fitWidth="32.0" layoutX="9253.0" layoutY="308.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="greenCollider15" fitHeight="1.0" fitWidth="8.0" layoutX="9274.0" layoutY="307.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="bossOrc" fitHeight="133.0" fitWidth="125.0" layoutX="10375.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/BossOrc.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="bossCollider" fitHeight="1.0" fitWidth="86.0" layoutX="10382.0" layoutY="297.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="bossCollider" fitHeight="1.0" fitWidth="51.0" layoutX="10414.0" layoutY="288.0" pickOnBounds="true" preserveRatio="true" />
             <Text fx:id="coinCounter" fill="WHITE" layoutX="60.0" layoutY="74.8" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                <font>
                   <Font name="Impact" size="36.0" />
@@ -533,6 +533,261 @@
             <ImageView fx:id="beginButton" fitHeight="615.0" fitWidth="1150.0" onMouseClicked="#letsBegin" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/beginner.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="coin16" fitHeight="29.0" fitWidth="26.0" layoutX="2775.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coingif.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="coin17" fitHeight="29.0" fitWidth="26.0" layoutX="2832.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coingif.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="coin18" fitHeight="29.0" fitWidth="26.0" layoutX="2889.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coingif.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="coin19" fitHeight="29.0" fitWidth="26.0" layoutX="2948.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coingif.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="coin20" fitHeight="29.0" fitWidth="26.0" layoutX="3005.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coingif.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="coin21" fitHeight="29.0" fitWidth="26.0" layoutX="3062.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coingif.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="coin22" fitHeight="29.0" fitWidth="26.0" layoutX="3120.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coingif.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="coin23" fitHeight="29.0" fitWidth="26.0" layoutX="3177.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coingif.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="coin24" fitHeight="29.0" fitWidth="26.0" layoutX="3940.0" layoutY="266.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coingif.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="coin25" fitHeight="29.0" fitWidth="26.0" layoutX="3923.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coingif.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="coin26" fitHeight="29.0" fitWidth="26.0" layoutX="3958.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coingif.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="coin27" fitHeight="29.0" fitWidth="26.0" layoutX="5097.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coingif.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="coin28" fitHeight="29.0" fitWidth="26.0" layoutX="5360.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coingif.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="coin29" fitHeight="29.0" fitWidth="26.0" layoutX="6088.0" layoutY="286.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coingif.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="coin30" fitHeight="29.0" fitWidth="26.0" layoutX="6141.0" layoutY="286.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coingif.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="coin31" fitHeight="29.0" fitWidth="26.0" layoutX="6198.0" layoutY="286.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coingif.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="coin32" fitHeight="29.0" fitWidth="26.0" layoutX="6255.0" layoutY="286.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coingif.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="coin33" fitHeight="29.0" fitWidth="26.0" layoutX="6314.0" layoutY="286.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coingif.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="coin34" fitHeight="29.0" fitWidth="26.0" layoutX="6371.0" layoutY="286.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coingif.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="coin35" fitHeight="29.0" fitWidth="26.0" layoutX="6428.0" layoutY="286.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coingif.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="coin36" fitHeight="29.0" fitWidth="26.0" layoutX="6486.0" layoutY="286.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coingif.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="coin37" fitHeight="29.0" fitWidth="26.0" layoutX="6114.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coingif.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="coin38" fitHeight="29.0" fitWidth="26.0" layoutX="6167.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coingif.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="coin39" fitHeight="29.0" fitWidth="26.0" layoutX="6224.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coingif.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="coin40" fitHeight="29.0" fitWidth="26.0" layoutX="6281.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coingif.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="coin41" fitHeight="29.0" fitWidth="26.0" layoutX="6340.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coingif.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="coin42" fitHeight="29.0" fitWidth="26.0" layoutX="6397.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coingif.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="coin43" fitHeight="29.0" fitWidth="26.0" layoutX="6454.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coingif.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="coin44" fitHeight="29.0" fitWidth="26.0" layoutX="6140.0" layoutY="208.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coingif.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="coin45" fitHeight="29.0" fitWidth="26.0" layoutX="6193.0" layoutY="208.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coingif.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="coin46" fitHeight="29.0" fitWidth="26.0" layoutX="6250.0" layoutY="208.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coingif.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="coin47" fitHeight="29.0" fitWidth="26.0" layoutX="6307.0" layoutY="208.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coingif.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="coin48" fitHeight="29.0" fitWidth="26.0" layoutX="6366.0" layoutY="208.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coingif.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="coin49" fitHeight="29.0" fitWidth="26.0" layoutX="6423.0" layoutY="208.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coingif.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="coin50" fitHeight="29.0" fitWidth="26.0" layoutX="7312.0" layoutY="290.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coingif.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="coin51" fitHeight="29.0" fitWidth="26.0" layoutX="7440.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coingif.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="coin52" fitHeight="29.0" fitWidth="26.0" layoutX="7683.0" layoutY="261.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coingif.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="coin53" fitHeight="29.0" fitWidth="26.0" layoutX="7803.0" layoutY="295.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/coingif.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="weaponChest1" fitHeight="150.0" fitWidth="77.0" layoutX="2267.0" layoutY="231.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/weaponchest1.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="weaponChest2" fitHeight="150.0" fitWidth="77.0" layoutX="3568.0" layoutY="249.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/weaponchest1.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="openweaponchest2" fitHeight="75.0" fitWidth="92.0" layoutX="3565.0" layoutY="242.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/weaponchest2.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="weaponChest3" fitHeight="150.0" fitWidth="77.0" layoutX="4354.0" layoutY="283.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/weaponchest1.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="openweaponchest3" fitHeight="75.0" fitWidth="92.0" layoutX="4351.0" layoutY="276.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/weaponchest2.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="coinChest1" fitHeight="50.0" fitWidth="130.0" layoutX="1067.0" layoutY="245.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/chest1.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="opencoinChest1" fitHeight="59.0" fitWidth="105.0" layoutX="1067.0" layoutY="239.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/chest6.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="coinChest2" fitHeight="50.0" fitWidth="130.0" layoutX="7527.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/chest1.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="opencoinChest2" fitHeight="59.0" fitWidth="105.0" layoutX="7527.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/chest6.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="coinChest3" fitHeight="50.0" fitWidth="130.0" layoutX="10643.0" layoutY="264.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/chest1.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="opencoinChest3" fitHeight="59.0" fitWidth="105.0" layoutX="10643.0" layoutY="258.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/chest6.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="princess" fitHeight="37.0" fitWidth="36.0" layoutX="11135.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/princesss.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="cage" fitHeight="89.0" fitWidth="105.0" layoutX="11101.0" layoutY="219.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/cage.png" />
                </image>
             </ImageView>
          </children>

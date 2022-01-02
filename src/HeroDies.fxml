@@ -85,7 +85,7 @@
             <Font name="Impact" size="24.0" />
          </font>
       </Text>
-      <ImageView fx:id="beginner" fitHeight="610.0" fitWidth="1150.0" onMouseClicked="#init_defeat" pickOnBounds="true" preserveRatio="true" >
+      <ImageView fx:id="beginner" fitHeight="610.0" fitWidth="1150.0" onMouseClicked="#init_defeat" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@assets/herodeath_buffer.png" />
          </image>

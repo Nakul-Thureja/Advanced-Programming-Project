@@ -302,19 +302,6 @@ public class NewGame {
 	public void letsBegin(MouseEvent e) {
 		Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
 		currGamer = (Gamer) stage.getUserData();
-		if(!currGamer.isLoad()) {
-			currGamer.newGame();
-		}
-		currGame = currGamer.getcurrGame();
-		currGame.initMap();		
-		if (currGamer.isLoad()) {
-			loadGame();
-		} 
-		else {
-			initGame();
-		}
-		currGame.setHeroImage(myHero);
-
 		CollidersImageView = new ArrayList<>();
 		CoinsImageView = new ArrayList<>();
 		RedOrcsImageView = new ArrayList<>();
@@ -434,6 +421,20 @@ public class NewGame {
 		CoinsImageView.add(coin13);
 		CoinsImageView.add(coin14);
 		CoinsImageView.add(coin15);
+		if(!currGamer.isLoad()) {
+			currGamer.newGame();
+		}
+		currGame = currGamer.getcurrGame();
+		currGame.initMap();		
+		if (currGamer.isLoad()) {
+			loadGame();
+		} 
+		else {
+			initGame();
+		}
+		currGame.setHeroImage(myHero);
+		currGame.reviveHero();
+		
 		
 		currGame.setCoinMap(CoinsImageView);
 		currGame.setGorcMap(GreenOrcsImageView,OrcCollidersImageView);
@@ -457,12 +458,14 @@ public class NewGame {
 			
 			for(int i= 0;i<GreenOrcsImageView.size();i++) {
 				if (GreenOrcsImageView.get(i).getBoundsInParent().intersects(deathpanel.getBoundsInParent())) {
+					currGame.getMygreenOrcs().get(i).setVisibilty(false);
 					GreenOrcsImageView.get(i).setVisible(false);
 				}
 			}
 			
 			for(int i= 0;i<RedOrcsImageView.size();i++) {
 				if (RedOrcsImageView.get(i).getBoundsInParent().intersects(deathpanel.getBoundsInParent())) {
+					currGame.getMyredOrcs().get(i).setVisibilty(false);
 					RedOrcsImageView.get(i).setVisible(false);
 				}
 			}
@@ -517,6 +520,16 @@ public class NewGame {
 		coinCounter.setX(misc.get(8).getX());
 		playerName.setText(currGamer.getPlayerName());
 		myHero.setTranslateX(currGame.getmyHeroX() + currGame.getForwardMove());
+		for(int i = 0;i<currGame.getMygreenOrcs().size();i++) {
+			
+			GreenOrcsImageView.get(i).setTranslateX(currGame.getMygreenOrcs().get(i).getPositionX());
+			CollidersImageView.get(i).setTranslateX(currGame.getMygreenOrcs().get(i).getColliderX());
+		}
+		for(int i = 0;i<currGame.getMyredOrcs().size();i++) {
+			
+			RedOrcsImageView.get(i).setTranslateX(currGame.getMyredOrcs().get(i).getPositionX());
+			CollidersImageView.get(i+15).setTranslateX(currGame.getMyredOrcs().get(i).getColliderX());
+		}
 		myScore.setText(Integer.toString(currGame.getScore()));
 		beginButton.setVisible(false);
 		

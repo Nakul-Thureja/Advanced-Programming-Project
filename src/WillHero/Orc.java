@@ -1,5 +1,6 @@
 package WillHero;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import javafx.animation.Animation;
@@ -16,6 +17,7 @@ public abstract class Orc extends GameComponents{
 	private int coin_Value;
 	private int push_Value;
 	private int jump_Value;
+	private double colliderX;
 	private boolean onPlatform;
 	private transient TranslateTransition translate;
 	private transient TranslateTransition translate2;
@@ -34,6 +36,7 @@ public abstract class Orc extends GameComponents{
 		this.push_Value = push_Value;
 		this.jump_Value = jump_Value;
 		this.onPlatform = false;
+		this.colliderX = 0;
 	}
 	public void stopALL() {
 		gravity.stop();
@@ -44,11 +47,19 @@ public abstract class Orc extends GameComponents{
 	public int getCoinValue() {
 		return this.coin_Value;
 	}
-	
+	public double getColliderX() {
+		return this.colliderX;
+	}
 	public void beginGravity(HashMap<GameComponents, ImageView> map) {
+		mycollider.translateXProperty().addListener((obs,old,newValue) -> {
+			
+			int offset = newValue.intValue();
+			//mycollider.setTranslateX(offset);
+			this.colliderX = offset;
+		});
 		Orc.translateXProperty().addListener((obs,old,newValue) -> {
 			int offset = newValue.intValue();
-			mycollider.setTranslateX(offset);
+			//mycollider.setTranslateX(offset);
 			this.setPositionX(offset);
 		});
 		Orc.translateYProperty().addListener((obs,old,newValue) -> {
@@ -115,5 +126,9 @@ public abstract class Orc extends GameComponents{
 	
 	public void setCollider(ImageView coll) {
 		this.mycollider = coll;
+	}
+	
+	public ImageView getCollider() {
+		return this.mycollider;
 	}
 }
