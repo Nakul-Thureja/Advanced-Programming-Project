@@ -97,7 +97,7 @@ public class Gamer implements Serializable {
 	
 	public boolean deduceCoins() {
 		if(this.coins>=5) {
-			this.coins -= 5;
+			this.coins -=(5 + getcurrGame().getcurrCoins());
 			return true;
 		}
 		else {
@@ -114,4 +114,5 @@ public class Gamer implements Serializable {
 			instances.put(gamers.get(i).getPlayerName(), gamers.get(i));
 		}
 	}
+	
 }

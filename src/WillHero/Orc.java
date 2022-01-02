@@ -36,12 +36,16 @@ public abstract class Orc extends GameComponents {
 		this.jump_Value = jump_Value;
 		this.onPlatform = false;
 		this.colliderX = 0;
+	
 	}
 
 	public void stopALL() {
-		gravity.stop();
-		translate.stop();
-		translate2.stop();
+		if(gravity!=null)
+			gravity.stop();
+		if(translate!=null)
+			translate.stop();
+		if(translate2!=null)
+			translate2.stop();
 		// translatefwd.stop();
 	}
 

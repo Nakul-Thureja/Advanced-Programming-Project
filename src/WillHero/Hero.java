@@ -195,7 +195,7 @@ public class Hero extends GameComponents implements Serializable {
 			translate = new TranslateTransition();
 			collision = new Timeline();
 			collision.setCycleCount(Animation.INDEFINITE);
-			KeyFrame collision_frame = new KeyFrame(Duration.millis(18), e -> {
+			KeyFrame collision_frame = new KeyFrame(Duration.millis(72), e -> {
 				map.forEach((key, value) -> collideLoop(key, value));
 			});
 			collision.getKeyFrames().add(collision_frame);

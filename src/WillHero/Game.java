@@ -90,6 +90,10 @@ public class Game implements Serializable {
 	public void end() {
 		this.ended = true;
 	}
+	public void setEnd() {
+		this.ended = false;
+	}
+	
 	public boolean isEnded() {
 		return this.ended;
 	}
