@@ -256,13 +256,13 @@ public class Game implements Serializable {
 
 	
 	public void setPlatformMap(ArrayList<ImageView> Nodes) {
-		for (int i = 0; i < 45; i++) {
+		for (int i = 0; i < this.getMyPlatforms().size(); i++) {
 			PlatformMap.put(this.getMyPlatforms().get(i), Nodes.get(i));
 		}
 	}
 
 	public void setCoinMap(ArrayList<ImageView> Nodes) {
-		for (int i = 0; i < 15; i++) {
+		for (int i = 0; i < this.getMyCoins().size(); i++) {
 			Nodes.get(i).setVisible(this.getMyCoins().get(i).getVisibilty());
 			CoinMap.put(this.getMyCoins().get(i), Nodes.get(i));
 		}

@@ -175,6 +175,83 @@ public class NewGame {
 	@FXML
 	private ImageView coin15;
 	@FXML
+	private ImageView coin16;
+	@FXML
+	private ImageView coin17;
+	@FXML
+	private ImageView coin18;
+	@FXML
+	private ImageView coin19;
+	@FXML
+	private ImageView coin20;
+	@FXML
+	private ImageView coin21;
+	@FXML
+	private ImageView coin22;
+	@FXML
+	private ImageView coin23;
+	@FXML
+	private ImageView coin24;
+	@FXML
+	private ImageView coin25;
+	@FXML
+	private ImageView coin26;
+	@FXML
+	private ImageView coin27;
+	@FXML
+	private ImageView coin28;
+	@FXML
+	private ImageView coin29;
+	@FXML
+	private ImageView coin30;
+	@FXML
+	private ImageView coin31;
+	@FXML
+	private ImageView coin32;
+	@FXML
+	private ImageView coin33;
+	@FXML
+	private ImageView coin34;
+	@FXML
+	private ImageView coin35;
+	@FXML
+	private ImageView coin36;
+	@FXML
+	private ImageView coin37;
+	@FXML
+	private ImageView coin38;
+	@FXML
+	private ImageView coin39;
+	@FXML
+	private ImageView coin40;
+	@FXML
+	private ImageView coin41;
+	@FXML
+	private ImageView coin42;
+	@FXML
+	private ImageView coin43;
+	@FXML
+	private ImageView coin44;
+	@FXML
+	private ImageView coin45;
+	@FXML
+	private ImageView coin46;
+	@FXML
+	private ImageView coin47;
+	@FXML
+	private ImageView coin48;
+	@FXML
+	private ImageView coin49;
+	@FXML
+	private ImageView coin50;
+	@FXML
+	private ImageView coin51;
+	@FXML
+	private ImageView coin52;
+	@FXML
+	private ImageView coin53;
+	
+	@FXML
 	private Text playerName;
 	@FXML
 	private ImageView beginButton;
@@ -421,6 +498,45 @@ public class NewGame {
 		CoinsImageView.add(coin13);
 		CoinsImageView.add(coin14);
 		CoinsImageView.add(coin15);
+		CoinsImageView.add(coin16);
+		CoinsImageView.add(coin17);
+		CoinsImageView.add(coin18);
+		CoinsImageView.add(coin19);
+		CoinsImageView.add(coin20);
+		CoinsImageView.add(coin21);
+		CoinsImageView.add(coin22);
+		CoinsImageView.add(coin23);
+		CoinsImageView.add(coin24);
+		CoinsImageView.add(coin25);
+		CoinsImageView.add(coin26);
+		CoinsImageView.add(coin27);
+		CoinsImageView.add(coin28);
+		CoinsImageView.add(coin29);
+		CoinsImageView.add(coin30);
+		CoinsImageView.add(coin31);
+		CoinsImageView.add(coin32);
+		CoinsImageView.add(coin33);
+		CoinsImageView.add(coin34);
+		CoinsImageView.add(coin35);
+		CoinsImageView.add(coin36);
+		CoinsImageView.add(coin37);
+		CoinsImageView.add(coin38);
+		CoinsImageView.add(coin39);
+		CoinsImageView.add(coin40);
+		CoinsImageView.add(coin41);
+		CoinsImageView.add(coin42);
+		CoinsImageView.add(coin43);
+		CoinsImageView.add(coin44);
+		CoinsImageView.add(coin45);
+		CoinsImageView.add(coin46);
+		CoinsImageView.add(coin47);
+		CoinsImageView.add(coin48);
+		CoinsImageView.add(coin49);
+		CoinsImageView.add(coin50);
+		CoinsImageView.add(coin51);
+		CoinsImageView.add(coin52);
+		CoinsImageView.add(coin53);
+		
 		if(!currGamer.isLoad()) {
 			currGamer.newGame();
 		}
@@ -553,7 +669,7 @@ public class NewGame {
 		Score score = new Score(myScore.getLayoutX(), myScore.getLayoutY(), 0);
 		currGame.setMyScore(score);
 		ArrayList<Coin> myCoins = new ArrayList<>();
-		for (int i = 0; i < 15; i++) {
+		for (int i = 0; i < 53; i++) {
 			myCoins.add((Coin) factory.createComponent("coin"));
 		}
 		currGame.setMyCoins(myCoins);
