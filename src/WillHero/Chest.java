@@ -1,5 +1,5 @@
 package WillHero;
 
 public interface Chest {
-    public Object Reward();
+    public void Reward();
 }

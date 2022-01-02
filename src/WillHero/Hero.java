@@ -140,7 +140,6 @@ public class Hero extends GameComponents implements Serializable {
 				translate3.setByX(100);
 				translate2.play();
 				translate3.play();
-				((GreenOrc)component).moved();
 
 				}
 			}
@@ -164,7 +163,6 @@ public class Hero extends GameComponents implements Serializable {
 				translate3.setByX(80);
 				translate2.play();
 				translate3.play();
-				((RedOrc)component).moved();
 			}
 			}
 		}
@@ -175,10 +173,20 @@ public class Hero extends GameComponents implements Serializable {
 		}
 		
 		else if (component.getClass() == CoinChest.class) {
-			
+			if(this.checkCollision(image, hero) && !((CoinChest) component).isOpened()){
+				((CoinChest) component).Reward();
+				image.setVisible(false);
+				((CoinChest) component).getOpened().setVisible(true);
+				this.currcoins += 20;
+			}
 		}
 		else if (component.getClass() == WeaponChest.class) {
-			
+			if(this.checkCollision(image, hero) && !((WeaponChest) component).isOpened()) {
+				((WeaponChest) component).Reward();
+				image.setVisible(false);
+				((WeaponChest) component).getOpened().setVisible(true);
+
+			}
 		}
 	}
 

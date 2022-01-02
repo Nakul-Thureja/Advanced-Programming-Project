@@ -355,6 +355,30 @@ public class NewGame {
 	private ImageView bossOrc;
 	@FXML
 	private ImageView bossCollider;
+	@FXML
+	private ImageView coinChest1;
+	@FXML
+	private ImageView coinChest2;
+	@FXML
+	private ImageView coinChest3;
+	@FXML
+	private ImageView opencoinChest1;
+	@FXML
+	private ImageView opencoinChest2;
+	@FXML
+	private ImageView opencoinChest3;
+	@FXML
+	private ImageView weaponChest1;
+	@FXML
+	private ImageView weaponChest2;
+	@FXML
+	private ImageView weaponChest3;
+	@FXML
+	private ImageView openweaponChest1;
+	@FXML
+	private ImageView openweaponChest2;
+	@FXML
+	private ImageView openweaponChest3;
 	
 	private static Gamer currGamer;
 	private static  Game currGame;
@@ -372,6 +396,8 @@ public class NewGame {
 	private static  ArrayList<ImageView> GreenOrcsImageView;
 	private static  ArrayList<ImageView> WeaponChestImageView;
 	private static  ArrayList<ImageView> CoinChestImageView;
+	private static  ArrayList<ImageView> openWeaponChestImageView;
+	private static  ArrayList<ImageView> openCoinChestImageView;
 	private static  ArrayList<ImageView> OrcCollidersImageView;
 	private static  GameSlots gameSlot;
 	private static  HashMap<GameComponents, HashMap<GameComponents, ImageView>> CollisionMap;
@@ -384,7 +410,10 @@ public class NewGame {
 			GreenOrcsImageView = new ArrayList<>();
 			WeaponChestImageView = new ArrayList<>();
 			CoinChestImageView = new ArrayList<>();
+			openWeaponChestImageView = new ArrayList<>();
+			openCoinChestImageView = new ArrayList<>();
 			OrcCollidersImageView = new ArrayList<>();
+			
 			
 			GreenOrcsImageView.add(greenOrc1);
 			GreenOrcsImageView.add(greenOrc2);
@@ -535,6 +564,23 @@ public class NewGame {
 			CoinsImageView.add(coin51);
 			CoinsImageView.add(coin52);
 			CoinsImageView.add(coin53);
+			
+			CoinChestImageView.add(coinChest1);
+			CoinChestImageView.add(coinChest2);
+			CoinChestImageView.add(coinChest3);
+			
+			WeaponChestImageView.add(weaponChest1);
+			WeaponChestImageView.add(weaponChest2);
+			WeaponChestImageView.add(weaponChest3);
+			
+			openCoinChestImageView.add(opencoinChest1);
+			openCoinChestImageView.add(opencoinChest2);
+			openCoinChestImageView.add(opencoinChest3);
+			
+			openWeaponChestImageView.add(openweaponChest1);
+			openWeaponChestImageView.add(openweaponChest2);
+			openWeaponChestImageView.add(openweaponChest3);
+
 		}); 
 		thread.start();
 		Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
@@ -569,6 +615,8 @@ public class NewGame {
 		currGame.setRorcMap(RedOrcsImageView, OrcCollidersImageView);
 		currGame.setColliderMap(OrcCollidersImageView);
 		currGame.setPlatformMap(CollidersImageView);
+		currGame.setCoinChestMap(CoinChestImageView,openCoinChestImageView);
+		currGame.setWeaponChestMap(WeaponChestImageView,openWeaponChestImageView);
 		
 		empty = new Timeline();
 		empty.setCycleCount(Animation.INDEFINITE);
@@ -705,6 +753,16 @@ public class NewGame {
 			mycollider.add((Collider) factory.createComponent("collider"));
 		}
 		currGame.setMyColliders(mycollider);
+		ArrayList<CoinChest> mycoinChest = new ArrayList<>();
+		for (int i = 0; i < 3; i++) {
+			mycoinChest.add((CoinChest) factory.createComponent("coinchest"));
+		}
+		currGame.setMyCoinChests(mycoinChest);
+		ArrayList<WeaponChest> myweaponChest = new ArrayList<>();
+		for (int i = 0; i < 3; i++) {
+			myweaponChest.add((WeaponChest) factory.createComponent("weaponchest"));
+		}
+		currGame.setMyWeaponChests(myweaponChest);
 	
 	}
 

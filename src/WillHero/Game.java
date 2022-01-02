@@ -17,7 +17,9 @@ public class Game implements Serializable {
 	private BossOrc myBossOrc;
 	private Helmet myHelmet;
 	private ArrayList<Weapon> myWeapons;
-	private ArrayList<Chest> myChests;
+	private ArrayList<CoinChest> myCoinChests;
+	private ArrayList<WeaponChest> myWeaponChests;
+
 	private Score myScore;
 	private ArrayList<GameComponents> myComponents;
 	private ArrayList<Position> misc;
@@ -29,6 +31,8 @@ public class Game implements Serializable {
 	private transient HashMap<GameComponents, ImageView> RedOrcMap;
 	private transient HashMap<GameComponents, ImageView> WeaponMap;
 	private transient HashMap<GameComponents, ImageView> CoinMap;
+	private transient HashMap<GameComponents, ImageView> WeaponChestMap;
+	private transient HashMap<GameComponents, ImageView> CoinChestMap;
 
 	public ArrayList<Position> getmisc() {
 		return this.misc;
@@ -67,14 +71,17 @@ public class Game implements Serializable {
 		this.myBossOrc = null;
 		this.myHelmet = null;
 		this.myWeapons = null;
-		this.myChests = null;
+		this.myWeaponChests = null;
+		this.myCoinChests = null;
 		this.myScore = null;
 		this.myComponents = null;
 		this.myColliders = null;
 		this.CollisionMap = null;
 		this.CoinMap = null;
+		this.CoinChestMap = null;
 		this.PlatformMap = null;
 		this.WeaponMap = null;
+		this.WeaponChestMap = null;
 		this.RedOrcMap = null;
 		this.GreenOrcMap = null;
 		this.CollidersMap = null;
@@ -94,6 +101,8 @@ public class Game implements Serializable {
 		this.RedOrcMap = new HashMap<>();
 		this.GreenOrcMap = new HashMap<>();
 		this.CollidersMap = new HashMap<>();
+		this.WeaponChestMap = new HashMap<>();
+		this.CoinChestMap = new HashMap<>();
 	}
 
 	
@@ -182,6 +191,9 @@ public class Game implements Serializable {
 		HeroMap.putAll(GreenOrcMap);
 		HeroMap.putAll(RedOrcMap);
 		HeroMap.putAll(CollidersMap);
+		HeroMap.putAll(CoinChestMap);
+		HeroMap.putAll(WeaponChestMap);
+
 		CollisionMap.put(this.myHero, HeroMap);
 		HashMap<GameComponents, ImageView> GorcMap = new HashMap<>();
 		GorcMap.putAll(PlatformMap);
@@ -209,6 +221,22 @@ public class Game implements Serializable {
 
 	private ArrayList<Coin> getMyCoins() {
 		return myCoins;
+	}
+	
+	public void setMyWeaponChests(ArrayList<WeaponChest> myChests) {
+		this.myWeaponChests = myChests;
+	}
+	
+	public ArrayList<WeaponChest> getMyWeaponChests(){
+		return myWeaponChests;
+	}
+	
+	public void setMyCoinChests(ArrayList<CoinChest> myChests) {
+		this.myCoinChests = myChests;
+	}
+	
+	public ArrayList<CoinChest> getMyCoinChests(){
+		return myCoinChests;
 	}
 
 	public void setMyCoins(ArrayList<Coin> myCoins) {
@@ -287,6 +315,22 @@ public class Game implements Serializable {
 			this.getMyredOrcs().get(i).setImage(Nodes.get(i));
 			this.getMyredOrcs().get(i).setCollider(Node2.get(i + 15));
 			RedOrcMap.put(this.getMyredOrcs().get(i), Nodes.get(i));
+		}
+	}
+	
+	public void setCoinChestMap(ArrayList<ImageView> Nodes, ArrayList<ImageView> Node2) {
+		for (int i = 0; i < this.getMyCoinChests().size(); i++) {
+			Nodes.get(i).setVisible(!this.getMyCoinChests().get(i).isOpened());
+			this.getMyCoinChests().get(i).setImages(Nodes.get(i),Node2.get(i));
+			CoinChestMap.put(this.getMyCoinChests().get(i), Nodes.get(i));
+		}
+	}
+	
+	public void setWeaponChestMap(ArrayList<ImageView> Nodes, ArrayList<ImageView> Node2) {
+		for (int i = 0; i < this.getMyWeaponChests().size(); i++) {
+			Nodes.get(i).setVisible(!this.getMyWeaponChests().get(i).isOpened());
+			this.getMyWeaponChests().get(i).setImages(Nodes.get(i),Node2.get(i));
+			WeaponChestMap.put(this.getMyWeaponChests().get(i), Nodes.get(i));
 		}
 	}
 	public void setColliderMap(ArrayList<ImageView> Nodes) {

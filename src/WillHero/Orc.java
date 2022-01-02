@@ -133,9 +133,5 @@ public abstract class Orc extends GameComponents{
 		return this.mycollider;
 	}
 	
-	public void moved() {
-		this.translate.pause();
-		this.translate2.pause();
-		this.gravity.play();
-	}
+	
 }
