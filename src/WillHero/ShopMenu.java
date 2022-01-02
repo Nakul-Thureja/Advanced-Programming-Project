@@ -16,34 +16,34 @@ public class ShopMenu {
 	@FXML
 	private ImageView booster;
 	
-	private Game currGame;
+	private Gamer currGamer;
 	
 	public void buyHero1(MouseEvent e) {
-		int val = currGame.canBuy(1,10);
+		int val = currGamer.canBuy(1,10);
 		if( val == 0) {
-			currGame.addHelmet(1);
+			currGamer.addHelmet(1);
 		}
 			
 	}
     
 	public void buyHero2(MouseEvent e) {
-		int val = currGame.canBuy(2,10);
+		int val = currGamer.canBuy(2,10);
 		if( val == 0) {
-			currGame.addHelmet(2);
+			currGamer.addHelmet(2);
 		}
 	}
     
 	public void buyHero3(MouseEvent e) {
-		int val = currGame.canBuy(3,20);
+		int val = currGamer.canBuy(3,20);
 		if( val == 0) {
-			currGame.addHelmet(3);
+			currGamer.addHelmet(3);
 		}
 	}
     
 	public void buyHero4(MouseEvent e) {
-		int val = currGame.canBuy(4,20);
+		int val = currGamer.canBuy(4,20);
 		if( val == 0) {
-			currGame.addHelmet(4);
+			currGamer.addHelmet(4);
 		}	
 	}
 	

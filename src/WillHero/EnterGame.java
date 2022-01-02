@@ -24,7 +24,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class EnterGame implements Initializable {
-	
+	private GamersDatabase database = GamersDatabase.getInstance();
 	private Gamer myGamer;
 	@FXML
 	private ImageView redOrc1;
@@ -54,6 +54,8 @@ public class EnterGame implements Initializable {
 	public void startGame(MouseEvent event) throws IOException {
 		name = textName.getText();		
 		myGamer = Gamer.getInstance(name);
+		myGamer.setFlag(false);
+		database.addGamer(myGamer);
 		Parent root = FXMLLoader.load(getClass().getResource("/NewGame.fxml"));
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		stage.setUserData(myGamer);

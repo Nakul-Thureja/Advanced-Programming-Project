@@ -73,6 +73,12 @@ public class Main extends Application implements Initializable {
 				alert.setHeaderText("You're about to Exit!");
 				if (alert.showAndWait().get() == ButtonType.OK){
 					primaryStage.close();
+					try {
+						GamersDatabase.serialize();
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
+					System.out.println("Data Written");
 				} 	
 			});
 		} catch(Exception e) {
@@ -95,12 +101,19 @@ public class Main extends Application implements Initializable {
 		//alert.setContentText("Do you want to save before exiting?");
 		Stage mystage = (Stage)anchorPane.getScene().getWindow();
 		if (alert.showAndWait().get() == ButtonType.OK){
+			try {
+				GamersDatabase.serialize();
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
 			mystage.close();
 		} 
+
 	}
 	
 	public void newGame(MouseEvent event) throws IOException {
 		try {
+			GamersDatabase.deserialize();
 			LoadGameMenu.deserialize();
 			//Game.addInstances(GameSlots.getInstance());
 		} catch (ClassNotFoundException | IOException e) {

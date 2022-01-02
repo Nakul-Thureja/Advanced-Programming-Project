@@ -51,7 +51,7 @@ public class PauseMenu implements Initializable {
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		Gamer currGamer = (Gamer) stage.getUserData();
 		Game currGame = currGamer.getcurrGame();
-		currGame.setFlag(true);
+		currGamer.setFlag(true);
 		stage.setUserData(currGamer);
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
@@ -63,7 +63,7 @@ public class PauseMenu implements Initializable {
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		Gamer currGamer = (Gamer) stage.getUserData();
 		Game currGame = currGamer.getcurrGame();
-		currGame.setFlag(false);
+		currGamer.setFlag(false);
 		stage.setUserData(currGamer);
 		Scene scene = new Scene(root);
 		stage.setScene(scene);

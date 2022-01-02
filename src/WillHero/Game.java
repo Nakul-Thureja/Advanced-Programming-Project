@@ -20,8 +20,8 @@ public class Game implements Serializable {
 	private ArrayList<Chest> myChests;
 	private Score myScore;
 	private ArrayList<GameComponents> myComponents;
-	private boolean loadflag;
 	private ArrayList<Position> misc;
+	private boolean ended;
 	private transient HashMap<GameComponents, HashMap<GameComponents, ImageView>> CollisionMap;
 	private transient HashMap<GameComponents, ImageView> PlatformMap;
 	private transient HashMap<GameComponents, ImageView> GreenOrcMap;
@@ -71,7 +71,6 @@ public class Game implements Serializable {
 		this.myScore = null;
 		this.myComponents = null;
 		this.myColliders = null;
-		this.loadflag = false;
 		this.CollisionMap = null;
 		this.CoinMap = null;
 		this.PlatformMap = null;
@@ -79,9 +78,14 @@ public class Game implements Serializable {
 		this.RedOrcMap = null;
 		this.GreenOrcMap = null;
 		this.CollidersMap = null;
-
+		this.ended = false;
 	}
-
+	public void end() {
+		this.ended = true;
+	}
+	public boolean isEnded() {
+		return this.ended;
+	}
 	public void initMap() {
 		this.CollisionMap = new HashMap<>();
 		this.CoinMap = new HashMap<>();
@@ -92,13 +96,7 @@ public class Game implements Serializable {
 		this.CollidersMap = new HashMap<>();
 	}
 
-	public boolean isLoad() {
-		return this.loadflag;
-	}
-
-	public void setFlag(boolean _flag) {
-		loadflag = _flag;
-	}
+	
 
 //	public int getCoins() {
 //		return this.totalCoins;

@@ -74,7 +74,7 @@ public class SaveGameMenu implements Initializable {
 		Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
 		Gamer currGamer = (Gamer) stage.getUserData();
 		Game currGame = currGamer.getcurrGame();		
-		stage.setUserData(currGame);
+		stage.setUserData(currGamer);
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
 		stage.show();

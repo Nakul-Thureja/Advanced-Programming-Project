@@ -302,12 +302,15 @@ public class NewGame {
 	public void letsBegin(MouseEvent e) {
 		Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
 		currGamer = (Gamer) stage.getUserData();
+		if(!currGamer.isLoad()) {
+			currGamer.newGame();
+		}
 		currGame = currGamer.getcurrGame();
-		currGame.initMap();
-		if (currGame.isLoad()) {
+		currGame.initMap();		
+		if (currGamer.isLoad()) {
 			loadGame();
-
-		} else {
+		} 
+		else {
 			initGame();
 		}
 		currGame.setHeroImage(myHero);
@@ -523,7 +526,7 @@ public class NewGame {
 		beginButton.setVisible(false);
 		playerName.setText(currGamer.getPlayerName());
 		GameFactory factory = new GameFactory();
-		currGame.setFlag(true);
+		currGamer.setFlag(true);
 		Weapon Sword = new Weapon(0, 0);
 		Weapon Hammer = new Weapon(0, 0);
 		ArrayList<Weapon> Weapons = new ArrayList<>();
@@ -566,7 +569,7 @@ public class NewGame {
 
 	public void heroDefeat() throws IOException {
 		empty.stop();
-		currGame.setFlag(false);
+		currGamer.setFlag(false);
 		Parent root = FXMLLoader.load(getClass().getResource("/HeroDies.fxml"));
 		Stage stage = (Stage) myPane.getScene().getWindow();
 		stage.setUserData(currGamer);

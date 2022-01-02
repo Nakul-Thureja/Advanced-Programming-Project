@@ -54,7 +54,7 @@ public class DefeatMenu {
 			Stage stage = mystage;
 			Gamer currGamer = (Gamer) stage.getUserData();
 			currGame = currGamer.getcurrGame();
-			currGame.setFlag(true);
+			currGamer.setFlag(true);
 			if(currGamer.deduceCoins()) {
 			currGame.stopALL();
 			currGame.reviveHero();
@@ -80,7 +80,7 @@ public class DefeatMenu {
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		Gamer currGamer = (Gamer) stage.getUserData();
 		Game currGame = currGamer.getcurrGame();
-		currGame.setFlag(false);
+		currGamer.setFlag(false);
 		stage.setUserData(currGamer);
 		Scene scene = new Scene(root);
 		stage.setScene(scene);

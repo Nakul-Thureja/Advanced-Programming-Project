@@ -108,20 +108,28 @@ public class LoadGameMenu {
 				public void handle(ActionEvent arg0) {				
 					try {
 						if(i == 1) {
-							Slot.getSlot1().loadcurrGame(0);
-							newGame(e,Slot.getSlot1());
+							Gamer gamer = Gamer.getInstance(Slot.getSlot1().getPlayerName());
+							gamer.setFlag(true);
+							gamer.loadcurrGame(0);
+							newGame(e,gamer);
 						}
 						if(i == 2) {
-							Slot.getSlot2().loadcurrGame(1);
-							newGame(e,Slot.getSlot2());
+							Gamer gamer = Gamer.getInstance(Slot.getSlot2().getPlayerName());
+							gamer.setFlag(true);
+							gamer.loadcurrGame(1);
+							newGame(e,gamer);
 						}
 						if(i == 3) {
-							Slot.getSlot3().loadcurrGame(2);
-							newGame(e,Slot.getSlot3());
+							Gamer gamer = Gamer.getInstance(Slot.getSlot3().getPlayerName());
+							gamer.setFlag(true);
+							gamer.loadcurrGame(2);
+							newGame(e,gamer);
 						}
 						if(i == 4) {
-							Slot.getSlot4().loadcurrGame(3);
-							newGame(e,Slot.getSlot4());
+							Gamer gamer = Gamer.getInstance(Slot.getSlot4().getPlayerName());
+							gamer.setFlag(true);
+							gamer.loadcurrGame(3);
+							newGame(e,gamer);
 						}
 						
 
