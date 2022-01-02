@@ -229,6 +229,9 @@ public class Game implements Serializable {
 		for(int i = 0 ;i< this.mygreenOrcs.size();i++) {
 			this.mygreenOrcs.get(i).stopALL();
 		}
+		for(int j = 0;j<this.myredOrcs.size();j++) {
+			this.myredOrcs.get(j).stopALL();
+		}
 	}
 
 	public void moveHeroForward(ImageView myHero2) {

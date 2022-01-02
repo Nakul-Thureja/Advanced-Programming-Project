@@ -46,6 +46,15 @@ public abstract class Orc extends GameComponents{
 	}
 	
 	public void beginGravity(HashMap<GameComponents, ImageView> map) {
+		Orc.translateXProperty().addListener((obs,old,newValue) -> {
+			int offset = newValue.intValue();
+			mycollider.setTranslateX(offset);
+			this.setPositionX(offset);
+		});
+		Orc.translateYProperty().addListener((obs,old,newValue) -> {
+			int offset = newValue.intValue();
+			this.setPositionY(offset);
+		});
 		collision = new Timeline();
 		collision.setCycleCount(Animation.INDEFINITE);
 		KeyFrame collision_frame = new KeyFrame(Duration.millis(18), e -> {

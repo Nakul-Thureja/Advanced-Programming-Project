@@ -122,8 +122,10 @@ public class Hero extends GameComponents implements Serializable {
 			}
 		}
 		else if (component.getClass() == GreenOrc.class) {
-			if(this.checkCollision(image, hero) && attacking) {
+			if(this.checkCollision(image, hero)) {
 				//component.setVisibilty(false);
+				this.onPlatform = true;
+				if(attacking) {
 				gravity.play();
 				translatefwd.pause();
 				TranslateTransition translate2 = new TranslateTransition();
@@ -132,11 +134,14 @@ public class Hero extends GameComponents implements Serializable {
 				translate2.setCycleCount(1);
 				translate2.setByX(100);
 				translate2.play();
+				}
 			}
 		}
 		else if (component.getClass() == RedOrc.class) {
-			if(this.checkCollision(image, hero) && attacking) {
+			if(this.checkCollision(image, hero)) {
 				//component.setVisibilty(false);
+				this.onPlatform = true;
+				if(attacking) {
 				gravity.play();
 				translatefwd.pause();
 				TranslateTransition translate2 = new TranslateTransition();
@@ -145,6 +150,7 @@ public class Hero extends GameComponents implements Serializable {
 				translate2.setCycleCount(1);
 				translate2.setByX(80);
 				translate2.play();
+			}
 			}
 		}
 		else if (component.getClass() == Collider.class) {

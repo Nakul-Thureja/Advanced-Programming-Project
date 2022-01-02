@@ -508,6 +508,7 @@ public class NewGame {
 		myHero.setTranslateX(currGame.getmyHeroX() + currGame.getForwardMove());
 		myScore.setText(Integer.toString(currGame.getScore()));
 		beginButton.setVisible(false);
+		
 	}
 
 	public void initGame() {
