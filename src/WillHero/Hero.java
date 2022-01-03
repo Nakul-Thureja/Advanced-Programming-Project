@@ -2,6 +2,8 @@ package WillHero;
 
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.Random;
+
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -36,6 +38,7 @@ public class Hero extends GameComponents implements Serializable {
 	private int currcoins;
 	private boolean attacking;
 	private boolean isDead;
+
 	
 
 	public Hero(double x, double y, Helmet myHelmet) {
@@ -57,6 +60,7 @@ public class Hero extends GameComponents implements Serializable {
 		this.gravity = new Timeline();
 		this.attacking = false;
 		this.isDead = false;
+		
 	}
 
 	public void stopALL() {
@@ -194,8 +198,11 @@ public class Hero extends GameComponents implements Serializable {
 		} else if (component.getClass() == GreenOrc.class) {
 			if (this.checkCollision(image, hero)){//&& (Sword.getAttacking() || Hammer.getAttacking())) {
 				// component.setVisibilty(false);
+				
+				if(this.onPlatform == false && !(Sword.getVisibilty() || Hammer.getVisibilty())) {
 				this.onPlatform = true;
-				if (attacking) {
+				}
+				
 					gravity.play();
 					translatefwd.pause();
 					w1translatefwd.pause();
@@ -214,13 +221,17 @@ public class Hero extends GameComponents implements Serializable {
 					translate2.play();
 					translate3.play();
 
-				}
+				
 			}
-		} else if (component.getClass() == RedOrc.class) {
+		} else if (component.getClass() == RedOrc.class ) {
 			if (this.checkCollision(image, hero) ){//&& (Sword.getAttacking() || Hammer.getAttacking())) {
 				// component.setVisibilty(false);
-				this.onPlatform = true;
-				if (attacking) {
+				
+				if(this.onPlatform == false && !(Sword.getVisibilty() || Hammer.getVisibilty())) {
+					this.onPlatform = true;
+					}
+				//this.onPlatform = true;
+				
 					gravity.play();
 					translatefwd.pause();
 					w1translatefwd.pause();
@@ -238,13 +249,15 @@ public class Hero extends GameComponents implements Serializable {
 					translate3.setByX(80);
 					translate2.play();
 					translate3.play();
-				}
+				
 			}
 		} else if (component.getClass() == BossOrc.class) {
 			if (this.checkCollision(image, hero) ){//&& (Sword.getAttacking() || Hammer.getAttacking())) {
 				// component.setVisibilty(false);
-				this.onPlatform = true;
-				if (attacking) {
+				if(this.onPlatform == false && !(Sword.getVisibilty() || Hammer.getVisibilty())) {
+					this.onPlatform = true;
+					}
+				
 					gravity.play();
 					translatefwd.pause();
 					w1translatefwd.pause();
@@ -262,10 +275,12 @@ public class Hero extends GameComponents implements Serializable {
 					translate3.setByX(80);
 					translate2.play();
 					translate3.play();
-				}
+				
 			}
-		} else if (component.getClass() == Collider.class) {
-			if (this.checkCollision(image, hero)) { //&& image.getTranslateY()>= hero.getTranslateY()) {
+		} else if (component.getClass() == Collider.class ) {
+			
+			if (this.checkCollision(image, hero) && image.getTranslateY()<= hero.getTranslateY() && !(Sword.getAttacking() || Hammer.getAttacking())) {
+				
 				this.isDead = true;
 			}
 		}
@@ -274,6 +289,7 @@ public class Hero extends GameComponents implements Serializable {
 			if (this.checkCollision(image, hero) && !((CoinChest) component).isOpened()) {
 				((CoinChest) component).Reward();
 				image.setVisible(false);
+				component.setVisibilty(false);
 				((CoinChest) component).getOpened().setVisible(true);
 				this.currcoins += 20;
 			}
@@ -281,8 +297,45 @@ public class Hero extends GameComponents implements Serializable {
 			if (this.checkCollision(image, hero) && !((WeaponChest) component).isOpened()) {
 				((WeaponChest) component).Reward();
 				image.setVisible(false);
+				component.setVisibilty(false);
+				Random var = new Random();
+				int choice = var.nextInt(10)%2;
+				//System.out.println(choice);
+				if(choice == 0) {
+					Sword.setLevel(Sword.getLevel()+1);
+					Sword.setVisibilty(true);
+					weaponsword.setVisible(true);
+					Hammer.setVisibilty(false);
+					weaponhammer.setVisible(false);
+				}
+				else if(choice == 1) {
+					Hammer.setLevel(Hammer.getLevel()+1);
+					Hammer.setVisibilty(true);
+					Sword.setVisibilty(false);
+					weaponhammer.setVisible(true);
+					weaponsword.setVisible(false);
+				}
+				else {
+					Sword.setLevel(Sword.getLevel()+1);
+					Sword.setVisibilty(true);
+					weaponsword.setVisible(true);
+					Hammer.setVisibilty(false);
+					weaponhammer.setVisible(false);
+				}
 				((WeaponChest) component).getOpened().setVisible(true);
 
+			}
+		}
+		
+		else if(component.getClass() == fallingPlatform.class) {
+			
+			if(this.checkCollision(image, hero)) {
+//				if(this.onPlatform == false) {
+			
+				this.onPlatform = true;
+//				}
+				((fallingPlatform)component).setImage(image);
+				((fallingPlatform)component).beginGravity();
 			}
 		}
 	}

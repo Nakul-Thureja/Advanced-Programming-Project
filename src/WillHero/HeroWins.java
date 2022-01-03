@@ -21,7 +21,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class HeroWins implements Initializable {
+public class HeroWins {
 	@FXML
 	private ImageView menuButton;
 	@FXML
@@ -30,8 +30,14 @@ public class HeroWins implements Initializable {
 	private AnchorPane anchorPane;
 	@FXML
 	private Text myScore;
+	@FXML
+	private ImageView beginner;
+	@FXML
+	private Text coinCounter;
+	@FXML
+	private Text playerName;
 	
-	private Score score;
+	private Game currGame;
 	
 	
 	public void hover1(MouseEvent event) throws URISyntaxException {
@@ -71,12 +77,18 @@ public class HeroWins implements Initializable {
 		stage.setScene(scene);
 		stage.show();
 	}
-
-	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
-		score = new Score(0,0,15);
-		myScore.setText(Integer.toString(score.getScore()));		
+	
+	public void init_win(MouseEvent event) {
+		beginner.setVisible(false);
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		Gamer currGamer = (Gamer) stage.getUserData();
+		Game currGame = currGamer.getcurrGame();
+		myScore.setText("122");
+		coinCounter.setText(Integer.toString(currGamer.getCoins()));
+		playerName.setText(currGamer.getPlayerName());
 	}
+
+
 	
 	
 	

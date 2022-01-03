@@ -378,6 +378,34 @@ public class NewGame {
 	private ImageView openweaponChest2;
 	@FXML
 	private ImageView openweaponChest3;
+	@FXML
+	private Text hammerLevel;
+	@FXML
+	private Text swordLevel;
+	@FXML
+	private ImageView falling1;
+	@FXML
+	private ImageView falling2;
+	@FXML
+	private ImageView falling3;
+	@FXML
+	private ImageView falling4;
+	@FXML
+	private ImageView falling5;
+	@FXML
+	private ImageView falling21;
+	@FXML
+	private ImageView falling22;
+	@FXML
+	private ImageView falling23;
+	@FXML
+	private ImageView falling24;
+	@FXML
+	private ImageView falling25;
+	@FXML
+	private ImageView falling26;
+	@FXML
+	private ImageView cage;
 	
 	private static Gamer currGamer;
 	private static  Game currGame;
@@ -399,12 +427,15 @@ public class NewGame {
 	private static  ArrayList<ImageView> openCoinChestImageView;
 	private static  ArrayList<ImageView> OrcCollidersImageView;
 	private static  ArrayList<ImageView> WeaponImageView;
-	
+	private static ArrayList<ImageView> fallingImageView;
 	private static  GameSlots gameSlot;
 	private static  HashMap<GameComponents, HashMap<GameComponents, ImageView>> CollisionMap;
 
 	public void letsBegin(MouseEvent e) {
 		Thread thread = new Thread(() -> {
+			handWeapon.setVisible(false);
+			handWeapon2.setVisible(false);
+
 			CollidersImageView = new ArrayList<>();
 			CoinsImageView = new ArrayList<>();
 			RedOrcsImageView = new ArrayList<>();
@@ -415,6 +446,20 @@ public class NewGame {
 			openCoinChestImageView = new ArrayList<>();
 			OrcCollidersImageView = new ArrayList<>();
 			WeaponImageView = new ArrayList<>();
+			fallingImageView = new ArrayList<>();
+			
+			fallingImageView.add(falling1);
+			fallingImageView.add(falling2);
+			fallingImageView.add(falling3);
+			fallingImageView.add(falling4);
+			fallingImageView.add(falling5);
+			fallingImageView.add(falling21);
+			fallingImageView.add(falling22);
+			fallingImageView.add(falling23);
+			fallingImageView.add(falling24);
+			fallingImageView.add(falling25);
+			fallingImageView.add(falling26);
+
 			
 			WeaponImageView.add(handWeapon);
 			WeaponImageView.add(handWeapon2);
@@ -611,6 +656,56 @@ public class NewGame {
 		else {
 			initGame();
 		}
+		boolean[] array = currGamer.gethelmet();
+		if(array[1] == true) {
+			Image image;
+			try {
+				image = new Image(getClass().getResource("/assets/hero.png").toURI().toString());
+				System.out.println("hello");
+				myHero.setImage(image);
+
+			} catch (URISyntaxException e2) {
+				// TODO Auto-generated catch block
+				e2.printStackTrace();
+			}
+			currGame.setHeroImage(myHero);
+		}
+		if(array[2] == true) {
+			Image image;
+			try {
+				image = new Image(getClass().getResource("/assets/hero3.png").toURI().toString());
+				myHero.setImage(image);
+
+			} catch (URISyntaxException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			currGame.setHeroImage(myHero);
+		}
+		if(array[3] == true) {
+			Image image;
+			try {
+				image = new Image(getClass().getResource("/assets/hero4.png").toURI().toString());
+				myHero.setImage(image);
+
+			} catch (URISyntaxException e3) {
+				// TODO Auto-generated catch block
+				e3.printStackTrace();
+			}
+			currGame.setHeroImage(myHero);
+		}
+		if(array[4] == true) {
+			Image image;
+			try {
+				image = new Image(getClass().getResource("/assets/hero5.png").toURI().toString());
+				myHero.setImage(image);
+
+			} catch (URISyntaxException e4) {
+				// TODO Auto-generated catch block
+				e4.printStackTrace();
+			}
+			currGame.setHeroImage(myHero);
+		}
 		currGame.setHeroImage(myHero);
 		currGame.reviveHero();
 		currGame.giveWeaponImage(handWeapon, handWeapon2);
@@ -623,12 +718,21 @@ public class NewGame {
 		currGame.setWeaponChestMap(WeaponChestImageView,openWeaponChestImageView);
 		currGame.setWeaponMap(WeaponImageView);
 		currGame.setBoss(bossOrc,bossCollider);
+		currGame.setFallingMap(fallingImageView);
 		currGame.giveWeaponstoHero();
 		empty = new Timeline();
 		empty.setCycleCount(Animation.INDEFINITE);
 		KeyFrame empty_frame = new KeyFrame(Duration.millis(18), e1 -> {
 			coinCounter.setText(Integer.toString(currGame.getcurrCoins()));
-			
+			if(currGamer.getBooster() == true) {
+				currGamer.setBooster(false);
+				TranslateTransition translatefwd = new TranslateTransition();
+				translatefwd.setDuration(Duration.millis(150));
+				translatefwd.setCycleCount(1);
+				translatefwd.setByX(7000);
+				translatefwd.setNode(myHero);
+				translatefwd.play();
+			}
 			if (myHero.getBoundsInParent().intersects(deathpanel.getBoundsInParent()) || currGame.getHeroStat()) {
 				try {
 					currGamer.setCoins(currGame.getcurrCoins());
@@ -637,6 +741,16 @@ public class NewGame {
 					e2.printStackTrace();
 				}
 			}
+			
+			if (myHero.getBoundsInParent().intersects(cage.getBoundsInParent())) {
+				try {
+					currGamer.setCoins(currGame.getcurrCoins());
+					heroWin();
+				} catch (IOException e2) {
+					e2.printStackTrace();
+				}
+			}
+
 			
 			for(int i= 0;i<GreenOrcsImageView.size();i++) {
 				if (GreenOrcsImageView.get(i).getBoundsInParent().intersects(deathpanel.getBoundsInParent())) {
@@ -651,15 +765,20 @@ public class NewGame {
 					RedOrcsImageView.get(i).setVisible(false);
 				}
 			}
+			
+			for(int i= 0;i<fallingImageView.size();i++) {
+				if (fallingImageView.get(i).getBoundsInParent().intersects(deathpanel.getBoundsInParent())) {
+					currGame.getMyFalling().get(i).setVisibilty(false);
+					fallingImageView.get(i).setVisible(false);
+				}
+			}
+			
+			swordLevel.setText(Integer.toString(currGame.getSwordStatus()));
+			hammerLevel.setText(Integer.toString(currGame.getHammerStatus()));
 		});
 		empty.getKeyFrames().add(empty_frame);
 		empty.play();
-		TranslateTransition translatefwd = new TranslateTransition();
-		translatefwd.setDuration(Duration.millis(150));
-		translatefwd.setCycleCount(1);
-		translatefwd.setByX(10000);
-		translatefwd.setNode(myHero);
-		translatefwd.play();
+		
 		currGame.beginGame();
 		myHero.translateXProperty().addListener((obs, old, newValue) -> {
 			int offset = newValue.intValue();
@@ -685,12 +804,18 @@ public class NewGame {
 				currGame.getmisc().add(new Position(coinCounter.getX(), coinCounter.getLayoutY()));
 				heroPane.setLayoutX(offset - 100);
 				currGame.getmisc().add(new Position(heroPane.getLayoutX(), heroPane.getLayoutY()));
+				hammerLevel.setX(offset-100);
+				currGame.getmisc().add(new Position(hammerLevel.getX(), hammerLevel.getLayoutY()));
+				swordLevel.setX(offset-100);
+				currGame.getmisc().add(new Position(swordLevel.getX(), swordLevel.getLayoutY()));
+				
 			}
 		});
 
 	}
 
 	public void loadGame() {
+		
 		ArrayList<Position> misc = currGame.getmisc();
 		myPane.setLayoutX(misc.get(0).getX());
 		clickable.setX(misc.get(1).getX());
@@ -701,6 +826,11 @@ public class NewGame {
 		myScore.setX(misc.get(6).getX());
 		playerName.setX(misc.get(7).getX());
 		coinCounter.setX(misc.get(8).getX());
+		hammerLevel.setX(misc.get(10).getX());
+		swordLevel.setX(misc.get(11).getX());
+		swordLevel.setText(Integer.toString(currGame.getSwordStatus()));
+		hammerLevel.setText(Integer.toString(currGame.getHammerStatus()));
+
 		playerName.setText(currGamer.getPlayerName());
 		myHero.setTranslateX(currGame.getmyHeroX() + currGame.getForwardMove());
 		for(int i = 0;i<currGame.getMygreenOrcs().size();i++) {
@@ -713,6 +843,13 @@ public class NewGame {
 			RedOrcsImageView.get(i).setTranslateX(currGame.getMyredOrcs().get(i).getPositionX());
 			OrcCollidersImageView.get(i+15).setTranslateX(currGame.getMyredOrcs().get(i).getColliderX());
 		}
+		
+		for(int i = 0;i<currGame.getMyWeapons().size();i++) {
+			WeaponImageView.get(i).setTranslateX(currGame.getMyWeapons().get(i).getPositionX());
+		}
+		bossOrc.setTranslateX(currGame.getMyBossOrc().getPositionX());
+		OrcCollidersImageView.get(23).setTranslateX(currGame.getMyBossOrc().getColliderX());
+			
 		myScore.setText(Integer.toString(currGame.getScore()));
 		beginButton.setVisible(false);
 		
@@ -732,7 +869,8 @@ public class NewGame {
 		Helmet helmet = new Helmet(0, 0, Weapons);
 		currGame.setHelmet(helmet);
 		//comment
-		Hero hero = new Hero(10000.0, 0.0, helmet);
+		Hero hero = new Hero(234, 0.0, helmet);
+		
 		currGame.setHero(hero);
 		Score score = new Score(myScore.getLayoutX(), myScore.getLayoutY(), 0);
 		currGame.setMyScore(score);
@@ -757,7 +895,7 @@ public class NewGame {
 		}
 		currGame.setMyPlatforms(myplatforms);
 		ArrayList<Collider> mycollider = new ArrayList<>();
-		for (int i = 0; i < 23; i++) {
+		for (int i = 0; i < 24; i++) {
 			mycollider.add((Collider) factory.createComponent("collider"));
 		}
 		currGame.setMyColliders(mycollider);
@@ -773,6 +911,12 @@ public class NewGame {
 		currGame.setMyWeaponChests(myweaponChest);
 		BossOrc boss = (BossOrc) factory.createComponent("bossorc");
 		currGame.setBossOrc(boss);
+		ArrayList<fallingPlatform> myfalling = new ArrayList<>();
+		for (int i = 0; i < 11; i++) {
+			myfalling.add((fallingPlatform) factory.createComponent("fallingplatform"));
+		}
+		currGame.setMyFalling(myfalling);
+//		
 	}
 
 	public void heroDefeat() throws IOException {
@@ -785,10 +929,22 @@ public class NewGame {
 		stage.setScene(scene);
 		stage.show();
 	}
+	
+	public void heroWin() throws IOException{
+		empty.stop();
+		currGamer.setFlag(false);
+		Parent root = FXMLLoader.load(getClass().getResource("/HeroWins.fxml"));
+		Stage stage = (Stage) myPane.getScene().getWindow();
+		stage.setUserData(currGamer);
+		Scene scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
+	}
 
 	public void pauseHandler(MouseEvent event) throws IOException {
 		empty.stop();
 		currGame.stopALL();
+		currGamer.setCoins(currGame.getcurrCoins());
 		Parent root = FXMLLoader.load(getClass().getResource("/Pause.fxml"));
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		stage.setUserData(currGamer);
@@ -808,6 +964,7 @@ public class NewGame {
 	}
 
 	public void swordSelect(MouseEvent e) throws URISyntaxException {
+		if(currGame.getSwordStatus()>0) {
 		translate1.pause();
 		wtranslate1.pause();
 		w2translate1.pause();
@@ -817,10 +974,14 @@ public class NewGame {
 		swordSlot.setImage(image);
 		handWeapon2.setVisible(false);
 		handWeapon.setVisible(true);
+		currGame.getMyWeapons().get(0).setVisibilty(true);
+		currGame.getMyWeapons().get(1).setVisibilty(false);
 
+		}
 	}
 
 	public void hammerSelect(MouseEvent e) throws URISyntaxException {
+		if(currGame.getHammerStatus()>0) {
 		translate1.pause();
 		wtranslate1.pause();
 		w2translate1.pause();
@@ -830,6 +991,9 @@ public class NewGame {
 		hammerSlot.setImage(image);
 		handWeapon.setVisible(false);
 		handWeapon2.setVisible(true);
+		currGame.getMyWeapons().get(1).setVisibilty(true);
+		currGame.getMyWeapons().get(0).setVisibilty(false);
+		}
 	}
 
 	public void move(MouseEvent e) throws IOException {

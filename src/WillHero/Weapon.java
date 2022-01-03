@@ -21,13 +21,22 @@ public class Weapon extends GameComponents{
         this.damage = 0;
         this.level = 0;
         attacking = false;
+        this.setVisibilty(false);
     }
     
     public void setWeaponforWeapon(ImageView weapon) {
     	this.myImage = weapon;
+    	
     }
-    public void beginGravity(HashMap<GameComponents, ImageView> map) {
-		Thread thread = new Thread(() -> {
+     
+public void beginGravity(HashMap<GameComponents, ImageView> map) {
+		myImage.translateXProperty().addListener((obs, old, newValue) -> {
+				int offset = newValue.intValue();
+				// mycollider.setTranslateX(offset);
+				this.setPositionX(offset);
+			});
+	
+	Thread thread = new Thread(() -> {
 			
 			collision = new Timeline();
 			collision.setCycleCount(Animation.INDEFINITE);
@@ -47,23 +56,33 @@ public class Weapon extends GameComponents{
     public void collideLoop(GameComponents component, ImageView image) {
 		
 		if (component.getClass() == GreenOrc.class) {
-			if (this.checkCollision(image, myImage)) {
+			if (this.checkCollision(image, myImage) && this.getVisibilty()) {
 				attacking= true;
-				//component.setVisibilty(false);
-				//image.setVisible(false);
-				//((GreenOrc)component).getCollider().setVisible(false);
+				component.setVisibilty(false);
+				image.setVisible(false);
+				((GreenOrc)component).getCollider().setVisible(false);
 
 			}
-		} else if (component.getClass() == RedOrc.class) {
+		} else if (component.getClass() == RedOrc.class && this.getVisibilty()) {
 			if (this.checkCollision(image, myImage)) {
 				attacking = true;
-				//component.setVisibilty(false);
-				//image.setVisible(false);
-				//((RedOrc)component).getCollider().setVisible(false);
+				component.setVisibilty(false);
+				image.setVisible(false);
+				((RedOrc)component).getCollider().setVisible(false);
 			}
 	}
+		else if (component.getClass() == BossOrc.class && this.getVisibilty()) {
+			if (this.checkCollision(image, myImage)) {
+				attacking = true;
+				component.setVisibilty(false);
+				image.setVisible(false);
+				((BossOrc)component).getCollider().setVisible(false);
+			}
     }
+    }
+    
     public void setLevel(int level) {
+ 
         this.level = level;
     }
 

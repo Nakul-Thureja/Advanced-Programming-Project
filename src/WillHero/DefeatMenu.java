@@ -55,7 +55,16 @@ public class DefeatMenu {
 			Gamer currGamer = (Gamer) stage.getUserData();
 			currGame = currGamer.getcurrGame();
 			currGamer.setFlag(true);
-			if(currGamer.deduceCoins()) {
+			if(currGamer.canRevive()) {
+				Alert alert2 = new Alert(AlertType.WARNING);
+				alert2.setContentText("Already Revived Once");
+				alert2.setHeaderText(null);
+				alert2.setTitle(null);
+				alert2.showAndWait();
+			}
+			else {
+				if(currGamer.deduceCoins()) {
+			currGamer.Revived(true);
 			currGame.stopALL();
 			currGame.reviveHero();
 			stage.setUserData(currGamer);
@@ -70,7 +79,7 @@ public class DefeatMenu {
 				alert2.setTitle(null);
 				alert2.showAndWait();
 			}
-				
+			}	
 			}
 		}
 	
@@ -81,6 +90,7 @@ public class DefeatMenu {
 		Gamer currGamer = (Gamer) stage.getUserData();
 		Game currGame = currGamer.getcurrGame();
 		currGamer.setFlag(false);
+		currGamer.Revived(false);
 		stage.setUserData(currGamer);
 		Scene scene = new Scene(root);
 		stage.setScene(scene);

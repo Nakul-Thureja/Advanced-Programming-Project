@@ -45,6 +45,8 @@ public class PauseMenu implements Initializable {
 	private ImageView mainButton;
 	@FXML
 	private ImageView myORC;
+	@FXML
+	private ImageView shopButton;
 
 	public void resumeHandler(MouseEvent event) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/NewGame.fxml"));
@@ -87,6 +89,28 @@ public class PauseMenu implements Initializable {
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
 		stage.show();
+	}
+	
+	public void shopOpen(MouseEvent event) throws IOException{
+		Parent root = FXMLLoader.load(getClass().getResource("/Shop.fxml"));
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		Gamer currGamer = (Gamer) stage.getUserData();
+		//Game currGame = currGamer.getcurrGame();
+		currGamer.setFlag(true);
+		stage.setUserData(currGamer);
+		Scene scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
+	}
+	
+	public void hover(MouseEvent event) throws URISyntaxException {
+		Image image = new Image(getClass().getResource("/assets/dark_shopbutton.png").toURI().toString());
+		shopButton.setImage(image);
+	}
+
+	public void unhover(MouseEvent event) throws URISyntaxException {
+		Image image = new Image(getClass().getResource("/assets/shop_button.png").toURI().toString());
+		shopButton.setImage(image);
 	}
 
 	public void hover1(MouseEvent event) throws URISyntaxException {

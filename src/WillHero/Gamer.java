@@ -14,6 +14,8 @@ public class Gamer implements Serializable {
 	private int savedGames[];
 	private int herotype;
 	private boolean helmets[];
+	private boolean resurrected;
+	private boolean Booster;
 	public static Gamer getInstance(String playerName) {
 		if(!instances.containsKey(playerName)) {
 			instances.put(playerName, new Gamer(playerName));
@@ -23,6 +25,7 @@ public class Gamer implements Serializable {
 	private Gamer(String playerName){
 		this.myPlayer = new Player(playerName);
 		this.myGames = new ArrayList<>();
+		this.Booster = false;
 		this.coins = 0;
 		this.currentIndex = -1;
 		this.savedGames = new int[4];
@@ -34,13 +37,25 @@ public class Gamer implements Serializable {
 		this.herotype = 0;
 		this.helmets = new boolean[5];
 		this.helmets[0] = true;
+		this.resurrected = false;
 	}
 	public boolean isLoad() {
 		return this.loadflag;
 	}
+	
+	public boolean[] gethelmet() {
+		return this.helmets;
+	}
 
 	public void setFlag(boolean _flag) {
 		loadflag = _flag;
+	}
+	
+	public boolean canRevive() {
+		return this.resurrected;
+	}
+	public void Revived(boolean bool) {
+		this.resurrected = bool;
 	}
 	public void newGame(){
 		Game game = new Game();
@@ -67,12 +82,17 @@ public class Gamer implements Serializable {
 		this.coins += game.getcurrCoins();
 		game.end();
 	}	
+	public boolean getBooster() {
+		return this.Booster;
+		
+	}
+	public void setBooster(Boolean booster) {
+		this.Booster = booster;
+	}
 	
 	public int canBuy(int i,int coins) {
-		if(!this.helmets[i]) {
-			return 1;
-		}
-		else if	(this.coins >= coins) {
+		
+		if	(this.coins >= coins) {
 			return 2;
 		}
 		return 0;

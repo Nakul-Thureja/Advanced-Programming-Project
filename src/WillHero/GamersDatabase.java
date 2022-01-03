@@ -56,15 +56,15 @@ public class GamersDatabase implements  Serializable{
 			GamersDatabase.setInstance(slot);
 			Gamer.setInstance(slot.getData());
 
-			System.out.println("Hello from deserialize");
-			try {
-				for(int i=0;i<database.Gamers.size();i++) {
-					System.out.println(database.Gamers.get(i).getPlayerName());
-				}
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			//System.out.println("Hello from deserialize");
+//			try {
+//				for(int i=0;i<database.Gamers.size();i++) {
+//					System.out.println(database.Gamers.get(i).getPlayerName());
+//				}
+//			} catch (Exception e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
 		}catch(EOFException e) {
 			return;
 		}

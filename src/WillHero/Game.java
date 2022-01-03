@@ -19,6 +19,7 @@ public class Game implements Serializable {
 	private ArrayList<Weapon> myWeapons;
 	private ArrayList<CoinChest> myCoinChests;
 	private ArrayList<WeaponChest> myWeaponChests;
+	private ArrayList<fallingPlatform> myFalling;
 
 	private Score myScore;
 	private ArrayList<GameComponents> myComponents;
@@ -34,7 +35,8 @@ public class Game implements Serializable {
 	private transient HashMap<GameComponents, ImageView> WeaponChestMap;
 	private transient HashMap<GameComponents, ImageView> CoinChestMap;
 	private transient HashMap<GameComponents, ImageView> BossOrcMap;
-	
+	private transient HashMap<GameComponents, ImageView> FallingMap;
+
 	public ArrayList<Position> getmisc() {
 		return this.misc;
 	}
@@ -88,6 +90,8 @@ public class Game implements Serializable {
 		this.CollidersMap = null;
 		this.ended = false;
 		this.BossOrcMap = null;
+		this.FallingMap = null;
+		this.myFalling = null;
 	}
 	public void end() {
 		this.ended = true;
@@ -110,6 +114,7 @@ public class Game implements Serializable {
 		this.WeaponChestMap = new HashMap<>();
 		this.CoinChestMap = new HashMap<>();
 		this.BossOrcMap = new HashMap<>();
+		this.FallingMap = new HashMap<>();
 	}
 
 	
@@ -142,6 +147,10 @@ public class Game implements Serializable {
 
 	public void setMyWeapons(ArrayList<Weapon> Weapons) {
 		this.myWeapons = new ArrayList<>(Weapons);
+	}
+	
+	public void setMyFalling(ArrayList<fallingPlatform> falling) {
+		this.myFalling = falling;
 	}
 	
 	public ArrayList<Weapon> getMyWeapons(){
@@ -199,7 +208,7 @@ public class Game implements Serializable {
 			}
 		}
 		else if (comp.getClass() == BossOrc.class) {
-			this.myBossOrc.beginGravity(map);
+			myBossOrc.beginGravity(map);
 		}
 	}
 
@@ -213,6 +222,7 @@ public class Game implements Serializable {
 		HeroMap.putAll(CoinChestMap);
 		HeroMap.putAll(WeaponChestMap);
 		HeroMap.putAll(BossOrcMap);
+		HeroMap.putAll(FallingMap);
 		CollisionMap.put(this.myHero, HeroMap);
 		HashMap<GameComponents, ImageView> GorcMap = new HashMap<>();
 		GorcMap.putAll(PlatformMap);
@@ -223,6 +233,7 @@ public class Game implements Serializable {
 		HashMap<GameComponents, ImageView> WMap = new HashMap<>();
 		WMap.putAll(RedOrcMap);
 		WMap.putAll(GreenOrcMap);
+		WMap.putAll(BossOrcMap);
 		CollisionMap.put(this.myWeapons.get(0),WMap);
 		HashMap<GameComponents, ImageView> BossMap = new HashMap<>();
 		BossMap.putAll(PlatformMap);
@@ -244,6 +255,7 @@ public class Game implements Serializable {
 		return myPlatforms;
 	}
 
+	
 	public void reviveHero() {
 		this.myHero.revive();
 	}
@@ -283,7 +295,9 @@ public class Game implements Serializable {
 		return this.myHero.status();
 	}
 	
-	
+	public BossOrc getMyBossOrc() {
+		return this.myBossOrc;
+	}
 	public void setMyredOrcs(ArrayList<RedOrc> myredOrcs) {
 		this.myredOrcs = myredOrcs;
 	}
@@ -309,6 +323,10 @@ public class Game implements Serializable {
 		for(int j = 0;j<this.myredOrcs.size();j++) {
 			this.myredOrcs.get(j).stopALL();
 		}
+		for(int k = 0;k<this.myFalling.size();k++) {
+			this.myFalling.get(k).stopALL();
+		}
+		this.myBossOrc.stopALL();
 	}
 
 	public void moveHeroForward(ImageView myHero2) {
@@ -353,7 +371,8 @@ public class Game implements Serializable {
 	
 	public void setCoinChestMap(ArrayList<ImageView> Nodes, ArrayList<ImageView> Node2) {
 		for (int i = 0; i < this.getMyCoinChests().size(); i++) {
-			Nodes.get(i).setVisible(!this.getMyCoinChests().get(i).isOpened());
+			Node2.get(i).setVisible(this.getMyCoinChests().get(i).isOpened());
+			Nodes.get(i).setVisible(this.getMyCoinChests().get(i).getVisibilty());
 			this.getMyCoinChests().get(i).setImages(Nodes.get(i),Node2.get(i));
 			CoinChestMap.put(this.getMyCoinChests().get(i), Nodes.get(i));
 		}
@@ -361,7 +380,8 @@ public class Game implements Serializable {
 	
 	public void setWeaponChestMap(ArrayList<ImageView> Nodes, ArrayList<ImageView> Node2) {
 		for (int i = 0; i < this.getMyWeaponChests().size(); i++) {
-			Nodes.get(i).setVisible(!this.getMyWeaponChests().get(i).isOpened());
+			Node2.get(i).setVisible(this.getMyWeaponChests().get(i).isOpened());
+			Nodes.get(i).setVisible(this.getMyWeaponChests().get(i).getVisibilty());
 			this.getMyWeaponChests().get(i).setImages(Nodes.get(i),Node2.get(i));
 			WeaponChestMap.put(this.getMyWeaponChests().get(i), Nodes.get(i));
 		}
@@ -373,8 +393,15 @@ public class Game implements Serializable {
 			WeaponMap.put(this.getMyWeapons().get(i), Nodes.get(i));
 		}
 	}
+	
+	public void setFallingMap(ArrayList<ImageView> Nodes) {
+		for (int i = 0; i < this.getMyFalling().size(); i++) {
+			Nodes.get(i).setVisible(this.getMyFalling().get(i).getVisibilty());
+			FallingMap.put(this.getMyFalling().get(i), Nodes.get(i));
+		}
+	}
 	public void setColliderMap(ArrayList<ImageView> Nodes) {
-		for (int i = 0; i < 23; i++) {
+		for (int i = 0; i < this.getMyColliders().size(); i++) {
 			CollidersMap.put(this.getMyColliders().get(i), Nodes.get(i));
 		}
 	}
@@ -405,6 +432,21 @@ public class Game implements Serializable {
 		// TODO Auto-generated method stub
 		this.myBossOrc = boss;
 	}
+
+	public int getHammerStatus() {
+		return (this.myWeapons.get(1).getLevel());
+	}
+
+	public int getSwordStatus() {
+		return (this.myWeapons.get(0).getLevel());
+	}
+
+	public ArrayList<fallingPlatform> getMyFalling() {
+		return this.myFalling;
+	}
+	
+	
+	
 
 //	public int canBuy(int i,int coins) {
 //		if(!this.helmets[i]) {

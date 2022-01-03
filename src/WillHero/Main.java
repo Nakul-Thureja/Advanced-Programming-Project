@@ -85,7 +85,6 @@ public class Main extends Application implements Initializable {
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}
-					System.out.println("Data Written");
 				} 	
 			});
 		} catch(Exception e) {

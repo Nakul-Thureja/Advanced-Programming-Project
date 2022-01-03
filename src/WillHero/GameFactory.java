@@ -6,6 +6,9 @@ public class GameFactory {
 		if(need.equals("platform")){
 			return new Platform(0,0,0);
 		}
+		else if(need.equals("fallingplatform")){
+			return new fallingPlatform(0,0,0,0);
+		}
 		else if(need.equals("coin")){
 			return new Coin(0,0);
 		}
@@ -16,7 +19,7 @@ public class GameFactory {
 			return new GreenOrc(0, 0, 0, 0, 0,200);
 		}
 		else if(need.equals("bossorc")) {
-			return new BossOrc(0, 0, 0, 0, 0, 0);
+			return new BossOrc(0, 0, 0, 0, 0, 160);
 		}
 		else if(need.equals("weapon")) {
 			return new Weapon(0, 0);
