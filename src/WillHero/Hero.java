@@ -23,12 +23,14 @@ public class Hero extends GameComponents implements Serializable {
 	private boolean hasHammer;
 	private transient TranslateTransition translate;
 	private transient TranslateTransition w1translate;
+	private transient TranslateTransition colltranslate;
 	private transient TranslateTransition w2translate;
 
 	private transient Timeline gravity;
 	private transient Timeline collision;
 	private transient TranslateTransition translatefwd;
 	private transient TranslateTransition w1translatefwd;
+	private transient TranslateTransition colltranslatefwd;
 	private transient TranslateTransition w2translatefwd;
 	private Weapon Sword;
 	private Weapon Hammer;
@@ -38,6 +40,7 @@ public class Hero extends GameComponents implements Serializable {
 	private int currcoins;
 	private boolean attacking;
 	private boolean isDead;
+	private transient ImageView selfcollider;
 
 	
 
@@ -55,6 +58,8 @@ public class Hero extends GameComponents implements Serializable {
 		this.w1translatefwd = new TranslateTransition();
 		this.w2translate = new TranslateTransition();
 		this.w2translatefwd = new TranslateTransition();
+		this.colltranslate = new TranslateTransition();
+		this.colltranslatefwd = new TranslateTransition();
 		this.hasSword = false;
 		this.hasHammer = false;
 		this.gravity = new Timeline();
@@ -69,8 +74,11 @@ public class Hero extends GameComponents implements Serializable {
 		translatefwd.stop();
 		w1translate.stop();
 		w2translatefwd.stop();
+		colltranslate.stop();
+		colltranslatefwd.stop();
 	}
 
+	
 	public void setMyWeapon(Helmet myWeapon) {
 		this.myWeapon = myWeapon;
 	}
@@ -93,6 +101,7 @@ public class Hero extends GameComponents implements Serializable {
 		translate.pause();
 		w1translate.pause();
 		w2translate.pause();
+		colltranslate.pause();
 
 		image.setScaleX(1.05);
 		image.setScaleY(0.9);
@@ -101,6 +110,11 @@ public class Hero extends GameComponents implements Serializable {
 		translatefwd.setCycleCount(1);
 		translatefwd.setByX(forward_Move);
 		translatefwd.setNode(image);
+		colltranslatefwd = new TranslateTransition();
+		colltranslatefwd.setDuration(Duration.millis(150));
+		colltranslatefwd.setCycleCount(1);
+		colltranslatefwd.setByX(forward_Move);
+		colltranslatefwd.setNode(selfcollider);
 		w1translatefwd = new TranslateTransition();
 		w1translatefwd.setDuration(Duration.millis(150));
 		w1translatefwd.setCycleCount(1);
@@ -114,6 +128,7 @@ public class Hero extends GameComponents implements Serializable {
 		translatefwd.play();
 		w2translatefwd.play();
 		w1translatefwd.play();
+		colltranslatefwd.play();
 
 		translatefwd.setOnFinished(new EventHandler<ActionEvent>() {
 			@Override
@@ -134,7 +149,11 @@ public class Hero extends GameComponents implements Serializable {
 		translate.setDuration(Duration.millis(450));
 		translate.setCycleCount(1);
 		translate.setByY(-jumping_Height);
-		
+		colltranslate = new TranslateTransition();
+		colltranslate.setNode(selfcollider);
+		colltranslate.setDuration(Duration.millis(450));
+		colltranslate.setCycleCount(1);
+		colltranslate.setByY(-jumping_Height);
 		w1translate = new TranslateTransition();
 		w1translate.setNode(weaponsword);
 		w1translate.setDuration(Duration.millis(450));
@@ -147,6 +166,7 @@ public class Hero extends GameComponents implements Serializable {
 		w2translate.setCycleCount(1);
 		w2translate.setByY(-jumping_Height);
 		
+		colltranslate.play();
 		translate.play();
 		w1translate.play();
 		w2translate.play();
@@ -163,11 +183,16 @@ public class Hero extends GameComponents implements Serializable {
 		this.hero = image;
 	}
 	
+	public void setCollider(ImageView image) {
+		this.selfcollider = image;
+	}
 	public void heroAnimate() {
 		gravity.play();
 		translatefwd.pause();
 		w1translatefwd.pause();
 		w2translatefwd.pause();
+		colltranslate.pause();
+		colltranslatefwd.pause();
 	}
 
 	public void gravityLoop(GameComponents component, ImageView image) {
@@ -207,6 +232,8 @@ public class Hero extends GameComponents implements Serializable {
 					translatefwd.pause();
 					w1translatefwd.pause();
 					w2translatefwd.pause();
+					colltranslate.pause();
+					colltranslatefwd.pause();
 
 					TranslateTransition translate2 = new TranslateTransition();
 					translate2.setNode(image);
@@ -236,6 +263,8 @@ public class Hero extends GameComponents implements Serializable {
 					translatefwd.pause();
 					w1translatefwd.pause();
 					w2translatefwd.pause();
+					colltranslate.pause();
+					colltranslatefwd.pause();
 
 					TranslateTransition translate2 = new TranslateTransition();
 					translate2.setNode(image);
@@ -262,6 +291,8 @@ public class Hero extends GameComponents implements Serializable {
 					translatefwd.pause();
 					w1translatefwd.pause();
 					w2translatefwd.pause();
+					colltranslate.pause();
+					colltranslatefwd.pause();
 
 					TranslateTransition translate2 = new TranslateTransition();
 					translate2.setNode(image);
@@ -279,7 +310,7 @@ public class Hero extends GameComponents implements Serializable {
 			}
 		} else if (component.getClass() == Collider.class ) {
 			
-			if (this.checkCollision(image, hero) && image.getTranslateY()<= hero.getTranslateY() && !(Sword.getAttacking() || Hammer.getAttacking())) {
+			if (this.checkCollision(image, selfcollider) && image.getTranslateY()<= hero.getTranslateY() && !(Sword.getAttacking() || Hammer.getAttacking())) {
 				
 				this.isDead = true;
 			}
@@ -346,10 +377,11 @@ public class Hero extends GameComponents implements Serializable {
 			translatefwd = new TranslateTransition();
 			w1translatefwd = new TranslateTransition();
 			w2translatefwd = new TranslateTransition();
-
+			colltranslatefwd = new TranslateTransition();
 			translate = new TranslateTransition();
 			w1translate = new TranslateTransition();
 			w2translate = new TranslateTransition();
+			colltranslate = new TranslateTransition();
 			collision = new Timeline();
 			collision.setCycleCount(Animation.INDEFINITE);
 			KeyFrame collision_frame = new KeyFrame(Duration.millis(100), e -> {
@@ -369,6 +401,7 @@ public class Hero extends GameComponents implements Serializable {
 					hero.setLayoutY(hero.getLayoutY() + 4);
 					weaponsword.setLayoutY(hero.getLayoutY() + 4);
 					weaponhammer.setLayoutY(hero.getLayoutY() + 4);
+					selfcollider.setLayoutY(hero.getLayoutY() + 4);
 
 				} else {
 					letsJump(hero, gravity);

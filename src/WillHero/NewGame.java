@@ -406,6 +406,8 @@ public class NewGame {
 	private ImageView falling26;
 	@FXML
 	private ImageView cage;
+	@FXML
+	private ImageView myHeroCollider;
 	
 	private static Gamer currGamer;
 	private static  Game currGame;
@@ -707,6 +709,7 @@ public class NewGame {
 			currGame.setHeroImage(myHero);
 		}
 		currGame.setHeroImage(myHero);
+		currGame.setHeroCollider(myHeroCollider);
 		currGame.reviveHero();
 		currGame.giveWeaponImage(handWeapon, handWeapon2);
 		currGame.setCoinMap(CoinsImageView);
@@ -830,7 +833,7 @@ public class NewGame {
 		swordLevel.setX(misc.get(11).getX());
 		swordLevel.setText(Integer.toString(currGame.getSwordStatus()));
 		hammerLevel.setText(Integer.toString(currGame.getHammerStatus()));
-
+		myHeroCollider.setTranslateX(currGame.getmyHeroX()+ currGame.getForwardMove());
 		playerName.setText(currGamer.getPlayerName());
 		myHero.setTranslateX(currGame.getmyHeroX() + currGame.getForwardMove());
 		for(int i = 0;i<currGame.getMygreenOrcs().size();i++) {

@@ -445,6 +445,9 @@ public class Game implements Serializable {
 		return this.myFalling;
 	}
 	
+	public void setHeroCollider(ImageView image) {
+		this.myHero.setCollider(image);
+	}
 	
 	
 
